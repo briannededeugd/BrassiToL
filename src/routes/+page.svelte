@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import PhylogeneticTree from "../components/PhylogeneticTree.svelte";
+	import treeData from "/src/tree.txt"; // Update the path
+
+	const treeProps = { treeData };
+</script>
+
+<main>
+	<PhylogeneticTree {...treeProps} />
+</main>
+
+<style>
+</style>

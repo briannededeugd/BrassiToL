@@ -13,5 +13,12 @@
 		"svelte": "^4.2.7",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"biojs-io-newick": "^1.5.0",
+		"d3": "^7.8.5",
+		"newick": "^2.0.0",
+		"phylocanvas": "^2.8.1",
+		"phylotree": "^1.4.2"
+	}
 }
