@@ -4,7 +4,7 @@
 	import { hierarchy, tree as d3Tree } from "d3-hierarchy";
 	import { linkRadial } from "d3-shape";
 
-	// Assume the tree data is already loaded into a variable `newickString`
+	// DATA
 	let newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
 (S0902:3.353279,(S1113:2.398427,S1121:2.398427):0.954852):2.511069):2.817814,S0281:8.682161):0.916235,(S0901:8.787712,
 ((S1083:1.688128,S1498:1.688128):1.320665,SRR11470320:3.008794):5.778918):0.810684):0.694666):1.524258,((8009952:3.559647,
@@ -81,11 +81,12 @@
 ((PAFTOL_005411:45.138893,PAFTOL_023503:45.138893):0.966196,PAFTOL_008053:46.105088):22.97427):6.672168,CRNC:75.751526):2.138563,PAFTOL_023511:77.890089):3.263256,
 (((HYZL:10.770114,S1384:10.770114):44.986896,MYZV:55.75701):20.192653,(PAFTOL_019459:67.716476,PAFTOL_023477:67.716476):8.233187):5.203682):12.446655,
 (PAFTOL_014331:93.6,S1321:93.6):0);
-`; // Replace with the Newick string
+`;
+	let metadata = [];
 	let treeData;
 	let svg;
-	let width = 800; // Adjust as needed
-	let height = 800; // Adjust as needed
+	let width = 800;
+	let height = 800;
 	let radius = width / 2;
 
 	// Function to parse Newick format
@@ -120,10 +121,54 @@
 		return treeData.children[0]; // Return the root of the tree
 	}
 
-	onMount(() => {
+	onMount(async () => {
+		const response = await fetch("./src/lib/BrassiToL_metadata.json");
+		metadata = await response.json();
+		console.log(metadata);
+
 		treeData = parseNewick(newickString);
 		renderTree(treeData);
 	});
+
+	function extractSampleId(label) {
+		const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
+		return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
+	}
+
+	function findSpecies(label, metadata) {
+		let sampleId = extractSampleId(label); // Extract the SAMPLE id from the label
+		let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+		// Function to get the first non-NA taxonomic category
+		function getTaxonomicCategory(entry) {
+			if (entry.SPECIES !== "NA") return entry.SPECIES;
+			if (entry.GENUS !== "NA") return entry.GENUS;
+			if (entry.TRIBE !== "NA") return entry.TRIBE;
+			if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
+			if (entry.SUBFAMILY !== "NA") return entry.SUBFAMILY;
+			if (entry.FAMILY !== "NA") return entry.FAMILY;
+			return null;
+		}
+
+		if (matchingEntry) {
+			const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+			return taxonomicCategory ? taxonomicCategory : label;
+		} else {
+			// If the label starts with ":", remove it and search again
+			if (label.startsWith(":")) {
+				sampleId = label.slice(1); // Remove the first character (":")
+				matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+				if (matchingEntry) {
+					const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+					return taxonomicCategory ? taxonomicCategory : label;
+				}
+			}
+
+			console.log("No match found for", label);
+			return label;
+		}
+	}
 
 	function renderTree(treeData) {
 		// Convert the parsed tree data to a hierarchy
@@ -181,7 +226,7 @@
 			.attr("text-anchor", (d) =>
 				d.x < Math.PI === !d.children ? "start" : "end"
 			)
-			.text((d) => d.data.name) // Assuming 'name' is the property with the SAMPLE id
+			.text((d) => findSpecies(d.data.name, metadata)) // Modified line
 			.style("font-family", "sans-serif")
 			.style("font-size", "10px");
 	}
