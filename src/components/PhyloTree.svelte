@@ -155,15 +155,17 @@
 			return taxonomicCategory ? taxonomicCategory : label;
 		} else {
 			// If the label starts with ":", remove it and search again
-			if (label.startsWith(":")) {
-				sampleId = label.slice(1); // Remove the first character (":")
-				matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+			// if (label.startsWith(":")) {
+			sampleId = label.slice(1); // Remove the first character (":")
+			matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
 
-				if (matchingEntry) {
-					const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-					return taxonomicCategory ? taxonomicCategory : label;
-				}
+			if (matchingEntry) {
+				const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+				return taxonomicCategory ? taxonomicCategory : label;
+			} else {
+				return "";
 			}
+			// }
 
 			console.log("No match found for", label);
 			return label;
@@ -207,7 +209,7 @@
 			.attr("fill", (d) => (d.children ? "#555" : "#999"))
 			.attr("r", 2.5);
 
-		// Add labels (species names) to the nodes
+		// Add labels (names) to the nodes
 		d3.select(svg)
 			.append("g")
 			.selectAll("text")
