@@ -1,12 +1,11 @@
 <script>
-	import PhylogeneticTree from "../components/PhylogeneticTree.svelte";
-	import treeData from "/src/tree.txt"; // Update the path
-
-	const treeProps = { treeData };
+	import PhyloTree from "../components/PhyloTree.svelte";
+	// import SearchBar from "../components/SearchBar.svelte";
 </script>
 
 <main>
-	<PhylogeneticTree {...treeProps} />
+	<!-- <SearchBar /> -->
+	<PhyloTree />
 </main>
 
 <style>
