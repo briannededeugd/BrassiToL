@@ -117,6 +117,14 @@
 		return r;
 	}
 
+	// Simple 'capitalize every first letter'-function
+	function capitalizeFirstLetter(string) {
+		return string
+			.split(" ")
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+			.join(" ");
+	}
+
 	/**============================================
 	 *               Declaring Variables
 	 *=============================================**/
@@ -162,22 +170,48 @@
 		/**======================
 		 *    new sets for types of taxonomy
 		 *========================**/
-		families = [...new Set(metadata.map((item) => item.FAMILY))];
+		families = [
+			...new Set(
+				metadata.map((item) => item.FAMILY).filter((item) => item !== "NA")
+			),
+		];
 		console.log("FAMILIES:", families);
 
-		subfamilies = [...new Set(metadata.map((item) => item.SUBFAMILY))];
+		subfamilies = [
+			...new Set(
+				metadata.map((item) => item.SUBFAMILY).filter((item) => item !== "NA")
+			),
+		];
+		subfamilies.forEach(capitalizeFirstLetter);
 		console.log("SUBFAMILIES:", subfamilies);
 
-		supertribes = [...new Set(metadata.map((item) => item.SUPERTRIBE))];
+		supertribes = [
+			...new Set(
+				metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA")
+			),
+		];
 		console.log("SUPERTRIBES:", supertribes);
 
-		tribes = [...new Set(metadata.map((item) => item.TRIBE))];
+		tribes = [
+			...new Set(
+				metadata.map((item) => item.TRIBE).filter((item) => item !== "NA")
+			),
+		];
 		console.log("TRIBES:", tribes);
 
-		genuses = [...new Set(metadata.map((item) => item.GENUS))];
+		genuses = [
+			...new Set(
+				metadata.map((item) => item.GENUS).filter((item) => item !== "NA")
+			),
+		];
 		console.log("GENUSES:", genuses);
 
-		species = [...new Set(metadata.map((item) => item.SPECIES))];
+		species = [
+			...new Set(
+				metadata.map((item) => item.SPECIES).filter((item) => item !== "NA")
+			),
+		];
+		species.forEach(capitalizeFirstLetter);
 		console.log("SPECIES:", species);
 
 		/**======================
@@ -187,19 +221,39 @@
 		/**======================
 		 *    New sets for characteristics
 		 *========================**/
-		growthform = [...new Set(metadata.map((item) => item.GROWTH_FORM))];
+		growthform = [
+			...new Set(
+				metadata.map((item) => item.GROWTH_FORM).filter((item) => item !== "NA")
+			),
+		];
 		console.log("GROWTH FORM:", growthform);
 
-		societaluse = [...new Set(metadata.map((item) => item.SOCIETAL_USE))];
+		societaluse = [
+			...new Set(
+				metadata
+					.map((item) => item.SOCIETAL_USE)
+					.filter((item) => item !== "NA")
+			),
+		];
 		console.log("GENUSES:", societaluse);
 
 		lifeform = [
-			...new Set(metadata.map((item) => item.WCVP_lifeform_description)),
-		];
-		console.log("GENUSES:", lifeform);
+			...new Set(
+				metadata.flatMap((item) =>
+					Array.isArray(item.WCVP_lifeform_description)
+						? item.WCVP_lifeform_description
+						: [item.WCVP_lifeform_description]
+				)
+			),
+		].filter((item) => item !== "NA"); // Filter out any null or undefined values
+		console.log("LIFEFORMS:", lifeform);
 
 		climates = [
-			...new Set(metadata.map((item) => item.WCVP_climate_description)),
+			...new Set(
+				metadata
+					.map((item) => item.WCVP_climate_description)
+					.filter((item) => item !== "NA")
+			),
 		];
 		console.log("GENUSES:", climates);
 	});
@@ -215,14 +269,6 @@
 	function extractSampleId(label) {
 		const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
 		return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
-	}
-
-	// Simple 'capitalize every first letter'-function
-	function capitalizeFirstLetter(string) {
-		return string
-			.split(" ")
-			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-			.join(" ");
 	}
 
 	// Find the species name from the ID

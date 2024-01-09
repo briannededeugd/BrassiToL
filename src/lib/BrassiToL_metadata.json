@@ -563,7 +563,11 @@
         "gbif_identifier": "5373318",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "Texas to NE. Mexico",
-        "WCVP_lifeform_description": "annual, biennial or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -585,7 +589,10 @@
         "gbif_identifier": "3040885",
         "WCVP_continent": "SOUTHERN AMERICA",
         "WCVP_geographic_area": "Bolivia (La Paz)",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "montane tropical",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -827,7 +834,11 @@
         "gbif_identifier": "10886361",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Afghanistan to Mongolia and China (Gansu)",
-        "WCVP_lifeform_description": "annual, biennial or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -871,7 +882,10 @@
         "gbif_identifier": "3042109",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "W. U.S.A.",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1113,7 +1127,10 @@
         "gbif_identifier": "3048782",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe, Medit to Iran",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1179,7 +1196,10 @@
         "gbif_identifier": "5375547",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "W. & C. Europe",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1399,7 +1419,10 @@
         "gbif_identifier": "3053669",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "Mexico",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1443,7 +1466,10 @@
         "gbif_identifier": "5375673",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "C. Spain",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -1597,7 +1623,10 @@
         "gbif_identifier": "3051703",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "SE. Türkiye to NW. Iran",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1751,7 +1780,10 @@
         "gbif_identifier": "5375237",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Subarctic to Tibet",
-        "WCVP_lifeform_description": "perennial or rhizomatous geophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "rhizomatous geophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -1927,7 +1959,10 @@
         "gbif_identifier": "3047671",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "SE. Türkiye to Iran",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2059,7 +2094,10 @@
         "gbif_identifier": "3040450",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "C. & S. Australia",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -2103,7 +2141,11 @@
         "gbif_identifier": "5373733",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "W. & C. U.S.A. to N. Mexico",
-        "WCVP_lifeform_description": "perennial, subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -2125,7 +2167,10 @@
         "gbif_identifier": "5376648",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Canada to C. America, Caribbean",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2169,7 +2214,10 @@
         "gbif_identifier": "5373358",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "W. & C. Medit. to Sinai",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "ornamental",
@@ -2301,7 +2349,10 @@
         "gbif_identifier": "7678610",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "a cultigen from Medit.",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "crop",
@@ -2323,7 +2374,10 @@
         "gbif_identifier": "3050595",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Medit. to Iran and Arabian Pen.",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2367,7 +2421,10 @@
         "gbif_identifier": "7701037",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe to C. Asia and Arabian Pen., Macaronesia, N. & NE. Trop. Africa",
-        "WCVP_lifeform_description": "perennial or helophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "helophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "crop",
@@ -2477,7 +2534,10 @@
         "gbif_identifier": "10753278",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "NW. Balkan Pen.",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2653,7 +2713,10 @@
         "gbif_identifier": "3051168",
         "WCVP_continent": "AFRICA",
         "WCVP_geographic_area": "E. Medit. to Arabian Pen., S. Iran to SW. Pakistan",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2785,7 +2848,10 @@
         "gbif_identifier": "5377678",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "E. Medit. to Iran and Arabian Pen.",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "subtropical",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -2851,7 +2917,10 @@
         "gbif_identifier": "5375388",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Temp. Eurasia, N. Africa",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "scientific",
@@ -2895,7 +2964,10 @@
         "gbif_identifier": "3053376",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe to Siberia and W. Himalaya",
-        "WCVP_lifeform_description": "perennial or helophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "helophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3027,7 +3099,10 @@
         "gbif_identifier": "3047968",
         "WCVP_continent": "AFRICA",
         "WCVP_geographic_area": "Mauritania to Iraq and Arabian Pen.",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -3049,7 +3124,10 @@
         "gbif_identifier": "5373607",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "S. & E. Siberia to Mongolia",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3115,7 +3193,10 @@
         "gbif_identifier": "3044557",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Krym to SW. Siberia",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3203,7 +3284,10 @@
         "gbif_identifier": "3049367",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "Arizona to Texas and N. Mexico",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3225,7 +3309,10 @@
         "gbif_identifier": "3042143",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "SE. Australia (S. Dividing Range)",
-        "WCVP_lifeform_description": "subshrub or perennial",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "perennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3313,7 +3400,10 @@
         "gbif_identifier": "5708780",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe, Medit. to Japan",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3335,7 +3425,10 @@
         "gbif_identifier": "7870683",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "EC. & S. Europe, E. Algeria",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "ornamental",
@@ -3467,7 +3560,10 @@
         "gbif_identifier": "3048831",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Macaronesia, European and Medit. coasts",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3489,7 +3585,10 @@
         "gbif_identifier": "5376207",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Iran to Turkmenistan and Afghanistan",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3511,7 +3610,10 @@
         "gbif_identifier": "3044380",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Iran",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -3665,7 +3767,10 @@
         "gbif_identifier": "3054153",
         "WCVP_continent": "SOUTHERN AMERICA",
         "WCVP_geographic_area": "NW. Argentina",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4105,7 +4210,10 @@
         "gbif_identifier": "7839918",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "N. America",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4281,7 +4389,10 @@
         "gbif_identifier": "3041953",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "Central to South East Australia",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "NA",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4347,7 +4458,10 @@
         "gbif_identifier": "5375971",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe, Medit. to Caucasus",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4369,7 +4483,10 @@
         "gbif_identifier": "3049770",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "C. & E. Canada to NC. & NE. U.S.A., Greenland, N. Europe, W. Alps, C. Pyrenees",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4435,7 +4552,10 @@
         "gbif_identifier": "3051194",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "Southern Australia",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "NA",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4457,7 +4577,10 @@
         "gbif_identifier": "3050737",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "Southern South of Australia",
-        "WCVP_lifeform_description": "annual or subshrub",
+        "WCVP_lifeform_description": [
+            "annual",
+            "subshrub"
+        ],
         "WCVP_climate_description": "NA",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4479,7 +4602,10 @@
         "gbif_identifier": "3041059",
         "WCVP_continent": "AUSTRALASIA",
         "WCVP_geographic_area": "South Australia",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "NA",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4787,7 +4913,10 @@
         "gbif_identifier": "5373107",
         "WCVP_continent": "SOUTHERN AMERICA",
         "WCVP_geographic_area": "Ecuador (Mt. Assuay)",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -4875,7 +5004,10 @@
         "gbif_identifier": "3042992",
         "WCVP_continent": "SOUTHERN AMERICA",
         "WCVP_geographic_area": "S. Argentina",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "subtropical",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -5073,7 +5205,10 @@
         "gbif_identifier": "5375066",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "W. Cyprus",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -5315,7 +5450,10 @@
         "gbif_identifier": "5374493",
         "WCVP_continent": "AFRICA",
         "WCVP_geographic_area": "Cape Prov.",
-        "WCVP_lifeform_description": "scrambling shrub or tree",
+        "WCVP_lifeform_description": [
+            "scrambling shrub",
+            "tree"
+        ],
         "WCVP_climate_description": "subtropical",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -5623,7 +5761,10 @@
         "gbif_identifier": "5375442",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "S. Iran to Pakistan",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -5865,7 +6006,10 @@
         "gbif_identifier": "9073641",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "SE. & E. Europe to Russian Far East",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -5887,7 +6031,10 @@
         "gbif_identifier": "3042845",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Atlantic coasts of Great Britain, France and Spain",
-        "WCVP_lifeform_description": "biennial or subshrub",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -5953,7 +6100,10 @@
         "gbif_identifier": "5374452",
         "WCVP_continent": "AFRICA",
         "WCVP_geographic_area": "SW. Cape Prov.",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "subtropical",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -6063,7 +6213,10 @@
         "gbif_identifier": "8186428",
         "WCVP_continent": "NORTHERN AMERICA",
         "WCVP_geographic_area": "Greenland",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6107,7 +6260,10 @@
         "gbif_identifier": "5373123",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Afghanistan to Pakistan",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6195,7 +6351,10 @@
         "gbif_identifier": "8374383",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "SE. European Russia to N. China",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6591,7 +6750,10 @@
         "gbif_identifier": "5376035",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Canary Is., Medit. to Sahara",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -6613,7 +6775,10 @@
         "gbif_identifier": "3053522",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "C. Europe to N. China",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6657,7 +6822,10 @@
         "gbif_identifier": "3047085",
         "WCVP_continent": "SOUTHERN AMERICA",
         "WCVP_geographic_area": "Bolivia to NW. Argentina",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6701,7 +6869,10 @@
         "gbif_identifier": "3042291",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "S. France to Slovakia and Caucasus",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "ornamental",
@@ -6767,7 +6938,10 @@
         "gbif_identifier": "5375237",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Subarctic to Tibet",
-        "WCVP_lifeform_description": "perennial or rhizomatous geophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "rhizomatous geophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -6921,7 +7095,10 @@
         "gbif_identifier": "11023434",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Xinjiang",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7273,7 +7450,10 @@
         "gbif_identifier": "3040600",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "W. Europe to W. Medit.",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7295,7 +7475,10 @@
         "gbif_identifier": "3050357",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Medit. to Switzerland",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7317,7 +7500,10 @@
         "gbif_identifier": "3044318",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Temp. Eurasia, N. Africa",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7383,7 +7569,10 @@
         "gbif_identifier": "3041285",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "N. & E. China to N. Korea",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7405,7 +7594,10 @@
         "gbif_identifier": "7613516",
         "WCVP_continent": "ANTARCTICA",
         "WCVP_geographic_area": "Kerguelen, Crozet Is., Marion I., Prince Edward I., Heard I., Macdonald I.",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "edible",
@@ -7427,7 +7619,10 @@
         "gbif_identifier": "5376075",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Europe to C. Asia and N. Myanmar, NW. Africa",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7471,7 +7666,10 @@
         "gbif_identifier": "5373292",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "E. Türkiye to Caucasus",
-        "WCVP_lifeform_description": "perennial or rhizomatous geophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "rhizomatous geophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7713,7 +7911,10 @@
         "gbif_identifier": "5375432",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "C. Asia to China (Gansu) and Himalaya",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7735,7 +7936,10 @@
         "gbif_identifier": "10843746",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Bhutan to China (Sichuan, Yunnan)",
-        "WCVP_lifeform_description": "perennial or subshrub",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "subshrub"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -7823,7 +8027,10 @@
         "gbif_identifier": "5376128",
         "WCVP_continent": "AFRICA",
         "WCVP_geographic_area": "E. Medit. to Sudan and Iraq",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "desert or dry shrubland",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -7933,7 +8140,10 @@
         "gbif_identifier": "5376908",
         "WCVP_continent": "PACIFIC",
         "WCVP_geographic_area": "Hawaiian Is. (Oahu)",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "seasonally dry tropical",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "NA",
@@ -8021,7 +8231,10 @@
         "gbif_identifier": "11084852",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "China (SE. Anhui, Zhejiang)",
-        "WCVP_lifeform_description": "annual or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8065,7 +8278,10 @@
         "gbif_identifier": "3041503",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "C. & S. Türkiye to Israel",
-        "WCVP_lifeform_description": "perennial or rhizomatous geophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "rhizomatous geophyte"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8087,7 +8303,10 @@
         "gbif_identifier": "3052600",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "S. Siberia to China",
-        "WCVP_lifeform_description": "annual or biennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8153,7 +8372,11 @@
         "gbif_identifier": "3041702",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "Afghanistan to China (Sichuan, Yunnan)",
-        "WCVP_lifeform_description": "annual, biennial or perennial",
+        "WCVP_lifeform_description": [
+            "annual",
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8219,7 +8442,10 @@
         "gbif_identifier": "5377378",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Spain to Greece",
-        "WCVP_lifeform_description": "subshrub or shrub",
+        "WCVP_lifeform_description": [
+            "subshrub",
+            "shrub"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "W",
         "SOCIETAL_USE": "ornamental",
@@ -8263,7 +8489,10 @@
         "gbif_identifier": "5376000",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "Temp. Northern Hemisphere to Trop. Mts.",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8439,7 +8668,10 @@
         "gbif_identifier": "5373276",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "N. & W. Europe",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8461,7 +8693,10 @@
         "gbif_identifier": "3047953",
         "WCVP_continent": "ASIA-TEMPERATE",
         "WCVP_geographic_area": "China (SW. Sichuan, E. Yunnan)",
-        "WCVP_lifeform_description": "perennial or rhizomatous geophyte",
+        "WCVP_lifeform_description": [
+            "perennial",
+            "rhizomatous geophyte"
+        ],
         "WCVP_climate_description": "subalpine or subarctic",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
@@ -8571,7 +8806,10 @@
         "gbif_identifier": "3042086",
         "WCVP_continent": "EUROPE",
         "WCVP_geographic_area": "C. & S. Europe to Caucasus, Algeria",
-        "WCVP_lifeform_description": "biennial or perennial",
+        "WCVP_lifeform_description": [
+            "biennial",
+            "perennial"
+        ],
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
         "SOCIETAL_USE": "NA",
