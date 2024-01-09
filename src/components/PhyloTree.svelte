@@ -1,11 +1,9 @@
 <script>
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
-	import { hierarchy, tree as d3Tree } from "d3-hierarchy";
-	import { linkRadial } from "d3-shape";
 
-	// DATA
-	let newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
+	// Newick String
+	const newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
 (S0902:3.353279,(S1113:2.398427,S1121:2.398427):0.954852):2.511069):2.817814,S0281:8.682161):0.916235,(S0901:8.787712,
 ((S1083:1.688128,S1498:1.688128):1.320665,SRR11470320:3.008794):5.778918):0.810684):0.694666):1.524258,((8009952:3.559647,
 (((S0419:1.852396,S0760:1.852396):0.140009,S0770:1.992405):0.055746,
@@ -82,54 +80,74 @@
 (((HYZL:10.770114,S1384:10.770114):44.986896,MYZV:55.75701):20.192653,(PAFTOL_019459:67.716476,PAFTOL_023477:67.716476):8.233187):5.203682):12.446655,
 (PAFTOL_014331:93.6,S1321:93.6):0);
 `;
-	let metadata = [];
-	let treeData;
-	let svg;
-	let width = 800;
-	let height = 800;
-	let radius = width / 2;
+	// Parsing the Newick string
+	const parsedData = parseNewick(newickString);
+	console.log("data", parsedData);
 
-	// Function to parse Newick format
-	function parseNewick(newickString) {
-		let ancestors = [];
-		let treeData = { name: "root", children: [] };
-		let currentNode = treeData;
-
-		for (let i = 0; i < newickString.length; i++) {
-			let char = newickString[i];
-
-			if (char === "(") {
-				// Start of a new subtree
-				ancestors.push(currentNode);
-				let newNode = { name: "", children: [] };
-				currentNode.children.push(newNode);
-				currentNode = newNode;
-			} else if (char === ",") {
-				// Start of a sibling
-				let newNode = { name: "", children: [] };
-				ancestors[ancestors.length - 1].children.push(newNode);
-				currentNode = newNode;
-			} else if (char === ")") {
-				// End of current subtree
-				currentNode = ancestors.pop();
-			} else {
-				// Accumulate node name
-				currentNode.name += char;
+	function parseNewick(a) {
+		for (
+			var e = [], r = {}, s = a.split(/\s*(;|\(|\)|,|:)\s*/), t = 0;
+			t < s.length;
+			t++
+		) {
+			var n = s[t];
+			switch (n) {
+				case "(":
+					var c = {};
+					r.branchset = [c];
+					e.push(r);
+					r = c;
+					break;
+				case ",":
+					var c = {};
+					e[e.length - 1].branchset.push(c);
+					r = c;
+					break;
+				case ")":
+					r = e.pop();
+					break;
+				case ":":
+					break;
+				default:
+					var h = s[t - 1];
+					")" == h || "(" == h || "," == h
+						? (r.name = n)
+						: ":" == h && (r.length = parseFloat(n));
 			}
 		}
-
-		return treeData.children[0]; // Return the root of the tree
+		return r;
 	}
 
+	/**============================================
+	 *               Declaring Variables
+	 *=============================================**/
+	let metadata = [];
+	let treeData;
+	const width = 900;
+	const outerRadius = width / 2;
+	const innerRadius = outerRadius - 170;
+
+	/**=========================================================
+	 *     onMount: What's being built when the page is loaded
+	 *=========================================================**/
 	onMount(async () => {
 		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log(metadata);
 
-		treeData = parseNewick(newickString);
-		renderTree(treeData);
+		const svg = createPhylogeneticTree(parsedData);
+		const container = document.querySelector("#phyloTree");
+
+		if (container) {
+			container.appendChild(svg);
+		} else {
+			console.error("Container not found");
+		}
 	});
 
+	/**============================================
+	 *               Functions for labels
+	 *=============================================**/
 	function extractSampleId(label) {
 		const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
 		return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
@@ -172,78 +190,209 @@
 		}
 	}
 
-	function renderTree(treeData) {
-		// Convert the parsed tree data to a hierarchy
-		const root = hierarchy(treeData);
-		// Create a radial layout
-		const treeLayout = d3Tree().size([2 * Math.PI, radius]);
-		treeLayout(root);
+	/**============================================
+	 *               Functions for creating
+	 *=============================================**/
+	const createPhylogeneticTree = (data) => {
+		const root = d3
+			.hierarchy(data, (d) => d.branchset)
+			.sum((d) => (d.branchset ? 0 : 1))
+			.sort(
+				(a, b) =>
+					a.value - b.value || d3.ascending(a.data.length, b.data.length)
+			);
 
-		// Create a radial link generator
-		const linkGenerator = linkRadial()
-			.angle((d) => d.x)
-			.radius((d) => d.y);
+		cluster(root);
+		setRadius(root, (root.data.length = 0), innerRadius / maxLength(root));
+		setColor(root);
 
-		// Add links (paths) to the SVG
-		d3.select(svg)
+		const svg = d3
+			.create("svg")
+			.attr("viewBox", [-outerRadius, -outerRadius, width, width])
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 10);
+
+		svg.append("g").call(legend);
+
+		svg.append("style").text(`
+
+.link--active {
+  stroke: #000 !important;
+  stroke-width: 1.5px;
+}
+
+.link-extension--active {
+  stroke-opacity: .6;
+}
+
+.label--active {
+  font-weight: bold;
+}
+
+`);
+
+		const linkExtension = svg
 			.append("g")
+			.attr("fill", "none")
+			.attr("stroke", "#000")
+			.attr("stroke-opacity", 0.25)
+			.selectAll("path")
+			.data(root.links().filter((d) => !d.target.children))
+			.join("path")
+			.each(function (d) {
+				d.target.linkExtensionNode = this;
+			})
+			.attr("d", linkExtensionConstant);
+
+		const link = svg
+			.append("g")
+			.attr("fill", "none")
+			.attr("stroke", "#000")
 			.selectAll("path")
 			.data(root.links())
-			.enter()
-			.append("path")
-			.attr("d", linkGenerator)
-			.style("fill", "none")
-			.style("stroke", "#555");
+			.join("path")
+			.each(function (d) {
+				d.target.linkNode = this;
+			})
+			.attr("d", linkConstant)
+			.attr("stroke", (d) => d.target.color);
 
-		// Add nodes (circles) to the SVG
-		d3.select(svg)
-			.append("g")
-			.selectAll("circle")
-			.data(root.descendants())
-			.enter()
-			.append("circle")
-			.attr(
-				"transform",
-				(d) => `rotate(${(d.x * 180) / Math.PI - 90}) translate(${d.y},0)`
-			)
-			.attr("fill", (d) => (d.children ? "#555" : "#999"))
-			.attr("r", 2.5);
-
-		// Add labels (names) to the nodes
-		d3.select(svg)
+		svg
 			.append("g")
 			.selectAll("text")
-			.data(root.descendants())
-			.enter()
-			.append("text")
+			.data(root.leaves())
+			.join("text")
+			.attr("dy", ".31em")
 			.attr(
 				"transform",
 				(d) =>
-					`rotate(${(d.x * 180) / Math.PI - 90}) translate(${d.y},0) rotate(${
-						d.x >= Math.PI ? 180 : 0
-					})`
+					`rotate(${d.x - 90}) translate(${innerRadius + 4},0)${
+						d.x < 180 ? "" : " rotate(180)"
+					}`
 			)
-			.attr("dy", "0.31em")
-			.attr("x", (d) => (d.x < Math.PI === !d.children ? 6 : -6))
-			.attr("text-anchor", (d) =>
-				d.x < Math.PI === !d.children ? "start" : "end"
-			)
-			.text((d) => findSpecies(d.data.name, metadata)) // Modified line
-			.style("font-family", "sans-serif")
-			.style("font-size", "10px");
-	}
+			.attr("text-anchor", (d) => (d.x < 180 ? "start" : "end"))
+			.text((d) => findSpecies(d.data.name, metadata))
+			.on("mouseover", mouseovered(true))
+			.on("mouseout", mouseovered(false));
+
+		function update(checked) {
+			const t = d3.transition().duration(750);
+			linkExtension
+				.transition(t)
+				.attr("d", checked ? linkExtensionVariable : linkExtensionConstant);
+			link.transition(t).attr("d", checked ? linkVariable : linkConstant);
+		}
+
+		function mouseovered(active) {
+			return function (event, d) {
+				d3.select(this).classed("label--active", active);
+				d3.select(d.linkExtensionNode)
+					.classed("link-extension--active", active)
+					.raise();
+				do d3.select(d.linkNode).classed("link--active", active).raise();
+				while ((d = d.parent));
+			};
+		}
+
+		return Object.assign(svg.node(), { update });
+	};
+
+	// Chart functions
+	let cluster = d3
+		.cluster()
+		.size([360, innerRadius])
+		.separation((a, b) => 1);
+
+	// Set the radius of each node by recursively summing and scaling the distance from the root.
+	let setRadius = (d, y0, k) => {
+		d.radius = (y0 += d.data.length) * k;
+		if (d.children) d.children.forEach((d) => setRadius(d, y0, k));
+	};
+
+	// Compute the maximum cumulative length of any node in the tree.
+	let maxLength = (d) => {
+		return d.data.length + (d.children ? d3.max(d.children, maxLength) : 0);
+	};
+
+	// Set the color of each node by recursively inheriting.
+	let setColor = (d) => {
+		var name = d.data.name;
+		d.color =
+			color.domain().indexOf(name) >= 0
+				? color(name)
+				: d.parent
+				  ? d.parent.color
+				  : null;
+		if (d.children) d.children.forEach(setColor);
+	};
+
+	let color = d3
+		.scaleOrdinal()
+		.domain(["Bacteria", "Eukaryota", "Archaea"])
+		.range(d3.schemeCategory10);
+
+	let legend = (svg) => {
+		const g = svg
+			.selectAll("g")
+			.data(color.domain())
+			.join("g")
+			.attr(
+				"transform",
+				(d, i) => `translate(${-outerRadius},${-outerRadius + i * 20})`
+			);
+
+		g.append("rect").attr("width", 18).attr("height", 18).attr("fill", color);
+
+		g.append("text")
+			.attr("x", 24)
+			.attr("y", 9)
+			.attr("dy", "0.35em")
+			.text((d) => d);
+	};
+
+	let linkExtensionConstant = (d) => {
+		return linkStep(d.target.x, d.target.y, d.target.x, innerRadius);
+	};
+
+	let linkStep = (startAngle, startRadius, endAngle, endRadius) => {
+		const c0 = Math.cos((startAngle = ((startAngle - 90) / 180) * Math.PI));
+		const s0 = Math.sin(startAngle);
+		const c1 = Math.cos((endAngle = ((endAngle - 90) / 180) * Math.PI));
+		const s1 = Math.sin(endAngle);
+		return (
+			"M" +
+			startRadius * c0 +
+			"," +
+			startRadius * s0 +
+			(endAngle === startAngle
+				? ""
+				: "A" +
+				  startRadius +
+				  "," +
+				  startRadius +
+				  " 0 0 " +
+				  (endAngle > startAngle ? 1 : 0) +
+				  " " +
+				  startRadius * c1 +
+				  "," +
+				  startRadius * s1) +
+			"L" +
+			endRadius * c1 +
+			"," +
+			endRadius * s1
+		);
+	};
+
+	let linkConstant = (d) => {
+		return linkStep(d.source.x, d.source.y, d.target.x, d.target.y);
+	};
 </script>
 
-<svelte:head>
-	<style>
-		svg {
-			width: 100%;
-			height: auto;
-			max-width: 800px; /* Adjust as needed */
-			display: block;
-			margin: auto;
-		}
-	</style>
-</svelte:head>
+<div id="phyloTree" />
 
-<svg bind:this={svg} viewbox="-400 -400 800 800"></svg>
+<style>
+	#phyloTree {
+		width: 100%;
+		height: 500px;
+	}
+</style>
