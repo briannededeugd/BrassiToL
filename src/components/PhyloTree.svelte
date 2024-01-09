@@ -82,7 +82,6 @@
 `;
 	// Parsing the Newick string
 	const parsedData = parseNewick(newickString);
-	console.log("data", parsedData);
 
 	function parseNewick(a) {
 		for (
@@ -133,7 +132,7 @@
 	onMount(async () => {
 		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
-		console.log(metadata);
+		console.log("METADATA", metadata);
 
 		const svg = createPhylogeneticTree(parsedData);
 		const container = document.querySelector("#phyloTree");
@@ -148,11 +147,21 @@
 	/**============================================
 	 *               Functions for labels
 	 *=============================================**/
+	// Extract the sample ID from the Newick string
 	function extractSampleId(label) {
 		const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
 		return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
 	}
 
+	// Simple 'capitalize every first letter'-function
+	function capitalizeFirstLetter(string) {
+		return string
+			.split(" ")
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+			.join(" ");
+	}
+
+	// Find the species name from the ID
 	function findSpecies(label, metadata) {
 		let sampleId = extractSampleId(label); // Extract the SAMPLE id from the label
 		let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
@@ -170,29 +179,28 @@
 
 		if (matchingEntry) {
 			const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-			return taxonomicCategory ? taxonomicCategory : label;
+			return taxonomicCategory
+				? capitalizeFirstLetter(taxonomicCategory)
+				: capitalizeFirstLetter(label);
 		} else {
-			// If the label starts with ":", remove it and search again
-			// if (label.startsWith(":")) {
 			sampleId = label.slice(1); // Remove the first character (":")
 			matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
 
 			if (matchingEntry) {
 				const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-				return taxonomicCategory ? taxonomicCategory : label;
+				return taxonomicCategory
+					? capitalizeFirstLetter(taxonomicCategory)
+					: capitalizeFirstLetter(label);
 			} else {
 				return "";
 			}
-			// }
-
-			console.log("No match found for", label);
-			return label;
 		}
 	}
 
 	/**============================================
 	 *               Functions for creating
 	 *=============================================**/
+	// Draw the phylogenetic tree
 	const createPhylogeneticTree = (data) => {
 		const root = d3
 			.hierarchy(data, (d) => d.branchset)
@@ -212,7 +220,7 @@
 			.attr("font-family", "sans-serif")
 			.attr("font-size", 10);
 
-		svg.append("g").call(legend);
+		// svg.append("g").call(legend);
 
 		svg.append("style").text(`
 
@@ -263,6 +271,7 @@
 			.data(root.leaves())
 			.join("text")
 			.attr("dy", ".31em")
+			.style("font-size", "5px")
 			.attr(
 				"transform",
 				(d) =>
@@ -303,7 +312,7 @@
 		.size([360, innerRadius])
 		.separation((a, b) => 1);
 
-	// Set the radius of each node by recursively summing and scaling the distance from the root.
+	// Set the radius of each node by recursively summing and scaling the distance from the root
 	let setRadius = (d, y0, k) => {
 		d.radius = (y0 += d.data.length) * k;
 		if (d.children) d.children.forEach((d) => setRadius(d, y0, k));
@@ -313,42 +322,53 @@
 	let maxLength = (d) => {
 		return d.data.length + (d.children ? d3.max(d.children, maxLength) : 0);
 	};
+	
+	/**======================
+	 *    SET COLORS
+	 *========================**/
+	function findSuperTribe(nodeLabel, metadata) {
+		let sampleId = extractSampleId(nodeLabel); // Assuming this function exists
+		let superTribe = metadata.find(
+			(item) => item.SAMPLE === sampleId
+		)?.SUPERTRIBE;
+		return superTribe;
+	}
 
-	// Set the color of each node by recursively inheriting.
+	let uniqueSuperTribes = [...new Set(metadata.map((item) => item.SUPERTRIBE))];
+	let colorScale = d3
+		.scaleOrdinal()
+		.domain(uniqueSuperTribes)
+		.range(["#0f72b2", "#56b4e9", "#169e73", "#d55e00", "#cc79a7", "#e69f01"]);
+
+	// Modify setColor function
 	let setColor = (d) => {
-		var name = d.data.name;
-		d.color =
-			color.domain().indexOf(name) >= 0
-				? color(name)
-				: d.parent
-				  ? d.parent.color
-				  : null;
+		let superTribe = findSuperTribe(d.data.name, metadata);
+		d.color = superTribe
+			? colorScale(superTribe)
+			: d.parent
+			  ? d.parent.color
+			  : null;
 		if (d.children) d.children.forEach(setColor);
 	};
 
-	let color = d3
-		.scaleOrdinal()
-		.domain(["Bacteria", "Eukaryota", "Archaea"])
-		.range(d3.schemeCategory10);
+	// let legend = (svg) => {
+	// 	const g = svg
+	// 		.selectAll("g")
+	// 		.data(color.domain())
+	// 		.join("g")
+	// 		.attr(
+	// 			"transform",
+	// 			(d, i) => `translate(${-outerRadius},${-outerRadius + i * 20})`
+	// 		);
 
-	let legend = (svg) => {
-		const g = svg
-			.selectAll("g")
-			.data(color.domain())
-			.join("g")
-			.attr(
-				"transform",
-				(d, i) => `translate(${-outerRadius},${-outerRadius + i * 20})`
-			);
+	// 	g.append("rect").attr("width", 18).attr("height", 18).attr("fill", color);
 
-		g.append("rect").attr("width", 18).attr("height", 18).attr("fill", color);
-
-		g.append("text")
-			.attr("x", 24)
-			.attr("y", 9)
-			.attr("dy", "0.35em")
-			.text((d) => d);
-	};
+	// 	g.append("text")
+	// 		.attr("x", 24)
+	// 		.attr("y", 9)
+	// 		.attr("dy", "0.35em")
+	// 		.text((d) => d);
+	// };
 
 	let linkExtensionConstant = (d) => {
 		return linkStep(d.target.x, d.target.y, d.target.x, innerRadius);
