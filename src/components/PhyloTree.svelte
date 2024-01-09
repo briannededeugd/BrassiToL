@@ -126,6 +126,22 @@
 	const outerRadius = width / 2;
 	const innerRadius = outerRadius - 170;
 
+	// for filtering: taxonomy
+	let families = [];
+	let subfamilies = [];
+	let supertribes = [];
+	let tribes = [];
+	let genuses = [];
+	let species = [];
+
+	// for filtering: geography
+
+	// for filtering: characteristics
+	let growthform = [];
+	let societaluse = [];
+	let lifeform = [];
+	let climates = [];
+
 	/**=========================================================
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
@@ -142,7 +158,55 @@
 		} else {
 			console.error("Container not found");
 		}
+
+		/**======================
+		 *    new sets for types of taxonomy
+		 *========================**/
+		families = [...new Set(metadata.map((item) => item.FAMILY))];
+		console.log("FAMILIES:", families);
+
+		subfamilies = [...new Set(metadata.map((item) => item.SUBFAMILY))];
+		console.log("SUBFAMILIES:", subfamilies);
+
+		supertribes = [...new Set(metadata.map((item) => item.SUPERTRIBE))];
+		console.log("SUPERTRIBES:", supertribes);
+
+		tribes = [...new Set(metadata.map((item) => item.TRIBE))];
+		console.log("TRIBES:", tribes);
+
+		genuses = [...new Set(metadata.map((item) => item.GENUS))];
+		console.log("GENUSES:", genuses);
+
+		species = [...new Set(metadata.map((item) => item.SPECIES))];
+		console.log("SPECIES:", species);
+
+		/**======================
+		 *    New sets for geography
+		 *========================**/
+
+		/**======================
+		 *    New sets for characteristics
+		 *========================**/
+		growthform = [...new Set(metadata.map((item) => item.GROWTH_FORM))];
+		console.log("GROWTH FORM:", growthform);
+
+		societaluse = [...new Set(metadata.map((item) => item.SOCIETAL_USE))];
+		console.log("GENUSES:", societaluse);
+
+		lifeform = [
+			...new Set(metadata.map((item) => item.WCVP_lifeform_description)),
+		];
+		console.log("GENUSES:", lifeform);
+
+		climates = [
+			...new Set(metadata.map((item) => item.WCVP_climate_description)),
+		];
+		console.log("GENUSES:", climates);
 	});
+
+	/**========================================================================
+	 *                           BUILDING THE CHART
+	 *========================================================================**/
 
 	/**============================================
 	 *               Functions for labels
@@ -322,7 +386,7 @@
 	let maxLength = (d) => {
 		return d.data.length + (d.children ? d3.max(d.children, maxLength) : 0);
 	};
-	
+
 	/**======================
 	 *    SET COLORS
 	 *========================**/
@@ -406,7 +470,217 @@
 	let linkConstant = (d) => {
 		return linkStep(d.source.x, d.source.y, d.target.x, d.target.y);
 	};
+
+	/**============================================
+	 *               FILTER SYSTEM
+	 *=============================================**/
+
+	//  TAXONOMY
+	let taxonomyOpen = false;
+	let geographyOpen = false;
+	let characteristicsOpen = false;
+
+	let searchFamily = "";
+	let searchSubfamily = "";
+	let searchSupertribe = "";
+	let searchTribe = "";
+	let searchGenus = "";
+	let searchSpecies = "";
+
+	// Function to filter items based on search term
+	function filterItems(searchTerm, items) {
+		if (searchTerm.trim() === "") {
+			console.log("Filtering");
+			return items; // Return all items if search term is empty
+		}
+		return items.filter((item) =>
+			item.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+	}
 </script>
+
+<section class="filtersystem">
+	<!-- Filtering on taxonomy -->
+	<button class="filtercategory" on:click={() => (taxonomyOpen = !taxonomyOpen)}
+		>Taxonomy</button
+	>
+
+	<!-- Filtering on geography -->
+	<button
+		class="filtercategory"
+		on:click={() => (geographyOpen = !geographyOpen)}>Geography</button
+	>
+
+	<!-- Filtering on characteristics -->
+	<button
+		class="filtercategory"
+		on:click={() => (characteristicsOpen = !characteristicsOpen)}
+		>Characteristics</button
+	>
+
+	<!-- DROPDOWN CONTENTS -->
+	{#if taxonomyOpen}
+		<div class="dropdown">
+			<!-- FAMILY -->
+			<div class="familyfilter">
+				<input
+					type="text"
+					placeholder="Search Family"
+					bind:value={searchFamily}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchFamily, families) as family}
+						<label>
+							<input type="checkbox" value={family} />
+							{family}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Subfamily -->
+			<div class="subfamilyfilter">
+				<input
+					type="text"
+					placeholder="Search Subfamily"
+					bind:value={searchSubfamily}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchSubfamily, subfamilies) as subfamily}
+						<label>
+							<input type="checkbox" value={subfamily} />
+							{subfamily}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Supertribe -->
+			<div class="supertribefilter">
+				<input
+					type="text"
+					placeholder="Search Supertribe"
+					bind:value={searchSupertribe}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchSupertribe, supertribes) as supertribe}
+						<label>
+							<input type="checkbox" value={supertribe} />
+							{supertribe}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Tribe -->
+			<div class="tribefilter">
+				<input
+					type="text"
+					placeholder="Search Tribe"
+					bind:value={searchTribe}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchTribe, tribes) as tribe}
+						<label>
+							<input type="checkbox" value={tribe} />
+							{tribe}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Genus -->
+			<div class="genusfilter">
+				<input
+					type="text"
+					placeholder="Search Genus"
+					bind:value={searchGenus}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchGenus, genuses) as genus}
+						<label>
+							<input type="checkbox" value={genus} />
+							{genus}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Species -->
+			<div class="speciesfilter">
+				<input
+					type="text"
+					placeholder="Search Species"
+					bind:value={searchSpecies}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchSpecies, species) as specie}
+						<label>
+							<input type="checkbox" value={specie} />
+							{specie}
+						</label>
+					{/each}
+				</div>
+			</div>
+		</div>
+	{/if}
+
+	{#if characteristicsOpen}
+		<div class="dropdown">
+			<!-- GROWTH FORM -->
+			<div class="growthform-filter">
+				<h3>Growth Form</h3>
+				<div class="checkbox-list">
+					{#each growthform as growth_form}
+						<label>
+							<input type="checkbox" value={growth_form} />
+							{growth_form}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- SOCIETAL USE -->
+			<div class="societaluse-filter">
+				<h3>Societal Use</h3>
+				<div class="checkbox-list">
+					{#each societaluse as societal_use}
+						<label>
+							<input type="checkbox" value={societal_use} />
+							{societal_use}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- LIFE FORM -->
+			<div class="lifeform-filter">
+				<h3>Life Form</h3>
+				<div class="checkbox-list">
+					{#each lifeform as life_form}
+						<label>
+							<input type="checkbox" value={life_form} />
+							{life_form}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- CLIMATE -->
+			<div class="climate-filter">
+				<h3>Climate</h3>
+				<div class="checkbox-list">
+					{#each climates as climate}
+						<label>
+							<input type="checkbox" value={climate} />
+							{climate}
+						</label>
+					{/each}
+				</div>
+			</div>
+		</div>
+	{/if}
+</section>
 
 <div id="phyloTree" />
 
@@ -414,5 +688,31 @@
 	#phyloTree {
 		width: 100%;
 		height: 500px;
+	}
+
+	.filtersystem {
+		position: relative;
+	}
+
+	.filtercategory {
+		background: transparent;
+		border-radius: 25px;
+		border: solid 1px black;
+		width: 15vw;
+		height: 2.5em;
+		text-align: center;
+	}
+
+	.filtercategory::after {
+		content: "";
+	}
+
+	.filtercategory:hover {
+		cursor: pointer;
+	}
+
+	.dropdown {
+		display: flex;
+		position: absolute;
 	}
 </style>
