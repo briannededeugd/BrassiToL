@@ -8212,7 +8212,7 @@
         "WCVP_lifeform_description": "subshrub",
         "WCVP_climate_description": "temperate",
         "GROWTH_FORM": "H",
-        "SOCIETAL_USE": "ornamental, scientific",
+        "SOCIETAL_USE": [ "ornamental", "scientific" ],
         "COMMON_NAME": "alpine rockcress",
         "DUTCH_NAME": "Alpenscheefkelk",
         "GENUS_TYPE": "Y"

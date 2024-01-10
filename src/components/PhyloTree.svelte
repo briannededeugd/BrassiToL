@@ -150,6 +150,26 @@
 	let lifeform = [];
 	let climates = [];
 
+	// checkbox states
+	let checkboxStates = {
+		growthForm: {
+			allSelected: false,
+			items: [],
+		},
+		// lifeform: {
+		// 	allSelected: false,
+		// 	items: [],
+		// },
+		// climated: {
+		// 	allSelected: false,
+		// 	items: [],
+		// },
+		// societaluse: {
+		// 	allSelected: false,
+		// 	items: [],
+		// },
+	};
+
 	/**=========================================================
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
@@ -178,7 +198,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("FAMILIES:", families);
+		// console.log("FAMILIES:", families);
 
 		subfamilies = [
 			...new Set(
@@ -188,7 +208,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("SUBFAMILIES:", subfamilies);
+		// console.log("SUBFAMILIES:", subfamilies);
 
 		supertribes = [
 			...new Set(
@@ -198,7 +218,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("SUPERTRIBES:", supertribes);
+		// console.log("SUPERTRIBES:", supertribes);
 
 		tribes = [
 			...new Set(
@@ -208,7 +228,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("TRIBES:", tribes);
+		// console.log("TRIBES:", tribes);
 
 		genuses = [
 			...new Set(
@@ -218,7 +238,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("GENUSES:", genuses);
+		// console.log("GENUSES:", genuses);
 
 		species = [
 			...new Set(
@@ -228,7 +248,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("SPECIES:", species);
+		// console.log("SPECIES:", species);
 
 		/**======================
 		 *    New sets for geography
@@ -237,25 +257,30 @@
 		/**======================
 		 *    New sets for characteristics
 		 *========================**/
-		growthform = [
-			...new Set(
-				metadata
-					.map((item) => item.GROWTH_FORM)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
+		growthform = Array.from(
+			new Set(
+				metadata.map((item) => item.GROWTH_FORM).filter((form) => form !== "NA")
+			)
+		).map((form) => ({
+			label: form,
+			checked: false,
+		}));
 		console.log("GROWTH FORM:", growthform);
+		// Update checkboxStates with the loaded growthform
+		checkboxStates.growthForm.items = growthform;
 
 		societaluse = [
 			...new Set(
-				metadata
-					.map((item) => item.SOCIETAL_USE)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
+				metadata.flatMap((item) =>
+					Array.isArray(item.SOCIETAL_USE)
+						? item.SOCIETAL_USE
+						: [item.SOCIETAL_USE]
+				)
 			),
-		];
-		console.log("GENUSES:", societaluse);
+		]
+			.filter((item) => item !== "NA")
+			.map((item) => capitalizeFirstLetter(item));
+		// console.log("GENUSES:", societaluse);
 
 		lifeform = [
 			...new Set(
@@ -268,7 +293,7 @@
 		]
 			.filter((item) => item !== "NA")
 			.map((item) => capitalizeFirstLetter(item));
-		console.log("LIFEFORMS:", lifeform);
+		// console.log("LIFEFORMS:", lifeform);
 
 		climates = [
 			...new Set(
@@ -278,7 +303,7 @@
 					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		console.log("GENUSES:", climates);
+		// console.log("GENUSES:", climates);
 	});
 
 	/**========================================================================
@@ -566,6 +591,44 @@
 			item.toLowerCase().includes(searchTerm.toLowerCase())
 		);
 	}
+
+	function toggleSelectAll(category) {
+		const allSelected = !checkboxStates[category].allSelected;
+		let updatedItems = checkboxStates[category].items.map((item) => {
+			return { ...item, checked: allSelected };
+		});
+
+		checkboxStates = {
+			...checkboxStates,
+			[category]: {
+				...checkboxStates[category],
+				allSelected: allSelected,
+				items: updatedItems,
+			},
+		};
+	}
+
+	function handleCheckboxChange(category) {
+		// Just trigger reactivity, do not update allSelected here
+		checkboxStates = {
+			...checkboxStates,
+			[category]: {
+				...checkboxStates[category],
+				items: [...checkboxStates[category].items], // Trigger reactivity
+			},
+		};
+	}
+
+	$: if (checkboxStates.growthForm.items.length > 0) {
+		const allChecked = checkboxStates.growthForm.items.every(
+			(item) => item.checked
+		);
+		const anyChecked = checkboxStates.growthForm.items.some(
+			(item) => item.checked
+		);
+
+		checkboxStates.growthForm.allSelected = allChecked;
+	}
 </script>
 
 <section class="filtersystem">
@@ -700,10 +763,22 @@
 			<div class="growthform-filter">
 				<h3>Growth Form</h3>
 				<div class="checkbox-list">
-					{#each growthform as growth_form}
+					<label>
+						<input
+							type="checkbox"
+							bind:checked={checkboxStates.growthForm.allSelected}
+							on:change={() => toggleSelectAll("growthForm")}
+						/>
+						Select All
+					</label>
+					{#each checkboxStates.growthForm.items as item}
 						<label>
-							<input type="checkbox" value={growth_form} />
-							{growth_form}
+							<input
+								type="checkbox"
+								bind:checked={item.checked}
+								on:change={() => handleCheckboxChange("growthForm")}
+							/>
+							{item.label}
 						</label>
 					{/each}
 				</div>
