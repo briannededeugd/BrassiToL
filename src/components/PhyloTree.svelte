@@ -974,29 +974,59 @@
 		cursor: pointer;
 	}
 
+	/*****************/
+	/*    DROPDOWNS  */
+	/*****************/
+
 	.dropdown {
 		display: flex;
 		position: absolute;
-		min-width: 100vw;
-		max-height: 25vh;
+		min-width: max-content;
+		max-height: 30vh;
 		top: 3.5em;
-		overflow-y: auto;
-		gap: 2.5vw;
+		overflow-y: hidden;
+		padding: 1em;
+		gap: 4vw;
 
-		background-color: hotpink;
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 0 0 10px 10px;
 	}
 
-	/* Checkboxes */
-	.dropdown > div {
-		height: 25vh;
-		overflow-y: auto;
-	}
 	.checkbox-list {
-		overflow: scroll;
+		height: 20vh;
+		overflow-y: auto;
+		padding-bottom: 1em;
 	}
+
 	.checkbox-list label {
+		font-family: Arial, Helvetica, sans-serif;
 		display: block;
 		margin-bottom: 5px;
-		font-size: 13px;
+		font-size: 12px;
+	}
+
+	.dropdown > div > input[type="text"] {
+		background-color: #e9e9e9;
+		border: none;
+		border-radius: 5px;
+		height: 2.5vh;
+		width: 10vw;
+		margin: auto 0.2em 0.75em;
+		padding-left: 1em;
+		background-image: url("../lib/img/magnifyingglass-small.png"); /* Path to your icon */
+		background-size: 15px 15px; /* Size of your icon */
+		background-position: right 1em center; /* Position of your icon */
+		background-repeat: no-repeat;
+	}
+
+	.dropdown > div > input[type="text"]::placeholder {
+		font-style: italic;
+		color: #252525;
+		font-size: 0.8em;
+	}
+
+	.checkbox-list label input[type="checkbox"] {
+		border: 1px solid black;
 	}
 </style>
