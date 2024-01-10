@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Abel';
+    src: url('./Abel-Regular.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bayon';
+    src: url('./Bayon-Regular.ttf');
+    font-weight: 100;
+    font-style: normal;
+}

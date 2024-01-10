@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
+	import "../lib/fonts/fonts.css";
 
 	// Newick String
 	const newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
@@ -468,25 +469,6 @@
 		if (d.children) d.children.forEach(setColor);
 	};
 
-	// let legend = (svg) => {
-	// 	const g = svg
-	// 		.selectAll("g")
-	// 		.data(color.domain())
-	// 		.join("g")
-	// 		.attr(
-	// 			"transform",
-	// 			(d, i) => `translate(${-outerRadius},${-outerRadius + i * 20})`
-	// 		);
-
-	// 	g.append("rect").attr("width", 18).attr("height", 18).attr("fill", color);
-
-	// 	g.append("text")
-	// 		.attr("x", 24)
-	// 		.attr("y", 9)
-	// 		.attr("dy", "0.35em")
-	// 		.text((d) => d);
-	// };
-
 	let linkExtensionConstant = (d) => {
 		return linkStep(d.target.x, d.target.y, d.target.x, innerRadius);
 	};
@@ -600,39 +582,58 @@
 	}
 </script>
 
+<svelte:head>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+	/>
+</svelte:head>
+
+<section class="title">
+	<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
+	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
+</section>
+
 <section class="filtersystem">
 	<!-- Filtering on taxonomy -->
 	<button
-		class="filtercategory"
+		class="filtercategory {taxonomyOpen ? 'open' : ''}"
 		on:click={() => {
 			taxonomyOpen = !taxonomyOpen;
 			if (taxonomyOpen) {
 				geographyOpen = false;
 				characteristicsOpen = false;
 			}
-		}}>Taxonomy</button
+		}}
 	>
+		Taxonomy
+		<span class="arrow"></span>
+	</button>
 
 	<button
-		class="filtercategory"
+		class="filtercategory {geographyOpen ? 'open' : ''}"
 		on:click={() => {
 			geographyOpen = !geographyOpen;
 			if (geographyOpen) {
 				taxonomyOpen = false;
 				characteristicsOpen = false;
 			}
-		}}>Geography</button
+		}}
+		>Geography
+		<span class="arrow"></span></button
 	>
 
 	<button
-		class="filtercategory"
+		class="filtercategory {characteristicsOpen ? 'open' : ''}"
 		on:click={() => {
 			characteristicsOpen = !characteristicsOpen;
 			if (characteristicsOpen) {
 				taxonomyOpen = false;
 				geographyOpen = false;
 			}
-		}}>Characteristics</button
+		}}
+		>Characteristics
+		<span class="arrow"></span></button
 	>
 
 	<!-- DROPDOWN CONTENTS -->
@@ -877,21 +878,96 @@
 		height: 500px;
 	}
 
+	/**********************/
+	/*    TITLE SECTION   */
+	/**********************/
+	.title {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 1;
+		align-items: center;
+
+		border-bottom: 1px solid black;
+		margin-bottom: 2.5em;
+	}
+
+	h3 {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 0.85em;
+	}
+
+	h1 {
+		font-size: 2.5em;
+		font-family: "Abel", sans-serif;
+		margin: 0.5em 0;
+		grid-area: 1 / 1 / 1 / 3;
+	}
+
+	h1 > span:first-of-type {
+		font-family: "Times New Roman", Times, serif;
+		font-weight: 100;
+	}
+
+	h1 > span:nth-of-type(2) {
+		font-family: "Bayon", sans-serif;
+	}
+
+	.title > input[type="text"] {
+		height: 3em;
+		width: 20vw;
+		padding-left: 3em;
+		border-radius: 25px;
+		border: 1px solid black;
+		background-image: url("../lib/img/magnifyingglass.png"); /* Path to your icon */
+		background-size: 20px 20px; /* Size of your icon */
+		background-position: 10px center; /* Position of your icon */
+		background-repeat: no-repeat;
+
+		grid-area: 1 / 4 / 1 / 5;
+	}
+
+	.title > input[type="text"]::placeholder {
+		font-style: italic;
+	}
+
+	/**********************/
+	/*   FILTER SECTION   */
+	/**********************/
+
 	.filtersystem {
 		position: relative;
+		display: flex;
+		gap: 2em;
 	}
 
 	.filtercategory {
+		position: relative;
+		display: flex;
 		background: transparent;
-		border-radius: 25px;
+		border-radius: 10px;
 		border: solid 1px black;
 		width: 15vw;
-		height: 2.5em;
-		text-align: center;
+		height: 3.5em;
+		padding-left: 1em;
+		text-align: left;
+		justify-content: space-between;
+		align-items: center;
 	}
 
-	.filtercategory::after {
+	.filtercategory .arrow {
 		content: "";
+		display: inline-block;
+		width: 0.5em;
+		height: 0.5em;
+		border-right: 1px solid black;
+		border-bottom: 1px solid black;
+		margin-right: 1em;
+		transform: rotate(45deg);
+		transition: transform 0.3s ease; /* Smooth transition for the arrow */
+	}
+
+	.filtercategory.open .arrow {
+		transform: rotate(-135deg); /* Arrow up */
 	}
 
 	.filtercategory:hover {
@@ -903,6 +979,7 @@
 		position: absolute;
 		min-width: 100vw;
 		max-height: 25vh;
+		top: 3.5em;
 		overflow-y: auto;
 		gap: 2.5vw;
 
