@@ -150,24 +150,28 @@
 	let lifeform = [];
 	let climates = [];
 
-	// checkbox states
-	let checkboxStates = {
-		growthForm: {
+	function createCheckboxState() {
+		return {
 			allSelected: false,
 			items: [],
-		},
-		// lifeform: {
-		// 	allSelected: false,
-		// 	items: [],
-		// },
-		// climated: {
-		// 	allSelected: false,
-		// 	items: [],
-		// },
-		// societaluse: {
-		// 	allSelected: false,
-		// 	items: [],
-		// },
+		};
+	}
+
+	// checkbox states
+	let checkboxStates = {
+		// Families
+		families: createCheckboxState(),
+		subfamilies: createCheckboxState(),
+		supertribes: createCheckboxState(),
+		tribes: createCheckboxState(),
+		genuses: createCheckboxState(),
+		species: createCheckboxState(),
+
+		// Characteristics
+		growthForm: createCheckboxState(),
+		lifeform: createCheckboxState(),
+		climates: createCheckboxState(),
+		societaluse: createCheckboxState(),
 	};
 
 	/**=========================================================
@@ -190,65 +194,33 @@
 		/**======================
 		 *    new sets for types of taxonomy
 		 *========================**/
-		families = [
-			...new Set(
-				metadata
-					.map((item) => item.FAMILY)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("FAMILIES:", families);
+		function processMetadataCategory(key) {
+			return [
+				...new Set(
+					metadata
+						.map((item) => item[key])
+						.filter((item) => item !== "NA")
+						.map(capitalizeFirstLetter)
+						.sort((a, b) => a.localeCompare(b))
+				),
+			];
+		}
 
-		subfamilies = [
-			...new Set(
-				metadata
-					.map((item) => item.SUBFAMILY)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("SUBFAMILIES:", subfamilies);
+		// Usage
+		families = processMetadataCategory("FAMILY");
+		subfamilies = processMetadataCategory("SUBFAMILY");
+		supertribes = processMetadataCategory("SUPERTRIBE");
+		tribes = processMetadataCategory("TRIBE");
+		genuses = processMetadataCategory("GENUS");
+		species = processMetadataCategory("SPECIES");
 
-		supertribes = [
-			...new Set(
-				metadata
-					.map((item) => item.SUPERTRIBE)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("SUPERTRIBES:", supertribes);
-
-		tribes = [
-			...new Set(
-				metadata
-					.map((item) => item.TRIBE)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("TRIBES:", tribes);
-
-		genuses = [
-			...new Set(
-				metadata
-					.map((item) => item.GENUS)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("GENUSES:", genuses);
-
-		species = [
-			...new Set(
-				metadata
-					.map((item) => item.SPECIES)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("SPECIES:", species);
+		// Logging for debugging
+		console.log("FAMILIES:", families);
+		console.log("SUBFAMILIES:", subfamilies);
+		console.log("SUPERTRIBES:", supertribes);
+		console.log("TRIBES:", tribes);
+		console.log("GENUSES:", genuses);
+		console.log("SPECIES:", species);
 
 		/**======================
 		 *    New sets for geography
@@ -257,53 +229,40 @@
 		/**======================
 		 *    New sets for characteristics
 		 *========================**/
-		growthform = Array.from(
-			new Set(
-				metadata.map((item) => item.GROWTH_FORM).filter((form) => form !== "NA")
-			)
-		).map((form) => ({
-			label: form,
-			checked: false,
-		}));
-		console.log("GROWTH FORM:", growthform);
-		// Update checkboxStates with the loaded growthform
-		checkboxStates.growthForm.items = growthform;
+		function processCategory(
+			categoryKey,
+			metadataKey,
+			isArrayOfValues = false
+		) {
+			const processedItems = new Set(
+				metadata.flatMap((item) => {
+					const value = item[metadataKey];
+					return isArrayOfValues
+						? Array.isArray(value)
+							? value
+							: [value]
+						: [value];
+				})
+			);
 
-		societaluse = [
-			...new Set(
-				metadata.flatMap((item) =>
-					Array.isArray(item.SOCIETAL_USE)
-						? item.SOCIETAL_USE
-						: [item.SOCIETAL_USE]
-				)
-			),
-		]
-			.filter((item) => item !== "NA")
-			.map((item) => capitalizeFirstLetter(item));
-		// console.log("GENUSES:", societaluse);
+			const checkboxItems = Array.from(processedItems)
+				.filter((item) => item !== "NA")
+				.map((item) => ({
+					label: capitalizeFirstLetter(item),
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
 
-		lifeform = [
-			...new Set(
-				metadata.flatMap((item) =>
-					Array.isArray(item.WCVP_lifeform_description)
-						? item.WCVP_lifeform_description
-						: [item.WCVP_lifeform_description]
-				)
-			),
-		]
-			.filter((item) => item !== "NA")
-			.map((item) => capitalizeFirstLetter(item));
-		// console.log("LIFEFORMS:", lifeform);
+			console.log(`${categoryKey.toUpperCase()}:`, checkboxItems);
 
-		climates = [
-			...new Set(
-				metadata
-					.map((item) => item.WCVP_climate_description)
-					.filter((item) => item !== "NA")
-					.map((item) => capitalizeFirstLetter(item))
-			),
-		];
-		// console.log("GENUSES:", climates);
+			checkboxStates[categoryKey].items = checkboxItems;
+		}
+
+		// Example usage
+		processCategory("growthForm", "GROWTH_FORM");
+		processCategory("societaluse", "SOCIETAL_USE", true);
+		processCategory("lifeform", "WCVP_lifeform_description", true);
+		processCategory("climates", "WCVP_climate_description");
 	});
 
 	/**========================================================================
@@ -583,71 +542,97 @@
 
 	// Function to filter items based on search term
 	function filterItems(searchTerm, items) {
-		if (searchTerm.trim() === "") {
+		searchTerm = searchTerm.trim().toLowerCase();
+		if (searchTerm === "") {
 			console.log("Filtering");
 			return items; // Return all items if search term is empty
 		}
-		return items.filter((item) =>
-			item.toLowerCase().includes(searchTerm.toLowerCase())
-		);
+		return items.filter((item) => item.toLowerCase().startsWith(searchTerm));
 	}
 
 	function toggleSelectAll(category) {
 		const allSelected = !checkboxStates[category].allSelected;
-		let updatedItems = checkboxStates[category].items.map((item) => {
-			return { ...item, checked: allSelected };
-		});
-
 		checkboxStates = {
 			...checkboxStates,
 			[category]: {
 				...checkboxStates[category],
 				allSelected: allSelected,
-				items: updatedItems,
+				items: checkboxStates[category].items.map((item) => ({
+					...item,
+					checked: allSelected,
+				})),
 			},
 		};
 	}
 
 	function handleCheckboxChange(category) {
-		// Just trigger reactivity, do not update allSelected here
+		// No longer updating 'allSelected' here
 		checkboxStates = {
 			...checkboxStates,
 			[category]: {
 				...checkboxStates[category],
-				items: [...checkboxStates[category].items], // Trigger reactivity
+				items: [...checkboxStates[category].items],
 			},
 		};
 	}
 
+	// Reactive statements for each category
 	$: if (checkboxStates.growthForm.items.length > 0) {
-		const allChecked = checkboxStates.growthForm.items.every(
-			(item) => item.checked
-		);
-		const anyChecked = checkboxStates.growthForm.items.some(
-			(item) => item.checked
-		);
+		checkboxStates.growthForm.allSelected =
+			checkboxStates.growthForm.items.every((item) => item.checked);
+	}
 
-		checkboxStates.growthForm.allSelected = allChecked;
+	$: if (checkboxStates.societaluse.items.length > 0) {
+		checkboxStates.societaluse.allSelected =
+			checkboxStates.societaluse.items.every((item) => item.checked);
+	}
+
+	$: if (checkboxStates.lifeform.items.length > 0) {
+		checkboxStates.lifeform.allSelected = checkboxStates.lifeform.items.every(
+			(item) => item.checked
+		);
+	}
+
+	$: if (checkboxStates.climates.items.length > 0) {
+		checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
+			(item) => item.checked
+		);
 	}
 </script>
 
 <section class="filtersystem">
 	<!-- Filtering on taxonomy -->
-	<button class="filtercategory" on:click={() => (taxonomyOpen = !taxonomyOpen)}
-		>Taxonomy</button
-	>
-
-	<!-- Filtering on geography -->
 	<button
 		class="filtercategory"
-		on:click={() => (geographyOpen = !geographyOpen)}>Geography</button
+		on:click={() => {
+			taxonomyOpen = !taxonomyOpen;
+			if (taxonomyOpen) {
+				geographyOpen = false;
+				characteristicsOpen = false;
+			}
+		}}>Taxonomy</button
 	>
 
-	<!-- Filtering on characteristics -->
 	<button
 		class="filtercategory"
-		on:click={() => (characteristicsOpen = !characteristicsOpen)}
-		>Characteristics</button
+		on:click={() => {
+			geographyOpen = !geographyOpen;
+			if (geographyOpen) {
+				taxonomyOpen = false;
+				characteristicsOpen = false;
+			}
+		}}>Geography</button
+	>
+
+	<button
+		class="filtercategory"
+		on:click={() => {
+			characteristicsOpen = !characteristicsOpen;
+			if (characteristicsOpen) {
+				taxonomyOpen = false;
+				geographyOpen = false;
+			}
+		}}>Characteristics</button
 	>
 
 	<!-- DROPDOWN CONTENTS -->
@@ -655,6 +640,7 @@
 		<div class="dropdown">
 			<!-- FAMILY -->
 			<div class="familyfilter">
+				<h3>Family</h3>
 				<input
 					type="text"
 					placeholder="Search Family"
@@ -672,6 +658,7 @@
 
 			<!-- Subfamily -->
 			<div class="subfamilyfilter">
+				<h3>Subfamily</h3>
 				<input
 					type="text"
 					placeholder="Search Subfamily"
@@ -689,6 +676,7 @@
 
 			<!-- Supertribe -->
 			<div class="supertribefilter">
+				<h3>Supertribe</h3>
 				<input
 					type="text"
 					placeholder="Search Supertribe"
@@ -706,6 +694,7 @@
 
 			<!-- Tribe -->
 			<div class="tribefilter">
+				<h3>Tribe</h3>
 				<input
 					type="text"
 					placeholder="Search Tribe"
@@ -723,6 +712,7 @@
 
 			<!-- Genus -->
 			<div class="genusfilter">
+				<h3>Genus</h3>
 				<input
 					type="text"
 					placeholder="Search Genus"
@@ -740,6 +730,7 @@
 
 			<!-- Species -->
 			<div class="speciesfilter">
+				<h3>Species</h3>
 				<input
 					type="text"
 					placeholder="Search Species"
@@ -769,7 +760,11 @@
 							bind:checked={checkboxStates.growthForm.allSelected}
 							on:change={() => toggleSelectAll("growthForm")}
 						/>
-						Select All
+						{#if checkboxStates.growthForm.allSelected}
+							Deselect All
+						{:else}
+							Select All
+						{/if}
 					</label>
 					{#each checkboxStates.growthForm.items as item}
 						<label>
@@ -788,10 +783,26 @@
 			<div class="societaluse-filter">
 				<h3>Societal Use</h3>
 				<div class="checkbox-list">
-					{#each societaluse as societal_use}
+					<label>
+						<input
+							type="checkbox"
+							bind:checked={checkboxStates.societaluse.allSelected}
+							on:change={() => toggleSelectAll("societaluse")}
+						/>
+						{#if checkboxStates.societaluse.allSelected}
+							Deselect All
+						{:else}
+							Select All
+						{/if}
+					</label>
+					{#each checkboxStates.societaluse.items as item}
 						<label>
-							<input type="checkbox" value={societal_use} />
-							{societal_use}
+							<input
+								type="checkbox"
+								bind:checked={item.checked}
+								on:change={() => handleCheckboxChange("societaluse")}
+							/>
+							{item.label}
 						</label>
 					{/each}
 				</div>
@@ -801,10 +812,26 @@
 			<div class="lifeform-filter">
 				<h3>Life Form</h3>
 				<div class="checkbox-list">
-					{#each lifeform as life_form}
+					<label>
+						<input
+							type="checkbox"
+							bind:checked={checkboxStates.lifeform.allSelected}
+							on:change={() => toggleSelectAll("lifeform")}
+						/>
+						{#if checkboxStates.lifeform.allSelected}
+							Deselect All
+						{:else}
+							Select All
+						{/if}
+					</label>
+					{#each checkboxStates.lifeform.items as item}
 						<label>
-							<input type="checkbox" value={life_form} />
-							{life_form}
+							<input
+								type="checkbox"
+								bind:checked={item.checked}
+								on:change={() => handleCheckboxChange("lifeform")}
+							/>
+							{item.label}
 						</label>
 					{/each}
 				</div>
@@ -812,12 +839,28 @@
 
 			<!-- CLIMATE -->
 			<div class="climate-filter">
-				<h3>Climate</h3>
+				<h3>Climates</h3>
 				<div class="checkbox-list">
-					{#each climates as climate}
+					<label>
+						<input
+							type="checkbox"
+							bind:checked={checkboxStates.climates.allSelected}
+							on:change={() => toggleSelectAll("climates")}
+						/>
+						{#if checkboxStates.climates.allSelected}
+							Deselect All
+						{:else}
+							Select All
+						{/if}
+					</label>
+					{#each checkboxStates.climates.items as item}
 						<label>
-							<input type="checkbox" value={climate} />
-							{climate}
+							<input
+								type="checkbox"
+								bind:checked={item.checked}
+								on:change={() => handleCheckboxChange("climates")}
+							/>
+							{item.label}
 						</label>
 					{/each}
 				</div>
@@ -858,12 +901,25 @@
 	.dropdown {
 		display: flex;
 		position: absolute;
+		min-width: 100vw;
+		max-height: 25vh;
+		overflow-y: auto;
+		gap: 2.5vw;
+
+		background-color: hotpink;
 	}
 
 	/* Checkboxes */
-
+	.dropdown > div {
+		height: 25vh;
+		overflow-y: auto;
+	}
+	.checkbox-list {
+		overflow: scroll;
+	}
 	.checkbox-list label {
 		display: block;
 		margin-bottom: 5px;
+		font-size: 13px;
 	}
 </style>
