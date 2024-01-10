@@ -172,46 +172,62 @@
 		 *========================**/
 		families = [
 			...new Set(
-				metadata.map((item) => item.FAMILY).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.FAMILY)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("FAMILIES:", families);
 
 		subfamilies = [
 			...new Set(
-				metadata.map((item) => item.SUBFAMILY).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.SUBFAMILY)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		subfamilies.forEach(capitalizeFirstLetter);
 		console.log("SUBFAMILIES:", subfamilies);
 
 		supertribes = [
 			...new Set(
-				metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.SUPERTRIBE)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("SUPERTRIBES:", supertribes);
 
 		tribes = [
 			...new Set(
-				metadata.map((item) => item.TRIBE).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.TRIBE)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("TRIBES:", tribes);
 
 		genuses = [
 			...new Set(
-				metadata.map((item) => item.GENUS).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.GENUS)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("GENUSES:", genuses);
 
 		species = [
 			...new Set(
-				metadata.map((item) => item.SPECIES).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.SPECIES)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
-		species.forEach(capitalizeFirstLetter);
 		console.log("SPECIES:", species);
 
 		/**======================
@@ -223,7 +239,10 @@
 		 *========================**/
 		growthform = [
 			...new Set(
-				metadata.map((item) => item.GROWTH_FORM).filter((item) => item !== "NA")
+				metadata
+					.map((item) => item.GROWTH_FORM)
+					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("GROWTH FORM:", growthform);
@@ -233,6 +252,7 @@
 				metadata
 					.map((item) => item.SOCIETAL_USE)
 					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("GENUSES:", societaluse);
@@ -245,7 +265,9 @@
 						: [item.WCVP_lifeform_description]
 				)
 			),
-		].filter((item) => item !== "NA"); // Filter out any null or undefined values
+		]
+			.filter((item) => item !== "NA")
+			.map((item) => capitalizeFirstLetter(item));
 		console.log("LIFEFORMS:", lifeform);
 
 		climates = [
@@ -253,6 +275,7 @@
 				metadata
 					.map((item) => item.WCVP_climate_description)
 					.filter((item) => item !== "NA")
+					.map((item) => capitalizeFirstLetter(item))
 			),
 		];
 		console.log("GENUSES:", climates);
@@ -760,5 +783,12 @@
 	.dropdown {
 		display: flex;
 		position: absolute;
+	}
+
+	/* Checkboxes */
+
+	.checkbox-list label {
+		display: block;
+		margin-bottom: 5px;
 	}
 </style>
