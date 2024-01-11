@@ -1,0 +1,1602 @@
+[
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "FRA, GRB, SPA, SWI",
+        "SAMPLE": "8000070"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL",
+        "SAMPLE": "8008999"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, PAK",
+        "SAMPLE": "8009952"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "CRNC"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "VIC",
+        "SAMPLE": "ERR2789774"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EGY, GST, IRN, IRQ, KUW, LBS, PAL, SAU, SIN",
+        "SAMPLE": "ERR4210213"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "HYZL"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "MYZV"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_005410"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_005411"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_008053"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_014331"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_019361"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_019459"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023477"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023503"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023511"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023513"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023515"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "PAFTOL_023519"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BRC, WAS",
+        "SAMPLE": "S_670"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, AMU, AUT, BGM, BLR, BLT, BRY, BUL, CHC, CHI, CHM, CHN, CHX, CTA, CZE, DEN, FIN, FRA, GER, HUN, ICE, IRK, JAP, KAM, KAZ, KGZ, KHA, KOR, KRA, KUR, MAG, MON, NCS, NET, NOR, POL, PRM, ROM, RUC, RUE, RUN, RUS, RUW, SAK, SWE, SWI, TCS, TVA, UKR, WHM, WSB, YAK, YUG",
+        "SAMPLE": "S0055"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, KAZ, PAK, TKM, TZK, UZB",
+        "SAMPLE": "S0156"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EHM, NEP, PAK, WHM",
+        "SAMPLE": "S0196"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, IDA, NEV, ORE, UTA, WAS",
+        "SAMPLE": "S0268"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE, TEX",
+        "SAMPLE": "S0275"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BOL",
+        "SAMPLE": "S0277"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TZK",
+        "SAMPLE": "S0278"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, BRC, CAL, IDA, MNT, MXN, NEV, ORE, WAS",
+        "SAMPLE": "S0279"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRQ, LBS, PAL, TUR",
+        "SAMPLE": "S0280"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EAI, GRC, KRI, SIC, TUR",
+        "SAMPLE": "S0281"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, IDA, MNT, NEV",
+        "SAMPLE": "S0282"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PAK, WHM",
+        "SAMPLE": "S0283"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "POR",
+        "SAMPLE": "S0284"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SOA",
+        "SAMPLE": "S0285"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IDA, ORE, UTA",
+        "SAMPLE": "S0286"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S0288"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHN, CHQ, CHT, CHX, KAZ, KGZ, MON, TKM, TZK",
+        "SAMPLE": "S0289"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, IRQ, LBS, TUR",
+        "SAMPLE": "S0292"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, IDA, NEV, ORE, UTA, WAS",
+        "SAMPLE": "S0293"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, COL, MXE, MXN, NEV, NWM, TEX, UTA",
+        "SAMPLE": "S0294"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRQ, KUW, PAL, SAU",
+        "SAMPLE": "S0297"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALA, ARK, ILL, INI, IOW, KAN, KTY, MIN, MRY, MSO, OHI, OKL, PEN, TEN, TEX, WIS, WVA",
+        "SAMPLE": "S0298"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHX, EGY, IRN, IRQ, KAZ, KGZ, KUW, LBS, OMA, PAK, PAL, RUE, RUS, SAU, SIN, TCS, TKM, TZK, UZB",
+        "SAMPLE": "S0299"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, CAL, MXN",
+        "SAMPLE": "S0300"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, IDA, NEV, ORE",
+        "SAMPLE": "S0301"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, BUL, FRA, GRC, ITA, NCS, ROM, SWI, TCS, TUR, YUG",
+        "SAMPLE": "S0303"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, LBY, MOR, TUN",
+        "SAMPLE": "S0305"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, NTA, QLD, SOA",
+        "SAMPLE": "S0306"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC",
+        "SAMPLE": "S0308"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, BUL, COR, CYP, EAI, FRA, GRC, HUN, IRN, IRQ, ITA, KRY, LBS, MOR, NCS, PAL, POR, RUS, SAR, SIC, SPA, TCS, TKM, TUE, TUR, YUG",
+        "SAMPLE": "S0312"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CYP, EGY, GRC, KRI, LBY",
+        "SAMPLE": "S0315"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, TKM",
+        "SAMPLE": "S0316"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, FRA, GER, ITA, NET, SPA, SWI, YUG",
+        "SAMPLE": "S0317"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, BUL, CHX, IND, IRN, IRQ, KAZ, KGZ, KRY, LBS, MON, NCS, PAK, PAL, RUC, RUE, RUS, TCS, TKM, TUR, TZK, UKR, UZB, WHM, YUG",
+        "SAMPLE": "S0320"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, BUL, CYP, EGY, GRC, IRN, IRQ, ITA, KRY, LBS, NCS, PAL, SIN, TCS, TUE, TUR, YUG",
+        "SAMPLE": "S0322"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SPA",
+        "SAMPLE": "S0323"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR",
+        "SAMPLE": "S0326"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX, IRN, KAZ, KGZ, TKM, TZK, UZB",
+        "SAMPLE": "S0327"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC, CHN, CHQ, CHT, PRM",
+        "SAMPLE": "S0329"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "COR, SAR",
+        "SAMPLE": "S0331"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, BUL, FRA, GER, GRC, HUN, IRN, IRQ, ITA, KRY, LBS, NCS, PAL, ROM, SIC, SPA, SWI, TCS, TUE, TUR, YUG",
+        "SAMPLE": "S0335"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BOT, CPP, NAM, OFS",
+        "SAMPLE": "S0345"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXC, MXE, MXG, MXS",
+        "SAMPLE": "S0346"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EAI, GRC, KRI",
+        "SAMPLE": "S0355"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR, SPA",
+        "SAMPLE": "S0371"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BAL, CNY, COR, ITA, MOR, SAR, SIC, SPA, TUN",
+        "SAMPLE": "S0373"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, FRA, MOR, POR, SPA",
+        "SAMPLE": "S0376"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MDR",
+        "SAMPLE": "S0377"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR, TUN",
+        "SAMPLE": "S0380"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NCS, TCS, YUG",
+        "SAMPLE": "S0381"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ABT, BRC, IDA, MNT, WAS, WYO",
+        "SAMPLE": "S0383"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, TCS, TUR",
+        "SAMPLE": "S0384"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, EGY, LBY, MOR, PAL, SIN, TUN",
+        "SAMPLE": "S0385"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NEV",
+        "SAMPLE": "S0400"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, BAL, BUL, COR, CYP, EAI, EGY, FRA, GRC, IRN, IRQ, ITA, KRI, LBS, LBY, MOR, PAL, SIC, SIN, SPA, TCS, TUE, TUN, TUR, YUG",
+        "SAMPLE": "S0403"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW, BOL, CLN, PER",
+        "SAMPLE": "S0405"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHT, EHM",
+        "SAMPLE": "S0407"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHT, IRN, KGZ, PAK, TKM, TZK, UZB",
+        "SAMPLE": "S0412"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, ASK, BRC, BRY, CHT, CTA, GNL, IRK, KAM, KAZ, KHA, KRA, LAB, MAG, MON, NUN, NWT, QUE, RUN, SVA, TVA, TZK, WHM, WSB, YAK, YUK",
+        "SAMPLE": "S0416"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHQ, CHT, CHX, NEP, PAK, TZK, WHM",
+        "SAMPLE": "S0417"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC, CHI, CHN, CHQ",
+        "SAMPLE": "S0419"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, BGM, BLR, BLT, COR, CZE, DEN, FRA, GER, GRB, IRE, ITA, MDR, MOR, NET, POL, POR, ROM, SIC, SPA, SWE, UKR, YUG",
+        "SAMPLE": "S0420"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, KAZ, TKM, TZK, UZB",
+        "SAMPLE": "S0421"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, TKM, TZK, UZB",
+        "SAMPLE": "S0424"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALA, ARK, CAL, FLA, GEO, ILL, INI, IOW, KAN, KTY, LOU, MRY, MSI, MSO, MXN, NCA, OHI, OKL, SCA, TEN, TEX, VRG, WVA",
+        "SAMPLE": "S0427"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "WHM",
+        "SAMPLE": "S0428"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, IRQ, TCS, TUR",
+        "SAMPLE": "S0430"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NZS",
+        "SAMPLE": "S0435"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CNY",
+        "SAMPLE": "S0436"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, CNY, EGY, ERI, GST, IRN, IRQ, KUW, LBS, LBY, MLI, MOR, MTN, OMA, PAK, PAL, SAU, SUD, TUN, WSA, YEM",
+        "SAMPLE": "S0450"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, PAK",
+        "SAMPLE": "S0464"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, BRY, CHX, KAZ, MON, TVA, WHM",
+        "SAMPLE": "S0478"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, NTA, QLD, SOA, VIC, WAU",
+        "SAMPLE": "S0509"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXC",
+        "SAMPLE": "S0512"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, CAL, COL, IDA, KAN, MNT, MXE, MXN, NDA, NEV, NWM, ORE, SDA, TEX, UTA, WYO",
+        "SAMPLE": "S0521"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALA, ARI, ARK, BAH, BLZ, BRC, CAL, CAY, CNT, COL, COS, CUB, DEL, DOM, ELS, FLA, GEO, GUA, HAI, HON, IDA, ILL, INI, IOW, JAM, KAN, KTY, LEE, LOU, MAI, MAS, MIC, MIN, MNT, MRY, MSI, MSO, MXC, MXE, MXG, MXN, MXS, MXT, NCA, NEB, NEV, NFL, NSC, NWH, NWJ, NWM, NWY, OHI, OKL, ONT, ORE, PAN, PEI, PEN, PUE, QUE, RHO, SCA, TEN, TEX, TRT, UTA, VER, VNA, VRG, WAS, WDC, WIN, WIS, WVA, WYO",
+        "SAMPLE": "S0547"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, FRA, GER, ITA, SWI, YUG",
+        "SAMPLE": "S0552"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BAL, COR, EGY, FRA, ITA, LBY, MOR, POR, SAR, SIC, SIN, SPA, TUN, YUG",
+        "SAMPLE": "S0555"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, AUT, BAL, BGM, BLT, BUL, COR, CZE, EAI, FRA, GER, GRB, GRC, HUN, IRQ, ITA, KRI, KRY, MOR, NOR, POR, SAR, SIC, SPA, SWE, SWI, TUE, TUN, TUR, UKR, YUG",
+        "SAMPLE": "S0558"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, COR, CYP, EAI, EGY, GRC, IRN, IRQ, ITA, KRI, LBS, LBY, PAL, SAR, SAU, SIC, SIN, SUD, TUN, TUR, YUG",
+        "SAMPLE": "S0560"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, BAL, BGM, BUL, CHX, COR, CYP, CZE, EAI, FRA, GER, GRB, GRC, HUN, IRN, IRQ, ITA, KAZ, KGZ, KRI, KRY, LBS, LBY, MOR, NCS, NET, PAK, PAL, POL, POR, ROM, RUC, RUS, SAR, SAU, SIC, SPA, SWI, TCS, TKM, TUE, TUN, TUR, TZK, UKR, UZB, YUG",
+        "SAMPLE": "S0562"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S0564"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP, NAT",
+        "SAMPLE": "S0577"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC, ITA, SIC, YUG",
+        "SAMPLE": "S0583"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, BAL, CNY, COR, CYP, EAI, FRA, GRC, IRN, IRQ, ITA, KRI, KRY, LBS, LBY, MDR, MOR, NCS, PAL, POR, SAR, SAU, SIC, SPA, TCS, TUE, TUN, TUR, YUG",
+        "SAMPLE": "S0590"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, BGM, BLT, BUL, CHC, CHI, CHM, CHN, CHQ, CHS, CHT, CHX, CYP, DEN, EAI, EGY, EHM, FRA, GRB, GRC, IRK, IRN, IRQ, ITA, KAZ, KGZ, KOR, KRA, KRY, LBS, LBY, MON, MOR, NCS, NET, PAK, PAL, ROM, RUC, RUE, RUS, SAR, SIC, SPA, SWE, TCS, TKM, TUE, TUR, TZK, UKR, UZB, WHM, WSB, YEM, YUG",
+        "SAMPLE": "S0591"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, AUT, AZO, BAL, BGM, BUL, CHA, CNY, COR, CVI, CYP, CZE, EAI, EGY, ETH, FRA, GER, GRC, HUN, IRE, IRN, IRQ, ITA, KAZ, KGZ, KRI, KRY, LBY, MDR, MOR, NCS, NET, PAK, PAL, POL, POR, ROM, RUC, SAR, SAU, SIC, SIN, SPA, SUD, SWE, SWI, TCS, TKM, TUE, TUN, TUR, UKR, UZB, WHM, YUG",
+        "SAMPLE": "S0593"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ETH, KEN, RWA, TAN, UGA, ZAI",
+        "SAMPLE": "S0612"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, TCS",
+        "SAMPLE": "S0613"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, ALT, CHX, IRN, IRQ, KAZ, KGZ, KRA, KRY, KUW, LBS, MON, MOR, NCS, PAK, PAL, ROM, RUC, RUE, RUS, SAU, SPA, TCS, TKM, TUE, TUR, TZK, UKR, UZB, YUG",
+        "SAMPLE": "S0616"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MOR",
+        "SAMPLE": "S0617"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "YUG",
+        "SAMPLE": "S0620"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, TKM",
+        "SAMPLE": "S0624"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TKM, UZB",
+        "SAMPLE": "S0629"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AMU, AUT, BAL, BLR, BLT, BRY, BUL, CHI, CHM, CHX, COR, CTA, CYP, CZE, DEN, EAI, EGY, FRA, GER, GRC, HUN, IRK, IRN, IRQ, ITA, KAM, KAZ, KGZ, KHA, KRA, KRI, KRY, KUW, LBS, LBY, MAG, MON, MOR, NCS, OMA, PAK, PAL, POL, POR, PRM, ROM, RUC, RUE, RUS, RUW, SAK, SAR, SAU, SIC, SIN, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TVA, TZK, UKR, UZB, WHM, WSB, YAK, YUG",
+        "SAMPLE": "S0641"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, CNY, EGY, GST, IRN, IRQ, KUW, LBS, LBY, MOR, MTN, OMA, PAK, PAL, SAU, SIN, SPA, SUD, TUN, WHM, WSA, YEM",
+        "SAMPLE": "S0642"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, COL, COS, GUA, MXC, MXE, MXG, MXN, MXS, MXT, NWM, TEX",
+        "SAMPLE": "S0643"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHX, IRN, KAZ, KGZ, MON, TKM, TZK, UZB",
+        "SAMPLE": "S0645"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, BRC, CAL, COL, IDA, MXN, NEV, NWM, ORE, UTA, WAS",
+        "SAMPLE": "S0647"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, CHA, EGY, GST, IRN, IRQ, LBY, MLI, MOR, MTN, NGR, OMA, PAK, PAL, SAU, SIN, TUN, WSA, YEM",
+        "SAMPLE": "S0654"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SOC",
+        "SAMPLE": "S0655"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S0656"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, NCS, TCS, TKM, TUR",
+        "SAMPLE": "S0657"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MOR",
+        "SAMPLE": "S0660"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CYP, EAI, GRC, KRI, LBS, PAL, TUR",
+        "SAMPLE": "S0662"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CYP, EAI, EGY, GRC, GST, IRN, IRQ, KRI, KUW, LBS, OMA, PAL, SAU, SIN, TUR",
+        "SAMPLE": "S0664"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR",
+        "SAMPLE": "S0667"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BKN, CHA, DJI, EGY, ETH, LBY, MLI, MOR, MTN, NGR, PAL, SAU, SIN, SOM, SUD, WSA, YEM",
+        "SAMPLE": "S0669"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AMU, AUT, BAL, BGM, BLR, BLT, BRY, BUL, CHC, CHI, CHM, CHN, CHQ, CHS, CHT, CHX, COR, CTA, CYP, CZE, DEN, EAI, EGY, EHM, FIN, FOR, FRA, GER, GRC, GST, HUN, ICE, IND, IRK, IRN, IRQ, ITA, KAM, KAZ, KGZ, KHA, KOR, KRA, KRI, KRY, KUR, LBS, LBY, MAG, MON, MOR, NCS, NEP, NET, NOR, OMA, PAK, PAL, POL, POR, PRM, ROM, RUC, RUE, RUN, RUS, RUW, SAK, SAR, SAU, SIC, SIN, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TVA, TZK, UKR, UZB, WHM, WSB, YAK, YEM, YUG",
+        "SAMPLE": "S0670"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "RUS, UKR",
+        "SAMPLE": "S0671"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALT, AUT, BGM, BLR, BLT, BUL, CHX, COR, CZE, DEN, FRA, GER, GRC, HUN, IRE, IRN, ITA, KAZ, KGZ, KRA, KRI, KRY, NCS, NET, POL, POR, ROM, RUC, RUE, RUN, RUS, RUW, SAR, SIC, SPA, SWE, SWI, TCS, TUE, TUR, TZK, UKR, UZB, WHM, WSB, YUG",
+        "SAMPLE": "S0672"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHI, CHN, CHX, IRN, KAZ, KGZ, PAK, RUS, TCS, TKM, TZK, UZB",
+        "SAMPLE": "S0673"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, TKM",
+        "SAMPLE": "S0677"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHQ, CHX, KAZ, KGZ, RUE, RUS, UZB",
+        "SAMPLE": "S0688"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, AMU, BRY, CHM, CTA, IRK, KRA, MAG, MON, TVA, YAK",
+        "SAMPLE": "S0689"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BRY, CTA, IRK, KHA",
+        "SAMPLE": "S0690"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, CHA, EGY, GST, IRQ, KUW, LBS, LBY, MLI, MOR, MTN, OMA, PAK, PAL, SAU, SIN, SUD, TUN, WSA",
+        "SAMPLE": "S0691"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BRY, IRK, MON, YAK",
+        "SAMPLE": "S0717"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, AMU, BLR, BRY, CHC, CHI, CHM, CHN, CHQ, CHS, CHT, CHX, CTA, IRK, JAP, KAM, KAZ, KGZ, KHA, KOR, KRA, KUR, MAG, MON, PRM, RUC, RUE, RUN, RUS, SAK, TVA, UKR, WSB, YAK",
+        "SAMPLE": "S0718"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, BRY, CHX, CTA, MON, TVA",
+        "SAMPLE": "S0720"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, KAZ, KRY, RUE, RUS, UKR, WSB",
+        "SAMPLE": "S0721"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, BRY, CHX, IRK, KAZ, KRA, MON, TVA, WSB",
+        "SAMPLE": "S0722"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EAI, GRC, KRI",
+        "SAMPLE": "S0724"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, LBY, MOR",
+        "SAMPLE": "S0726"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, MXE, MXN, NWM, TEX",
+        "SAMPLE": "S0727"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, VIC",
+        "SAMPLE": "S0728"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BGM, BLT, BUL, DEN, FIN, FRA, GER, GRB, IRE, KRY, NCS, NET, NOR, ROM, RUS, RUW, SWE, TCS, TUE, UKR",
+        "SAMPLE": "S0731"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, BAL, BUL, COR, CYP, EAI, FRA, GRC, GST, IRN, IRQ, ITA, KAZ, KGZ, KRI, KRY, LBS, LBY, MOR, NCS, OMA, PAK, PAL, ROM, SAR, SAU, SIC, SIN, SPA, SWI, TCS, TKM, TUE, TUN, TUR, TZK, UZB, YUG",
+        "SAMPLE": "S0732"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALT, AMU, AUT, AZO, BGM, BLR, BLT, BRY, BUL, CHI, CHM, CHT, CHX, CNT, CTA, CZE, DEN, ETH, FIN, FRA, GER, GNL, GRB, HUN, ILL, INI, IRE, IRK, ITA, JAP, KAZ, KHA, KOR, KRA, KUR, MAI, MAS, MIC, MIN, MON, MOR, NBR, NCS, NET, NFL, NOR, NSC, NWH, NWJ, NWY, OHI, ONT, PEN, POL, POR, PRM, QUE, ROM, RUC, RUE, RUN, RUS, RUW, SPA, SWE, SWI, TUE, TVA, UKR, VER, WIS, WSB, YAK, YUG",
+        "SAMPLE": "S0733"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, BGM, BLR, BLT, BRY, BUL, CHM, CHX, COR, CTA, CZE, DEN, FRA, GER, GRB, GRC, HUN, IRE, IRK, IRQ, ITA, JAP, KAZ, KGZ, KOR, KRA, KRI, MON, NCS, NET, NNS, PAK, POL, POR, ROM, RUC, RUE, RUS, RUW, SAR, SIC, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TVA, TZK, UKR, UZB, WHM, WSB, YUG",
+        "SAMPLE": "S0734"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, AUT, BUL, CZE, EAI, FRA, GER, GRC, HUN, ITA, KRI, MOR, ROM, SAR, SIC, SPA, SWI, TUR, YUG",
+        "SAMPLE": "S0735"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S0738"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, AMU, BRY, CHI, CHM, CHX, CTA, IRK, KAZ, KHA, KRA, LBS, MAG, MON, RUE, RUN, TVA, WSB, YAK",
+        "SAMPLE": "S0739"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BLR, BLT, BUL, CZE, FRA, GER, GRC, HUN, KRY, POL, ROM, RUC, RUS, SWI, UKR, YUG",
+        "SAMPLE": "S0740"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SOA, VIC, WAU",
+        "SAMPLE": "S0741"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, LBS, PAK, PAL, SIN",
+        "SAMPLE": "S0742"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, BAL, BGM, BLT, BUL, CNY, COR, CVI, CYP, DEN, EAI, EGY, FIN, FRA, GER, GRB, GRC, IRE, IRN, ITA, KRI, KRY, LBS, LBY, MDR, MOR, NCS, NET, NOR, PAL, POL, POR, ROM, RUS, RUW, SAR, SEL, SIC, SIN, SPA, SWE, TCS, TUE, TUN, TUR, UKR, WSA, YUG",
+        "SAMPLE": "S0743"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, TKM",
+        "SAMPLE": "S0744"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S0745"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS, PAL, SIN",
+        "SAMPLE": "S0746"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MOR",
+        "SAMPLE": "S0747"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "YUG",
+        "SAMPLE": "S0748"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGS",
+        "SAMPLE": "S0751"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG",
+        "SAMPLE": "S0752"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLC, CLS",
+        "SAMPLE": "S0753"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW",
+        "SAMPLE": "S0754"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHT, WHM",
+        "SAMPLE": "S0756"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHX, IRN, IRQ, KAZ, KGZ, LBS, MON, PAK, RUE, RUS, SAU, TCS, TKM, TUR, TZK, UZB, WHM, WSB",
+        "SAMPLE": "S0757"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S0758"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGS",
+        "SAMPLE": "S0759"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX, KAZ, KGZ, PAK, TZK, UZB, WHM",
+        "SAMPLE": "S0760"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHN, CHQ, CHT",
+        "SAMPLE": "S0761"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, MXN",
+        "SAMPLE": "S0762"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL, NEV",
+        "SAMPLE": "S0763"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE, NWM, TEX",
+        "SAMPLE": "S0764"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC",
+        "SAMPLE": "S0765"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, IRQ, NCS, TCS, TUR",
+        "SAMPLE": "S0766"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BAL, CNY, CYP, EGY, GRC, IRN, IRQ, KRI, KUW, LBS, LBY, MOR, PAL, POR, SAR, SAU, SIC, SIN, TUN, WSA",
+        "SAMPLE": "S0768"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KAZ, TKM",
+        "SAMPLE": "S0770"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S0771"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR",
+        "SAMPLE": "S0772"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALT, BRY, CHX, IRK, KAZ, KGZ, MON, PAK, TZK",
+        "SAMPLE": "S0795"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHN, CHX, IRN, IRQ, KAZ, KGZ, KRY, LBS, MON, NCS, OMA, PAK, PAL, RUS, SIN, TCS, TKM, TUR, TZK, UZB, WHM",
+        "SAMPLE": "S0809"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KGZ, UZB",
+        "SAMPLE": "S0827"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALA, ARI, ARK, FLA, GEO, ILL, INI, KAN, KTY, LOU, MSI, MSO, NCA, OHI, OKL, ORE, SCA, TEN, TEX, VRG",
+        "SAMPLE": "S0834"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ABT, ALA, ARI, ARK, BRC, CAL, CNT, COL, GEO, IDA, ILL, INI, IOW, KAN, LOU, MAN, MAS, MIC, MIN, MNT, MSO, NCA, NDA, NEB, NEV, NWJ, NWM, NWY, OHI, OKL, ONT, ORE, PEN, RHO, SAS, SCA, SDA, TEN, TEX, UTA, WAS, WIS, WYO",
+        "SAMPLE": "S0836"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, DJI, EGY, GST, IRN, IRQ, KUW, LBS, LBY, MOR, OMA, PAK, PAL, SAU, SIC, SIN, SOM, SPA, TUN, YEM",
+        "SAMPLE": "S0851"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BUL, TUE, TUR",
+        "SAMPLE": "S0888"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S0890"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP",
+        "SAMPLE": "S0892"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARK, KAN, MSO, OKL",
+        "SAMPLE": "S0893"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NUN, NWT, YUK",
+        "SAMPLE": "S0894"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, SOA, WAU",
+        "SAMPLE": "S0895"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, NTA, QLD, SOA, VIC",
+        "SAMPLE": "S0896"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS, PAL",
+        "SAMPLE": "S0897"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, PAK",
+        "SAMPLE": "S0899"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, AUT, BGM, BLT, BUL, COR, CZE, DEN, FIN, FRA, GER, GRB, GRC, HUN, ITA, KRI, KRY, MDR, MOR, NCS, NET, POR, ROM, SAR, SIC, SPA, SWE, SWI, TCS, TUR, YUG",
+        "SAMPLE": "S0901"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BLT, DEN, FIN, FOR, FRA, GNL, GRB, ICE, IRE, LAB, MAN, MIC, MIN, NBR, NFL, NOR, ONT, PEI, QUE, RUE, RUN, RUW, SWE, SWI",
+        "SAMPLE": "S0902"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARI, CAL, MXN, NEV",
+        "SAMPLE": "S0903"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ITA",
+        "SAMPLE": "S0906"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, SOA, VIC, WAU",
+        "SAMPLE": "S0941"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SOA",
+        "SAMPLE": "S0946"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SOA",
+        "SAMPLE": "S0947"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, SOA, VIC",
+        "SAMPLE": "S0949"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC, CHT",
+        "SAMPLE": "S0951"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, GRC, ITA, YUG",
+        "SAMPLE": "S0952"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PAK",
+        "SAMPLE": "S0954"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S0956"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHI, CHN",
+        "SAMPLE": "S0957"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NCS, TCS, TUR",
+        "SAMPLE": "S0959"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TCS, TUR",
+        "SAMPLE": "S0960"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, ITA",
+        "SAMPLE": "S0963"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S0964"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW, BOL, PER",
+        "SAMPLE": "S0989"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, BAL, BGM, BLR, BLT, BUL, CHC, CHM, CHN, CHQ, CHS, CHX, COR, CYP, DEN, EAI, FRA, GRC, HUN, IND, IRN, IRQ, ITA, KRA, KRI, KRY, LAO, LBS, LBY, MOR, NCS, NET, NOR, PAL, POR, ROM, RUC, RUE, RUS, RUW, SAR, SAU, SIC, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TVA, UKR, UZB, VIE, WHM, WSB, YUG",
+        "SAMPLE": "S1011"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MOR",
+        "SAMPLE": "S1021"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ECU",
+        "SAMPLE": "S1038"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BOL, PER",
+        "SAMPLE": "S1039"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXN",
+        "SAMPLE": "S1040"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PER",
+        "SAMPLE": "S1043"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGS",
+        "SAMPLE": "S1044"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW, BOL, CLN, PER",
+        "SAMPLE": "S1045"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXC, MXE, TEX",
+        "SAMPLE": "S1050"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALA, KTY, TEN",
+        "SAMPLE": "S1052"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ARK, OKL, TEX",
+        "SAMPLE": "S1053"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP",
+        "SAMPLE": "S1069"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "UTA",
+        "SAMPLE": "S1072"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS, TUR",
+        "SAMPLE": "S1074"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TCS, TUR",
+        "SAMPLE": "S1077"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CYP",
+        "SAMPLE": "S1083"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLC, CLN",
+        "SAMPLE": "S1089"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN",
+        "SAMPLE": "S1093"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN",
+        "SAMPLE": "S1095"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN, PER",
+        "SAMPLE": "S1096"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN",
+        "SAMPLE": "S1097"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN",
+        "SAMPLE": "S1098"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S1100"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PER",
+        "SAMPLE": "S1102"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1103"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "FAL",
+        "SAMPLE": "S1106"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP",
+        "SAMPLE": "S1107"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC",
+        "SAMPLE": "S1110"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "EGY, IRN, IRQ, KUW, PAK, PAL, SAU, SIN",
+        "SAMPLE": "S1111"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "VEN",
+        "SAMPLE": "S1113"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, PAK",
+        "SAMPLE": "S1114"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW",
+        "SAMPLE": "S1116"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW, BOL",
+        "SAMPLE": "S1117"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLN",
+        "SAMPLE": "S1118"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PER",
+        "SAMPLE": "S1119"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KRI",
+        "SAMPLE": "S1120"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "VEN",
+        "SAMPLE": "S1121"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS",
+        "SAMPLE": "S1128"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S1129"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, BUL, EAI, GRC, TUR, YUG",
+        "SAMPLE": "S1148"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, PAK",
+        "SAMPLE": "S1168"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SAR",
+        "SAMPLE": "S1176"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHT, EHM",
+        "SAMPLE": "S1177"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S1180"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG",
+        "SAMPLE": "S1181"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PAL, SAU",
+        "SAMPLE": "S1182"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S1184"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1187"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1188"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, NCS, TCS",
+        "SAMPLE": "S1189"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX, KAZ, RUS, TCS, TKM, TUR, UZB",
+        "SAMPLE": "S1201"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALT, AMU, BRY, BUL, CHI, CHX, CTA, HUN, IRK, ITA, KGZ, KHA, KRA, KRY, LBS, MON, NCS, PRM, ROM, RUC, RUE, RUS, TCS, TKM, TUE, TUR, TVA, TZK, UKR, WHM, WSB, YAK",
+        "SAMPLE": "S1204"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "FRA, GRB, SPA",
+        "SAMPLE": "S1208"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BUL, CZE, EAI, GER, GRC, HUN, ITA, KRI, POL, ROM, RUS, TUE, TUR, UKR, YUG",
+        "SAMPLE": "S1210"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, AZO, BAL, BGM, BLR, BLT, BUL, CHC, CHN, CHS, CHT, CHX, CNY, COR, CVI, CYP, CZE, DEN, DJI, EAI, ERI, ETH, FIN, FRA, GER, GRB, GRC, HUN, IRE, IRN, ITA, JAP, KAZ, KEN, KGZ, KOR, KRA, KRI, KRY, LBS, LBY, MDR, MON, MOR, NCS, NEP, NET, NOR, PAK, PAL, POL, POR, ROM, RUC, RUE, RUN, RUS, RUW, RWA, SAR, SAU, SIC, SOM, SPA, SUD, SWE, SWI, TAN, TCS, TUE, TUN, TUR, TVA, TZK, UGA, UKR, UZB, WHM, WSB, YUG, ZAI",
+        "SAMPLE": "S1211"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP",
+        "SAMPLE": "S1213"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BUL, FRA, GER, GRC, HUN, ITA, ROM, SIC, SPA, TUE, TUR, UKR, YUG",
+        "SAMPLE": "S1214"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SIC",
+        "SAMPLE": "S1220"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, MOR, SIC, TUN",
+        "SAMPLE": "S1221"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S1223"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GNL",
+        "SAMPLE": "S1227"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TUR",
+        "SAMPLE": "S1229"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, PAK",
+        "SAMPLE": "S1230"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHI, CHN",
+        "SAMPLE": "S1232"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TZK, UZB",
+        "SAMPLE": "S1234"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TZK",
+        "SAMPLE": "S1235"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BRY, CHM, CHN, CTA, KAZ, MON, RUE, RUS",
+        "SAMPLE": "S1238"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX, TZK",
+        "SAMPLE": "S1239"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHT, KGZ, PAK, TZK, UZB, WHM",
+        "SAMPLE": "S1241"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KAZ, KGZ, UZB",
+        "SAMPLE": "S1245"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "TZK",
+        "SAMPLE": "S1246"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX, KAZ",
+        "SAMPLE": "S1249"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, MON, TVA",
+        "SAMPLE": "S1250"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHX, IRN, KAZ, KGZ, TKM, TZK, UZB",
+        "SAMPLE": "S1251"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "FLA",
+        "SAMPLE": "S1258"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC, SIC",
+        "SAMPLE": "S1260"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC",
+        "SAMPLE": "S1261"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "GRC",
+        "SAMPLE": "S1262"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S1266"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, IRQ",
+        "SAMPLE": "S1269"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SPA",
+        "SAMPLE": "S1270"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "OKL",
+        "SAMPLE": "S1276"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE",
+        "SAMPLE": "S1278"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE, MXS",
+        "SAMPLE": "S1279"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BAL, CHA, CNY, GRC, ITA, LBY, MOR, MTN, POR, SIC, SPA, TUN",
+        "SAMPLE": "S1314"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALT, AUT, BLR, BLT, BRY, BUL, CHI, CHM, CHN, CHX, CZE, DEN, FRA, GER, GRC, HUN, IRK, ITA, KAZ, KGZ, KRA, KRY, MON, NCS, POL, ROM, RUC, RUE, RUS, RUW, SWI, TCS, TUE, TVA, TZK, UKR, UZB, WSB, YAK, YUG",
+        "SAMPLE": "S1315"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS, TUR",
+        "SAMPLE": "S1318"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW, BOL",
+        "SAMPLE": "S1319"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1321"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BUL, CZE, FRA, GRC, HUN, ITA, KRY, NCS, POL, ROM, RUS, SPA, TCS, TUE, TUR, UKR, YUG",
+        "SAMPLE": "S1328"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, EGY, LBY, PAL, SIN, TUN",
+        "SAMPLE": "S1331"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALT, BLR, BRY, BUL, CHM, CHT, CHX, GRC, HUN, IRK, IRN, IRQ, ITA, KAZ, KGZ, KRA, KRY, LBS, MON, NCS, PAK, POL, ROM, RUC, RUE, RUS, TCS, TKM, TUE, TUR, TZK, UKR, UZB, WHM, WSB, YUG",
+        "SAMPLE": "S1332"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, ASK, BRC, BRY, CHT, CTA, GNL, IRK, KAM, KAZ, KHA, KRA, LAB, MAG, MON, NUN, NWT, QUE, RUN, SVA, TVA, TZK, WHM, WSB, YAK, YUK",
+        "SAMPLE": "S1336"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, EGY, GST, IRN, IRQ, KUW, LBY, MOR, OMA, PAK, PAL, SAU, SIN, TUN",
+        "SAMPLE": "S1339"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, BUL, COR, CYP, EAI, FRA, GRC, ITA, KRI, KRY, LBS, MDR, MOR, POR, SAR, SIC, SPA, TUE, TUN, TUR, YUG",
+        "SAMPLE": "S1341"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, BGM, BLR, BLT, COR, CZE, DEN, FRA, GER, GRB, IRE, ITA, MDR, MOR, NET, POL, POR, ROM, SIC, SPA, SWE, UKR, YUG",
+        "SAMPLE": "S1342"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SPA",
+        "SAMPLE": "S1354"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KAZ",
+        "SAMPLE": "S1365"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KRY",
+        "SAMPLE": "S1366"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHX",
+        "SAMPLE": "S1368"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CAL",
+        "SAMPLE": "S1369"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE",
+        "SAMPLE": "S1370"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC",
+        "SAMPLE": "S1371"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, KAZ, KGZ, PAK, TCS, TKM, TZK, UZB, WHM",
+        "SAMPLE": "S1374"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, GRC",
+        "SAMPLE": "S1375"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALT, AMU, AUT, BAL, BGM, BLR, BLT, BRY, BUL, CHC, CHI, CHM, CHN, CHQ, CHS, CHT, CHX, CTA, CZE, DEN, EHM, FIN, FRA, GER, GRC, HUN, IRK, IRN, ITA, JAP, KAM, KAZ, KGZ, KHA, KRA, KRY, MAG, MON, NCS, NEP, NET, NOR, PAK, PAL, POL, POR, PRM, ROM, RUC, RUE, RUN, RUS, RUW, SAK, SPA, SWE, SWI, TCS, TKM, TUE, TUR, TVA, TZK, UKR, UZB, WHM, WSB, YAK, YUG",
+        "SAMPLE": "S1376"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CPP",
+        "SAMPLE": "S1378"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, CHM, CZE, GER, ITA, JAP, KAM, KHA, KOR, MAG, POL, PRM, ROM, RUW, SAK, SWI, TAI, UKR, YAK, YUG",
+        "SAMPLE": "S1381"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1384"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1386"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1387"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1388"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1389"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NA",
+        "SAMPLE": "S1398"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NZS",
+        "SAMPLE": "S1400"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BGM, COR, FRA, GER, GRB, ITA, MOR, POR, SAR, SPA",
+        "SAMPLE": "S1401"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, BUL, COR, EAI, FRA, GRC, ITA, KRI, POR, SAR, SIC, SPA, SWI, TUE, TUN, TUR, YUG",
+        "SAMPLE": "S1405"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, BAL, BGM, BLR, BLT, BRY, BUL, CHC, CHI, CHM, CHN, CHQ, CHS, CHT, CHX, COR, CTA, CZE, DEN, EGY, EHM, FIN, FRA, GER, GRC, HUN, ICE, IRK, IRN, IRQ, ITA, JAP, KAZ, KGZ, KOR, KRA, KRI, KRY, KUW, LBS, MON, MOR, NCS, NEP, NET, NOR, PAK, PAL, POL, POR, ROM, RUC, RUE, RUN, RUS, RUW, SIC, SPA, SWE, SWI, TCS, TKM, TUE, TUR, TVA, TZK, UKR, UZB, WHM, WSB, YAK, YUG",
+        "SAMPLE": "S1407"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, BAL, CHC, CHI, CHM, CHN, CHQ, CHS, CHX, COR, CYP, EAI, EGY, GRC, GST, IRN, IRQ, ITA, KAZ, KGZ, KRI, KRY, KUW, LBS, LBY, MON, MOR, OMA, PAK, PAL, POR, SAR, SAU, SIC, SIN, SPA, TKM, TUE, TUN, TUR, TZK, UZB, WSA, YEM",
+        "SAMPLE": "S1408"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, IRQ",
+        "SAMPLE": "S1409"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHI, CHM, CHN, CHS, KOR",
+        "SAMPLE": "S1412"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CRZ, HMD, KEG, MPE",
+        "SAMPLE": "S1417"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, AUT, BGM, BLR, BLT, BUL, CHT, CHX, COR, CYP, CZE, DEN, EAI, FIN, FRA, GER, GRB, GRC, HUN, IRE, IRN, IRQ, ITA, KAZ, KGZ, KRY, LBS, MOR, MYA, NCS, NEP, NET, NOR, PAK, PAL, POL, POR, ROM, RUC, RUE, RUN, RUS, RUW, SIC, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TZK, UKR, UZB, WHM, YUG",
+        "SAMPLE": "S1419"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, AZO, BAL, BUL, CNY, COR, CYP, EAI, EGY, ERI, ETH, FRA, GRC, IRN, IRQ, ITA, KGZ, KRI, KRY, LBS, LBY, MDR, MOR, NCS, PAL, POR, SAR, SAU, SIC, SPA, TCS, TKM, TUE, TUN, TUR, TZK, UZB, YEM, YUG",
+        "SAMPLE": "S1421"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NCS, TCS, TUR",
+        "SAMPLE": "S1422"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, NTA, QLD, SOA, TAS, VIC, WAU",
+        "SAMPLE": "S1424"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, CNY, FRA, ITA, MOR, POR, SPA",
+        "SAMPLE": "S1428"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, LBY, TUN",
+        "SAMPLE": "S1442"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "S1449"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KAZ, KGZ, TZK, UZB",
+        "SAMPLE": "S1451"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHA",
+        "SAMPLE": "S1458"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGW",
+        "SAMPLE": "S1459"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN, TCS",
+        "SAMPLE": "S1460"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHT",
+        "SAMPLE": "S1462"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLC, CLS",
+        "SAMPLE": "S1464"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHN, CHQ, CHT, CHX, EHM, KGZ, NEP, TZK, WHM",
+        "SAMPLE": "S1474"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC, CHT, EHM",
+        "SAMPLE": "S1475"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "PER",
+        "SAMPLE": "S1481"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AGS, CLS",
+        "SAMPLE": "S1488"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, IRN, LBS, TUR, UZB",
+        "SAMPLE": "S1498"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, CHA, EGY, IRQ, KUW, LBS, LBY, MOR, MTN, OMA, PAL, SAU, SIN, SUD, WSA, YEM",
+        "SAMPLE": "S1506"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, ALT, AUT, AZO, BAL, BGM, BLR, BLT, BUL, CHI, CHX, COR, CYP, CZE, DEN, EAI, EGY, FRA, GER, GRC, GST, HUN, IRN, IRQ, ITA, KAM, KAZ, KGZ, KHA, KRA, KRI, KRY, KUW, LBY, MAG, MDR, MON, MOR, NCS, NET, NOR, OMA, PAK, PAL, POL, POR, PRM, ROM, RUC, RUE, RUS, RUW, SAR, SAU, SIC, SIN, SPA, SWE, SWI, TCS, TKM, TUE, TUN, TUR, TZK, UKR, UZB, WSB, YUG",
+        "SAMPLE": "S1509"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "SPA",
+        "SAMPLE": "S1519"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALT, CHX, IRN, KAZ, KGZ, MON, NCS, PAK, RUS, TCS, TKM, TZK, UZB",
+        "SAMPLE": "S1539"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXS",
+        "SAMPLE": "S1541"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "HAW",
+        "SAMPLE": "S1561"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NZS",
+        "SAMPLE": "S1579"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, BAL, BUL, CHI, CHX, CNY, COR, CYP, CZE, EAI, EGY, ERI, FRA, GRC, GST, HUN, IRN, IRQ, ITA, KGZ, KRI, KUW, LBS, LBY, MDR, MOR, MTN, NEP, NGR, OMA, PAK, PAL, POR, ROM, SAR, SAU, SIC, SIN, SOM, SPA, SUD, SWI, TCS, TKM, TUE, TUN, TUR, TZK, UZB, WHM, YEM, YUG",
+        "SAMPLE": "SRR11470309"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BUL, COR, CZE, EAI, ERI, ETH, FIN, FRA, GER, GNL, GRB, HUN, ICE, ITA, KEN, KRA, LAB, LBS, NFL, NOR, NUN, POL, QUE, ROM, RUN, RWA, SOM, SPA, SVA, SWE, SWI, TAN, TUR, UGA, UKR, WSB, YUG, ZAI",
+        "SAMPLE": "SRR11470320"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHS",
+        "SAMPLE": "SRR6441723"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, HUN, ROM, YUG",
+        "SAMPLE": "SRR8528336"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "LBS, PAL, TUR",
+        "SAMPLE": "SRR8528338"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AMU, BRY, CHI, CHM, CHN, CHX, CTA, IRK, MON, PRM, TVA, YAK",
+        "SAMPLE": "SRR8528339"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, BGM, COR, CZE, FRA, GER, ITA, SPA, SWI, YUG",
+        "SAMPLE": "SRR8528341"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "NSW, SOA, TAS, VIC, WAU",
+        "SAMPLE": "SRR8528342"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, CHC, CHT, EHM, NEP, PAK, WHM",
+        "SAMPLE": "SRR8528343"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, CHX, EGY, IRN, IRQ, KAZ, KGZ, KRY, KUW, LBS, LBY, MOR, NCS, PAK, PAL, SAU, SIN, SPA, TCS, TKM, TUN, TUR, TZK, UZB, WSA",
+        "SAMPLE": "SRR8528347"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "FRA, ITA, SPA, SWI",
+        "SAMPLE": "SRR8528350"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, COR, FRA, GRC, ITA, SAR, SIC, SPA, YUG",
+        "SAMPLE": "SRR8528354"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALT, ALU, ASK, BLT, BRC, BRY, BUL, CAL, COL, DEN, FIN, FRA, GNL, GRB, ICE, IDA, IRE, IRK, KAM, KRA, KUR, LAB, MAG, MAI, MAN, MIC, MIN, NFL, NOR, NSC, NWH, NWT, NWY, ONT, ORE, QUE, RUC, RUE, RUN, RUW, SAK, SAS, SPA, SWE, UTA, VER, WAS, WSB, WYO, YAK, YUK",
+        "SAMPLE": "SRR8528356"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ABT, AFG, ALB, ALG, ALT, ARI, ASK, AUT, BGM, BLR, BLT, BRC, BRY, BUL, CAL, CHM, CHN, CHS, CHX, CNT, COL, CTA, CYP, CZE, DEL, DEN, FIN, FRA, GER, GRB, GRC, HUN, IDA, ILL, INI, IOW, IRK, IRN, ITA, KAZ, KEN, KGZ, KOR, KRA, KRY, KTY, MAI, MAN, MAS, MIC, MIN, MNT, MON, MOR, MRY, MSO, NBR, NCA, NCS, NDA, NEB, NEP, NET, NEV, NOR, NWH, NWJ, NWM, NWT, NWY, OHI, ONT, ORE, PAK, PEN, POL, POR, QUE, ROM, RUC, RUE, RUN, RUS, RUW, RWA, SAS, SDA, SIC, SPA, SWE, SWI, TAN, TCS, TEN, TKM, TUE, TUR, TZK, UGA, UKR, UTA, UZB, VRG, WAS, WHM, WIS, WSB, WVA, WYO, YUG, YUK, ZAI",
+        "SAMPLE": "SRR8528357"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG",
+        "SAMPLE": "SRR8528358"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC, CHI, CHN, CHQ",
+        "SAMPLE": "SRR8528359"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALG, DJI, EGY, GST, IRN, IRQ, KUW, LBS, LBY, MOR, OMA, PAK, PAL, SAU, SIN, SOM, TUN, YEM",
+        "SAMPLE": "SRR8528361"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLM, ECU, PER",
+        "SAMPLE": "SRR8528364"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, BUL, CHT, CHX, GRC, IRN, KAZ, KGZ, MON, NCS, PAK, TCS, TKM, TZK, UZB, WHM",
+        "SAMPLE": "SRR8528365"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALT, BUL, CHI, CHM, CHN, CHQ, CHS, CHX, IRN, KAZ, KGZ, KRY, LBS, MON, NCS, PAK, RUC, RUE, RUS, TCS, TKM, TUR, TZK, UKR, UZB, WHM, WSB, YUG",
+        "SAMPLE": "SRR8528370"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AFG, ALB, ALG, AUT, BUL, CYP, CZE, EAI, EGY, GER, GRC, HUN, IRN, IRQ, ITA, KAZ, KGZ, KRY, LBS, LBY, MOR, NCS, PAK, PAL, POL, ROM, RUC, RUE, RUS, TCS, TKM, TUE, TUN, TUR, TZK, UKR, UZB, YUG",
+        "SAMPLE": "SRR8528372"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BGM, BLT, DEN, FIN, FOR, FRA, GER, GRB, IRE, NET, NOR, RUN, SWE",
+        "SAMPLE": "SRR8528373"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CHC",
+        "SAMPLE": "SRR8528376"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BUL, COR, CZE, FRA, GER, GRC, ITA, POL, ROM, SPA, SWI, YUG",
+        "SAMPLE": "SRR8528379"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, BUL, GRC, ITA, KRY, ROM, RUS, SIC, TUR, UKR, YUG",
+        "SAMPLE": "SRR8528380"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BRC, CAL, IDA, MNT, NEV, ORE, WAS",
+        "SAMPLE": "SRR8528381"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, AUT, BGM, BLR, BLT, BUL, CZE, DEN, FRA, GER, HUN, ITA, POL, ROM, RUC, RUW, SIC, SPA, SWE, SWI, UKR, YUG",
+        "SAMPLE": "SRR8528382"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALB, ALG, AUT, BUL, COR, CZE, FRA, GER, GRC, HUN, ITA, KRY, LBS, NCS, PAL, ROM, SIC, SPA, SWI, TUE, UKR, YUG",
+        "SAMPLE": "SRR8528384"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE",
+        "SAMPLE": "SRR8528385"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "ALG, SAR, SIC, TUN",
+        "SAMPLE": "SRR8528386"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE",
+        "SAMPLE": "SRR8528388"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MOR",
+        "SAMPLE": "SRR8528389"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "BUL, CYP, LBS, NCS, TUE, TUR",
+        "SAMPLE": "SRR8528391"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "MXE",
+        "SAMPLE": "SRR8528394"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "CLC",
+        "SAMPLE": "SRR8528397"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "IRN",
+        "SAMPLE": "SRR8528398"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "KRI",
+        "SAMPLE": "SRR8528399"
+    },
+    {
+        "WCVP_WGSRPD_LEVEL_3_native": "AUT, CZE, FRA, GER, ITA, SPA, SWI, YUG",
+        "SAMPLE": "SRR8528400"
+    }
+]

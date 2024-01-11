@@ -144,6 +144,9 @@
 	let species = [];
 
 	// for filtering: geography
+	let geographicarea = [];
+	let continents = [];
+	let countries = [];
 
 	// for filtering: characteristics
 	let growthform = [];
@@ -167,6 +170,11 @@
 		tribes: createCheckboxState(),
 		genuses: createCheckboxState(),
 		species: createCheckboxState(),
+
+		// Geography
+		geographicarea: createCheckboxState(),
+		continents: createCheckboxState(),
+		countries: createCheckboxState(),
 
 		// Characteristics
 		growthForm: createCheckboxState(),
@@ -193,7 +201,7 @@
 		}
 
 		/**======================
-		 *    new sets for types of taxonomy
+		 *    NEW SETS FOR FILTERING FAMILIES
 		 *========================**/
 		function processMetadataCategory(key) {
 			return [
@@ -224,11 +232,46 @@
 		console.log("SPECIES:", species);
 
 		/**======================
-		 *    New sets for geography
+		 *   NEW SETS FOR FILTERING GEOGRAPHY
 		 *========================**/
 
+		function processGeographyCategory(key) {
+			return [
+				...new Set(
+					metadata
+						.map((item) => item[key])
+						.filter((item) => item !== "NA")
+						.map(capitalizeFirstLetter)
+						.sort((a, b) => a.localeCompare(b))
+				),
+			];
+		}
+
+		function processCountryCategory(key) {
+			return [
+				...new Set(
+					metadata
+						.flatMap((item) => {
+							const value = item[key];
+							return Array.isArray(value) ? value : [value];
+						})
+						.filter(
+							(item) => item !== "NA" && item !== null && item !== undefined
+						)
+						.sort((a, b) => a.localeCompare(b))
+				),
+			];
+		}
+
+		// geographicarea = processGeographyCategory("WCVP_continent");
+		continents = processGeographyCategory("WCVP_continent");
+		countries = processCountryCategory("WCVP_WGSRPD_LEVEL_3_native");
+
+		console.log(continents);
+		console.log(countries);
+
 		/**======================
-		 *    New sets for characteristics
+		 *    NEW SETS FOR FILTERING CHARACTERISTICS
 		 *========================**/
 		function processCategory(
 			categoryKey,
@@ -522,6 +565,9 @@
 	let searchGenus = "";
 	let searchSpecies = "";
 
+	let searchContinent = "";
+	let searchCountries = "";
+
 	// Function to filter items based on search term
 	function filterItems(searchTerm, items) {
 		searchTerm = searchTerm.trim().toLowerCase();
@@ -591,10 +637,10 @@
 
 <section class="title">
 	<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
 </section>
 
 <section class="filtersystem">
+	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
 	<!-- Filtering on taxonomy -->
 	<button
 		class="filtercategory {taxonomyOpen ? 'open' : ''}"
@@ -742,6 +788,46 @@
 						<label>
 							<input type="checkbox" value={specie} />
 							{specie}
+						</label>
+					{/each}
+				</div>
+			</div>
+		</div>
+	{/if}
+
+	{#if geographyOpen}
+		<div class="dropdown">
+			<!-- CONTINENTS -->
+			<div class="continentfilter">
+				<h3>Continents</h3>
+				<input
+					type="text"
+					placeholder="Search Continent"
+					bind:value={searchContinent}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchContinent, continents) as continent}
+						<label>
+							<input type="checkbox" value={continent} />
+							{continent}
+						</label>
+					{/each}
+				</div>
+			</div>
+
+			<!-- COUNTRIES -->
+			<div class="countriesfilter">
+				<h3>Countries</h3>
+				<input
+					type="text"
+					placeholder="Search Countries"
+					bind:value={searchCountries}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchCountries, countries) as country}
+						<label>
+							<input type="checkbox" value={country} />
+							{country}
 						</label>
 					{/each}
 				</div>
@@ -912,9 +998,9 @@
 		font-family: "Bayon", sans-serif;
 	}
 
-	.title > input[type="text"] {
+	.filtersystem > input[type="text"] {
 		height: 3em;
-		width: 20vw;
+		width: 10vw;
 		padding-left: 3em;
 		border-radius: 25px;
 		border: 1px solid black;
@@ -926,7 +1012,7 @@
 		grid-area: 1 / 4 / 1 / 5;
 	}
 
-	.title > input[type="text"]::placeholder {
+	.filtersystem > input[type="text"]::placeholder {
 		font-style: italic;
 	}
 
