@@ -130,6 +130,7 @@
 	 *               Declaring Variables
 	 *=============================================**/
 	let metadata = [];
+	let landcodes = [];
 	let treeData;
 	const width = 900;
 	const outerRadius = width / 2;
@@ -178,9 +179,9 @@
 
 		// Characteristics
 		growthForm: createCheckboxState(),
+		societaluse: createCheckboxState(),
 		lifeform: createCheckboxState(),
 		climates: createCheckboxState(),
-		societaluse: createCheckboxState(),
 	};
 
 	/**=========================================================
@@ -190,6 +191,10 @@
 		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
+
+		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+		landcodes = await landcodeResponse.json();
+		console.log("LANDCODES", landcodes);
 
 		const svg = createPhylogeneticTree(parsedData);
 		const container = document.querySelector("#phyloTree");
@@ -203,6 +208,23 @@
 		/**======================
 		 *    NEW SETS FOR FILTERING FAMILIES
 		 *========================**/
+		function processFamilyCategory(key) {
+			const families = new Set();
+
+			metadata.forEach((item) => {
+				const family = item[key];
+				if (family !== "NA") {
+					if (family === "Brassicaceae") {
+						families.add("Brassicaceae");
+					} else {
+						families.add("Sample Families");
+					}
+				}
+			});
+
+			return Array.from(families).sort((a, b) => a.localeCompare(b));
+		}
+
 		function processMetadataCategory(key) {
 			return [
 				...new Set(
@@ -216,59 +238,83 @@
 		}
 
 		// Usage
-		families = processMetadataCategory("FAMILY");
+		families = processFamilyCategory("FAMILY");
 		subfamilies = processMetadataCategory("SUBFAMILY");
 		supertribes = processMetadataCategory("SUPERTRIBE");
 		tribes = processMetadataCategory("TRIBE");
 		genuses = processMetadataCategory("GENUS");
 		species = processMetadataCategory("SPECIES");
 
-		// Logging for debugging
-		console.log("FAMILIES:", families);
-		console.log("SUBFAMILIES:", subfamilies);
-		console.log("SUPERTRIBES:", supertribes);
-		console.log("TRIBES:", tribes);
-		console.log("GENUSES:", genuses);
-		console.log("SPECIES:", species);
-
 		/**======================
 		 *   NEW SETS FOR FILTERING GEOGRAPHY
 		 *========================**/
 
-		function processGeographyCategory(key) {
-			return [
-				...new Set(
-					metadata
-						.map((item) => item[key])
-						.filter((item) => item !== "NA")
-						.map(capitalizeFirstLetter)
-						.sort((a, b) => a.localeCompare(b))
-				),
-			];
+		function processContinentCategory(category, geographyKey) {
+			const processedContinents = new Set(
+				metadata
+					.map((item) => item[geographyKey])
+					.filter((item) => item !== "NA")
+			);
+
+			const checkboxItems = Array.from(processedContinents)
+				.map((item) => ({
+					label: capitalizeFirstLetter(item),
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+
+			console.log(`${category.toUpperCase()}:`, checkboxItems);
+
+			// Assuming geographicarea and continents are global or accessible variables
+			if (category === "geographicarea") {
+				geographicarea = checkboxItems;
+			} else if (category === "continents") {
+				continents = checkboxItems;
+			}
 		}
 
-		function processCountryCategory(key) {
-			return [
-				...new Set(
-					metadata
-						.flatMap((item) => {
-							const value = item[key];
-							return Array.isArray(value) ? value : [value];
-						})
-						.filter(
-							(item) => item !== "NA" && item !== null && item !== undefined
-						)
-						.sort((a, b) => a.localeCompare(b))
-				),
-			];
+		function processCountryCategory(
+			countryVariable,
+			countryKey,
+			isArrayOfValues = false
+		) {
+			const processedCountries = new Set(
+				metadata.flatMap((item) => {
+					const value = item[countryKey];
+					return isArrayOfValues
+						? Array.isArray(value)
+							? value
+							: [value]
+						: [value];
+				})
+			);
+
+			const checkboxItems = Array.from(processedCountries)
+				.filter((item) => item !== "NA")
+				.map((countryCode) => {
+					// Find the corresponding entry in landcodes
+					const landcodeEntry = landcodes.find((lc) => lc.code === countryCode);
+					// Use WGSRPD_name as label, or default to countryCode if not found
+					const label = landcodeEntry ? landcodeEntry.WGSRPD_name : countryCode;
+
+					return {
+						label: label,
+						checked: false,
+					};
+				})
+				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+
+			console.log(`${countryVariable.toUpperCase()}:`, checkboxItems);
+
+			countries = checkboxItems;
 		}
 
-		// geographicarea = processGeographyCategory("WCVP_continent");
-		continents = processGeographyCategory("WCVP_continent");
-		countries = processCountryCategory("WCVP_WGSRPD_LEVEL_3_native");
+		processContinentCategory("geographicarea", "WCVP_geographic_area");
+		processContinentCategory("continents", "WCVP_continent");
+		processCountryCategory("countries", "WCVP_WGSRPD_LEVEL_3_native", true);
 
 		console.log(continents);
-		console.log(countries);
+		console.log("COUNTRIES WITH COUNTRY VARIABLE:", countries);
 
 		/**======================
 		 *    NEW SETS FOR FILTERING CHARACTERISTICS
@@ -565,6 +611,7 @@
 	let searchGenus = "";
 	let searchSpecies = "";
 
+	let searchGeographicArea = "";
 	let searchContinent = "";
 	let searchCountries = "";
 
@@ -575,7 +622,15 @@
 			console.log("Filtering");
 			return items; // Return all items if search term is empty
 		}
-		return items.filter((item) => item.toLowerCase().startsWith(searchTerm));
+		return items
+			.filter((item) => item.label.toLowerCase().startsWith(searchTerm))
+			.sort((a, b) => {
+				// Sort checked items to the top
+				if (a.checked === b.checked) {
+					return a.label.localeCompare(b.label); // Then alphabetically
+				}
+				return a.checked ? -1 : 1;
+			});
 	}
 
 	function toggleSelectAll(category) {
@@ -594,7 +649,14 @@
 	}
 
 	function handleCheckboxChange(category) {
-		// No longer updating 'allSelected' here
+		let item = checkboxStates[category].items.find(
+			(item) => item.label === itemLabel
+		);
+		if (item) {
+			item.checked = !item.checked;
+		}
+
+		// Update the checkboxStates as before
 		checkboxStates = {
 			...checkboxStates,
 			[category]: {
@@ -797,6 +859,28 @@
 
 	{#if geographyOpen}
 		<div class="dropdown">
+			<!-- GEOGRAPHIC AREA -->
+			<div class="geographicareafilter">
+				<h3>Geographic Area</h3>
+				<input
+					type="text"
+					placeholder="Search Geographic Area"
+					bind:value={searchGeographicArea}
+				/>
+				<div class="checkbox-list">
+					{#each filterItems(searchGeographicArea, geographicarea) as geographicareas}
+						<label>
+							<input
+								type="checkbox"
+								bind:checked={geographicareas.checked}
+								value={geographicareas}
+							/>
+							{geographicareas.label}
+						</label>
+					{/each}
+				</div>
+			</div>
+
 			<!-- CONTINENTS -->
 			<div class="continentfilter">
 				<h3>Continents</h3>
@@ -808,8 +892,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchContinent, continents) as continent}
 						<label>
-							<input type="checkbox" value={continent} />
-							{continent}
+							<input
+								type="checkbox"
+								bind:checked={continent.checked}
+								value={continent.label}
+							/>
+							{continent.label}
 						</label>
 					{/each}
 				</div>
@@ -826,8 +914,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchCountries, countries) as country}
 						<label>
-							<input type="checkbox" value={country} />
-							{country}
+							<input
+								type="checkbox"
+								bind:checked={country.checked}
+								value={country.label}
+							/>
+							{country.label}
 						</label>
 					{/each}
 				</div>
