@@ -752,375 +752,378 @@
 <section class="filtersystem">
 	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
 
-	<!-- Filtering on taxonomy -->
-	<button
-		class="filtercategory {taxonomyOpen ? 'open' : ''}"
-		on:click={() => {
-			taxonomyOpen = !taxonomyOpen;
-			if (taxonomyOpen) {
-				geographyOpen = false;
-				characteristicsOpen = false;
-			}
-		}}
-	>
-		Taxonomy
-		<span class="arrow"></span>
-	</button>
+	<section class="dropdown-container">
+		<!-- Filtering on taxonomy -->
+		<button
+			class="filtercategory {taxonomyOpen ? 'open' : ''}"
+			on:click={() => {
+				taxonomyOpen = !taxonomyOpen;
+				if (taxonomyOpen) {
+					geographyOpen = false;
+					characteristicsOpen = false;
+				}
+			}}
+		>
+			Taxonomy
+			<span class="arrow"></span>
+		</button>
 
-	<!-- Filtering on geography -->
-	<button
-		class="filtercategory {geographyOpen ? 'open' : ''}"
-		on:click={() => {
-			geographyOpen = !geographyOpen;
-			if (geographyOpen) {
-				taxonomyOpen = false;
-				characteristicsOpen = false;
-			}
-		}}
-		>Geography
-		<span class="arrow"></span></button
-	>
+		{#if taxonomyOpen}
+			<div class="taxonomyDropdown">
+				<!-- FAMILY -->
+				<div class="filter">
+					<h3>Family</h3>
+					<input
+						type="text"
+						placeholder="Search Family"
+						bind:value={searchFamily}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchFamily, families) as family}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={family.checked}
+									value={family}
+								/>
+								{family.label}
+							</label>
+						{/each}
+					</div>
+				</div>
 
-	<!-- Filtering on characteristics -->
-	<button
-		class="filtercategory {characteristicsOpen ? 'open' : ''}"
-		on:click={() => {
-			characteristicsOpen = !characteristicsOpen;
-			if (characteristicsOpen) {
-				taxonomyOpen = false;
-				geographyOpen = false;
-			}
-		}}
-		>Characteristics
-		<span class="arrow"></span></button
-	>
+				<!-- Subfamily -->
+				<div class="filter">
+					<h3>Subfamily</h3>
+					<input
+						type="text"
+						placeholder="Search Subfamily"
+						bind:value={searchSubfamily}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchSubfamily, subfamilies) as subfamily}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={subfamily.checked}
+									value={subfamily}
+								/>
+								{subfamily.label}
+							</label>
+						{/each}
+					</div>
+				</div>
 
-	<!-- DROPDOWN CONTENTS -->
-	{#if taxonomyOpen}
-		<div class="dropdown">
-			<!-- FAMILY -->
-			<div class="familyfilter">
-				<h3>Family</h3>
-				<input
-					type="text"
-					placeholder="Search Family"
-					bind:value={searchFamily}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchFamily, families) as family}
+				<!-- Supertribe -->
+				<div class="filter">
+					<h3>Supertribe</h3>
+					<input
+						type="text"
+						placeholder="Search Supertribe"
+						bind:value={searchSupertribe}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchSupertribe, supertribes) as supertribe}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={supertribe.checked}
+									value={supertribe}
+								/>
+								{supertribe.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- Tribe -->
+				<div class="filter">
+					<h3>Tribe</h3>
+					<input
+						type="text"
+						placeholder="Search Tribe"
+						bind:value={searchTribe}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchTribe, tribes) as tribe}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={tribe.checked}
+									value={tribe}
+								/>
+								{tribe.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- Genus -->
+				<div class="filter">
+					<h3>Genus</h3>
+					<input
+						type="text"
+						placeholder="Search Genus"
+						bind:value={searchGenus}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchGenus, genuses) as genus}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={genus.checked}
+									value={genus}
+								/>
+								{genus.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- Species -->
+				<div class="filter">
+					<h3>Species</h3>
+					<input
+						type="text"
+						placeholder="Search Species"
+						bind:value={searchSpecies}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchSpecies, species) as specie}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={specie.checked}
+									value={specie}
+								/>
+								{specie.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+			</div>
+		{/if}
+	</section>
+
+	<section class="dropdown-container">
+		<!-- Filtering on geography -->
+		<button
+			class="filtercategory {geographyOpen ? 'open' : ''}"
+			on:click={() => {
+				geographyOpen = !geographyOpen;
+				if (geographyOpen) {
+					taxonomyOpen = false;
+					characteristicsOpen = false;
+				}
+			}}
+			>Geography
+			<span class="arrow"></span></button
+		>
+		{#if geographyOpen}
+			<div class="geographyDropdown">
+				<!-- GEOGRAPHIC AREA -->
+				<div class="filter">
+					<h3>Geographic Area</h3>
+					<input
+						type="text"
+						placeholder="Search Geographic Area"
+						bind:value={searchGeographicArea}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchGeographicArea, geographicareas) as geographicarea}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={geographicarea.checked}
+									value={geographicarea}
+								/>
+								{geographicarea.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- CONTINENTS -->
+				<div class="filter">
+					<h3>Continents</h3>
+					<input
+						type="text"
+						placeholder="Search Continent"
+						bind:value={searchContinent}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchContinent, continents) as continent}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={continent.checked}
+									value={continent.label}
+								/>
+								{continent.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- COUNTRIES -->
+				<div class="filter">
+					<h3>Countries</h3>
+					<input
+						type="text"
+						placeholder="Search Countries"
+						bind:value={searchCountries}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(searchCountries, countries) as country}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={country.checked}
+									value={country.label}
+								/>
+								{country.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+			</div>
+		{/if}
+	</section>
+
+	<section class="dropdown-container">
+		<!-- Filtering on characteristics -->
+		<button
+			class="filtercategory {characteristicsOpen ? 'open' : ''}"
+			on:click={() => {
+				characteristicsOpen = !characteristicsOpen;
+				if (characteristicsOpen) {
+					taxonomyOpen = false;
+					geographyOpen = false;
+				}
+			}}
+			>Characteristics
+			<span class="arrow"></span></button
+		>
+		{#if characteristicsOpen}
+			<div class="characteristicsDropdown">
+				<!-- GROWTH FORM -->
+				<div class="filter">
+					<h3>Growth Form</h3>
+					<div class="checkbox-list">
 						<label>
 							<input
 								type="checkbox"
-								bind:checked={family.checked}
-								value={family}
+								bind:checked={checkboxStates.growthForm.allSelected}
+								on:change={() => toggleSelectAll("growthForm")}
 							/>
-							{family.label}
+							{#if checkboxStates.growthForm.allSelected}
+								Deselect All
+							{:else}
+								Select All
+							{/if}
 						</label>
-					{/each}
+						{#each checkboxStates.growthForm.items as item}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={item.checked}
+									on:change={() => handleCheckboxChange("growthForm")}
+								/>
+								{item.label}
+							</label>
+						{/each}
+					</div>
 				</div>
-			</div>
 
-			<!-- Subfamily -->
-			<div class="subfamilyfilter">
-				<h3>Subfamily</h3>
-				<input
-					type="text"
-					placeholder="Search Subfamily"
-					bind:value={searchSubfamily}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchSubfamily, subfamilies) as subfamily}
+				<!-- SOCIETAL USE -->
+				<div class="filter">
+					<h3>Societal Use</h3>
+					<div class="checkbox-list">
 						<label>
 							<input
 								type="checkbox"
-								bind:checked={subfamily.checked}
-								value={subfamily}
+								bind:checked={checkboxStates.societaluse.allSelected}
+								on:change={() => toggleSelectAll("societaluse")}
 							/>
-							{subfamily.label}
+							{#if checkboxStates.societaluse.allSelected}
+								Deselect All
+							{:else}
+								Select All
+							{/if}
 						</label>
-					{/each}
+						{#each checkboxStates.societaluse.items as item}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={item.checked}
+									on:change={() => handleCheckboxChange("societaluse")}
+								/>
+								{item.label}
+							</label>
+						{/each}
+					</div>
 				</div>
-			</div>
 
-			<!-- Supertribe -->
-			<div class="supertribefilter">
-				<h3>Supertribe</h3>
-				<input
-					type="text"
-					placeholder="Search Supertribe"
-					bind:value={searchSupertribe}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchSupertribe, supertribes) as supertribe}
+				<!-- LIFE FORM -->
+				<div class="filter">
+					<h3>Life Form</h3>
+					<div class="checkbox-list">
 						<label>
 							<input
 								type="checkbox"
-								bind:checked={supertribe.checked}
-								value={supertribe}
+								bind:checked={checkboxStates.lifeform.allSelected}
+								on:change={() => toggleSelectAll("lifeform")}
 							/>
-							{supertribe.label}
+							{#if checkboxStates.lifeform.allSelected}
+								Deselect All
+							{:else}
+								Select All
+							{/if}
 						</label>
-					{/each}
+						{#each checkboxStates.lifeform.items as item}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={item.checked}
+									on:change={() => handleCheckboxChange("lifeform")}
+								/>
+								{item.label}
+							</label>
+						{/each}
+					</div>
 				</div>
-			</div>
 
-			<!-- Tribe -->
-			<div class="tribefilter">
-				<h3>Tribe</h3>
-				<input
-					type="text"
-					placeholder="Search Tribe"
-					bind:value={searchTribe}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchTribe, tribes) as tribe}
+				<!-- CLIMATE -->
+				<div class="filter">
+					<h3>Climates</h3>
+					<div class="checkbox-list">
 						<label>
 							<input
 								type="checkbox"
-								bind:checked={tribe.checked}
-								value={tribe}
+								bind:checked={checkboxStates.climates.allSelected}
+								on:change={() => toggleSelectAll("climates")}
 							/>
-							{tribe.label}
+							{#if checkboxStates.climates.allSelected}
+								Deselect All
+							{:else}
+								Select All
+							{/if}
 						</label>
-					{/each}
+						{#each checkboxStates.climates.items as item}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={item.checked}
+									on:change={() => handleCheckboxChange("climates")}
+								/>
+								<span>{item.label}</span>
+							</label>
+						{/each}
+					</div>
 				</div>
 			</div>
-
-			<!-- Genus -->
-			<div class="genusfilter">
-				<h3>Genus</h3>
-				<input
-					type="text"
-					placeholder="Search Genus"
-					bind:value={searchGenus}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchGenus, genuses) as genus}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={genus.checked}
-								value={genus}
-							/>
-							{genus.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- Species -->
-			<div class="speciesfilter">
-				<h3>Species</h3>
-				<input
-					type="text"
-					placeholder="Search Species"
-					bind:value={searchSpecies}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchSpecies, species) as specie}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={specie.checked}
-								value={specie}
-							/>
-							{specie.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-		</div>
-	{/if}
-
-	{#if geographyOpen}
-		<div class="dropdown">
-			<!-- GEOGRAPHIC AREA -->
-			<div class="geographicareafilter">
-				<h3>Geographic Area</h3>
-				<input
-					type="text"
-					placeholder="Search Geographic Area"
-					bind:value={searchGeographicArea}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchGeographicArea, geographicareas) as geographicarea}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={geographicarea.checked}
-								value={geographicarea}
-							/>
-							{geographicarea.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- CONTINENTS -->
-			<div class="continentfilter">
-				<h3>Continents</h3>
-				<input
-					type="text"
-					placeholder="Search Continent"
-					bind:value={searchContinent}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchContinent, continents) as continent}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={continent.checked}
-								value={continent.label}
-							/>
-							{continent.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- COUNTRIES -->
-			<div class="countriesfilter">
-				<h3>Countries</h3>
-				<input
-					type="text"
-					placeholder="Search Countries"
-					bind:value={searchCountries}
-				/>
-				<div class="checkbox-list">
-					{#each filterItems(searchCountries, countries) as country}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={country.checked}
-								value={country.label}
-							/>
-							{country.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-		</div>
-	{/if}
-
-	{#if characteristicsOpen}
-		<div class="dropdown">
-			<!-- GROWTH FORM -->
-			<div class="growthform-filter">
-				<h3>Growth Form</h3>
-				<div class="checkbox-list">
-					<label>
-						<input
-							type="checkbox"
-							bind:checked={checkboxStates.growthForm.allSelected}
-							on:change={() => toggleSelectAll("growthForm")}
-						/>
-						{#if checkboxStates.growthForm.allSelected}
-							Deselect All
-						{:else}
-							Select All
-						{/if}
-					</label>
-					{#each checkboxStates.growthForm.items as item}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={item.checked}
-								on:change={() => handleCheckboxChange("growthForm")}
-							/>
-							{item.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- SOCIETAL USE -->
-			<div class="societaluse-filter">
-				<h3>Societal Use</h3>
-				<div class="checkbox-list">
-					<label>
-						<input
-							type="checkbox"
-							bind:checked={checkboxStates.societaluse.allSelected}
-							on:change={() => toggleSelectAll("societaluse")}
-						/>
-						{#if checkboxStates.societaluse.allSelected}
-							Deselect All
-						{:else}
-							Select All
-						{/if}
-					</label>
-					{#each checkboxStates.societaluse.items as item}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={item.checked}
-								on:change={() => handleCheckboxChange("societaluse")}
-							/>
-							{item.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- LIFE FORM -->
-			<div class="lifeform-filter">
-				<h3>Life Form</h3>
-				<div class="checkbox-list">
-					<label>
-						<input
-							type="checkbox"
-							bind:checked={checkboxStates.lifeform.allSelected}
-							on:change={() => toggleSelectAll("lifeform")}
-						/>
-						{#if checkboxStates.lifeform.allSelected}
-							Deselect All
-						{:else}
-							Select All
-						{/if}
-					</label>
-					{#each checkboxStates.lifeform.items as item}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={item.checked}
-								on:change={() => handleCheckboxChange("lifeform")}
-							/>
-							{item.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-
-			<!-- CLIMATE -->
-			<div class="climate-filter">
-				<h3>Climates</h3>
-				<div class="checkbox-list">
-					<label>
-						<input
-							type="checkbox"
-							bind:checked={checkboxStates.climates.allSelected}
-							on:change={() => toggleSelectAll("climates")}
-						/>
-						{#if checkboxStates.climates.allSelected}
-							Deselect All
-						{:else}
-							Select All
-						{/if}
-					</label>
-					{#each checkboxStates.climates.items as item}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={item.checked}
-								on:change={() => handleCheckboxChange("climates")}
-							/>
-							{item.label}
-						</label>
-					{/each}
-				</div>
-			</div>
-		</div>
-	{/if}
+		{/if}
+	</section>
 </section>
 
 <div id="phyloTree" />
@@ -1231,7 +1234,14 @@
 	/*    DROPDOWNS  */
 	/*****************/
 
-	.dropdown {
+	.taxonomyDropdown {
+		position: absolute;
+		left: 0;
+	}
+
+	.taxonomyDropdown,
+	.geographyDropdown,
+	.characteristicsDropdown {
 		display: flex;
 		position: absolute;
 		min-width: max-content;
@@ -1246,6 +1256,30 @@
 		border-radius: 0 0 10px 10px;
 	}
 
+	/* Geographical dropdown */
+	.geographyDropdown .filter {
+		min-width: 12vw;
+	}
+
+	.geographyDropdown input[type="text"] {
+		min-width: 90%;
+	}
+
+	/* Characteristics dropdown */
+	.characteristicsDropdown .filter {
+		max-width: 7vw;
+	}
+
+	.characteristicsDropdown .filter:nth-of-type(3) label,
+	.characteristicsDropdown .filter:nth-of-type(4) label {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 5px; /* Adjust as needed for space between checkboxes */
+	}
+
+	/* ********** */
+	/* Checkboxes */
+	/* ********** */
 	.checkbox-list {
 		height: 20vh;
 		overflow-y: auto;
@@ -1259,7 +1293,18 @@
 		font-size: 12px;
 	}
 
-	.dropdown > div > input[type="text"] {
+	.checkbox-list input[type="checkbox"] {
+		margin-right: 5px;
+	}
+
+	.checkbox-list span {
+		flex: 1;
+		text-align: left;
+		/*margin-left: 1px; /* This pushes the label text to the right of the checkbox */
+	}
+
+	.taxonomyDropdown > div > input[type="text"],
+	.geographyDropdown > div > input[type="text"] {
 		background-color: #e9e9e9;
 		border: none;
 		border-radius: 5px;
@@ -1273,13 +1318,10 @@
 		background-repeat: no-repeat;
 	}
 
-	.dropdown > div > input[type="text"]::placeholder {
+	.taxonomyDropdown > div > input[type="text"]::placeholder,
+	.geographyDropdown > div > input[type="text"]::placeholder {
 		font-style: italic;
 		color: #252525;
 		font-size: 0.8em;
-	}
-
-	.checkbox-list label input[type="checkbox"] {
-		border: 1px solid black;
 	}
 </style>
