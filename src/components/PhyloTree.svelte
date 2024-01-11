@@ -1087,7 +1087,7 @@
 									bind:checked={item.checked}
 									on:change={() => handleCheckboxChange("lifeform")}
 								/>
-								{item.label}
+								<span>{item.label}</span>
 							</label>
 						{/each}
 					</div>
@@ -1256,6 +1256,10 @@
 		border-radius: 0 0 10px 10px;
 	}
 
+	.characteristicsDropdown {
+		gap: 0 !important;
+	}
+
 	/* Geographical dropdown */
 	.geographyDropdown .filter {
 		min-width: 12vw;
@@ -1266,20 +1270,44 @@
 	}
 
 	/* Characteristics dropdown */
-	.characteristicsDropdown .filter {
-		max-width: 7vw;
+	.characteristicsDropdown .filter:nth-of-type(1),
+	.characteristicsDropdown .filter:nth-of-type(2) {
+		margin-right: 4vw;
 	}
 
-	.characteristicsDropdown .filter:nth-of-type(3) label,
-	.characteristicsDropdown .filter:nth-of-type(4) label {
+	.characteristicsDropdown .filter:nth-of-type(3) {
+		max-width: 9vw;
+	}
+
+	.characteristicsDropdown .filter:nth-of-type(4) {
+		max-width: 8vw;
+	}
+
+	.characteristicsDropdown .filter:nth-of-type(3) .checkbox-list label,
+	.characteristicsDropdown .filter:nth-of-type(4) .checkbox-list label {
 		display: flex;
 		align-items: flex-start;
-		margin-bottom: 5px; /* Adjust as needed for space between checkboxes */
+		margin-bottom: 5px;
 	}
 
-	/* ********** */
-	/* Checkboxes */
-	/* ********** */
+	.characteristicsDropdown
+		.filter:nth-of-type(3)
+		.checkbox-list
+		input[type="checkbox"],
+	.characteristicsDropdown
+		.filter:nth-of-type(4)
+		.checkbox-list
+		input[type="checkbox"] {
+		margin-right: 5px;
+	}
+
+	.characteristicsDropdown .filter:nth-of-type(3) .checkbox-list span,
+	.characteristicsDropdown .filter:nth-of-type(4) .checkbox-list span {
+		flex: 1;
+		text-align: left;
+		margin-left: 1px;
+	}
+
 	.checkbox-list {
 		height: 20vh;
 		overflow-y: auto;
@@ -1291,16 +1319,6 @@
 		display: block;
 		margin-bottom: 5px;
 		font-size: 12px;
-	}
-
-	.checkbox-list input[type="checkbox"] {
-		margin-right: 5px;
-	}
-
-	.checkbox-list span {
-		flex: 1;
-		text-align: left;
-		/*margin-left: 1px; /* This pushes the label text to the right of the checkbox */
 	}
 
 	.taxonomyDropdown > div > input[type="text"],
@@ -1323,5 +1341,9 @@
 		font-style: italic;
 		color: #252525;
 		font-size: 0.8em;
+	}
+
+	.checkbox-list label input[type="checkbox"] {
+		border: 1px solid black;
 	}
 </style>
