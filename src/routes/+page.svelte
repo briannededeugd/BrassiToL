@@ -7,4 +7,7 @@
 </main>
 
 <style>
+	main {
+		margin: 0.75em 2em;
+	}
 </style>

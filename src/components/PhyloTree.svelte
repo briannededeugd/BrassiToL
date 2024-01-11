@@ -145,7 +145,7 @@
 	let species = [];
 
 	// for filtering: geography
-	let geographicarea = [];
+	let geographicareas = [];
 	let continents = [];
 	let countries = [];
 
@@ -173,7 +173,7 @@
 		species: createCheckboxState(),
 
 		// Geography
-		geographicarea: createCheckboxState(),
+		geographicareas: createCheckboxState(),
 		continents: createCheckboxState(),
 		countries: createCheckboxState(),
 
@@ -264,6 +264,27 @@
 		 *   NEW SETS FOR FILTERING GEOGRAPHY
 		 *========================**/
 
+		function processGeographicAreaCategory(metadata, landcodes) {
+			const areaNameToCode = new Map();
+			metadata
+				.flatMap((item) => item.WCVP_WGSRPD_LEVEL_1_native || [])
+				.filter((code) => code !== "NA")
+				.forEach((code) => {
+					const areaName = landcodes[code] ? landcodes[code].WGSRPD_name : code;
+					areaNameToCode.set(areaName, code); // This ensures each name is unique
+				});
+
+			const checkboxItems = Array.from(areaNameToCode.keys())
+				.map((areaName) => ({
+					label: areaName,
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label));
+
+			console.log("GEOGRAPHIC AREAS:", checkboxItems);
+			geographicareas = checkboxItems;
+		}
+
 		function processContinentCategory(category, geographyKey) {
 			const processedContinents = new Set(
 				metadata
@@ -324,8 +345,8 @@
 			countries = checkboxItems;
 		}
 
-		processContinentCategory("geographicarea", "WCVP_geographic_area");
 		processContinentCategory("continents", "WCVP_continent");
+		processGeographicAreaCategory(metadata, landcodes);
 		processCountryCategory("countries", "WCVP_WGSRPD_LEVEL_3_native", true);
 
 		console.log(continents);
@@ -339,6 +360,11 @@
 			metadataKey,
 			isArrayOfValues = false
 		) {
+			const growthFormLabelMapping = {
+				H: "Herbaceous",
+				W: "Woody",
+			};
+
 			const processedItems = new Set(
 				metadata.flatMap((item) => {
 					const value = item[metadataKey];
@@ -352,10 +378,19 @@
 
 			const checkboxItems = Array.from(processedItems)
 				.filter((item) => item !== "NA")
-				.map((item) => ({
-					label: capitalizeFirstLetter(item),
-					checked: false,
-				}))
+				.map((item) => {
+					let label = item;
+					if (metadataKey === "GROWTH_FORM") {
+						label = growthFormLabelMapping[item] || item;
+					} else {
+						label = capitalizeFirstLetter(item);
+					}
+					return {
+						label: label,
+						value: item,
+						checked: false,
+					};
+				})
 				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
 
 			console.log(`${categoryKey.toUpperCase()}:`, checkboxItems);
@@ -369,6 +404,100 @@
 		processCategory("lifeform", "WCVP_lifeform_description", true);
 		processCategory("climates", "WCVP_climate_description");
 	});
+
+	/**============================================
+	 *               FILTER SYSTEM
+	 *=============================================**/
+
+	//  TAXONOMY
+	let taxonomyOpen = false;
+	let geographyOpen = false;
+	let characteristicsOpen = false;
+
+	let searchFamily = "";
+	let searchSubfamily = "";
+	let searchSupertribe = "";
+	let searchTribe = "";
+	let searchGenus = "";
+	let searchSpecies = "";
+
+	let searchGeographicArea = "";
+	let searchContinent = "";
+	let searchCountries = "";
+
+	// Function to filter items based on search term
+	function filterItems(searchTerm, items) {
+		searchTerm = searchTerm.trim().toLowerCase();
+		if (searchTerm === "") {
+			console.log("Filtering");
+			return items; // Return all items if search term is empty
+		}
+		return items
+			.filter((item) => item.label.toLowerCase().startsWith(searchTerm))
+			.sort((a, b) => {
+				// Sort checked items to the top
+				if (a.checked === b.checked) {
+					return a.label.localeCompare(b.label); // Then alphabetically
+				}
+				return a.checked ? -1 : 1;
+			});
+	}
+
+	function toggleSelectAll(category) {
+		const allSelected = !checkboxStates[category].allSelected;
+		checkboxStates = {
+			...checkboxStates,
+			[category]: {
+				...checkboxStates[category],
+				allSelected: allSelected,
+				items: checkboxStates[category].items.map((item) => ({
+					...item,
+					checked: allSelected,
+				})),
+			},
+		};
+	}
+
+	function handleCheckboxChange(category) {
+		let item = checkboxStates[category].items.find(
+			(item) => item.label === itemLabel
+		);
+		if (item) {
+			item.checked = !item.checked;
+		}
+
+		// Update the checkboxStates as before
+		checkboxStates = {
+			...checkboxStates,
+			[category]: {
+				...checkboxStates[category],
+				items: [...checkboxStates[category].items],
+			},
+		};
+	}
+
+	// Reactive statements for each category
+	$: if (checkboxStates.growthForm.items.length > 0) {
+		checkboxStates.growthForm.allSelected =
+			checkboxStates.growthForm.items.every((item) => item.checked);
+	}
+
+	$: if (checkboxStates.societaluse.items.length > 0) {
+		checkboxStates.societaluse.allSelected =
+			checkboxStates.societaluse.items.every((item) => item.checked);
+	}
+
+	$: if (checkboxStates.lifeform.items.length > 0) {
+		checkboxStates.lifeform.allSelected = checkboxStates.lifeform.items.every(
+			(item) => item.checked
+		);
+	}
+
+	$: if (checkboxStates.climates.items.length > 0) {
+		checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
+			(item) => item.checked
+		);
+	}
 
 	/**========================================================================
 	 *                           BUILDING THE CHART
@@ -445,21 +574,19 @@
 		// svg.append("g").call(legend);
 
 		svg.append("style").text(`
+			.link--active {
+  				stroke: #000 !important;
+  				stroke-width: 1.5px;
+			}
 
-.link--active {
-  stroke: #000 !important;
-  stroke-width: 1.5px;
-}
+			.link-extension--active {
+  				stroke-opacity: .6;
+			}
 
-.link-extension--active {
-  stroke-opacity: .6;
-}
-
-.label--active {
-  font-weight: bold;
-}
-
-`);
+			.label--active {
+  				font-weight: bold;
+			}
+		`);
 
 		const linkExtension = svg
 			.append("g")
@@ -609,100 +736,6 @@
 	let linkConstant = (d) => {
 		return linkStep(d.source.x, d.source.y, d.target.x, d.target.y);
 	};
-
-	/**============================================
-	 *               FILTER SYSTEM
-	 *=============================================**/
-
-	//  TAXONOMY
-	let taxonomyOpen = false;
-	let geographyOpen = false;
-	let characteristicsOpen = false;
-
-	let searchFamily = "";
-	let searchSubfamily = "";
-	let searchSupertribe = "";
-	let searchTribe = "";
-	let searchGenus = "";
-	let searchSpecies = "";
-
-	let searchGeographicArea = "";
-	let searchContinent = "";
-	let searchCountries = "";
-
-	// Function to filter items based on search term
-	function filterItems(searchTerm, items) {
-		searchTerm = searchTerm.trim().toLowerCase();
-		if (searchTerm === "") {
-			console.log("Filtering");
-			return items; // Return all items if search term is empty
-		}
-		return items
-			.filter((item) => item.label.toLowerCase().startsWith(searchTerm))
-			.sort((a, b) => {
-				// Sort checked items to the top
-				if (a.checked === b.checked) {
-					return a.label.localeCompare(b.label); // Then alphabetically
-				}
-				return a.checked ? -1 : 1;
-			});
-	}
-
-	function toggleSelectAll(category) {
-		const allSelected = !checkboxStates[category].allSelected;
-		checkboxStates = {
-			...checkboxStates,
-			[category]: {
-				...checkboxStates[category],
-				allSelected: allSelected,
-				items: checkboxStates[category].items.map((item) => ({
-					...item,
-					checked: allSelected,
-				})),
-			},
-		};
-	}
-
-	function handleCheckboxChange(category) {
-		let item = checkboxStates[category].items.find(
-			(item) => item.label === itemLabel
-		);
-		if (item) {
-			item.checked = !item.checked;
-		}
-
-		// Update the checkboxStates as before
-		checkboxStates = {
-			...checkboxStates,
-			[category]: {
-				...checkboxStates[category],
-				items: [...checkboxStates[category].items],
-			},
-		};
-	}
-
-	// Reactive statements for each category
-	$: if (checkboxStates.growthForm.items.length > 0) {
-		checkboxStates.growthForm.allSelected =
-			checkboxStates.growthForm.items.every((item) => item.checked);
-	}
-
-	$: if (checkboxStates.societaluse.items.length > 0) {
-		checkboxStates.societaluse.allSelected =
-			checkboxStates.societaluse.items.every((item) => item.checked);
-	}
-
-	$: if (checkboxStates.lifeform.items.length > 0) {
-		checkboxStates.lifeform.allSelected = checkboxStates.lifeform.items.every(
-			(item) => item.checked
-		);
-	}
-
-	$: if (checkboxStates.climates.items.length > 0) {
-		checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
-			(item) => item.checked
-		);
-	}
 </script>
 
 <svelte:head>
@@ -718,6 +751,7 @@
 
 <section class="filtersystem">
 	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
+
 	<!-- Filtering on taxonomy -->
 	<button
 		class="filtercategory {taxonomyOpen ? 'open' : ''}"
@@ -733,6 +767,7 @@
 		<span class="arrow"></span>
 	</button>
 
+	<!-- Filtering on geography -->
 	<button
 		class="filtercategory {geographyOpen ? 'open' : ''}"
 		on:click={() => {
@@ -746,6 +781,7 @@
 		<span class="arrow"></span></button
 	>
 
+	<!-- Filtering on characteristics -->
 	<button
 		class="filtercategory {characteristicsOpen ? 'open' : ''}"
 		on:click={() => {
@@ -907,14 +943,14 @@
 					bind:value={searchGeographicArea}
 				/>
 				<div class="checkbox-list">
-					{#each filterItems(searchGeographicArea, geographicarea) as geographicareas}
+					{#each filterItems(searchGeographicArea, geographicareas) as geographicarea}
 						<label>
 							<input
 								type="checkbox"
-								bind:checked={geographicareas.checked}
-								value={geographicareas}
+								bind:checked={geographicarea.checked}
+								value={geographicarea}
 							/>
-							{geographicareas.label}
+							{geographicarea.label}
 						</label>
 					{/each}
 				</div>
@@ -1131,7 +1167,7 @@
 
 	.filtersystem > input[type="text"] {
 		height: 3em;
-		width: 10vw;
+		width: 15vw;
 		padding-left: 3em;
 		border-radius: 25px;
 		border: 1px solid black;
