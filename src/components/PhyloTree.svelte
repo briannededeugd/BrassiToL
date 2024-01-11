@@ -208,37 +208,52 @@
 		/**======================
 		 *    NEW SETS FOR FILTERING FAMILIES
 		 *========================**/
-		function processFamilyCategory(key) {
-			const families = new Set();
+
+		function processMetadataCategory(key) {
+			const uniqueItems = new Set(
+				metadata.map((item) => item[key]).filter((item) => item !== "NA")
+			);
+
+			const checkboxItems = Array.from(uniqueItems)
+				.map((item) => ({
+					label: capitalizeFirstLetter(item),
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+
+			return checkboxItems;
+		}
+
+		function processFamilyCategory(category, familyKey) {
+			const newFamilies = new Set();
 
 			metadata.forEach((item) => {
-				const family = item[key];
-				if (family !== "NA") {
-					if (family === "Brassicaceae") {
-						families.add("Brassicaceae");
+				const individualFamily = item.FAMILY;
+				if (individualFamily !== "NA") {
+					if (individualFamily === "Brassicaceae") {
+						newFamilies.add("Brassicaceae");
 					} else {
-						families.add("Sample Families");
+						newFamilies.add("Sample Families");
 					}
 				}
 			});
 
-			return Array.from(families).sort((a, b) => a.localeCompare(b));
-		}
+			const checkboxItems = Array.from(newFamilies)
+				.map((individualFamily) => ({
+					label: individualFamily,
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
 
-		function processMetadataCategory(key) {
-			return [
-				...new Set(
-					metadata
-						.map((item) => item[key])
-						.filter((item) => item !== "NA")
-						.map(capitalizeFirstLetter)
-						.sort((a, b) => a.localeCompare(b))
-				),
-			];
+			console.log(`${category.toUpperCase()}:`, checkboxItems);
+
+			if (familyKey === "FAMILY") {
+				families = checkboxItems;
+			}
 		}
 
 		// Usage
-		families = processFamilyCategory("FAMILY");
+		processFamilyCategory("families", "FAMILY");
 		subfamilies = processMetadataCategory("SUBFAMILY");
 		supertribes = processMetadataCategory("SUPERTRIBE");
 		tribes = processMetadataCategory("TRIBE");
@@ -758,8 +773,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchFamily, families) as family}
 						<label>
-							<input type="checkbox" value={family} />
-							{family}
+							<input
+								type="checkbox"
+								bind:checked={family.checked}
+								value={family}
+							/>
+							{family.label}
 						</label>
 					{/each}
 				</div>
@@ -776,8 +795,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchSubfamily, subfamilies) as subfamily}
 						<label>
-							<input type="checkbox" value={subfamily} />
-							{subfamily}
+							<input
+								type="checkbox"
+								bind:checked={subfamily.checked}
+								value={subfamily}
+							/>
+							{subfamily.label}
 						</label>
 					{/each}
 				</div>
@@ -794,8 +817,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchSupertribe, supertribes) as supertribe}
 						<label>
-							<input type="checkbox" value={supertribe} />
-							{supertribe}
+							<input
+								type="checkbox"
+								bind:checked={supertribe.checked}
+								value={supertribe}
+							/>
+							{supertribe.label}
 						</label>
 					{/each}
 				</div>
@@ -812,8 +839,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchTribe, tribes) as tribe}
 						<label>
-							<input type="checkbox" value={tribe} />
-							{tribe}
+							<input
+								type="checkbox"
+								bind:checked={tribe.checked}
+								value={tribe}
+							/>
+							{tribe.label}
 						</label>
 					{/each}
 				</div>
@@ -830,8 +861,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchGenus, genuses) as genus}
 						<label>
-							<input type="checkbox" value={genus} />
-							{genus}
+							<input
+								type="checkbox"
+								bind:checked={genus.checked}
+								value={genus}
+							/>
+							{genus.label}
 						</label>
 					{/each}
 				</div>
@@ -848,8 +883,12 @@
 				<div class="checkbox-list">
 					{#each filterItems(searchSpecies, species) as specie}
 						<label>
-							<input type="checkbox" value={specie} />
-							{specie}
+							<input
+								type="checkbox"
+								bind:checked={specie.checked}
+								value={specie}
+							/>
+							{specie.label}
 						</label>
 					{/each}
 				</div>
