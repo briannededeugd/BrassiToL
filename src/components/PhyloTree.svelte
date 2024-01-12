@@ -156,6 +156,10 @@
 	let climates = [];
 
 	// for searching
+	let autocompleteOpen = false;
+
+	$: autocompleteOpen = searchAll.trim() !== "";
+
 	let globalSearchResults = [];
 	$: {
 		globalSearchResults = globalFilterItems(searchAll);
@@ -432,33 +436,35 @@
 
 	function globalFilterItems(searchTerm) {
 		searchTerm = searchTerm.trim().toLowerCase();
-		let results = [];
+		let results = {};
 
 		if (searchTerm === "") {
-			return results; // Return empty results if search term is empty
+			return results;
 		}
 
-		// Add items from each category to the results if they match the search term
-		[
-			families,
-			subfamilies,
-			supertribes,
-			tribes,
-			genuses,
-			species,
-			geographicareas,
-			continents,
-			countries,
-			growthform,
-			societaluse,
-			lifeform,
-			climates,
-		].forEach((category) => {
-			results = results.concat(
-				category.filter((item) =>
-					item.label.toLowerCase().startsWith(searchTerm)
-				)
+		const categories = {
+			Families: families,
+			Subfamilies: subfamilies,
+			Supertribes: supertribes,
+			Tribes: tribes,
+			Genuses: genuses,
+			Species: species,
+			"Geographic Areas": geographicareas,
+			Continents: continents,
+			Countries: countries,
+			"Growth Forms": growthform,
+			"Societal Uses": societaluse,
+			"Life Forms": lifeform,
+			Climates: climates,
+		};
+
+		Object.entries(categories).forEach(([categoryName, categoryItems]) => {
+			const filteredItems = categoryItems.filter((item) =>
+				item.label.toLowerCase().includes(searchTerm)
 			);
+			if (filteredItems.length > 0) {
+				results[categoryName] = filteredItems;
+			}
 		});
 
 		return results;
@@ -562,6 +568,41 @@
 		checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
 			(item) => item.checked
 		);
+	}
+
+	// Closing and opening filters logic
+
+	function toggleTaxonomy() {
+		taxonomyOpen = !taxonomyOpen;
+		if (taxonomyOpen) {
+			geographyOpen = false;
+			characteristicsOpen = false;
+			searchAll = ""; // Close autocomplete dropdown
+		}
+	}
+
+	function toggleGeography() {
+		geographyOpen = !geographyOpen;
+		if (geographyOpen) {
+			taxonomyOpen = false;
+			characteristicsOpen = false;
+			searchAll = ""; // Close autocomplete dropdown
+		}
+	}
+
+	function toggleCharacteristics() {
+		characteristicsOpen = !characteristicsOpen;
+		if (characteristicsOpen) {
+			taxonomyOpen = false;
+			geographyOpen = false;
+			searchAll = ""; // Close autocomplete dropdown
+		}
+	}
+
+	$: if (autocompleteOpen) {
+		taxonomyOpen = false;
+		geographyOpen = false;
+		characteristicsOpen = false;
 	}
 
 	/**========================================================================
@@ -820,15 +861,18 @@
 
 		{#if searchAll.trim() !== ""}
 			<div class="autocomplete-dropdown">
-				{#each globalSearchResults as result}
-					<label>
-						<input
-							type="checkbox"
-							bind:checked={result.checked}
-							on:change={() => handleGlobalSearchCheckboxChange(result)}
-						/>
-						{result.label}
-					</label>
+				{#each Object.keys(globalSearchResults) as categoryName}
+					<h3>{categoryName}</h3>
+					{#each globalSearchResults[categoryName] as result}
+						<label>
+							<input
+								type="checkbox"
+								bind:checked={result.checked}
+								on:change={() => handleGlobalSearchCheckboxChange(result)}
+							/>
+							{result.label}
+						</label>
+					{/each}
 				{/each}
 			</div>
 		{/if}
@@ -838,13 +882,7 @@
 		<!-- Filtering on taxonomy -->
 		<button
 			class="filtercategory {taxonomyOpen ? 'open' : ''}"
-			on:click={() => {
-				taxonomyOpen = !taxonomyOpen;
-				if (taxonomyOpen) {
-					geographyOpen = false;
-					characteristicsOpen = false;
-				}
-			}}
+			on:click={toggleTaxonomy}
 		>
 			Taxonomy
 			<span class="arrow"></span>
@@ -991,16 +1029,11 @@
 		<!-- Filtering on geography -->
 		<button
 			class="filtercategory {geographyOpen ? 'open' : ''}"
-			on:click={() => {
-				geographyOpen = !geographyOpen;
-				if (geographyOpen) {
-					taxonomyOpen = false;
-					characteristicsOpen = false;
-				}
-			}}
-			>Geography
-			<span class="arrow"></span></button
+			on:click={toggleGeography}
 		>
+			Geography
+			<span class="arrow"></span>
+		</button>
 		{#if geographyOpen}
 			<div class="geographyDropdown">
 				<!-- GEOGRAPHIC AREA -->
@@ -1076,15 +1109,9 @@
 		<!-- Filtering on characteristics -->
 		<button
 			class="filtercategory {characteristicsOpen ? 'open' : ''}"
-			on:click={() => {
-				characteristicsOpen = !characteristicsOpen;
-				if (characteristicsOpen) {
-					taxonomyOpen = false;
-					geographyOpen = false;
-				}
-			}}
-			>Characteristics
-			<span class="arrow"></span></button
+			on:click={toggleCharacteristics}
+		>
+			Characteristics<span class="arrow"></span></button
 		>
 		{#if characteristicsOpen}
 			<div class="characteristicsDropdown">
@@ -1274,12 +1301,6 @@
 		grid-area: 1 / 4 / 1 / 5;
 	}
 
-	.filtersystem > .dropdown-container:first-of-type {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-	}
-
 	.filtersystem > .dropdown-container input[type="text"]::placeholder {
 		font-style: italic;
 	}
@@ -1353,9 +1374,9 @@
 		flex-direction: column;
 		position: absolute;
 		max-height: 30vh;
-		width: 100%;
+		width: 15.5vw;
 		top: 3.5em;
-		overflow-y: hidden;
+		overflow-y: auto;
 		padding: 1em;
 		gap: 0;
 
@@ -1428,7 +1449,8 @@
 		padding-bottom: 1em;
 	}
 
-	.checkbox-list label {
+	.checkbox-list label,
+	.autocomplete-dropdown label {
 		font-family: Arial, Helvetica, sans-serif;
 		display: block;
 		margin-bottom: 5px;
