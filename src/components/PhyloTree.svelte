@@ -165,16 +165,13 @@
 		globalSearchResults = globalFilterItems(searchAll);
 	}
 
-	function createCheckboxState() {
-		return {
-			allSelected: false,
-			items: [],
-		};
+	function createCheckboxState(withAllSelected = false) {
+		return withAllSelected ? { allSelected: false, items: [] } : { items: [] };
 	}
 
 	// checkbox states
 	let checkboxStates = {
-		// Families
+		// Taxonomy categories without 'allSelected'
 		families: createCheckboxState(),
 		subfamilies: createCheckboxState(),
 		supertribes: createCheckboxState(),
@@ -182,16 +179,16 @@
 		genuses: createCheckboxState(),
 		species: createCheckboxState(),
 
-		// Geography
+		// Geography categories without 'allSelected'
 		geographicareas: createCheckboxState(),
 		continents: createCheckboxState(),
 		countries: createCheckboxState(),
 
-		// Characteristics
-		growthForm: createCheckboxState(),
-		societaluse: createCheckboxState(),
-		lifeform: createCheckboxState(),
-		climates: createCheckboxState(),
+		// Characteristics categories with 'allSelected'
+		growthForm: createCheckboxState(true),
+		societaluse: createCheckboxState(true),
+		lifeform: createCheckboxState(true),
+		climates: createCheckboxState(true),
 	};
 
 	/**=========================================================
@@ -219,7 +216,7 @@
 		 *    NEW SETS FOR FILTERING FAMILIES
 		 *========================**/
 
-		function processMetadataCategory(key) {
+		function processMetadataCategory(category, key) {
 			const uniqueItems = new Set(
 				metadata.map((item) => item[key]).filter((item) => item !== "NA")
 			);
@@ -227,11 +224,12 @@
 			const checkboxItems = Array.from(uniqueItems)
 				.map((item) => ({
 					label: capitalizeFirstLetter(item),
+					value: item,
 					checked: false,
 				}))
-				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+				.sort((a, b) => a.label.localeCompare(b.label));
 
-			return checkboxItems;
+			checkboxStates[category].items = checkboxItems;
 		}
 
 		function processFamilyCategory(category, familyKey) {
@@ -240,60 +238,32 @@
 			metadata.forEach((item) => {
 				const individualFamily = item.FAMILY;
 				if (individualFamily !== "NA") {
-					if (individualFamily === "Brassicaceae") {
-						newFamilies.add("Brassicaceae");
-					} else {
-						newFamilies.add("Sample Families");
-					}
+					newFamilies.add(individualFamily);
 				}
 			});
 
 			const checkboxItems = Array.from(newFamilies)
 				.map((individualFamily) => ({
-					label: individualFamily,
-					checked: false,
-				}))
-				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
-
-			console.log(`${category.toUpperCase()}:`, checkboxItems);
-
-			if (familyKey === "FAMILY") {
-				families = checkboxItems;
-			}
-		}
-
-		// Usage
-		processFamilyCategory("families", "FAMILY");
-		subfamilies = processMetadataCategory("SUBFAMILY");
-		supertribes = processMetadataCategory("SUPERTRIBE");
-		tribes = processMetadataCategory("TRIBE");
-		genuses = processMetadataCategory("GENUS");
-		species = processMetadataCategory("SPECIES");
-
-		/**======================
-		 *   NEW SETS FOR FILTERING GEOGRAPHY
-		 *========================**/
-
-		function processGeographicAreaCategory(metadata, landcodes) {
-			const areaNameToCode = new Map();
-			metadata
-				.flatMap((item) => item.WCVP_WGSRPD_LEVEL_1_native || [])
-				.filter((code) => code !== "NA")
-				.forEach((code) => {
-					const areaName = landcodes[code] ? landcodes[code].WGSRPD_name : code;
-					areaNameToCode.set(areaName, code); // This ensures each name is unique
-				});
-
-			const checkboxItems = Array.from(areaNameToCode.keys())
-				.map((areaName) => ({
-					label: areaName,
+					label: capitalizeFirstLetter(individualFamily),
+					value: individualFamily,
 					checked: false,
 				}))
 				.sort((a, b) => a.label.localeCompare(b.label));
 
-			console.log("GEOGRAPHIC AREAS:", checkboxItems);
-			geographicareas = checkboxItems;
+			checkboxStates[category].items = checkboxItems;
 		}
+
+		// Usage
+		processFamilyCategory("families", "FAMILY");
+		processMetadataCategory("subfamilies", "SUBFAMILY");
+		processMetadataCategory("supertribes", "SUPERTRIBE");
+		processMetadataCategory("tribes", "TRIBE");
+		processMetadataCategory("genuses", "GENUS");
+		processMetadataCategory("species", "SPECIES");
+
+		/**======================
+		 *   NEW SETS FOR FILTERING GEOGRAPHY
+		 *========================**/
 
 		function processContinentCategory(category, geographyKey) {
 			const processedContinents = new Set(
@@ -303,24 +273,39 @@
 			);
 
 			const checkboxItems = Array.from(processedContinents)
-				.map((item) => ({
-					label: capitalizeFirstLetter(item),
+				.map((continent) => ({
+					label: capitalizeFirstLetter(continent),
+					value: continent,
 					checked: false,
 				}))
-				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+				.sort((a, b) => a.label.localeCompare(b.label));
 
-			console.log(`${category.toUpperCase()}:`, checkboxItems);
+			checkboxStates[category].items = checkboxItems;
+		}
 
-			// Assuming geographicarea and continents are global or accessible variables
-			if (category === "geographicarea") {
-				geographicarea = checkboxItems;
-			} else if (category === "continents") {
-				continents = checkboxItems;
-			}
+		function processGeographicAreaCategory(category, metadata, landcodes) {
+			const areaNameToCode = new Map();
+			metadata
+				.flatMap((item) => item.WCVP_WGSRPD_LEVEL_1_native || [])
+				.filter((code) => code !== "NA")
+				.forEach((code) => {
+					const areaName = landcodes[code] ? landcodes[code].WGSRPD_name : code;
+					areaNameToCode.set(areaName, code);
+				});
+
+			const checkboxItems = Array.from(areaNameToCode)
+				.map((areaName) => ({
+					label: String(areaName), // Convert to string to avoid errors
+					value: areaNameToCode.get(areaName),
+					checked: false,
+				}))
+				.sort((a, b) => a.label.localeCompare(b.label)); // Error was here
+
+			checkboxStates[category].items = checkboxItems;
 		}
 
 		function processCountryCategory(
-			countryVariable,
+			category,
 			countryKey,
 			isArrayOfValues = false
 		) {
@@ -336,27 +321,24 @@
 			);
 
 			const checkboxItems = Array.from(processedCountries)
-				.filter((item) => item !== "NA")
+				.filter((countryCode) => countryCode !== "NA")
 				.map((countryCode) => {
-					// Find the corresponding entry in landcodes
 					const landcodeEntry = landcodes.find((lc) => lc.code === countryCode);
-					// Use WGSRPD_name as label, or default to countryCode if not found
 					const label = landcodeEntry ? landcodeEntry.WGSRPD_name : countryCode;
 
 					return {
 						label: label,
+						value: countryCode,
 						checked: false,
 					};
 				})
-				.sort((a, b) => a.label.localeCompare(b.label)); // Sort the items alphabetically by label
+				.sort((a, b) => a.label.localeCompare(b.label));
 
-			console.log(`${countryVariable.toUpperCase()}:`, checkboxItems);
-
-			countries = checkboxItems;
+			checkboxStates[category].items = checkboxItems;
 		}
 
 		processContinentCategory("continents", "WCVP_continent");
-		processGeographicAreaCategory(metadata, landcodes);
+		processGeographicAreaCategory("geographicareas", metadata, landcodes);
 		processCountryCategory("countries", "WCVP_WGSRPD_LEVEL_3_native", true);
 
 		/**======================
@@ -428,8 +410,8 @@
 	let searchGenus = "";
 	let searchSpecies = "";
 
-	let searchGeographicArea = "";
 	let searchContinent = "";
+	let searchGeographicArea = "";
 	let searchCountries = "";
 
 	let searchAll = "";
@@ -443,24 +425,24 @@
 		}
 
 		const categories = {
-			Families: families,
-			Subfamilies: subfamilies,
-			Supertribes: supertribes,
-			Tribes: tribes,
-			Genuses: genuses,
+			Family: families,
+			Subfamily: subfamilies,
+			Supertribe: supertribes,
+			Tribe: tribes,
+			Genus: genuses,
 			Species: species,
-			"Geographic Areas": geographicareas,
-			Continents: continents,
-			Countries: countries,
-			"Growth Forms": growthform,
-			"Societal Uses": societaluse,
-			"Life Forms": lifeform,
-			Climates: climates,
+			"Geographic Area": geographicareas,
+			Continent: continents,
+			Country: countries,
+			"Growth Form": growthform,
+			"Societal Use": societaluse,
+			"Life Form": lifeform,
+			Climate: climates,
 		};
 
 		Object.entries(categories).forEach(([categoryName, categoryItems]) => {
 			const filteredItems = categoryItems.filter((item) =>
-				item.label.toLowerCase().includes(searchTerm)
+				item.label.toLowerCase().startsWith(searchTerm)
 			);
 			if (filteredItems.length > 0) {
 				results[categoryName] = filteredItems;
@@ -471,7 +453,22 @@
 	}
 
 	// Function to filter items based on search term
-	function filterItems(searchTerm, items) {
+	// function filterItems(category, searchTerm) {
+	// 	searchTerm = searchTerm.trim().toLowerCase();
+	// 	if (searchTerm === "") {
+	// 		return checkboxStates[category].items;
+	// 	}
+	// 	return checkboxStates[category].items
+	// 		.filter((item) => item.label.toLowerCase().startsWith(searchTerm))
+	// 		.sort((a, b) => {
+	// 			if (a.checked === b.checked) {
+	// 				return a.label.localeCompare(b.label);
+	// 			}
+	// 			return a.checked ? -1 : 1;
+	// 		});
+	// }
+
+	function filterItems(items, searchTerm) {
 		searchTerm = searchTerm.trim().toLowerCase();
 		if (searchTerm === "") {
 			console.log("Filtering");
@@ -503,10 +500,8 @@
 		};
 	}
 
-	function handleCheckboxChange(category) {
-		let item = checkboxStates[category].items.find(
-			(item) => item.label === itemLabel
-		);
+	function handleCheckboxChange(category, itemLabel) {
+		let item = [category].find((item) => item.label === itemLabel);
 		if (item) {
 			item.checked = !item.checked;
 		}
@@ -515,10 +510,66 @@
 		checkboxStates = {
 			...checkboxStates,
 			[category]: {
-				...checkboxStates[category],
-				items: [...checkboxStates[category].items],
+				...[category],
+				items: [...[category]],
 			},
 		};
+
+		// New logic for filtering and updating the tree
+		updateTreeVisualization();
+	}
+
+	console.log("CHECKBOXSTATES:", checkboxStates);
+
+	function updateTreeVisualization() {
+		console.log("CALLED FOR UPDATE");
+		let selectedSamples = new Set();
+		Object.entries(checkboxStates).forEach(([category, state]) => {
+			state.items.forEach((item) => {
+				if (item.checked) {
+					let property = getCategoryProperty(category);
+					let value = item.value || item.label;
+					let matchingItems = metadata.filter((metaItem) => {
+						let dataValue = metaItem[property];
+						return Array.isArray(dataValue)
+							? dataValue.includes(value)
+							: dataValue === value;
+					});
+					matchingItems.forEach((match) => selectedSamples.add(match.SAMPLE));
+				}
+			});
+		});
+
+		console.log("SAMPLES TEST:", selectedSamples);
+
+		// Update the tree visualization
+		updateTreeColors(selectedSamples);
+	}
+
+	function getCategoryProperty(category) {
+		const categoryPropertyMap = {
+			families: "FAMILY",
+			subfamilies: "SUBFAMILY",
+			supertribes: "SUPERTRIBE",
+			tribes: "TRIBE",
+			genuses: "GENUS",
+			species: "SPECIES",
+			geographicareas: "WCVP_WGSRPD_LEVEL_1_native",
+			continents: "WCVP_continent",
+			countries: "WCVP_WGSRPD_LEVEL_3_native",
+			growthForm: "GROWTH_FORM",
+			societaluse: "SOCIETAL_USE",
+			lifeform: "WCVP_lifeform_description",
+			climates: "WCVP_climate_description",
+		};
+		return categoryPropertyMap[category] || null;
+	}
+
+	function updateTreeColors(selectedSamples) {
+		d3.selectAll("path.link").attr("stroke", (d) =>
+			selectedSamples.has(extractSampleId(d.data.name)) ? "#000000" : "#CCCCCC"
+		);
+		// Add similar logic for link extensions if required
 	}
 
 	function handleGlobalSearchCheckboxChange(item) {
@@ -548,6 +599,22 @@
 	}
 
 	// Reactive statements for each category
+	$: if (checkboxStates.continents.items.length > 0) {
+		checkboxStates.continents.allSelected =
+			checkboxStates.continents.items.every((item) => item.checked);
+	}
+
+	$: if (checkboxStates.geographicareas.items.length > 0) {
+		checkboxStates.geographicareas.allSelected =
+			checkboxStates.geographicareas.items.every((item) => item.checked);
+	}
+
+	$: if (checkboxStates.countries.items.length > 0) {
+		checkboxStates.countries.allSelected = checkboxStates.countries.items.every(
+			(item) => item.checked
+		);
+	}
+
 	$: if (checkboxStates.growthForm.items.length > 0) {
 		checkboxStates.growthForm.allSelected =
 			checkboxStates.growthForm.items.every((item) => item.checked);
@@ -861,19 +928,23 @@
 
 		{#if searchAll.trim() !== ""}
 			<div class="autocomplete-dropdown">
-				{#each Object.keys(globalSearchResults) as categoryName}
-					<h3>{categoryName}</h3>
-					{#each globalSearchResults[categoryName] as result}
-						<label>
-							<input
-								type="checkbox"
-								bind:checked={result.checked}
-								on:change={() => handleGlobalSearchCheckboxChange(result)}
-							/>
-							{result.label}
-						</label>
+				{#if Object.keys(globalSearchResults).length === 0}
+					<p>No results for your term</p>
+				{:else}
+					{#each Object.keys(globalSearchResults) as categoryName}
+						<h3>{categoryName}</h3>
+						{#each globalSearchResults[categoryName] as result}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={result.checked}
+									on:change={() => handleGlobalSearchCheckboxChange(result)}
+								/>
+								{result.label}
+							</label>
+						{/each}
 					{/each}
-				{/each}
+				{/if}
 			</div>
 		{/if}
 	</section>
@@ -899,11 +970,16 @@
 						bind:value={searchFamily}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchFamily, families) as family}
+						{#each filterItems(checkboxStates.families.items, searchFamily) as family}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={family.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.families.items,
+											family.label
+										)}
 									value={family}
 								/>
 								{family.label}
@@ -921,11 +997,16 @@
 						bind:value={searchSubfamily}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchSubfamily, subfamilies) as subfamily}
+						{#each filterItems(checkboxStates.subfamilies.items, searchSubfamily) as subfamily}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={subfamily.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.subfamilies.items,
+											subfamily.label
+										)}
 									value={subfamily}
 								/>
 								{subfamily.label}
@@ -943,11 +1024,16 @@
 						bind:value={searchSupertribe}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchSupertribe, supertribes) as supertribe}
+						{#each filterItems(checkboxStates.supertribes.items, searchSupertribe) as supertribe}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={supertribe.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.supertribes.items,
+											supertribe.label
+										)}
 									value={supertribe}
 								/>
 								{supertribe.label}
@@ -965,11 +1051,16 @@
 						bind:value={searchTribe}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchTribe, tribes) as tribe}
+						{#each filterItems(checkboxStates.tribes.items, searchTribe) as tribe}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={tribe.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.tribes.items,
+											tribe.label
+										)}
 									value={tribe}
 								/>
 								{tribe.label}
@@ -987,11 +1078,16 @@
 						bind:value={searchGenus}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchGenus, genuses) as genus}
+						{#each filterItems(checkboxStates.genuses.items, searchGenus) as genus}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={genus.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.genuses.items,
+											genus.label
+										)}
 									value={genus}
 								/>
 								{genus.label}
@@ -1009,11 +1105,16 @@
 						bind:value={searchSpecies}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchSpecies, species) as specie}
+						{#each filterItems(checkboxStates.species.items, searchSpecies) as specie}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={specie.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.species.items,
+											specie.label
+										)}
 									value={specie}
 								/>
 								{specie.label}
@@ -1036,28 +1137,6 @@
 		</button>
 		{#if geographyOpen}
 			<div class="geographyDropdown">
-				<!-- GEOGRAPHIC AREA -->
-				<div class="filter">
-					<h3>Geographic Area</h3>
-					<input
-						type="text"
-						placeholder="Search Geographic Area"
-						bind:value={searchGeographicArea}
-					/>
-					<div class="checkbox-list">
-						{#each filterItems(searchGeographicArea, geographicareas) as geographicarea}
-							<label>
-								<input
-									type="checkbox"
-									bind:checked={geographicarea.checked}
-									value={geographicarea}
-								/>
-								{geographicarea.label}
-							</label>
-						{/each}
-					</div>
-				</div>
-
 				<!-- CONTINENTS -->
 				<div class="filter">
 					<h3>Continents</h3>
@@ -1067,14 +1146,45 @@
 						bind:value={searchContinent}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchContinent, continents) as continent}
+						{#each filterItems(checkboxStates.continents.items, searchContinent) as continent}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={continent.checked}
-									value={continent.label}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.continents.items,
+											continent.label
+										)}
 								/>
 								{continent.label}
+							</label>
+						{/each}
+					</div>
+				</div>
+
+				<!-- GEOGRAPHIC AREA -->
+				<div class="filter">
+					<h3>Geographic Area</h3>
+					<input
+						type="text"
+						placeholder="Search Geographic Area"
+						bind:value={searchGeographicArea}
+					/>
+					<div class="checkbox-list">
+						{#each filterItems(checkboxStates.geographicareas.items, searchGeographicArea) as geographicarea}
+							<label>
+								<input
+									type="checkbox"
+									bind:checked={geographicarea.checked}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.geographicareas.items,
+											geographicarea.label
+										)}
+									value={geographicarea.label}
+								/>
+								{geographicarea.label}
 							</label>
 						{/each}
 					</div>
@@ -1089,12 +1199,16 @@
 						bind:value={searchCountries}
 					/>
 					<div class="checkbox-list">
-						{#each filterItems(searchCountries, countries) as country}
+						{#each filterItems(checkboxStates.countries.items, searchCountries) as country}
 							<label>
 								<input
 									type="checkbox"
 									bind:checked={country.checked}
-									value={country.label}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.countries.items,
+											country.label
+										)}
 								/>
 								{country.label}
 							</label>
@@ -1136,7 +1250,11 @@
 								<input
 									type="checkbox"
 									bind:checked={item.checked}
-									on:change={() => handleCheckboxChange("growthForm")}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.growthForm.items,
+											item.label
+										)}
 								/>
 								{item.label}
 							</label>
@@ -1165,7 +1283,11 @@
 								<input
 									type="checkbox"
 									bind:checked={item.checked}
-									on:change={() => handleCheckboxChange("societaluse")}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.societaluse.items,
+											item.label
+										)}
 								/>
 								{item.label}
 							</label>
@@ -1194,7 +1316,11 @@
 								<input
 									type="checkbox"
 									bind:checked={item.checked}
-									on:change={() => handleCheckboxChange("lifeform")}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.lifeform.items,
+											item.label
+										)}
 								/>
 								<span>{item.label}</span>
 							</label>
@@ -1223,7 +1349,11 @@
 								<input
 									type="checkbox"
 									bind:checked={item.checked}
-									on:change={() => handleCheckboxChange("climates")}
+									on:change={() =>
+										handleCheckboxChange(
+											checkboxStates.climates.items,
+											item.label
+										)}
 								/>
 								<span>{item.label}</span>
 							</label>
@@ -1450,7 +1580,8 @@
 	}
 
 	.checkbox-list label,
-	.autocomplete-dropdown label {
+	.autocomplete-dropdown label,
+	.autocomplete-dropdown p {
 		font-family: Arial, Helvetica, sans-serif;
 		display: block;
 		margin-bottom: 5px;
