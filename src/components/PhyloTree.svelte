@@ -1309,6 +1309,8 @@
 	}
 
 	.checkbox-list {
+		display: flex;
+		flex-direction: column;
 		height: 20vh;
 		overflow-y: auto;
 		padding-bottom: 1em;
@@ -1319,6 +1321,14 @@
 		display: block;
 		margin-bottom: 5px;
 		font-size: 12px;
+	}
+
+	.characteristicsDropdown .checkbox-list label:first-of-type {
+		order: -9999;
+	}
+
+	.checkbox-list label:has(input:checked) {
+		order: -9998;
 	}
 
 	.taxonomyDropdown > div > input[type="text"],
