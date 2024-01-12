@@ -155,6 +155,12 @@
 	let lifeform = [];
 	let climates = [];
 
+	// for searching
+	let globalSearchResults = [];
+	$: {
+		globalSearchResults = globalFilterItems(searchAll);
+	}
+
 	function createCheckboxState() {
 		return {
 			allSelected: false,
@@ -349,9 +355,6 @@
 		processGeographicAreaCategory(metadata, landcodes);
 		processCountryCategory("countries", "WCVP_WGSRPD_LEVEL_3_native", true);
 
-		console.log(continents);
-		console.log("COUNTRIES WITH COUNTRY VARIABLE:", countries);
-
 		/**======================
 		 *    NEW SETS FOR FILTERING CHARACTERISTICS
 		 *========================**/
@@ -425,6 +428,42 @@
 	let searchContinent = "";
 	let searchCountries = "";
 
+	let searchAll = "";
+
+	function globalFilterItems(searchTerm) {
+		searchTerm = searchTerm.trim().toLowerCase();
+		let results = [];
+
+		if (searchTerm === "") {
+			return results; // Return empty results if search term is empty
+		}
+
+		// Add items from each category to the results if they match the search term
+		[
+			families,
+			subfamilies,
+			supertribes,
+			tribes,
+			genuses,
+			species,
+			geographicareas,
+			continents,
+			countries,
+			growthform,
+			societaluse,
+			lifeform,
+			climates,
+		].forEach((category) => {
+			results = results.concat(
+				category.filter((item) =>
+					item.label.toLowerCase().startsWith(searchTerm)
+				)
+			);
+		});
+
+		return results;
+	}
+
 	// Function to filter items based on search term
 	function filterItems(searchTerm, items) {
 		searchTerm = searchTerm.trim().toLowerCase();
@@ -474,6 +513,32 @@
 				items: [...checkboxStates[category].items],
 			},
 		};
+	}
+
+	function handleGlobalSearchCheckboxChange(item) {
+		// Find the item in its original category and update its checked state
+		[
+			families,
+			subfamilies,
+			supertribes,
+			tribes,
+			genuses,
+			species,
+			geographicareas,
+			continents,
+			countries,
+			growthform,
+			societaluse,
+			lifeform,
+			climates,
+		].forEach((category) => {
+			let categoryItem = category.find(
+				(categoryItem) => categoryItem.label === item.label
+			);
+			if (categoryItem) {
+				categoryItem.checked = item.checked;
+			}
+		});
 	}
 
 	// Reactive statements for each category
@@ -750,7 +815,24 @@
 </section>
 
 <section class="filtersystem">
-	<input type="text" placeholder="Brassicaceae" bind:value={searchFamily} />
+	<section class="dropdown-container">
+		<input type="text" placeholder="Brassicaceae" bind:value={searchAll} />
+
+		{#if searchAll.trim() !== ""}
+			<div class="autocomplete-dropdown">
+				{#each globalSearchResults as result}
+					<label>
+						<input
+							type="checkbox"
+							bind:checked={result.checked}
+							on:change={() => handleGlobalSearchCheckboxChange(result)}
+						/>
+						{result.label}
+					</label>
+				{/each}
+			</div>
+		{/if}
+	</section>
 
 	<section class="dropdown-container">
 		<!-- Filtering on taxonomy -->
@@ -1168,7 +1250,17 @@
 		font-family: "Bayon", sans-serif;
 	}
 
-	.filtersystem > input[type="text"] {
+	/***********************************/
+	/*    FILTER SYSTEM GLOBAL STYLE   */
+	/***********************************/
+
+	.filtersystem {
+		position: relative;
+		display: flex;
+		gap: 2em;
+	}
+
+	.filtersystem > .dropdown-container:first-of-type input[type="text"] {
 		height: 3em;
 		width: 15vw;
 		padding-left: 3em;
@@ -1182,19 +1274,19 @@
 		grid-area: 1 / 4 / 1 / 5;
 	}
 
-	.filtersystem > input[type="text"]::placeholder {
+	.filtersystem > .dropdown-container:first-of-type {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.filtersystem > .dropdown-container input[type="text"]::placeholder {
 		font-style: italic;
 	}
 
-	/**********************/
-	/*   FILTER SECTION   */
-	/**********************/
-
-	.filtersystem {
-		position: relative;
-		display: flex;
-		gap: 2em;
-	}
+	/* ************************* */
+	/* CATEGORY DROPDOWN BUTTONS */
+	/* ************************* */
 
 	.filtercategory {
 		position: relative;
@@ -1256,6 +1348,22 @@
 		border-radius: 0 0 10px 10px;
 	}
 
+	.autocomplete-dropdown {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		max-height: 30vh;
+		width: 100%;
+		top: 3.5em;
+		overflow-y: hidden;
+		padding: 1em;
+		gap: 0;
+
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 0 0 10px 10px;
+	}
+
 	.characteristicsDropdown {
 		gap: 0 !important;
 	}
@@ -1307,6 +1415,10 @@
 		text-align: left;
 		margin-left: 1px;
 	}
+
+	/* ************** */
+	/* CHECHBOX LISTS */
+	/* ************** */
 
 	.checkbox-list {
 		display: flex;
