@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
 	import "../lib/fonts/fonts.css";
+	import { selectedSpeciesStore } from "./store.js";
 
 	// Newick String
 	const newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
@@ -516,7 +517,7 @@
 
 	function updateTreeVisualization() {
 		console.log("CALLED FOR UPDATE");
-		let selectedSamples = new Set();
+		let selectedSpecies = new Set();
 		Object.entries(checkboxStates).forEach(([category, state]) => {
 			state.items.forEach((item) => {
 				if (item.checked) {
@@ -528,15 +529,17 @@
 							? dataValue.includes(value)
 							: dataValue === value;
 					});
-					matchingItems.forEach((match) => selectedSamples.add(match.SAMPLE));
+					matchingItems.forEach((match) => selectedSpecies.add(match.SPECIES));
 				}
 			});
 		});
 
-		console.log("SAMPLES TEST:", selectedSamples);
+		console.log("SPECIES TEST:", selectedSpecies);
 
 		// Update the tree visualization
-		updateTreeColors(selectedSamples);
+		// updateTreeColors(selectedSpecies);
+
+		selectedSpeciesStore.set(selectedSpecies);
 	}
 
 	function getCategoryProperty(category) {
@@ -558,11 +561,11 @@
 		return categoryPropertyMap[category] || null;
 	}
 
-	function updateTreeColors(selectedSamples) {
+	function updateTreeColors(selectedSpecies) {
 		console.log("UPDATE COLOR FUNCTION CALLED");
 
 		d3.selectAll("path.link").attr("stroke", (d) =>
-			selectedSamples.has(extractSampleId(d.data.name)) ? "#000000" : "#CCCCCC"
+			selectedSpecies.has(d.data.name) ? "#000000" : "#CCCCCC"
 		);
 		// Add similar logic for link extensions if required
 	}

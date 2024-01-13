@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
 	import "../lib/fonts/fonts.css";
+	import { selectedSpeciesStore } from "./store.js";
 
 	// Newick String
 	const newickString = `((((((((((((((((((((8000070:4.293389,8008999:4.293389):0.018593,(S0720:2.345959,S0795:2.345959):1.966023):5.98108,((((S0279:3.34149,(S0834:3.221835,S0836:3.221835):0.119655):2.522857,
@@ -131,6 +132,8 @@
 	 *=============================================**/
 	let metadata = [];
 	let landcodes = [];
+	let selectedSpecies;
+	let mounted = false;
 	let treeData;
 	const width = 900;
 	const outerRadius = width / 2;
@@ -148,6 +151,8 @@
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
+		mounted = true;
+
 		const svg = createPhylogeneticTree(parsedData);
 		const container = document.querySelector("#phyloTree");
 
@@ -155,17 +160,6 @@
 			container.appendChild(svg);
 		} else {
 			console.error("Container not found");
-		}
-
-		function updateTreeColors(selectedSamples) {
-			console.log("UPDATE COLOR FUNCTION CALLED");
-
-			d3.selectAll("path.link").attr("stroke", (d) =>
-				selectedSamples.has(extractSampleId(d.data.name))
-					? "#000000"
-					: "#CCCCCC"
-			);
-			// Add similar logic for link extensions if required
 		}
 	});
 
@@ -278,6 +272,7 @@
 			.selectAll("path")
 			.data(root.links())
 			.join("path")
+			.attr("class", "link")
 			.each(function (d) {
 				d.target.linkNode = this;
 			})
@@ -406,6 +401,37 @@
 	let linkConstant = (d) => {
 		return linkStep(d.source.x, d.source.y, d.target.x, d.target.y);
 	};
+
+	/**========================================================================
+	 *                           UPDATING TREE BASED ON FILTERS
+	 *========================================================================**/
+	$: if (mounted) {
+		selectedSpeciesStore.subscribe((value) => {
+			selectedSpecies = value;
+			updateTreeColors(selectedSpecies); // Call your update function
+		});
+	}
+
+	// Example: Converting speciesSet to all lowercase
+
+	function updateTreeColors(speciesSet) {
+		console.log("UPDATE COLOR FUNCTION CALLED");
+
+		const speciesSetLowercase = new Set(
+			[...speciesSet].map((name) => name.toLowerCase())
+		);
+
+		if (mounted) {
+			d3.selectAll("path.link").attr("stroke", (d) => {
+				const extractedSpecies = findSpecies(
+					d.target.data.name,
+					metadata
+				).toLowerCase();
+				const isSpeciesSelected = speciesSet.has(extractedSpecies);
+				return isSpeciesSelected ? "#0000ff" : "#CCCCCC";
+			});
+		}
+	}
 </script>
 
 <div id="phyloTree" />
