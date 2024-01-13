@@ -215,9 +215,11 @@
 	/**============================================
 	 *               Functions for creating
 	 *=============================================**/
+
+	let sharedRoot;
 	// Draw the phylogenetic tree
 	const createPhylogeneticTree = (data) => {
-		const root = d3
+		let root = d3
 			.hierarchy(data, (d) => d.branchset)
 			.sum((d) => (d.branchset ? 0 : 1))
 			.sort(
@@ -228,6 +230,8 @@
 		cluster(root);
 		setRadius(root, (root.data.length = 0), innerRadius / maxLength(root));
 		setColor(root);
+
+		sharedRoot = root;
 
 		const svg = d3
 			.create("svg")
@@ -414,22 +418,29 @@
 
 	// Example: Converting speciesSet to all lowercase
 
-	function updateTreeColors(speciesSet) {
+	function updateTreeColors(speciesSet, root) {
 		console.log("UPDATE COLOR FUNCTION CALLED");
 
-		const speciesSetLowercase = new Set(
-			[...speciesSet].map((name) => name.toLowerCase())
-		);
+		// If there are selected species, set the unselected to grey, else set all to black
+		if (speciesSet.size > 0) {
+			// First set all links to grey
+			d3.selectAll("path.link").attr("stroke", "#CCCCCC");
 
-		if (mounted) {
-			d3.selectAll("path.link").attr("stroke", (d) => {
-				const extractedSpecies = findSpecies(
-					d.target.data.name,
-					metadata
-				).toLowerCase();
-				const isSpeciesSelected = speciesSet.has(extractedSpecies);
-				return isSpeciesSelected ? "#0000ff" : "#CCCCCC";
+			// Then set the selected links to blue
+			sharedRoot.each((node) => {
+				const speciesName = findSpecies(node.data.name, metadata).toLowerCase();
+				const isSpeciesSelected = speciesSet.has(speciesName);
+
+				if (isSpeciesSelected) {
+					// Color the path for this node and all its ancestors up to the root
+					node.ancestors().forEach((ancestor) => {
+						d3.select(ancestor.linkNode).attr("stroke", "#0000ff");
+					});
+				}
 			});
+		} else {
+			// If no species are selected, set all links to black
+			d3.selectAll("path.link").attr("stroke", "#000000");
 		}
 	}
 </script>
