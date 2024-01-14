@@ -217,13 +217,17 @@
 			checkboxStates[category].items = checkboxItems;
 		}
 
-		function processFamilyCategory(category, familyKey) {
+		function processFamilyCategory(category) {
 			const newFamilies = new Set();
 
 			metadata.forEach((item) => {
 				const individualFamily = item.FAMILY;
 				if (individualFamily !== "NA") {
-					newFamilies.add(individualFamily);
+					if (individualFamily === "Brassicaceae") {
+						newFamilies.add("Brassicaceae");
+					} else {
+						newFamilies.add("Sample Families");
+					}
 				}
 			});
 
@@ -239,7 +243,7 @@
 		}
 
 		// Usage
-		processFamilyCategory("families", "FAMILY");
+		processFamilyCategory("families");
 		processMetadataCategory("subfamilies", "SUBFAMILY");
 		processMetadataCategory("supertribes", "SUPERTRIBE");
 		processMetadataCategory("tribes", "TRIBE");
@@ -474,7 +478,6 @@
 			item.checked = !item.checked;
 		}
 
-		// Update the checkboxStates as before
 		checkboxStates = {
 			...checkboxStates,
 			[category]: {
@@ -513,6 +516,8 @@
 				categoryItem.checked = item.checked;
 			}
 		});
+
+		updateTreeVisualization();
 	}
 
 	function updateTreeVisualization() {
@@ -535,10 +540,6 @@
 		});
 
 		console.log("SPECIES TEST:", selectedSpecies);
-
-		// Update the tree visualization
-		// updateTreeColors(selectedSpecies);
-
 		selectedSpeciesStore.set(selectedSpecies);
 	}
 
@@ -559,15 +560,6 @@
 			climates: "WCVP_climate_description",
 		};
 		return categoryPropertyMap[category] || null;
-	}
-
-	function updateTreeColors(selectedSpecies) {
-		console.log("UPDATE COLOR FUNCTION CALLED");
-
-		d3.selectAll("path.link").attr("stroke", (d) =>
-			selectedSpecies.has(d.data.name) ? "#000000" : "#CCCCCC"
-		);
-		// Add similar logic for link extensions if required
 	}
 
 	// Reactive statements for each category
@@ -644,10 +636,6 @@
 		characteristicsOpen = false;
 	}
 </script>
-
-<section class="title">
-	<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-</section>
 
 <section class="filtersystem">
 	<section class="dropdown-container">
@@ -1093,38 +1081,9 @@
 </section>
 
 <style>
-	/**********************/
-	/*    TITLE SECTION   */
-	/**********************/
-	.title {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: 1;
-		align-items: center;
-
-		border-bottom: 1px solid black;
-		margin-bottom: 2.5em;
-	}
-
 	h3 {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 0.85em;
-	}
-
-	h1 {
-		font-size: 2.5em;
-		font-family: "Abel", sans-serif;
-		margin: 0.5em 0;
-		grid-area: 1 / 1 / 1 / 3;
-	}
-
-	h1 > span:first-of-type {
-		font-family: "Times New Roman", Times, serif;
-		font-weight: 100;
-	}
-
-	h1 > span:nth-of-type(2) {
-		font-family: "Bayon", sans-serif;
 	}
 
 	/***********************************/
