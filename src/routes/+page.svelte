@@ -26,12 +26,12 @@
 		<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
 		<!-- Rounded switch -->
 		<div class="switch-view">
-			<h3>Tree</h3>
+			<h3>Phylogenetic Tree</h3>
 			<label class="switch">
 				<input type="checkbox" on:click={toggleView} />
 				<span class="slider round"></span>
 			</label>
-			<h3>Map</h3>
+			<h3>World Map</h3>
 		</div>
 		<!-- <button on:click={toggleView}>Toggle View</button> -->
 	</section>
@@ -162,6 +162,10 @@
 		font-family: "Bayon", sans-serif;
 	}
 
+	h3 {
+		font-family: "Abel", sans-serif;
+	}
+
 	.flip-card {
 		perspective: 1000px;
 	}
@@ -174,7 +178,8 @@
 
 	.flip-card-front,
 	.flip-card-back {
-		backface-visibility: hidden;
+		backface-visibility: hidden !important;
+		-webkit-backface-visibility: hidden;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -188,5 +193,17 @@
 
 	.flipped {
 		transform: rotateY(180deg);
+	}
+
+	.flip-card-back {
+		display: flex;
+		justify-content: center;
+	}
+
+	.flip-card-back svg {
+		position: absolute;
+		top: 15vh;
+		left: 60%;
+		transform: translateX(-50%);
 	}
 </style>
