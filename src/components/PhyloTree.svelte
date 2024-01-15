@@ -58,6 +58,7 @@
 	let metadata = [];
 	let landcodes = [];
 	let selectedSpecies;
+	let supertribes = [];
 	let mounted = false;
 	let treeData;
 	const width = 900;
@@ -87,10 +88,22 @@
 			console.error("Container not found");
 		}
 
+		// For filtering
 		selectedSpeciesStore.subscribe((value) => {
 			selectedSpecies = value;
 			updateTreeColors(selectedSpecies);
 		});
+
+		function processSupertribes(key) {
+			const uniqueItems = new Set(
+				metadata.map((item) => item[key]).filter((item) => item !== "NA")
+			);
+			supertribes = uniqueItems;
+			console.log("ALL SUPERTRIBES:", supertribes);
+		}
+
+		// Usage
+		processSupertribes("SUPERTRIBE");
 	});
 
 	/**========================================================================
@@ -114,11 +127,11 @@
 		// Function to get the first non-NA taxonomic category
 		function getTaxonomicCategory(entry) {
 			if (entry.SPECIES !== "NA") return entry.SPECIES;
+			if (entry.SPECIES !== "NA") return entry.SPECIES;
 			if (entry.GENUS !== "NA") return entry.GENUS;
 			if (entry.TRIBE !== "NA") return entry.TRIBE;
 			if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
 			if (entry.SUBFAMILY !== "NA") return entry.SUBFAMILY;
-			if (entry.FAMILY !== "NA") return entry.FAMILY;
 			return null;
 		}
 
@@ -208,8 +221,8 @@
 			.each(function (d) {
 				d.target.linkNode = this;
 			})
-			.attr("d", linkConstant)
-			.attr("stroke", (d) => d.target.color);
+			.attr("d", linkVariable);
+		// .attr("stroke", (d) => d.target.color);
 
 		svg
 			.append("g")
@@ -275,6 +288,7 @@
 	/**======================
 	 *    SET COLORS
 	 *========================**/
+
 	function findSuperTribe(nodeLabel, metadata) {
 		let sampleId = extractSampleId(nodeLabel); // Assuming this function exists
 		let superTribe = metadata.find(
@@ -283,21 +297,21 @@
 		return superTribe;
 	}
 
-	let uniqueSuperTribes = [...new Set(metadata.map((item) => item.SUPERTRIBE))];
 	let colorScale = d3
 		.scaleOrdinal()
-		.domain(uniqueSuperTribes)
+		.domain(supertribes)
 		.range(["#0f72b2", "#cc79a7", "#169e73", "#d55e00", "#56b4e9", "#e69f01"]);
+
+	console.log("the supertribes:", supertribes);
 
 	// dark blue, light blue, green, red, pink, yellow
 
 	let setColor = (d) => {
-		let superTribe = findSuperTribe(d.data.name, metadata);
-		d.color = superTribe
-			? colorScale(superTribe)
+		d.color = supertribes
+			? colorScale(supertribes)
 			: d.parent
-			  ? d.parent.color
-			  : null;
+				? d.parent.color
+				: null;
 		if (d.children) d.children.forEach(setColor);
 	};
 
@@ -318,15 +332,15 @@
 			(endAngle === startAngle
 				? ""
 				: "A" +
-				  startRadius +
-				  "," +
-				  startRadius +
-				  " 0 0 " +
-				  (endAngle > startAngle ? 1 : 0) +
-				  " " +
-				  startRadius * c1 +
-				  "," +
-				  startRadius * s1) +
+					startRadius +
+					"," +
+					startRadius +
+					" 0 0 " +
+					(endAngle > startAngle ? 1 : 0) +
+					" " +
+					startRadius * c1 +
+					"," +
+					startRadius * s1) +
 			"L" +
 			endRadius * c1 +
 			"," +
@@ -338,15 +352,13 @@
 		return linkStep(d.source.x, d.source.y, d.target.x, d.target.y);
 	};
 
+	let linkVariable = (d) => {
+		return linkStep(d.source.x, d.source.radius, d.target.x, d.target.radius);
+	};
+
 	/**========================================================================
 	 *                           UPDATING TREE BASED ON FILTERS
 	 *========================================================================**/
-	// $: if (mounted) {
-	// 	selectedSpeciesStore.subscribe((value) => {
-	// 		selectedSpecies = value;
-	// 		updateTreeColors(selectedSpecies);
-	// 	});
-	// }
 
 	function updateTreeColors(speciesSet) {
 		console.log("UPDATE COLOR FUNCTION CALLED");

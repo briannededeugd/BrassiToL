@@ -1,15 +1,21 @@
 <script>
+	import { onMount } from "svelte";
 	import { writable } from "svelte/store";
 	import PhyloTree from "../components/PhyloTree.svelte";
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
 
 	import { json } from "d3";
+
 	let dataset = [];
-	json(
-		"https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
-	).then((data) => {
-		dataset = data.features;
+
+	onMount(async () => {
+		fetch("./src/lib/countries.json")
+			.then((response) => response.json())
+			.then((data) => {
+				dataset = data.features;
+			})
+			.catch((error) => console.error("Error loading local JSON:", error));
 	});
 	const width = 1200,
 		height = 600;
@@ -24,7 +30,6 @@
 <main>
 	<section class="title">
 		<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-		<!-- Rounded switch -->
 		<div class="switch-view">
 			<h3>Phylogenetic Tree</h3>
 			<label class="switch">
@@ -33,24 +38,24 @@
 			</label>
 			<h3>World Map</h3>
 		</div>
-		<!-- <button on:click={toggleView}>Toggle View</button> -->
 	</section>
 
 	<section class="filtercontainer">
 		<FilterSystem />
 	</section>
 
-	<section class="flip-card">
-		<div class={`card-content ${$isFlipped ? "flipped" : ""}`}>
-			<div class="flip-card-front">
-				<PhyloTree />
-			</div>
-			<div class="flip-card-back">
+	<section class="content">
+		{#if $isFlipped}
+			<div class="worldMap">
 				<svg {width} {height}>
-					<Marks {dataset} />
+					<Marks />
 				</svg>
 			</div>
-		</div>
+		{:else}
+			<div class="phyloTree">
+				<PhyloTree />
+			</div>
+		{/if}
 	</section>
 </main>
 
@@ -107,7 +112,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: #ccc;
+		background-color: white;
+		border: 1px solid black;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
 	}
@@ -119,17 +125,9 @@
 		width: 26px;
 		left: 4px;
 		bottom: 4px;
-		background-color: white;
+		background-color: black;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
-	}
-
-	input:checked + .slider {
-		background-color: #2196f3;
-	}
-
-	input:focus + .slider {
-		box-shadow: 0 0 1px #2196f3;
 	}
 
 	input:checked + .slider:before {
@@ -166,44 +164,16 @@
 		font-family: "Abel", sans-serif;
 	}
 
-	.flip-card {
-		perspective: 1000px;
-	}
-
-	.card-content {
-		transition: transform 0.6s;
-		transform-style: preserve-3d;
-		position: relative;
-	}
-
-	.flip-card-front,
-	.flip-card-back {
-		backface-visibility: hidden !important;
-		-webkit-backface-visibility: hidden;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.flip-card-back {
-		transform: rotateY(180deg);
-	}
-
-	.flipped {
-		transform: rotateY(180deg);
-	}
-
-	.flip-card-back {
+	.worldMap {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 	}
 
-	.flip-card-back svg {
+	.worldMap svg {
 		position: absolute;
-		top: 15vh;
-		left: 60%;
+		top: 40vh;
+		left: 55%;
 		transform: translateX(-50%);
 	}
 </style>

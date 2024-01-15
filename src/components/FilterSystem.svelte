@@ -59,7 +59,6 @@
 	let landcodes = [];
 
 	// for filtering: taxonomy
-	let families = [];
 	let subfamilies = [];
 	let supertribes = [];
 	let tribes = [];
@@ -94,7 +93,6 @@
 	// checkbox states
 	let checkboxStates = {
 		// Taxonomy categories without 'allSelected'
-		families: createCheckboxState(),
 		subfamilies: createCheckboxState(),
 		supertribes: createCheckboxState(),
 		tribes: createCheckboxState(),
@@ -142,31 +140,7 @@
 			checkboxStates[category].items = checkboxItems;
 		}
 
-		function processFamilyCategory(category) {
-			const newFamilies = new Set();
-
-			metadata.forEach((item) => {
-				const individualFamily = item.FAMILY;
-				if (individualFamily !== "NA") {
-					if (individualFamily === "Brassicaceae") {
-						newFamilies.add("Brassicaceae");
-					}
-				}
-			});
-
-			const checkboxItems = Array.from(newFamilies)
-				.map((individualFamily) => ({
-					label: capitalizeFirstLetter(individualFamily),
-					value: individualFamily,
-					checked: true,
-				}))
-				.sort((a, b) => a.label.localeCompare(b.label));
-
-			checkboxStates[category].items = checkboxItems;
-		}
-
 		// Usage
-		processFamilyCategory("families");
 		processMetadataCategory("subfamilies", "SUBFAMILY");
 		processMetadataCategory("supertribes", "SUPERTRIBE");
 		processMetadataCategory("tribes", "TRIBE");
@@ -335,7 +309,6 @@
 		}
 
 		const categories = {
-			Family: checkboxStates.families.items,
 			Subfamily: checkboxStates.subfamilies.items,
 			Supertribe: checkboxStates.supertribes.items,
 			Tribe: checkboxStates.tribes.items,
@@ -418,7 +391,6 @@
 	function handleGlobalSearchCheckboxChange(item) {
 		// Find the item in its original category and update its checked state
 		[
-			families,
 			subfamilies,
 			supertribes,
 			tribes,
@@ -468,7 +440,6 @@
 
 	function getCategoryProperty(category) {
 		const categoryPropertyMap = {
-			families: "FAMILY",
 			subfamilies: "SUBFAMILY",
 			supertribes: "SUPERTRIBE",
 			tribes: "TRIBE",
@@ -574,33 +545,6 @@
 
 		{#if taxonomyOpen}
 			<div class="taxonomyDropdown">
-				<!-- FAMILY -->
-				<div class="filter">
-					<h3>Family</h3>
-					<input
-						type="text"
-						placeholder="Search Family"
-						bind:value={searchFamily}
-					/>
-					<div class="checkbox-list">
-						{#each filterItems(checkboxStates.families.items, searchFamily) as family}
-							<label>
-								<input
-									type="checkbox"
-									bind:checked={family.checked}
-									on:change={() =>
-										handleCheckboxChange(
-											checkboxStates.families.items,
-											family.label
-										)}
-									value={family}
-								/>
-								{family.label}
-							</label>
-						{/each}
-					</div>
-				</div>
-
 				<!-- Subfamily -->
 				<div class="filter">
 					<h3>Subfamily</h3>
@@ -753,10 +697,10 @@
 			<div class="geographyDropdown">
 				<!-- CONTINENTS -->
 				<div class="filter">
-					<h3>Continents</h3>
+					<h3>Botanical Continents</h3>
 					<input
 						type="text"
-						placeholder="Search Continent"
+						placeholder="Search Botanical Continent"
 						bind:value={searchContinent}
 					/>
 					<div class="checkbox-list">
@@ -779,7 +723,7 @@
 
 				<!-- GEOGRAPHIC AREA -->
 				<div class="filter">
-					<h3>Geographic Area</h3>
+					<h3>Regions</h3>
 					<input
 						type="text"
 						placeholder="Search Geographic Area"
@@ -806,10 +750,10 @@
 
 				<!-- COUNTRIES -->
 				<div class="filter">
-					<h3>Countries</h3>
+					<h3>Botanical Countries</h3>
 					<input
 						type="text"
-						placeholder="Search Countries"
+						placeholder="Search Botanical Countries"
 						bind:value={searchCountries}
 					/>
 					<div class="checkbox-list">
@@ -986,7 +930,7 @@
 		{#if searchAll.trim() !== ""}
 			<div class="autocomplete-dropdown">
 				{#if Object.keys(globalSearchResults).length === 0}
-					<p>No results for your term</p>
+					<p>No results for your search</p>
 				{:else}
 					{#each Object.keys(globalSearchResults) as categoryName}
 						<h3>{categoryName}</h3>
