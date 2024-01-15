@@ -20,23 +20,27 @@
 	onMount(async () => {
 		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
+		console.log("METADATA", metadata);
 
 		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
+		console.log("LANDCODES", landcodes);
 
 		const countriesResponse = await fetch("./src/lib/countries.json");
 		countries = await countriesResponse.json();
+		console.log("COUNTRIES", countries);
 
 		mounted = true;
 
-		selectedSpeciesStore.subscribe((value) => {
-			selectedSpecies = value;
-			findLandcodes(selectedSpecies);
-		});
-
 		projection = geoNaturalEarth1();
 		path = geoPath(projection);
-		drawMap();
+
+		selectedSpeciesStore.subscribe((value) => {
+			console.log("Come subscribe to my channel", value);
+			selectedSpecies = value;
+			findLandcodes(selectedSpecies);
+			drawMap();
+		});
 	});
 
 	/**===============================
@@ -48,34 +52,27 @@
 		const matchedObjects = metadata.filter((item) =>
 			selectedSpecies.has(item.SPECIES)
 		);
-
-		// Extract and flatten the WCVP_WGSRPD_LEVEL_3_native values
 		const landCodes = matchedObjects.flatMap(
 			(item) => item.WCVP_WGSRPD_LEVEL_3_native
 		);
-
-		// Find the corresponding WGSRPD_name for each land code
 		const wgsrpdNames = landCodes
 			.map((code) => {
 				const landcodeObj = landcodes.find((lc) => lc.code === code);
 				return landcodeObj ? landcodeObj.WGSRPD_name : null;
 			})
 			.filter((name) => name !== null);
+		const countryFrequency = new Map();
+		wgsrpdNames.forEach((name) => {
+			countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
+		});
+		matchingCountryNames = countries.features
+			.filter((feature) => countryFrequency.has(feature.properties.name))
+			.map((country) => ({
+				name: country.properties.name,
+				frequency: countryFrequency.get(country.properties.name),
+			}));
 
-		// Now find the matching countries from the countries.json data
-		const matchingCountries = countries.features.filter((feature) =>
-			wgsrpdNames.includes(feature.properties.name)
-		);
-
-		// Extracting just the names or entire feature as per your requirement
-		matchingCountryNames = matchingCountries.map(
-			(country) => country.properties.name
-		);
-
-		// Log the results
-		console.log("Matching Countries:", matchingCountryNames);
-		console.log("DATA:", countries.features);
-		// Return the results if needed
+		console.log("MATCHING COUNTRIES:", matchingCountryNames);
 		return matchingCountryNames;
 	}
 
@@ -85,19 +82,30 @@
 	 *===============================**/
 
 	function drawMap() {
+		const maxFrequency = Math.max(
+			...matchingCountryNames.map((cn) => cn.frequency)
+		);
+		const colorScale = d3
+			.scaleLinear()
+			.domain([0, maxFrequency])
+			.range(["lightgrey", "blue"]); // Adjust the colors as needed
+
 		const svg = d3.select("svg");
+		svg.selectAll("path").remove(); // Clear existing paths
 		svg
 			.selectAll("path")
-			.data(countries.features) // This binds each country's data to a path
+			.data(countries.features)
 			.enter()
 			.append("path")
-			.attr("d", path) // The 'path' here is a geoPath projection function
+			.attr("d", path)
 			.attr("fill", function (d) {
-				// Using a function to access each country's data
-				return matchingCountryNames.includes(d.properties.name)
-					? "blue"
-					: "grey";
-			});
+				const countryData = matchingCountryNames.find(
+					(cn) => cn.name === d.properties.name
+				);
+				return countryData ? colorScale(countryData.frequency) : "white";
+			})
+			.attr("stroke", "#000")
+			.attr("stroke-width", ".5px");
 	}
 </script>
 
