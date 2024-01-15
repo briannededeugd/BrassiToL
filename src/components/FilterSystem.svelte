@@ -131,7 +131,12 @@
 
 			const checkboxItems = Array.from(uniqueItems)
 				.map((item) => ({
-					label: capitalizeFirstLetter(item),
+					// Use "SPECIES_NAME_PRINT" if category is "species", else use item (the value of the key property)
+					label:
+						category === "species"
+							? metadata.find((x) => x[key] === item)?.SPECIES_NAME_PRINT ||
+								item
+							: item,
 					value: item,
 					checked: false,
 				}))
