@@ -155,6 +155,32 @@
 		}
 	}
 
+	function findSpeciesName(label, metadata) {
+		let sampleId = extractSampleId(label); // Extract the SAMPLE id from the label
+		let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+		// Function to get the first non-NA taxonomic category
+		function getTaxonomicCategory(entry) {
+			if (entry.SPECIES_NAME_PRINT !== "NA") return entry.SPECIES_NAME_PRINT;
+			return null;
+		}
+
+		if (matchingEntry) {
+			const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+			return taxonomicCategory;
+		} else {
+			sampleId = label.slice(1); // Remove the first character (":")
+			matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+			if (matchingEntry) {
+				const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+				return taxonomicCategory;
+			} else {
+				return "";
+			}
+		}
+	}
+
 	/**============================================
 	 *               Functions for creating
 	 *=============================================**/
@@ -239,7 +265,7 @@
 					}`
 			)
 			.attr("text-anchor", (d) => (d.x < 180 ? "start" : "end"))
-			.text((d) => findSpecies(d.data.name, metadata))
+			.text((d) => findSpeciesName(d.data.name, metadata))
 			.on("mouseover", mouseovered(true))
 			.on("mouseout", mouseovered(false))
 			.each(function (d) {

@@ -106,7 +106,62 @@
 			})
 			.attr("stroke", "#000")
 			.attr("stroke-width", ".5px");
+
+		drawLegend(maxFrequency, colorScale);
+	}
+
+	function drawLegend(maxFrequency, colorScale) {
+		console.log("MAX FREQUENCY:", maxFrequency);
+		const legendWidth = 300,
+			legendHeight = 50;
+		const numSwatches = 10; // Number of swatches in the legend
+
+		const svgLegend = d3
+			.select("#legend")
+			.append("svg")
+			.attr("width", legendWidth)
+			.attr("height", legendHeight);
+
+		const xScale = d3
+			.scaleLinear()
+			.domain([0, maxFrequency])
+			.range([0, legendWidth]);
+
+		// Create colored rectangles based on the frequency scale
+		svgLegend
+			.selectAll("rect")
+			.data(d3.range(numSwatches))
+			.enter()
+			.append("rect")
+			.attr("x", (d, i) => xScale((d * maxFrequency) / numSwatches))
+			.attr("y", 0)
+			.attr("width", legendWidth / numSwatches)
+			.attr("height", legendHeight / 2)
+			.attr("fill", (d) => colorScale((d * maxFrequency) / numSwatches));
+
+		// Add text labels at specific frequency values
+		svgLegend
+			.append("text")
+			.attr("x", xScale(0))
+			.attr("y", legendHeight)
+			.text("Low Frequency");
+
+		svgLegend
+			.append("text")
+			.attr("x", xScale(maxFrequency))
+			.attr("y", legendHeight)
+			.attr("text-anchor", "end")
+			.text("High Frequency");
 	}
 </script>
 
 <svg></svg>
+<div id="legend"></div>
+
+<style>
+	#legend {
+		margin-top: 20px;
+		text-align: center;
+		font-size: 12px;
+	}
+</style>

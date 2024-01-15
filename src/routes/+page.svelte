@@ -18,7 +18,7 @@
 			.catch((error) => console.error("Error loading local JSON:", error));
 	});
 	const width = 1200,
-		height = 600;
+		height = 800;
 
 	const isFlipped = writable(false);
 
