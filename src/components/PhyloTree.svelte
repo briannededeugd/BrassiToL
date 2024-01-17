@@ -59,6 +59,8 @@
 	let landcodes = [];
 	let selectedSpecies;
 	let supertribes = [];
+	let colorScale;
+
 	let mounted = false;
 	let treeData;
 	const width = 900;
@@ -77,6 +79,24 @@
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
+		const uniqueItems = new Set(
+			metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA")
+		);
+		supertribes = [...uniqueItems];
+		console.log("ALL SUPERTRIBES:", supertribes);
+
+		colorScale = d3
+			.scaleOrdinal()
+			.domain(supertribes)
+			.range([
+				"#0f72b2",
+				"#cc79a7",
+				"#169e73",
+				"#d55e00",
+				"#56b4e9",
+				"#e69f01",
+			]);
+
 		mounted = true;
 
 		const svg = createPhylogeneticTree(parsedData);
@@ -93,17 +113,6 @@
 			selectedSpecies = value;
 			updateTreeColors(selectedSpecies);
 		});
-
-		function processSupertribes(key) {
-			const uniqueItems = new Set(
-				metadata.map((item) => item[key]).filter((item) => item !== "NA")
-			);
-			supertribes = uniqueItems;
-			console.log("ALL SUPERTRIBES:", supertribes);
-		}
-
-		// Usage
-		processSupertribes("SUPERTRIBE");
 	});
 
 	/**========================================================================
@@ -198,7 +207,9 @@
 
 		cluster(root);
 		setRadius(root, (root.data.length = 0), innerRadius / maxLength(root));
-		setColor(root);
+		if (colorScale) {
+			setColor(root);
+		}
 
 		sharedRoot = root;
 
@@ -212,6 +223,10 @@
 			.link--active {
   				stroke: #000 !important;
   				stroke-width: 1.5px;
+			}
+
+			.link--inactive {
+  				stroke: #CCCCCC !important;
 			}
 
 			.link-extension--active {
@@ -248,7 +263,6 @@
 				d.target.linkNode = this;
 			})
 			.attr("d", linkVariable);
-		// .attr("stroke", (d) => d.target.color);
 
 		svg
 			.append("g")
@@ -257,6 +271,7 @@
 			.join("text")
 			.attr("dy", ".31em")
 			.style("font-size", "5px")
+			.style("fill", (d) => findSuperTribeColor(d.data.name))
 			.attr(
 				"transform",
 				(d) =>
@@ -282,12 +297,43 @@
 
 		function mouseovered(active) {
 			return function (event, d) {
+				let superTribeColor = findSuperTribeColor(d.data.name);
+
+				// Apply the active class to the hovered label and remove from others
+				d3.selectAll("text").classed("label--active", false); // Remove active class from all
 				d3.select(this).classed("label--active", active);
-				d3.select(d.linkExtensionNode)
-					.classed("link-extension--active", active)
-					.raise();
-				do d3.select(d.linkNode).classed("link--active", active).raise();
-				while ((d = d.parent));
+
+				if (active) {
+					// Change the color of all links and labels to grey
+					svg.selectAll(".link").attr("stroke", "#CCCCCC");
+					svg.selectAll("text").style("fill", "#CCCCCC");
+
+					// Now highlight the path and label of the hovered node
+					let currentNode = d;
+					do {
+						d3.select(currentNode.linkNode)
+							.attr("stroke", superTribeColor)
+							.raise();
+
+						if (!currentNode.children) {
+							// If it's a leaf node
+							d3.select(currentNode.data.textNode).style(
+								"fill",
+								superTribeColor
+							);
+						}
+
+						currentNode = currentNode.parent;
+					} while (currentNode);
+				} else {
+					d3.select(d.linkNode).attr("stroke", "#CCCCCC"); // Reset the path color
+					if (!d.children) {
+						d3.select(d.data.textNode).style("fill", superTribeColor); // Reset the label color
+					}
+
+					// Re-apply the filter settings to the rest of the tree
+					updateTreeColors(selectedSpecies);
+				}
 			};
 		}
 
@@ -316,25 +362,19 @@
 	 *========================**/
 
 	function findSuperTribe(nodeLabel, metadata) {
-		let sampleId = extractSampleId(nodeLabel); // Assuming this function exists
+		let sampleId = extractSampleId(nodeLabel);
 		let superTribe = metadata.find(
 			(item) => item.SAMPLE === sampleId
 		)?.SUPERTRIBE;
 		return superTribe;
 	}
 
-	let colorScale = d3
-		.scaleOrdinal()
-		.domain(supertribes)
-		.range(["#0f72b2", "#cc79a7", "#169e73", "#d55e00", "#56b4e9", "#e69f01"]);
-
-	console.log("the supertribes:", supertribes);
-
 	// dark blue, light blue, green, red, pink, yellow
 
 	let setColor = (d) => {
-		d.color = supertribes
-			? colorScale(supertribes)
+		let superTribe = findSuperTribe(d.data.name, metadata);
+		d.color = superTribe
+			? colorScale(superTribe)
 			: d.parent
 				? d.parent.color
 				: null;
@@ -389,35 +429,42 @@
 	function updateTreeColors(speciesSet) {
 		console.log("UPDATE COLOR FUNCTION CALLED");
 
-		// Always set the color per superTribe first
+		// Set the initial color of all labels and paths
 		sharedRoot.each((node) => {
 			let superTribeColor = findSuperTribeColor(node.data.name);
-			d3.select(node.linkNode).attr("stroke", superTribeColor);
+
+			// Set the path color to a uniform color (e.g., black)
+			d3.select(node.linkNode).attr("stroke", "#000000");
+
+			// Set the text color based on superTribe
 			if (!node.children) {
-				// Set the text color to black for all leaf nodes
-				d3.select(node.data.textNode).style("fill", "#000000"); // Black color for text
+				d3.select(node.data.textNode).style("fill", superTribeColor);
 			}
 		});
 
-		// If species are selected, propagate the color of selected nodes to the root
+		// If species are selected, update colors accordingly
 		if (speciesSet.size > 0) {
 			sharedRoot.each((node) => {
 				const speciesName = findSpecies(node.data.name, metadata).toLowerCase();
 				const isSpeciesSelected = speciesSet.has(speciesName);
 
 				if (isSpeciesSelected) {
-					// Propagate the superTribe color to all ancestors up to the root
 					let superTribeColor = findSuperTribeColor(node.data.name);
+					// Propagate the superTribe color to all ancestors up to the root
 					node.ancestors().forEach((ancestor) => {
 						d3.select(ancestor.linkNode).attr("stroke", superTribeColor);
-						// Ensure the text color for leaf nodes remains black
+
+						// Ensure the text color for leaf nodes matches superTribe color
 						if (!ancestor.children) {
-							d3.select(ancestor.data.textNode).style("fill", "#000000"); // Black color for text
+							d3.select(ancestor.data.textNode).style("fill", superTribeColor);
 						}
 					});
 				} else {
-					// Dim the path of unselected nodes
+					// Dim the path and label of unselected nodes
 					d3.select(node.linkNode).attr("stroke", "#CCCCCC");
+					if (!node.children) {
+						d3.select(node.data.textNode).style("fill", "#CCCCCC");
+					}
 				}
 			});
 		}
@@ -425,54 +472,11 @@
 
 	function findSuperTribeColor(nodeLabel) {
 		let superTribe = findSuperTribe(nodeLabel, metadata);
-		return superTribe ? colorScale(superTribe) : "#CCCCCC"; // Fallback color if no superTribe is found
+		if (colorScale) {
+			return superTribe ? colorScale(superTribe) : "#CCCCCC"; // Use colorScale if it's defined
+		}
+		return "#CCCCCC"; // Fallback color if colorScale is not defined or no superTribe is found
 	}
-
-	// Tree is black by default
-	// function updateTreeColors(speciesSet) {
-	// 	console.log("UPDATE COLOR FUNCTION CALLED");
-
-	// 	// Define the colors for easy reference and modification
-	// 	const defaultLinkColor = "#000000";
-	// 	const unselectedLinkColor = "#CCCCCC";
-	// 	const selectedLinkColor = "#0000ff";
-	// 	const unselectedLabelColor = "#CCCCCC";
-
-	// 	// Set the default color for all links
-	// 	d3.selectAll("path.link").attr("stroke", defaultLinkColor);
-	// 	// Set the default color for all labels
-	// 	d3.selectAll("text")
-	// 		.style("fill", defaultLinkColor)
-	// 		.classed("label--active", false);
-
-	// 	// If there are selected species, highlight the selected and dim the unselected
-	// 	if (speciesSet.size > 0) {
-	// 		// First, dim all links and labels
-	// 		d3.selectAll("path.link").attr("stroke", unselectedLinkColor);
-	// 		d3.selectAll("text")
-	// 			.style("fill", unselectedLabelColor)
-	// 			.classed("label--active", false);
-
-	// 		// Then highlight the selected species' links and labels
-	// 		sharedRoot.each((node) => {
-	// 			const speciesName = findSpecies(node.data.name, metadata).toLowerCase();
-	// 			const isSpeciesSelected = speciesSet.has(speciesName);
-
-	// 			if (isSpeciesSelected) {
-	// 				// Highlight the path for this node and all its ancestors up to the root
-	// 				node.ancestors().forEach((ancestor) => {
-	// 					d3.select(ancestor.linkNode).attr("stroke", selectedLinkColor);
-	// 					// If this ancestor is a leaf, make its label bold and reset color
-	// 					if (!ancestor.children) {
-	// 						d3.select(ancestor.data.textNode)
-	// 							.classed("label--active", true)
-	// 							.style("fill", defaultLinkColor);
-	// 					}
-	// 				});
-	// 			}
-	// 		});
-	// 	}
-	// }
 </script>
 
 <div id="phyloTree" />
