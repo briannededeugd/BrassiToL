@@ -4,13 +4,12 @@
 	import PhyloTree from "../components/PhyloTree.svelte";
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
-
-	import { json } from "d3";
+	import "../lib/fonts/fonts.css";
 
 	let dataset = [];
 
 	onMount(async () => {
-		fetch("./src/lib/countries.json")
+		fetch("/static/countries.json")
 			.then((response) => response.json())
 			.then((data) => {
 				dataset = data.features;
@@ -31,12 +30,12 @@
 	<section class="title">
 		<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
 		<div class="switch-view">
-			<h3>Phylogenetic Tree</h3>
+			<h2>Phylogenetic Tree</h2>
 			<label class="switch">
 				<input type="checkbox" on:click={toggleView} />
 				<span class="slider round"></span>
 			</label>
-			<h3>World Map</h3>
+			<h2>World Map</h2>
 		</div>
 	</section>
 
@@ -160,8 +159,13 @@
 		font-family: "Bayon", sans-serif;
 	}
 
-	h3 {
-		font-family: "Abel", sans-serif;
+	h2 {
+		font-family: "Bayon", sans-serif;
+		font-size: 1.5em;
+	}
+
+	.content {
+		margin-top: 15vh;
 	}
 
 	.worldMap {
