@@ -9,7 +9,7 @@
 	let dataset = [];
 
 	onMount(async () => {
-		fetch("/static/countries.json")
+		fetch("./src/lib/countries.json")
 			.then((response) => response.json())
 			.then((data) => {
 				dataset = data.features;
@@ -26,46 +26,54 @@
 	}
 </script>
 
-<main>
-	<section class="title">
-		<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-		<div class="switch-view">
-			<h2>Phylogenetic Tree</h2>
-			<label class="switch">
-				<input type="checkbox" on:click={toggleView} />
-				<span class="slider round"></span>
-			</label>
-			<h2>World Map</h2>
-		</div>
-	</section>
-
-	<section class="filtercontainer">
-		<FilterSystem />
-	</section>
-
-	<section class="content">
-		{#if $isFlipped}
-			<div class="worldMap">
-				<svg {width} {height}>
-					<Marks />
-				</svg>
+<body>
+	<main>
+		<section class="title">
+			<h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
+			<div class="switch-view">
+				<h2>Phylogenetic Tree</h2>
+				<label class="switch">
+					<input type="checkbox" on:click={toggleView} />
+					<span class="slider round"></span>
+				</label>
+				<h2>World Map</h2>
 			</div>
-		{:else}
-			<div class="phyloTree">
-				<PhyloTree />
-			</div>
-		{/if}
-	</section>
-</main>
+		</section>
+
+		<section class="filtercontainer">
+			<FilterSystem />
+		</section>
+
+		<section class="content">
+			{#if $isFlipped}
+				<div class="worldMap">
+					<svg {width} {height}>
+						<Marks />
+					</svg>
+				</div>
+			{:else}
+				<div class="phyloTree">
+					<PhyloTree />
+				</div>
+			{/if}
+		</section>
+	</main>
+</body>
 
 <style>
+	body {
+		background: url("./src/lib/img/sitebackground.jpeg");
+		background-size: cover;
+		width: 100vw;
+		height: 100vh;
+	}
 	main {
 		margin: 0.75em 2em;
 	}
 
 	.filtercontainer {
 		position: absolute;
-		z-index: 9999;
+		z-index: 8000;
 	}
 
 	/**********************/
@@ -77,7 +85,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		border-bottom: 1px solid black;
+		border-bottom: 2px solid #729a68;
 		margin-bottom: 2.5em;
 	}
 
@@ -111,8 +119,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: white;
-		border: 1px solid black;
+		background-color: transparent;
+		border: 1px solid #e1e1e1;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
 	}
@@ -124,7 +132,7 @@
 		width: 26px;
 		left: 4px;
 		bottom: 4px;
-		background-color: black;
+		background-color: #e1e1e1;
 		-webkit-transition: 0.4s;
 		transition: 0.4s;
 	}
@@ -147,6 +155,7 @@
 		font-size: 2.5em;
 		font-family: "Abel", sans-serif;
 		margin: 0.5em 0;
+		color: #e1e1e1;
 		grid-area: 1 / 1 / 1 / 3;
 	}
 
@@ -162,10 +171,12 @@
 	h2 {
 		font-family: "Bayon", sans-serif;
 		font-size: 1.5em;
+		color: #e1e1e1;
 	}
 
 	.content {
 		margin-top: 15vh;
+		z-index: 9999;
 	}
 
 	.worldMap {

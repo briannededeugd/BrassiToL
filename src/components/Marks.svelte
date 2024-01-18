@@ -19,15 +19,15 @@
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
 	onMount(async () => {
-		const response = await fetch("/static/BrassiToL_metadata.json");
+		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("/static/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
-		const countriesResponse = await fetch("/static/countries.json");
+		const countriesResponse = await fetch("./src/lib/countries.json");
 		countries = await countriesResponse.json();
 		console.log("COUNTRIES", countries);
 

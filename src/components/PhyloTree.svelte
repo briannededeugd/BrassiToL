@@ -84,11 +84,11 @@
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
 	onMount(async () => {
-		const response = await fetch("/BrassiToL_metadata.json");
+		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
@@ -149,7 +149,6 @@
 		// Function to get the first non-NA taxonomic category
 		function getTaxonomicCategory(entry) {
 			if (entry.SPECIES !== "NA") return entry.SPECIES;
-			if (entry.SPECIES !== "NA") return entry.SPECIES;
 			if (entry.GENUS !== "NA") return entry.GENUS;
 			if (entry.TRIBE !== "NA") return entry.TRIBE;
 			if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
@@ -162,6 +161,37 @@
 			return taxonomicCategory
 				? capitalizeFirstLetter(taxonomicCategory)
 				: capitalizeFirstLetter(label);
+		} else {
+			sampleId = label.slice(1); // Remove the first character (":")
+			matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+			if (matchingEntry) {
+				const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+				return taxonomicCategory
+					? capitalizeFirstLetter(taxonomicCategory)
+					: capitalizeFirstLetter(label);
+			} else {
+				return "";
+			}
+		}
+	}
+
+	function findFullSpecies(label, metadata) {
+		console.log("Let's find em!");
+		let sampleId = label; // Extract the SAMPLE id from the label
+		console.log("THEE LABEL:", sampleId);
+		let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+		console.log("THEE MATCHES:", matchingEntry);
+
+		// Function to get the first non-NA taxonomic category
+		function getTaxonomicCategory(entry) {
+			if (entry.SPECIES_NAME_PRINT !== "NA") return entry.SPECIES_NAME_PRINT;
+			// return null;
+		}
+
+		if (matchingEntry) {
+			const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+			return taxonomicCategory;
 		} else {
 			sampleId = label.slice(1); // Remove the first character (":")
 			matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
@@ -246,7 +276,7 @@
 			}
 
 			.link--inactive {
-  				stroke: #CCCCCC !important;
+  				stroke: #1F3035 !important;
 			}
 
 			.link-extension--active {
@@ -261,7 +291,7 @@
 		const linkExtension = svg
 			.append("g")
 			.attr("fill", "none")
-			.attr("stroke", "#000")
+			.attr("stroke", "#E1E1E1")
 			.attr("stroke-opacity", 0.25)
 			.selectAll("path")
 			.data(root.links().filter((d) => !d.target.children))
@@ -274,7 +304,7 @@
 		const link = svg
 			.append("g")
 			.attr("fill", "none")
-			.attr("stroke", "#000")
+			.attr("stroke", "#E1E1E1")
 			.selectAll("path")
 			.data(root.links())
 			.join("path")
@@ -327,7 +357,6 @@
 				let metadataObject = metadata.find(
 					(item) => item.SAMPLE === d.data.name
 				);
-				console.log("THE OBJECT IS:", metadataObject);
 
 				// Capitalizing array items as well as strings
 				function formatDescription(description) {
@@ -379,8 +408,8 @@
 					 *===================**/
 
 					// Change the color of all links and labels to grey
-					svg.selectAll(".link").attr("stroke", "#CCCCCC");
-					svg.selectAll("text").style("fill", "#CCCCCC");
+					svg.selectAll(".link").attr("stroke", "#1F3035");
+					svg.selectAll("text").style("fill", "#1F3035");
 
 					// Now highlight the path and label of the hovered node
 					let currentNode = d;
@@ -402,7 +431,7 @@
 				} else {
 					tooltip.style("visibility", "hidden");
 
-					d3.select(d.linkNode).attr("stroke", "#CCCCCC"); // Reset the path color
+					d3.select(d.linkNode).attr("stroke", "#E1E1E1"); // Reset the path color
 					if (!d.children) {
 						d3.select(d.data.textNode).style("fill", superTribeColor); // Reset the label color
 					}
@@ -515,7 +544,10 @@
 			let superTribeColor = findSuperTribeColor(node.data.name);
 
 			// Set the path color to a uniform color (e.g., black)
-			d3.select(node.linkNode).attr("stroke", "#000000");
+			d3.select(node.linkNode).attr("stroke", superTribeColor);
+			node.ancestors().forEach((ancestor) => {
+				d3.select(ancestor.linkNode).attr("stroke", superTribeColor);
+			});
 
 			// Set the text color based on superTribe
 			if (!node.children) {
@@ -526,12 +558,11 @@
 		// If species are selected, update colors accordingly
 		if (speciesSet.size > 0) {
 			sharedRoot.each((node) => {
-				const speciesName = findSpecies(node.data.name, metadata).toLowerCase();
+				const speciesName = findFullSpecies(node.data.name, metadata);
 				const isSpeciesSelected = speciesSet.has(speciesName);
 
 				if (isSpeciesSelected) {
 					let superTribeColor = findSuperTribeColor(node.data.name);
-					console.log(node.data.name); // = label/sample nr
 					// Propagate the superTribe color to all ancestors up to the root
 					node.ancestors().forEach((ancestor) => {
 						d3.select(ancestor.linkNode).attr("stroke", superTribeColor);
@@ -543,9 +574,9 @@
 					});
 				} else {
 					// Dim the path and label of unselected nodes
-					d3.select(node.linkNode).attr("stroke", "#CCCCCC");
+					d3.select(node.linkNode).attr("stroke", "#1F3035");
 					if (!node.children) {
-						d3.select(node.data.textNode).style("fill", "#CCCCCC");
+						d3.select(node.data.textNode).style("fill", "#1F3035");
 					}
 				}
 			});
@@ -555,9 +586,9 @@
 	function findSuperTribeColor(nodeLabel) {
 		let superTribe = findSuperTribe(nodeLabel, metadata);
 		if (colorScale) {
-			return superTribe ? colorScale(superTribe) : "#CCCCCC"; // Use colorScale if it's defined
+			return superTribe ? colorScale(superTribe) : "#1F3035"; // Use colorScale if it's defined
 		}
-		return "#CCCCCC"; // Fallback color if colorScale is not defined or no superTribe is found
+		return "#1F3035"; // Fallback color if colorScale is not defined or no superTribe is found
 	}
 </script>
 
@@ -567,10 +598,7 @@
 
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
 	<div id="tooltip-image">
-		<!-- <img
-			src="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
-			alt="image of {fullSpeciesName}"
-		/> -->
+		<!-- IMAGE HERE -->
 	</div>
 
 	<div id="tooltip-information">
@@ -618,14 +646,23 @@
 
 	#tooltip {
 		display: flex;
+		gap: 1.5em;
 		background-color: #414d4f;
 		border-radius: 5px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 		max-width: 30vw; /* Adjust to desired width */
-		color: white;
+		color: #e1e1e1;
 		font-size: 1em;
 		padding: 1em;
 		z-index: 1000;
+	}
+
+	#tooltip-image {
+		background: url("./src/lib/img/sampleimage.jpeg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: none;
+		border-radius: 2.5px;
 	}
 
 	#tooltip h3 {
@@ -656,7 +693,7 @@
 	}
 
 	#tooltip-taxonomy p > span {
-		background-color: white;
+		background-color: #e1e1e1;
 		font-family: "Inter", sans-serif;
 		color: black;
 		padding: 0.25em 0.75em;

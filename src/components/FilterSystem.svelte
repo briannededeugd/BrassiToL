@@ -112,11 +112,11 @@
 	};
 
 	onMount(async () => {
-		const response = await fetch("/BrassiToL_metadata.json");
+		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
@@ -439,7 +439,9 @@
 							? dataValue.includes(value)
 							: dataValue === value;
 					});
-					matchingItems.forEach((match) => selectedSpecies.add(match.SPECIES));
+					matchingItems.forEach((match) =>
+						selectedSpecies.add(match.SPECIES_NAME_PRINT)
+					);
 				}
 			});
 		});
@@ -935,7 +937,7 @@
 
 	<!-- SEARCH -->
 	<section class="dropdown-container">
-		<input type="text" placeholder="Brassicaceae" bind:value={searchAll} />
+		<input type="text" placeholder="Search" bind:value={searchAll} />
 
 		{#if searchAll.trim() !== ""}
 			<div class="autocomplete-dropdown">
@@ -978,21 +980,30 @@
 	}
 
 	.filtersystem > .dropdown-container:last-of-type input[type="text"] {
-		height: 3em;
+		font-family: "Bayon", sans-serif;
+		font-size: 1.5em;
+		color: black;
+		position: relative;
+		display: flex;
+		background: transparent;
+		border: none;
 		width: 15vw;
-		padding-left: 3em;
-		border-radius: 25px;
-		border: 1px solid black;
-		background-image: url("../lib/img/magnifyingglass.png"); /* Path to your icon */
-		background-size: 20px 20px; /* Size of your icon */
-		background-position: 10px center; /* Position of your icon */
-		background-repeat: no-repeat;
-
-		grid-area: 1 / 4 / 1 / 5;
+		text-align: left;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.3s;
+		color: #e1e1e1;
 	}
 
-	.filtersystem > .dropdown-container input[type="text"]::placeholder {
-		font-style: italic;
+	.filtersystem
+		> .dropdown-container:last-of-type
+		input[type="text"]:focus::placeholder {
+		color: white;
+		border: none;
+	}
+
+	input[type="text"]:focus {
+		outline: none;
 	}
 
 	/* ************************* */
@@ -1012,10 +1023,15 @@
 		justify-content: space-between;
 		align-items: center;
 		transition: all 0.3s;
+		color: #e1e1e1;
 	}
 
 	.filtercategory:hover {
 		cursor: pointer;
+		color: #729a68;
+	}
+
+	.filtercategory:active {
 		color: #729a68;
 	}
 
@@ -1039,9 +1055,10 @@
 		overflow-y: hidden;
 		padding: 1em;
 		gap: 4vw;
+		color: #e1e1e1;
 
-		background-color: white;
-		border: 1px solid black;
+		background-color: #38383880;
+		border: none;
 		border-radius: 0 0 10px 10px;
 	}
 
@@ -1055,9 +1072,10 @@
 		overflow-y: auto;
 		padding: 1em;
 		gap: 0;
+		color: #e1e1e1;
 
-		background-color: white;
-		border: 1px solid black;
+		background-color: #38383880;
+		border: none;
 		border-radius: 0 0 10px 10px;
 	}
 
@@ -1132,6 +1150,7 @@
 		display: block;
 		margin-bottom: 5px;
 		font-size: 12px;
+		color: #e1e1e1;
 	}
 
 	.characteristicsDropdown .checkbox-list label:first-of-type {
