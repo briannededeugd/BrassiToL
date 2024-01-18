@@ -1,0 +1,4472 @@
+[
+    {
+        "order": "1",
+        "level": "L1",
+        "code": "1",
+        "WGSRPD_name": "Europe"
+    },
+    {
+        "order": "2",
+        "level": "L2",
+        "code": "10",
+        "WGSRPD_name": "Northern Europe"
+    },
+    {
+        "order": "3",
+        "level": "L3",
+        "code": "DEN",
+        "WGSRPD_name": "Denmark"
+    },
+    {
+        "order": "4",
+        "level": "L3",
+        "code": "FIN",
+        "WGSRPD_name": "Finland"
+    },
+    {
+        "order": "5",
+        "level": "L3",
+        "code": "FOR",
+        "WGSRPD_name": "Føroyar"
+    },
+    {
+        "order": "6",
+        "level": "L3",
+        "code": "GRB",
+        "WGSRPD_name": "Great Britain"
+    },
+    {
+        "order": "7",
+        "level": "L3",
+        "code": "ICE",
+        "WGSRPD_name": "Iceland"
+    },
+    {
+        "order": "8",
+        "level": "L3",
+        "code": "IRE",
+        "WGSRPD_name": "Ireland"
+    },
+    {
+        "order": "9",
+        "level": "L4",
+        "code": "IRE-IR",
+        "WGSRPD_name": "Ireland"
+    },
+    {
+        "order": "10",
+        "level": "L4",
+        "code": "IRE-NI",
+        "WGSRPD_name": "Northern Ireland"
+    },
+    {
+        "order": "11",
+        "level": "L3",
+        "code": "NOR",
+        "WGSRPD_name": "Norway"
+    },
+    {
+        "order": "12",
+        "level": "L3",
+        "code": "SVA",
+        "WGSRPD_name": "Svalbard"
+    },
+    {
+        "order": "13",
+        "level": "L3",
+        "code": "SWE",
+        "WGSRPD_name": "Sweden"
+    },
+    {
+        "order": "14",
+        "level": "L2",
+        "code": "11",
+        "WGSRPD_name": "Middle Europe"
+    },
+    {
+        "order": "15",
+        "level": "L3",
+        "code": "AUT",
+        "WGSRPD_name": "Austria"
+    },
+    {
+        "order": "16",
+        "level": "L4",
+        "code": "AUT-AU",
+        "WGSRPD_name": "Austria"
+    },
+    {
+        "order": "17",
+        "level": "L4",
+        "code": "AUT-LI",
+        "WGSRPD_name": "Liechtenstein"
+    },
+    {
+        "order": "18",
+        "level": "L3",
+        "code": "BGM",
+        "WGSRPD_name": "Belgium"
+    },
+    {
+        "order": "19",
+        "level": "L4",
+        "code": "BGM-BE",
+        "WGSRPD_name": "Belgium"
+    },
+    {
+        "order": "20",
+        "level": "L4",
+        "code": "BGM-LU",
+        "WGSRPD_name": "Luxembourg"
+    },
+    {
+        "order": "21",
+        "level": "L3",
+        "code": "CZE",
+        "WGSRPD_name": "Czechoslovakia"
+    },
+    {
+        "order": "22",
+        "level": "L4",
+        "code": "CZE-CZ",
+        "WGSRPD_name": "Czech Republic"
+    },
+    {
+        "order": "23",
+        "level": "L4",
+        "code": "CZE-SL",
+        "WGSRPD_name": "Slovakia"
+    },
+    {
+        "order": "24",
+        "level": "L3",
+        "code": "GER",
+        "WGSRPD_name": "Germany"
+    },
+    {
+        "order": "25",
+        "level": "L3",
+        "code": "HUN",
+        "WGSRPD_name": "Hungary"
+    },
+    {
+        "order": "26",
+        "level": "L3",
+        "code": "NET",
+        "WGSRPD_name": "Netherlands"
+    },
+    {
+        "order": "27",
+        "level": "L3",
+        "code": "POL",
+        "WGSRPD_name": "Poland"
+    },
+    {
+        "order": "28",
+        "level": "L3",
+        "code": "SWI",
+        "WGSRPD_name": "Switzerland"
+    },
+    {
+        "order": "29",
+        "level": "L2",
+        "code": "12",
+        "WGSRPD_name": "Southwestern Europe"
+    },
+    {
+        "order": "30",
+        "level": "L3",
+        "code": "BAL",
+        "WGSRPD_name": "Baleares"
+    },
+    {
+        "order": "31",
+        "level": "L3",
+        "code": "COR",
+        "WGSRPD_name": "Corse"
+    },
+    {
+        "order": "32",
+        "level": "L3",
+        "code": "FRA",
+        "WGSRPD_name": "France"
+    },
+    {
+        "order": "33",
+        "level": "L4",
+        "code": "FRA-CI",
+        "WGSRPD_name": "Channel Is."
+    },
+    {
+        "order": "34",
+        "level": "L4",
+        "code": "FRA-FR",
+        "WGSRPD_name": "France"
+    },
+    {
+        "order": "35",
+        "level": "L4",
+        "code": "FRA-MO",
+        "WGSRPD_name": "Monaco"
+    },
+    {
+        "order": "36",
+        "level": "L3",
+        "code": "POR",
+        "WGSRPD_name": "Portugal"
+    },
+    {
+        "order": "37",
+        "level": "L3",
+        "code": "SAR",
+        "WGSRPD_name": "Sardegna"
+    },
+    {
+        "order": "38",
+        "level": "L3",
+        "code": "SPA",
+        "WGSRPD_name": "Spain"
+    },
+    {
+        "order": "39",
+        "level": "L4",
+        "code": "SPA-AN",
+        "WGSRPD_name": "Andorra"
+    },
+    {
+        "order": "40",
+        "level": "L4",
+        "code": "SPA-GI",
+        "WGSRPD_name": "Gibraltar"
+    },
+    {
+        "order": "41",
+        "level": "L4",
+        "code": "SPA-SP",
+        "WGSRPD_name": "Spain"
+    },
+    {
+        "order": "42",
+        "level": "L2",
+        "code": "13",
+        "WGSRPD_name": "Southeastern Europe"
+    },
+    {
+        "order": "43",
+        "level": "L3",
+        "code": "ALB",
+        "WGSRPD_name": "Albania"
+    },
+    {
+        "order": "44",
+        "level": "L3",
+        "code": "BUL",
+        "WGSRPD_name": "Bulgaria"
+    },
+    {
+        "order": "45",
+        "level": "L3",
+        "code": "GRC",
+        "WGSRPD_name": "Greece"
+    },
+    {
+        "order": "46",
+        "level": "L3",
+        "code": "ITA",
+        "WGSRPD_name": "Italy"
+    },
+    {
+        "order": "47",
+        "level": "L4",
+        "code": "ITA-IT",
+        "WGSRPD_name": "Italy"
+    },
+    {
+        "order": "48",
+        "level": "L4",
+        "code": "ITA-SM",
+        "WGSRPD_name": "San Marino"
+    },
+    {
+        "order": "49",
+        "level": "L4",
+        "code": "ITA-VC",
+        "WGSRPD_name": "Vatican City"
+    },
+    {
+        "order": "50",
+        "level": "L3",
+        "code": "KRI",
+        "WGSRPD_name": "Kriti"
+    },
+    {
+        "order": "51",
+        "level": "L3",
+        "code": "ROM",
+        "WGSRPD_name": "Romania"
+    },
+    {
+        "order": "52",
+        "level": "L3",
+        "code": "SIC",
+        "WGSRPD_name": "Sicilia"
+    },
+    {
+        "order": "53",
+        "level": "L4",
+        "code": "SIC-MA",
+        "WGSRPD_name": "Malta"
+    },
+    {
+        "order": "54",
+        "level": "L4",
+        "code": "SIC-SI",
+        "WGSRPD_name": "Sicilia"
+    },
+    {
+        "order": "55",
+        "level": "L3",
+        "code": "TUE",
+        "WGSRPD_name": "Turkey-in-Europe"
+    },
+    {
+        "order": "56",
+        "level": "L3",
+        "code": "YUG",
+        "WGSRPD_name": "Yugoslavia"
+    },
+    {
+        "order": "57",
+        "level": "L4",
+        "code": "YUG-BH",
+        "WGSRPD_name": "Bosnia- Herzegovina"
+    },
+    {
+        "order": "58",
+        "level": "L4",
+        "code": "YUG-CR",
+        "WGSRPD_name": "Croatia"
+    },
+    {
+        "order": "59",
+        "level": "L4",
+        "code": "YUG-KO",
+        "WGSRPD_name": "Kosovo"
+    },
+    {
+        "order": "60",
+        "level": "L4",
+        "code": "YUG-MA",
+        "WGSRPD_name": "Macedonia"
+    },
+    {
+        "order": "61",
+        "level": "L4",
+        "code": "YUG-MN",
+        "WGSRPD_name": "Montenegro"
+    },
+    {
+        "order": "62",
+        "level": "L4",
+        "code": "YUG-SE",
+        "WGSRPD_name": "Serbia"
+    },
+    {
+        "order": "63",
+        "level": "L4",
+        "code": "YUG-SL",
+        "WGSRPD_name": "Slovenia"
+    },
+    {
+        "order": "64",
+        "level": "L2",
+        "code": "14",
+        "WGSRPD_name": "Eastern Europe"
+    },
+    {
+        "order": "65",
+        "level": "L3",
+        "code": "BLR",
+        "WGSRPD_name": "Belarus"
+    },
+    {
+        "order": "66",
+        "level": "L3",
+        "code": "BLT",
+        "WGSRPD_name": "Baltic States"
+    },
+    {
+        "order": "67",
+        "level": "L4",
+        "code": "BLT-ES",
+        "WGSRPD_name": "Estonia"
+    },
+    {
+        "order": "68",
+        "level": "L4",
+        "code": "BLT-KA",
+        "WGSRPD_name": "Kaliningrad"
+    },
+    {
+        "order": "69",
+        "level": "L4",
+        "code": "BLT-LA",
+        "WGSRPD_name": "Latvia"
+    },
+    {
+        "order": "70",
+        "level": "L4",
+        "code": "BLT-LI",
+        "WGSRPD_name": "Lithuania"
+    },
+    {
+        "order": "71",
+        "level": "L3",
+        "code": "KRY",
+        "WGSRPD_name": "Krym"
+    },
+    {
+        "order": "72",
+        "level": "L3",
+        "code": "RUC",
+        "WGSRPD_name": "Central European Russia"
+    },
+    {
+        "order": "73",
+        "level": "L3",
+        "code": "RUE",
+        "WGSRPD_name": "East European Russia"
+    },
+    {
+        "order": "74",
+        "level": "L3",
+        "code": "RUN",
+        "WGSRPD_name": "North European Russia"
+    },
+    {
+        "order": "75",
+        "level": "L3",
+        "code": "RUS",
+        "WGSRPD_name": "South European Russia"
+    },
+    {
+        "order": "76",
+        "level": "L3",
+        "code": "RUW",
+        "WGSRPD_name": "Northwest European Russia"
+    },
+    {
+        "order": "77",
+        "level": "L3",
+        "code": "UKR",
+        "WGSRPD_name": "Ukraine"
+    },
+    {
+        "order": "78",
+        "level": "L4",
+        "code": "UKR-MO",
+        "WGSRPD_name": "Moldova"
+    },
+    {
+        "order": "79",
+        "level": "L4",
+        "code": "UKR-UK",
+        "WGSRPD_name": "Ukraine"
+    },
+    {
+        "order": "80",
+        "level": "L1",
+        "code": "2",
+        "WGSRPD_name": "Africa"
+    },
+    {
+        "order": "81",
+        "level": "L2",
+        "code": "20",
+        "WGSRPD_name": "Northern Africa"
+    },
+    {
+        "order": "82",
+        "level": "L3",
+        "code": "ALG",
+        "WGSRPD_name": "Algeria"
+    },
+    {
+        "order": "83",
+        "level": "L3",
+        "code": "EGY",
+        "WGSRPD_name": "Egypt"
+    },
+    {
+        "order": "84",
+        "level": "L3",
+        "code": "LBY",
+        "WGSRPD_name": "Libya"
+    },
+    {
+        "order": "85",
+        "level": "L3",
+        "code": "MOR",
+        "WGSRPD_name": "Morocco"
+    },
+    {
+        "order": "86",
+        "level": "L4",
+        "code": "MOR-MO",
+        "WGSRPD_name": "Morocco"
+    },
+    {
+        "order": "87",
+        "level": "L4",
+        "code": "MOR-SP",
+        "WGSRPD_name": "Spanish North African Territories"
+    },
+    {
+        "order": "88",
+        "level": "L3",
+        "code": "TUN",
+        "WGSRPD_name": "Tunisia"
+    },
+    {
+        "order": "89",
+        "level": "L3",
+        "code": "WSA",
+        "WGSRPD_name": "Western Sahara"
+    },
+    {
+        "order": "90",
+        "level": "L2",
+        "code": "21",
+        "WGSRPD_name": "Macaronesia"
+    },
+    {
+        "order": "91",
+        "level": "L3",
+        "code": "AZO",
+        "WGSRPD_name": "Azores"
+    },
+    {
+        "order": "92",
+        "level": "L3",
+        "code": "CNY",
+        "WGSRPD_name": "Canary Is."
+    },
+    {
+        "order": "93",
+        "level": "L3",
+        "code": "CVI",
+        "WGSRPD_name": "Cape Verde"
+    },
+    {
+        "order": "94",
+        "level": "L3",
+        "code": "MDR",
+        "WGSRPD_name": "Madeira"
+    },
+    {
+        "order": "95",
+        "level": "L3",
+        "code": "SEL",
+        "WGSRPD_name": "Selvagens"
+    },
+    {
+        "order": "96",
+        "level": "L2",
+        "code": "22",
+        "WGSRPD_name": "West Tropical Africa"
+    },
+    {
+        "order": "97",
+        "level": "L3",
+        "code": "BEN",
+        "WGSRPD_name": "Benin"
+    },
+    {
+        "order": "98",
+        "level": "L3",
+        "code": "BKN",
+        "WGSRPD_name": "Burkina"
+    },
+    {
+        "order": "99",
+        "level": "L3",
+        "code": "GAM",
+        "WGSRPD_name": "Gambia, The"
+    },
+    {
+        "order": "100",
+        "level": "L3",
+        "code": "GHA",
+        "WGSRPD_name": "Ghana"
+    },
+    {
+        "order": "101",
+        "level": "L3",
+        "code": "GNB",
+        "WGSRPD_name": "Guinea-Bissau"
+    },
+    {
+        "order": "102",
+        "level": "L3",
+        "code": "GUI",
+        "WGSRPD_name": "Guinea"
+    },
+    {
+        "order": "103",
+        "level": "L3",
+        "code": "IVO",
+        "WGSRPD_name": "Ivory Coast"
+    },
+    {
+        "order": "104",
+        "level": "L3",
+        "code": "LBR",
+        "WGSRPD_name": "Liberia"
+    },
+    {
+        "order": "105",
+        "level": "L3",
+        "code": "MLI",
+        "WGSRPD_name": "Mali"
+    },
+    {
+        "order": "106",
+        "level": "L3",
+        "code": "MTN",
+        "WGSRPD_name": "Mauritania"
+    },
+    {
+        "order": "107",
+        "level": "L3",
+        "code": "NGA",
+        "WGSRPD_name": "Nigeria"
+    },
+    {
+        "order": "108",
+        "level": "L3",
+        "code": "NGR",
+        "WGSRPD_name": "Niger"
+    },
+    {
+        "order": "109",
+        "level": "L3",
+        "code": "SEN",
+        "WGSRPD_name": "Senegal"
+    },
+    {
+        "order": "110",
+        "level": "L3",
+        "code": "SIE",
+        "WGSRPD_name": "Sierra Leone"
+    },
+    {
+        "order": "111",
+        "level": "L3",
+        "code": "TOG",
+        "WGSRPD_name": "Togo"
+    },
+    {
+        "order": "112",
+        "level": "L2",
+        "code": "23",
+        "WGSRPD_name": "West-Central Tropical Africa"
+    },
+    {
+        "order": "113",
+        "level": "L3",
+        "code": "BUR",
+        "WGSRPD_name": "Burundi"
+    },
+    {
+        "order": "114",
+        "level": "L3",
+        "code": "CAB",
+        "WGSRPD_name": "Cabinda"
+    },
+    {
+        "order": "115",
+        "level": "L3",
+        "code": "CAF",
+        "WGSRPD_name": "Central African Republic"
+    },
+    {
+        "order": "116",
+        "level": "L3",
+        "code": "CMN",
+        "WGSRPD_name": "Cameroon"
+    },
+    {
+        "order": "117",
+        "level": "L3",
+        "code": "CON",
+        "WGSRPD_name": "Congo"
+    },
+    {
+        "order": "118",
+        "level": "L3",
+        "code": "EQG",
+        "WGSRPD_name": "Equatorial Guinea"
+    },
+    {
+        "order": "119",
+        "level": "L3",
+        "code": "GAB",
+        "WGSRPD_name": "Gabon"
+    },
+    {
+        "order": "120",
+        "level": "L3",
+        "code": "GGI",
+        "WGSRPD_name": "Gulf of Guinea Is."
+    },
+    {
+        "order": "121",
+        "level": "L4",
+        "code": "GGI-AN",
+        "WGSRPD_name": "Annobón"
+    },
+    {
+        "order": "122",
+        "level": "L4",
+        "code": "GGI-BI",
+        "WGSRPD_name": "Bioko"
+    },
+    {
+        "order": "123",
+        "level": "L4",
+        "code": "GGI-PR",
+        "WGSRPD_name": "Príncipe"
+    },
+    {
+        "order": "124",
+        "level": "L4",
+        "code": "GGI-ST",
+        "WGSRPD_name": "São Tomé"
+    },
+    {
+        "order": "125",
+        "level": "L3",
+        "code": "RWA",
+        "WGSRPD_name": "Rwanda"
+    },
+    {
+        "order": "126",
+        "level": "L3",
+        "code": "ZAI",
+        "WGSRPD_name": "Zaire"
+    },
+    {
+        "order": "127",
+        "level": "L2",
+        "code": "24",
+        "WGSRPD_name": "Northeast Tropical Africa"
+    },
+    {
+        "order": "128",
+        "level": "L3",
+        "code": "CHA",
+        "WGSRPD_name": "Chad"
+    },
+    {
+        "order": "129",
+        "level": "L3",
+        "code": "DJI",
+        "WGSRPD_name": "Djibouti"
+    },
+    {
+        "order": "130",
+        "level": "L3",
+        "code": "ERI",
+        "WGSRPD_name": "Eritrea"
+    },
+    {
+        "order": "131",
+        "level": "L3",
+        "code": "ETH",
+        "WGSRPD_name": "Ethiopia"
+    },
+    {
+        "order": "132",
+        "level": "L3",
+        "code": "SOC",
+        "WGSRPD_name": "Socotra"
+    },
+    {
+        "order": "133",
+        "level": "L3",
+        "code": "SOM",
+        "WGSRPD_name": "Somalia"
+    },
+    {
+        "order": "134",
+        "level": "L3",
+        "code": "SUD",
+        "WGSRPD_name": "Sudan"
+    },
+    {
+        "order": "135",
+        "level": "L2",
+        "code": "25",
+        "WGSRPD_name": "East Tropical Africa"
+    },
+    {
+        "order": "136",
+        "level": "L3",
+        "code": "KEN",
+        "WGSRPD_name": "Kenya"
+    },
+    {
+        "order": "137",
+        "level": "L3",
+        "code": "TAN",
+        "WGSRPD_name": "Tanzania"
+    },
+    {
+        "order": "138",
+        "level": "L3",
+        "code": "UGA",
+        "WGSRPD_name": "Uganda"
+    },
+    {
+        "order": "139",
+        "level": "L2",
+        "code": "26",
+        "WGSRPD_name": "South Tropical Africa"
+    },
+    {
+        "order": "140",
+        "level": "L3",
+        "code": "ANG",
+        "WGSRPD_name": "Angola"
+    },
+    {
+        "order": "141",
+        "level": "L3",
+        "code": "MLW",
+        "WGSRPD_name": "Malawi"
+    },
+    {
+        "order": "142",
+        "level": "L3",
+        "code": "MOZ",
+        "WGSRPD_name": "Mozambique"
+    },
+    {
+        "order": "143",
+        "level": "L3",
+        "code": "ZAM",
+        "WGSRPD_name": "Zambia"
+    },
+    {
+        "order": "144",
+        "level": "L3",
+        "code": "ZIM",
+        "WGSRPD_name": "Zimbabwe"
+    },
+    {
+        "order": "145",
+        "level": "L2",
+        "code": "27",
+        "WGSRPD_name": "Southern Africa"
+    },
+    {
+        "order": "146",
+        "level": "L3",
+        "code": "BOT",
+        "WGSRPD_name": "Botswana"
+    },
+    {
+        "order": "147",
+        "level": "L3",
+        "code": "CPP",
+        "WGSRPD_name": "Cape Provinces"
+    },
+    {
+        "order": "148",
+        "level": "L4",
+        "code": "CPP-EC",
+        "WGSRPD_name": "Eastern Cape Province"
+    },
+    {
+        "order": "149",
+        "level": "L4",
+        "code": "CPP-NC",
+        "WGSRPD_name": "Northern Cape Province"
+    },
+    {
+        "order": "150",
+        "level": "L4",
+        "code": "CPP-WC",
+        "WGSRPD_name": "Western Cape Province"
+    },
+    {
+        "order": "151",
+        "level": "L3",
+        "code": "CPV",
+        "WGSRPD_name": "Caprivi Strip"
+    },
+    {
+        "order": "152",
+        "level": "L3",
+        "code": "LES",
+        "WGSRPD_name": "Lesotho"
+    },
+    {
+        "order": "153",
+        "level": "L3",
+        "code": "NAM",
+        "WGSRPD_name": "Namibia"
+    },
+    {
+        "order": "154",
+        "level": "L3",
+        "code": "NAT",
+        "WGSRPD_name": "KwaZulu-Natal"
+    },
+    {
+        "order": "155",
+        "level": "L3",
+        "code": "OFS",
+        "WGSRPD_name": "Free State"
+    },
+    {
+        "order": "156",
+        "level": "L3",
+        "code": "SWZ",
+        "WGSRPD_name": "Swaziland"
+    },
+    {
+        "order": "157",
+        "level": "L3",
+        "code": "TVL",
+        "WGSRPD_name": "Northern Provinces"
+    },
+    {
+        "order": "158",
+        "level": "L4",
+        "code": "TVL-GA",
+        "WGSRPD_name": "Gauteng"
+    },
+    {
+        "order": "159",
+        "level": "L4",
+        "code": "TVL-MP",
+        "WGSRPD_name": "Mpumalanga"
+    },
+    {
+        "order": "160",
+        "level": "L4",
+        "code": "TVL-NP",
+        "WGSRPD_name": "Northern Province"
+    },
+    {
+        "order": "161",
+        "level": "L4",
+        "code": "TVL-NW",
+        "WGSRPD_name": "North-West Province"
+    },
+    {
+        "order": "162",
+        "level": "L2",
+        "code": "28",
+        "WGSRPD_name": "Middle Atlantic Ocean"
+    },
+    {
+        "order": "163",
+        "level": "L3",
+        "code": "ASC",
+        "WGSRPD_name": "Ascension"
+    },
+    {
+        "order": "164",
+        "level": "L3",
+        "code": "STH",
+        "WGSRPD_name": "St.Helena"
+    },
+    {
+        "order": "165",
+        "level": "L2",
+        "code": "29",
+        "WGSRPD_name": "Western Indian Ocean"
+    },
+    {
+        "order": "166",
+        "level": "L3",
+        "code": "ALD",
+        "WGSRPD_name": "Aldabra"
+    },
+    {
+        "order": "167",
+        "level": "L3",
+        "code": "CGS",
+        "WGSRPD_name": "Chagos Archipelago"
+    },
+    {
+        "order": "168",
+        "level": "L3",
+        "code": "COM",
+        "WGSRPD_name": "Comoros"
+    },
+    {
+        "order": "169",
+        "level": "L4",
+        "code": "COM-CO",
+        "WGSRPD_name": "Comoros"
+    },
+    {
+        "order": "170",
+        "level": "L4",
+        "code": "COM-MA",
+        "WGSRPD_name": "Mayotte"
+    },
+    {
+        "order": "171",
+        "level": "L3",
+        "code": "MAU",
+        "WGSRPD_name": "Mauritius"
+    },
+    {
+        "order": "172",
+        "level": "L3",
+        "code": "MCI",
+        "WGSRPD_name": "Mozambique Channel Is."
+    },
+    {
+        "order": "173",
+        "level": "L3",
+        "code": "MDG",
+        "WGSRPD_name": "Madagascar"
+    },
+    {
+        "order": "174",
+        "level": "L3",
+        "code": "REU",
+        "WGSRPD_name": "Réunion"
+    },
+    {
+        "order": "175",
+        "level": "L3",
+        "code": "ROD",
+        "WGSRPD_name": "Rodrigues"
+    },
+    {
+        "order": "176",
+        "level": "L3",
+        "code": "SEY",
+        "WGSRPD_name": "Seychelles"
+    },
+    {
+        "order": "177",
+        "level": "L1",
+        "code": "3",
+        "WGSRPD_name": "Asia-Temperate"
+    },
+    {
+        "order": "178",
+        "level": "L2",
+        "code": "30",
+        "WGSRPD_name": "Siberia"
+    },
+    {
+        "order": "179",
+        "level": "L3",
+        "code": "ALT",
+        "WGSRPD_name": "Altay"
+    },
+    {
+        "order": "180",
+        "level": "L3",
+        "code": "BRY",
+        "WGSRPD_name": "Buryatiya"
+    },
+    {
+        "order": "181",
+        "level": "L3",
+        "code": "CTA",
+        "WGSRPD_name": "Chita"
+    },
+    {
+        "order": "182",
+        "level": "L3",
+        "code": "IRK",
+        "WGSRPD_name": "Irkutsk"
+    },
+    {
+        "order": "183",
+        "level": "L3",
+        "code": "KRA",
+        "WGSRPD_name": "Krasnoyarsk"
+    },
+    {
+        "order": "184",
+        "level": "L3",
+        "code": "TVA",
+        "WGSRPD_name": "Tuva"
+    },
+    {
+        "order": "185",
+        "level": "L3",
+        "code": "WSB",
+        "WGSRPD_name": "West Siberia"
+    },
+    {
+        "order": "186",
+        "level": "L3",
+        "code": "YAK",
+        "WGSRPD_name": "Yakutskiya"
+    },
+    {
+        "order": "187",
+        "level": "L2",
+        "code": "31",
+        "WGSRPD_name": "Russian Far East"
+    },
+    {
+        "order": "188",
+        "level": "L3",
+        "code": "AMU",
+        "WGSRPD_name": "Amur"
+    },
+    {
+        "order": "189",
+        "level": "L3",
+        "code": "KAM",
+        "WGSRPD_name": "Kamchatka"
+    },
+    {
+        "order": "190",
+        "level": "L3",
+        "code": "KHA",
+        "WGSRPD_name": "Khabarovsk"
+    },
+    {
+        "order": "191",
+        "level": "L3",
+        "code": "KUR",
+        "WGSRPD_name": "Kuril Is."
+    },
+    {
+        "order": "192",
+        "level": "L3",
+        "code": "MAG",
+        "WGSRPD_name": "Magadan"
+    },
+    {
+        "order": "193",
+        "level": "L3",
+        "code": "PRM",
+        "WGSRPD_name": "Primorye"
+    },
+    {
+        "order": "194",
+        "level": "L3",
+        "code": "SAK",
+        "WGSRPD_name": "Sakhalin"
+    },
+    {
+        "order": "195",
+        "level": "L2",
+        "code": "32",
+        "WGSRPD_name": "Middle Asia"
+    },
+    {
+        "order": "196",
+        "level": "L3",
+        "code": "KAZ",
+        "WGSRPD_name": "Kazakhstan"
+    },
+    {
+        "order": "197",
+        "level": "L3",
+        "code": "KGZ",
+        "WGSRPD_name": "Kirgizistan"
+    },
+    {
+        "order": "198",
+        "level": "L3",
+        "code": "TKM",
+        "WGSRPD_name": "Turkmenistan"
+    },
+    {
+        "order": "199",
+        "level": "L3",
+        "code": "TZK",
+        "WGSRPD_name": "Tadzhikistan"
+    },
+    {
+        "order": "200",
+        "level": "L3",
+        "code": "UZB",
+        "WGSRPD_name": "Uzbekistan"
+    },
+    {
+        "order": "201",
+        "level": "L2",
+        "code": "33",
+        "WGSRPD_name": "Caucasus"
+    },
+    {
+        "order": "202",
+        "level": "L3",
+        "code": "NCS",
+        "WGSRPD_name": "North Caucasus"
+    },
+    {
+        "order": "203",
+        "level": "L4",
+        "code": "NCS-CH",
+        "WGSRPD_name": "Chechnya"
+    },
+    {
+        "order": "204",
+        "level": "L4",
+        "code": "NCS-DA",
+        "WGSRPD_name": "Dagestan"
+    },
+    {
+        "order": "205",
+        "level": "L4",
+        "code": "NCS-IN",
+        "WGSRPD_name": "Ingushetiya"
+    },
+    {
+        "order": "206",
+        "level": "L4",
+        "code": "NCS-KB",
+        "WGSRPD_name": "Kabardino-Balkariya"
+    },
+    {
+        "order": "207",
+        "level": "L4",
+        "code": "NCS-KC",
+        "WGSRPD_name": "Karacheyevo-Cherkessiya"
+    },
+    {
+        "order": "208",
+        "level": "L4",
+        "code": "NCS-KR",
+        "WGSRPD_name": "Krasnodar"
+    },
+    {
+        "order": "209",
+        "level": "L4",
+        "code": "NCS-SO",
+        "WGSRPD_name": "Severo-Osetiya"
+    },
+    {
+        "order": "210",
+        "level": "L4",
+        "code": "NCS-ST",
+        "WGSRPD_name": "Stavropol"
+    },
+    {
+        "order": "211",
+        "level": "L3",
+        "code": "TCS",
+        "WGSRPD_name": "Transcaucasus"
+    },
+    {
+        "order": "212",
+        "level": "L4",
+        "code": "TCS-AB",
+        "WGSRPD_name": "Abkhaziya"
+    },
+    {
+        "order": "213",
+        "level": "L4",
+        "code": "TCS-AD",
+        "WGSRPD_name": "Adzhariya"
+    },
+    {
+        "order": "214",
+        "level": "L4",
+        "code": "TCS-AR",
+        "WGSRPD_name": "Armenia"
+    },
+    {
+        "order": "215",
+        "level": "L4",
+        "code": "TCS-AZ",
+        "WGSRPD_name": "Azerbaijan"
+    },
+    {
+        "order": "216",
+        "level": "L4",
+        "code": "TCS-GR",
+        "WGSRPD_name": "Gruziya"
+    },
+    {
+        "order": "217",
+        "level": "L4",
+        "code": "TCS-NA",
+        "WGSRPD_name": "Nakhichevan"
+    },
+    {
+        "order": "218",
+        "level": "L4",
+        "code": "TCS-NK",
+        "WGSRPD_name": "Nagorno Karabakh"
+    },
+    {
+        "order": "219",
+        "level": "L2",
+        "code": "34",
+        "WGSRPD_name": "Western Asia"
+    },
+    {
+        "order": "220",
+        "level": "L3",
+        "code": "AFG",
+        "WGSRPD_name": "Afghanistan"
+    },
+    {
+        "order": "221",
+        "level": "L3",
+        "code": "CYP",
+        "WGSRPD_name": "Cyprus"
+    },
+    {
+        "order": "222",
+        "level": "L3",
+        "code": "EAI",
+        "WGSRPD_name": "East Aegean Is."
+    },
+    {
+        "order": "223",
+        "level": "L3",
+        "code": "IRN",
+        "WGSRPD_name": "Iran"
+    },
+    {
+        "order": "224",
+        "level": "L3",
+        "code": "IRQ",
+        "WGSRPD_name": "Iraq"
+    },
+    {
+        "order": "225",
+        "level": "L3",
+        "code": "LBS",
+        "WGSRPD_name": "Lebanon-Syria"
+    },
+    {
+        "order": "226",
+        "level": "L4",
+        "code": "LBS-LB",
+        "WGSRPD_name": "Lebanon"
+    },
+    {
+        "order": "227",
+        "level": "L4",
+        "code": "LBS-SY",
+        "WGSRPD_name": "Syria"
+    },
+    {
+        "order": "228",
+        "level": "L3",
+        "code": "PAL",
+        "WGSRPD_name": "Palestine"
+    },
+    {
+        "order": "229",
+        "level": "L4",
+        "code": "PAL-JO",
+        "WGSRPD_name": "Jordan"
+    },
+    {
+        "order": "230",
+        "level": "L4",
+        "code": "PAL-IS",
+        "WGSRPD_name": "Israel"
+    },
+    {
+        "order": "231",
+        "level": "L3",
+        "code": "SIN",
+        "WGSRPD_name": "Sinai"
+    },
+    {
+        "order": "232",
+        "level": "L3",
+        "code": "TUR",
+        "WGSRPD_name": "Turkey"
+    },
+    {
+        "order": "233",
+        "level": "L2",
+        "code": "35",
+        "WGSRPD_name": "Arabian Peninsula"
+    },
+    {
+        "order": "234",
+        "level": "L3",
+        "code": "GST",
+        "WGSRPD_name": "Gulf States"
+    },
+    {
+        "order": "235",
+        "level": "L4",
+        "code": "GST-BA",
+        "WGSRPD_name": "Bahrain"
+    },
+    {
+        "order": "236",
+        "level": "L4",
+        "code": "GST-QA",
+        "WGSRPD_name": "Qatar"
+    },
+    {
+        "order": "237",
+        "level": "L4",
+        "code": "GST-UA",
+        "WGSRPD_name": "United Arab Emirates"
+    },
+    {
+        "order": "238",
+        "level": "L3",
+        "code": "KUW",
+        "WGSRPD_name": "Kuwait"
+    },
+    {
+        "order": "239",
+        "level": "L3",
+        "code": "OMA",
+        "WGSRPD_name": "Oman"
+    },
+    {
+        "order": "240",
+        "level": "L3",
+        "code": "SAU",
+        "WGSRPD_name": "Saudi Arabia"
+    },
+    {
+        "order": "241",
+        "level": "L3",
+        "code": "YEM",
+        "WGSRPD_name": "Yemen"
+    },
+    {
+        "order": "242",
+        "level": "L4",
+        "code": "YEM-NY",
+        "WGSRPD_name": "North Yemen"
+    },
+    {
+        "order": "243",
+        "level": "L4",
+        "code": "YEM-SY",
+        "WGSRPD_name": "South Yemen"
+    },
+    {
+        "order": "244",
+        "level": "L2",
+        "code": "36",
+        "WGSRPD_name": "China"
+    },
+    {
+        "order": "245",
+        "level": "L3",
+        "code": "CHC",
+        "WGSRPD_name": "China South-Central"
+    },
+    {
+        "order": "246",
+        "level": "L4",
+        "code": "CHC-CQ",
+        "WGSRPD_name": "Chongqing"
+    },
+    {
+        "order": "247",
+        "level": "L4",
+        "code": "CHC-GZ",
+        "WGSRPD_name": "Guizhou"
+    },
+    {
+        "order": "248",
+        "level": "L4",
+        "code": "CHC-HU",
+        "WGSRPD_name": "Hubei"
+    },
+    {
+        "order": "249",
+        "level": "L4",
+        "code": "CHC-SC",
+        "WGSRPD_name": "Sichuan"
+    },
+    {
+        "order": "250",
+        "level": "L4",
+        "code": "CHC-YN",
+        "WGSRPD_name": "Yunnan"
+    },
+    {
+        "order": "251",
+        "level": "L3",
+        "code": "CHH",
+        "WGSRPD_name": "Hainan"
+    },
+    {
+        "order": "252",
+        "level": "L3",
+        "code": "CHI",
+        "WGSRPD_name": "Inner Mongolia"
+    },
+    {
+        "order": "253",
+        "level": "L4",
+        "code": "CHI-NM",
+        "WGSRPD_name": "Nei Mongol"
+    },
+    {
+        "order": "254",
+        "level": "L4",
+        "code": "CHI-NX",
+        "WGSRPD_name": "Ningxia"
+    },
+    {
+        "order": "255",
+        "level": "L3",
+        "code": "CHM",
+        "WGSRPD_name": "Manchuria"
+    },
+    {
+        "order": "256",
+        "level": "L4",
+        "code": "CHM-HJ",
+        "WGSRPD_name": "Heilongjiang"
+    },
+    {
+        "order": "257",
+        "level": "L4",
+        "code": "CHM-JL",
+        "WGSRPD_name": "Jilin"
+    },
+    {
+        "order": "258",
+        "level": "L4",
+        "code": "CHM-LN",
+        "WGSRPD_name": "Liaoning"
+    },
+    {
+        "order": "259",
+        "level": "L3",
+        "code": "CHN",
+        "WGSRPD_name": "China North-Central"
+    },
+    {
+        "order": "260",
+        "level": "L4",
+        "code": "CHN-BJ",
+        "WGSRPD_name": "Beijing"
+    },
+    {
+        "order": "261",
+        "level": "L4",
+        "code": "CHN-GS",
+        "WGSRPD_name": "Gansu"
+    },
+    {
+        "order": "262",
+        "level": "L4",
+        "code": "CHN-HB",
+        "WGSRPD_name": "Hebei"
+    },
+    {
+        "order": "263",
+        "level": "L4",
+        "code": "CHN-SA",
+        "WGSRPD_name": "Shaanxi"
+    },
+    {
+        "order": "264",
+        "level": "L4",
+        "code": "CHN-SD",
+        "WGSRPD_name": "Shandong"
+    },
+    {
+        "order": "265",
+        "level": "L4",
+        "code": "CHN-SX",
+        "WGSRPD_name": "Shanxi"
+    },
+    {
+        "order": "266",
+        "level": "L4",
+        "code": "CHN-TJ",
+        "WGSRPD_name": "Tianjin"
+    },
+    {
+        "order": "267",
+        "level": "L3",
+        "code": "CHQ",
+        "WGSRPD_name": "Qinghai"
+    },
+    {
+        "order": "268",
+        "level": "L3",
+        "code": "CHS",
+        "WGSRPD_name": "China Southeast"
+    },
+    {
+        "order": "269",
+        "level": "L4",
+        "code": "CHS-AH",
+        "WGSRPD_name": "Anhui"
+    },
+    {
+        "order": "270",
+        "level": "L4",
+        "code": "CHS-FJ",
+        "WGSRPD_name": "Fujian"
+    },
+    {
+        "order": "271",
+        "level": "L4",
+        "code": "CHS-GD",
+        "WGSRPD_name": "Guangdong"
+    },
+    {
+        "order": "272",
+        "level": "L4",
+        "code": "CHS-GX",
+        "WGSRPD_name": "Guangxi"
+    },
+    {
+        "order": "273",
+        "level": "L4",
+        "code": "CHS-HE",
+        "WGSRPD_name": "Henan"
+    },
+    {
+        "order": "274",
+        "level": "L4",
+        "code": "CHS-HK",
+        "WGSRPD_name": "Hong Kong"
+    },
+    {
+        "order": "275",
+        "level": "L4",
+        "code": "CHS-HN",
+        "WGSRPD_name": "Hunan"
+    },
+    {
+        "order": "276",
+        "level": "L4",
+        "code": "CHS-JS",
+        "WGSRPD_name": "Jiangsu"
+    },
+    {
+        "order": "277",
+        "level": "L4",
+        "code": "CHS-JX",
+        "WGSRPD_name": "Jiangxi"
+    },
+    {
+        "order": "278",
+        "level": "L4",
+        "code": "CHS-KI",
+        "WGSRPD_name": "Kin-Men"
+    },
+    {
+        "order": "279",
+        "level": "L4",
+        "code": "CHS-MA",
+        "WGSRPD_name": "Macau"
+    },
+    {
+        "order": "280",
+        "level": "L4",
+        "code": "CHS-MP",
+        "WGSRPD_name": "Ma-tsu-Pai-chuan"
+    },
+    {
+        "order": "281",
+        "level": "L4",
+        "code": "CHS-SH",
+        "WGSRPD_name": "Shanghai"
+    },
+    {
+        "order": "282",
+        "level": "L4",
+        "code": "CHS-ZJ",
+        "WGSRPD_name": "Zhejiang"
+    },
+    {
+        "order": "283",
+        "level": "L3",
+        "code": "CHT",
+        "WGSRPD_name": "Tibet"
+    },
+    {
+        "order": "284",
+        "level": "L3",
+        "code": "CHX",
+        "WGSRPD_name": "Xinjiang"
+    },
+    {
+        "order": "285",
+        "level": "L2",
+        "code": "37",
+        "WGSRPD_name": "Mongolia"
+    },
+    {
+        "order": "286",
+        "level": "L3",
+        "code": "MON",
+        "WGSRPD_name": "Mongolia"
+    },
+    {
+        "order": "287",
+        "level": "L2",
+        "code": "38",
+        "WGSRPD_name": "Eastern Asia"
+    },
+    {
+        "order": "288",
+        "level": "L3",
+        "code": "JAP",
+        "WGSRPD_name": "Japan"
+    },
+    {
+        "order": "289",
+        "level": "L4",
+        "code": "JAP-HK",
+        "WGSRPD_name": "Hokkaido"
+    },
+    {
+        "order": "290",
+        "level": "L4",
+        "code": "JAP-HN",
+        "WGSRPD_name": "Honshu"
+    },
+    {
+        "order": "291",
+        "level": "L4",
+        "code": "JAP-KY",
+        "WGSRPD_name": "Kyushu"
+    },
+    {
+        "order": "292",
+        "level": "L4",
+        "code": "JAP-SH",
+        "WGSRPD_name": "Shikoku"
+    },
+    {
+        "order": "293",
+        "level": "L3",
+        "code": "KOR",
+        "WGSRPD_name": "Korea"
+    },
+    {
+        "order": "294",
+        "level": "L4",
+        "code": "KOR-NK",
+        "WGSRPD_name": "North Korea"
+    },
+    {
+        "order": "295",
+        "level": "L4",
+        "code": "KOR-SK",
+        "WGSRPD_name": "South Korea"
+    },
+    {
+        "order": "296",
+        "level": "L3",
+        "code": "KZN",
+        "WGSRPD_name": "Kazan-retto"
+    },
+    {
+        "order": "297",
+        "level": "L3",
+        "code": "NNS",
+        "WGSRPD_name": "Nansei-shoto"
+    },
+    {
+        "order": "298",
+        "level": "L3",
+        "code": "OGA",
+        "WGSRPD_name": "Ogasawara-shoto"
+    },
+    {
+        "order": "299",
+        "level": "L3",
+        "code": "TAI",
+        "WGSRPD_name": "Taiwan"
+    },
+    {
+        "order": "300",
+        "level": "L1",
+        "code": "4",
+        "WGSRPD_name": "Asia-Tropical"
+    },
+    {
+        "order": "301",
+        "level": "L2",
+        "code": "40",
+        "WGSRPD_name": "Indian Subcontinent"
+    },
+    {
+        "order": "302",
+        "level": "L3",
+        "code": "ASS",
+        "WGSRPD_name": "Assam"
+    },
+    {
+        "order": "303",
+        "level": "L4",
+        "code": "ASS-AS",
+        "WGSRPD_name": "Assam"
+    },
+    {
+        "order": "304",
+        "level": "L4",
+        "code": "ASS-MA",
+        "WGSRPD_name": "Manipur"
+    },
+    {
+        "order": "305",
+        "level": "L4",
+        "code": "ASS-ME",
+        "WGSRPD_name": "Meghalaya"
+    },
+    {
+        "order": "306",
+        "level": "L4",
+        "code": "ASS-MI",
+        "WGSRPD_name": "Mizoram"
+    },
+    {
+        "order": "307",
+        "level": "L4",
+        "code": "ASS-NA",
+        "WGSRPD_name": "Nagaland"
+    },
+    {
+        "order": "308",
+        "level": "L4",
+        "code": "ASS-TR",
+        "WGSRPD_name": "Tripura"
+    },
+    {
+        "order": "309",
+        "level": "L3",
+        "code": "BAN",
+        "WGSRPD_name": "Bangladesh"
+    },
+    {
+        "order": "310",
+        "level": "L3",
+        "code": "EHM",
+        "WGSRPD_name": "East Himalaya"
+    },
+    {
+        "order": "311",
+        "level": "L4",
+        "code": "EHM-AP",
+        "WGSRPD_name": "Arunachal Pradesh"
+    },
+    {
+        "order": "312",
+        "level": "L4",
+        "code": "EHM-BH",
+        "WGSRPD_name": "Bhutan"
+    },
+    {
+        "order": "313",
+        "level": "L4",
+        "code": "EHM-DJ",
+        "WGSRPD_name": "Darjiling"
+    },
+    {
+        "order": "314",
+        "level": "L4",
+        "code": "EHM-SI",
+        "WGSRPD_name": "Sikkim"
+    },
+    {
+        "order": "315",
+        "level": "L3",
+        "code": "IND",
+        "WGSRPD_name": "India"
+    },
+    {
+        "order": "316",
+        "level": "L4",
+        "code": "IND-AP",
+        "WGSRPD_name": "Andhra Pradesh"
+    },
+    {
+        "order": "317",
+        "level": "L4",
+        "code": "IND-BI",
+        "WGSRPD_name": "Bihar"
+    },
+    {
+        "order": "318",
+        "level": "L4",
+        "code": "IND-CH",
+        "WGSRPD_name": "Chandigarh"
+    },
+    {
+        "order": "319",
+        "level": "L4",
+        "code": "IND-CT",
+        "WGSRPD_name": "Chhattisgarh"
+    },
+    {
+        "order": "320",
+        "level": "L4",
+        "code": "IND-DD",
+        "WGSRPD_name": "Dadra-Nagar-Haveli"
+    },
+    {
+        "order": "321",
+        "level": "L4",
+        "code": "IND-DE",
+        "WGSRPD_name": "Delhi"
+    },
+    {
+        "order": "322",
+        "level": "L4",
+        "code": "IND-DI",
+        "WGSRPD_name": "Diu"
+    },
+    {
+        "order": "323",
+        "level": "L4",
+        "code": "IND-DM",
+        "WGSRPD_name": "Daman"
+    },
+    {
+        "order": "324",
+        "level": "L4",
+        "code": "IND-GO",
+        "WGSRPD_name": "Goa"
+    },
+    {
+        "order": "325",
+        "level": "L4",
+        "code": "IND-GU",
+        "WGSRPD_name": "Gujarat"
+    },
+    {
+        "order": "326",
+        "level": "L4",
+        "code": "IND-HA",
+        "WGSRPD_name": "Haryana"
+    },
+    {
+        "order": "327",
+        "level": "L4",
+        "code": "IND-JK",
+        "WGSRPD_name": "Jharkhand"
+    },
+    {
+        "order": "328",
+        "level": "L4",
+        "code": "IND-KE",
+        "WGSRPD_name": "Kerala"
+    },
+    {
+        "order": "329",
+        "level": "L4",
+        "code": "IND-KL",
+        "WGSRPD_name": "Karaikal"
+    },
+    {
+        "order": "330",
+        "level": "L4",
+        "code": "IND-KT",
+        "WGSRPD_name": "Karnataka"
+    },
+    {
+        "order": "331",
+        "level": "L4",
+        "code": "IND-MH",
+        "WGSRPD_name": "Mahe"
+    },
+    {
+        "order": "332",
+        "level": "L4",
+        "code": "IND-MP",
+        "WGSRPD_name": "Madhya Pradesh"
+    },
+    {
+        "order": "333",
+        "level": "L4",
+        "code": "IND-MR",
+        "WGSRPD_name": "Maharashtra"
+    },
+    {
+        "order": "334",
+        "level": "L4",
+        "code": "IND-OR",
+        "WGSRPD_name": "Orissa"
+    },
+    {
+        "order": "335",
+        "level": "L4",
+        "code": "IND-PO",
+        "WGSRPD_name": "Pondicherry"
+    },
+    {
+        "order": "336",
+        "level": "L4",
+        "code": "IND-PU",
+        "WGSRPD_name": "Punjab"
+    },
+    {
+        "order": "337",
+        "level": "L4",
+        "code": "IND-RA",
+        "WGSRPD_name": "Rajasthan"
+    },
+    {
+        "order": "338",
+        "level": "L4",
+        "code": "IND-TN",
+        "WGSRPD_name": "Tamil Nadu"
+    },
+    {
+        "order": "339",
+        "level": "L4",
+        "code": "IND-UP",
+        "WGSRPD_name": "Uttar Pradesh"
+    },
+    {
+        "order": "340",
+        "level": "L4",
+        "code": "IND-WB",
+        "WGSRPD_name": "West Bengal"
+    },
+    {
+        "order": "341",
+        "level": "L4",
+        "code": "IND-YA",
+        "WGSRPD_name": "Yanam"
+    },
+    {
+        "order": "342",
+        "level": "L3",
+        "code": "LDV",
+        "WGSRPD_name": "Laccadive Is."
+    },
+    {
+        "order": "343",
+        "level": "L3",
+        "code": "MDV",
+        "WGSRPD_name": "Maldives"
+    },
+    {
+        "order": "344",
+        "level": "L3",
+        "code": "NEP",
+        "WGSRPD_name": "Nepal"
+    },
+    {
+        "order": "345",
+        "level": "L3",
+        "code": "PAK",
+        "WGSRPD_name": "Pakistan"
+    },
+    {
+        "order": "346",
+        "level": "L3",
+        "code": "SRL",
+        "WGSRPD_name": "Sri Lanka"
+    },
+    {
+        "order": "347",
+        "level": "L3",
+        "code": "WHM",
+        "WGSRPD_name": "West Himalaya"
+    },
+    {
+        "order": "348",
+        "level": "L4",
+        "code": "WHM-HP",
+        "WGSRPD_name": "Himachal Pradesh"
+    },
+    {
+        "order": "349",
+        "level": "L4",
+        "code": "WHM-JK",
+        "WGSRPD_name": "Jammu-Kashmir"
+    },
+    {
+        "order": "350",
+        "level": "L4",
+        "code": "WHM-UT",
+        "WGSRPD_name": "Uttaranchal"
+    },
+    {
+        "order": "351",
+        "level": "L2",
+        "code": "41",
+        "WGSRPD_name": "Indo-China"
+    },
+    {
+        "order": "352",
+        "level": "L3",
+        "code": "AND",
+        "WGSRPD_name": "Andaman Is."
+    },
+    {
+        "order": "353",
+        "level": "L4",
+        "code": "AND-AN",
+        "WGSRPD_name": "Andaman Is."
+    },
+    {
+        "order": "354",
+        "level": "L4",
+        "code": "AND-CO",
+        "WGSRPD_name": "Coco Is."
+    },
+    {
+        "order": "355",
+        "level": "L3",
+        "code": "CBD",
+        "WGSRPD_name": "Cambodia"
+    },
+    {
+        "order": "356",
+        "level": "L3",
+        "code": "LAO",
+        "WGSRPD_name": "Laos"
+    },
+    {
+        "order": "357",
+        "level": "L3",
+        "code": "MYA",
+        "WGSRPD_name": "Myanmar"
+    },
+    {
+        "order": "358",
+        "level": "L3",
+        "code": "NCB",
+        "WGSRPD_name": "Nicobar Is."
+    },
+    {
+        "order": "359",
+        "level": "L3",
+        "code": "SCS",
+        "WGSRPD_name": "South China Sea"
+    },
+    {
+        "order": "360",
+        "level": "L4",
+        "code": "SCS-PI",
+        "WGSRPD_name": "Paracel Is."
+    },
+    {
+        "order": "361",
+        "level": "L4",
+        "code": "SCS-SI",
+        "WGSRPD_name": "Spratly Is."
+    },
+    {
+        "order": "362",
+        "level": "L3",
+        "code": "THA",
+        "WGSRPD_name": "Thailand"
+    },
+    {
+        "order": "363",
+        "level": "L3",
+        "code": "VIE",
+        "WGSRPD_name": "Vietnam"
+    },
+    {
+        "order": "364",
+        "level": "L2",
+        "code": "42",
+        "WGSRPD_name": "Malesia"
+    },
+    {
+        "order": "365",
+        "level": "L3",
+        "code": "BOR",
+        "WGSRPD_name": "Borneo"
+    },
+    {
+        "order": "366",
+        "level": "L4",
+        "code": "BOR-BR",
+        "WGSRPD_name": "Brunei"
+    },
+    {
+        "order": "367",
+        "level": "L4",
+        "code": "BOR-KA",
+        "WGSRPD_name": "Kalimantan"
+    },
+    {
+        "order": "368",
+        "level": "L4",
+        "code": "BOR-SB",
+        "WGSRPD_name": "Sabah"
+    },
+    {
+        "order": "369",
+        "level": "L4",
+        "code": "BOR-SR",
+        "WGSRPD_name": "Sarawak"
+    },
+    {
+        "order": "370",
+        "level": "L3",
+        "code": "CKI",
+        "WGSRPD_name": "Cocos (Keeling) Is."
+    },
+    {
+        "order": "371",
+        "level": "L3",
+        "code": "JAW",
+        "WGSRPD_name": "Jawa"
+    },
+    {
+        "order": "372",
+        "level": "L3",
+        "code": "LSI",
+        "WGSRPD_name": "Lesser Sunda Is."
+    },
+    {
+        "order": "373",
+        "level": "L4",
+        "code": "LSI-BA",
+        "WGSRPD_name": "Bali"
+    },
+    {
+        "order": "374",
+        "level": "L4",
+        "code": "LSI-ET",
+        "WGSRPD_name": "East Timor"
+    },
+    {
+        "order": "375",
+        "level": "L4",
+        "code": "LSI-LS",
+        "WGSRPD_name": "Lesser Sunda Is."
+    },
+    {
+        "order": "376",
+        "level": "L3",
+        "code": "MLY",
+        "WGSRPD_name": "Malaya"
+    },
+    {
+        "order": "377",
+        "level": "L4",
+        "code": "MLY-PM",
+        "WGSRPD_name": "Peninsular Malaysia"
+    },
+    {
+        "order": "378",
+        "level": "L4",
+        "code": "MLY-SI",
+        "WGSRPD_name": "Singapore"
+    },
+    {
+        "order": "379",
+        "level": "L3",
+        "code": "MOL",
+        "WGSRPD_name": "Maluku"
+    },
+    {
+        "order": "380",
+        "level": "L3",
+        "code": "PHI",
+        "WGSRPD_name": "Philippines"
+    },
+    {
+        "order": "381",
+        "level": "L3",
+        "code": "SUL",
+        "WGSRPD_name": "Sulawesi"
+    },
+    {
+        "order": "382",
+        "level": "L3",
+        "code": "SUM",
+        "WGSRPD_name": "Sumatera"
+    },
+    {
+        "order": "383",
+        "level": "L3",
+        "code": "XMS",
+        "WGSRPD_name": "Christmas I."
+    },
+    {
+        "order": "384",
+        "level": "L2",
+        "code": "43",
+        "WGSRPD_name": "Papuasia"
+    },
+    {
+        "order": "385",
+        "level": "L3",
+        "code": "BIS",
+        "WGSRPD_name": "Bismarck Archipelago"
+    },
+    {
+        "order": "386",
+        "level": "L3",
+        "code": "NWG",
+        "WGSRPD_name": "New Guinea"
+    },
+    {
+        "order": "387",
+        "level": "L4",
+        "code": "NWG-PN",
+        "WGSRPD_name": "Papua New Guinea"
+    },
+    {
+        "order": "388",
+        "level": "L4",
+        "code": "NWG-IJ",
+        "WGSRPD_name": "Irian Jaya"
+    },
+    {
+        "order": "389",
+        "level": "L3",
+        "code": "SOL",
+        "WGSRPD_name": "Solomon Is."
+    },
+    {
+        "order": "390",
+        "level": "L4",
+        "code": "SOL-NO",
+        "WGSRPD_name": "North Solomons"
+    },
+    {
+        "order": "391",
+        "level": "L4",
+        "code": "SOL-SO",
+        "WGSRPD_name": "South Solomons"
+    },
+    {
+        "order": "392",
+        "level": "L1",
+        "code": "5",
+        "WGSRPD_name": "Australasia"
+    },
+    {
+        "order": "393",
+        "level": "L2",
+        "code": "50",
+        "WGSRPD_name": "Australia"
+    },
+    {
+        "order": "394",
+        "level": "L3",
+        "code": "NFK",
+        "WGSRPD_name": "Norfolk Is."
+    },
+    {
+        "order": "395",
+        "level": "L4",
+        "code": "NFK-LH",
+        "WGSRPD_name": "Lord Howe I."
+    },
+    {
+        "order": "396",
+        "level": "L4",
+        "code": "NFK-NI",
+        "WGSRPD_name": "Norfolk I."
+    },
+    {
+        "order": "397",
+        "level": "L3",
+        "code": "NSW",
+        "WGSRPD_name": "New South Wales"
+    },
+    {
+        "order": "398",
+        "level": "L4",
+        "code": "NSW-CT",
+        "WGSRPD_name": "Australian Capital Territory"
+    },
+    {
+        "order": "399",
+        "level": "L4",
+        "code": "NSW-NS",
+        "WGSRPD_name": "New South Wales"
+    },
+    {
+        "order": "400",
+        "level": "L3",
+        "code": "NTA",
+        "WGSRPD_name": "Northern Territory"
+    },
+    {
+        "order": "401",
+        "level": "L3",
+        "code": "QLD",
+        "WGSRPD_name": "Queensland"
+    },
+    {
+        "order": "402",
+        "level": "L4",
+        "code": "QLD-CS",
+        "WGSRPD_name": "Coral Sea Is. Territory"
+    },
+    {
+        "order": "403",
+        "level": "L4",
+        "code": "QLD-QU",
+        "WGSRPD_name": "Queensland"
+    },
+    {
+        "order": "404",
+        "level": "L3",
+        "code": "SOA",
+        "WGSRPD_name": "South Australia"
+    },
+    {
+        "order": "405",
+        "level": "L3",
+        "code": "TAS",
+        "WGSRPD_name": "Tasmania"
+    },
+    {
+        "order": "406",
+        "level": "L3",
+        "code": "VIC",
+        "WGSRPD_name": "Victoria"
+    },
+    {
+        "order": "407",
+        "level": "L3",
+        "code": "WAU",
+        "WGSRPD_name": "Western Australia"
+    },
+    {
+        "order": "408",
+        "level": "L4",
+        "code": "WAU-AC",
+        "WGSRPD_name": "Ashmore-Cartier Is."
+    },
+    {
+        "order": "409",
+        "level": "L4",
+        "code": "WAU-WA",
+        "WGSRPD_name": "Western Australia"
+    },
+    {
+        "order": "410",
+        "level": "L2",
+        "code": "51",
+        "WGSRPD_name": "New Zealand"
+    },
+    {
+        "order": "411",
+        "level": "L3",
+        "code": "ATP",
+        "WGSRPD_name": "Antipodean Is."
+    },
+    {
+        "order": "412",
+        "level": "L3",
+        "code": "CTM",
+        "WGSRPD_name": "Chatham Is."
+    },
+    {
+        "order": "413",
+        "level": "L3",
+        "code": "KER",
+        "WGSRPD_name": "Kermadec Is."
+    },
+    {
+        "order": "414",
+        "level": "L3",
+        "code": "NZN",
+        "WGSRPD_name": "New Zealand North"
+    },
+    {
+        "order": "415",
+        "level": "L3",
+        "code": "NZS",
+        "WGSRPD_name": "New Zealand South"
+    },
+    {
+        "order": "416",
+        "level": "L1",
+        "code": "6",
+        "WGSRPD_name": "Pacific"
+    },
+    {
+        "order": "417",
+        "level": "L2",
+        "code": "60",
+        "WGSRPD_name": "Southwestern Pacific"
+    },
+    {
+        "order": "418",
+        "level": "L3",
+        "code": "FIJ",
+        "WGSRPD_name": "Fiji"
+    },
+    {
+        "order": "419",
+        "level": "L3",
+        "code": "GIL",
+        "WGSRPD_name": "Gilbert Is."
+    },
+    {
+        "order": "420",
+        "level": "L3",
+        "code": "HBI",
+        "WGSRPD_name": "Howland-Baker Is."
+    },
+    {
+        "order": "421",
+        "level": "L3",
+        "code": "NRU",
+        "WGSRPD_name": "Nauru"
+    },
+    {
+        "order": "422",
+        "level": "L3",
+        "code": "NUE",
+        "WGSRPD_name": "Niue"
+    },
+    {
+        "order": "423",
+        "level": "L3",
+        "code": "NWC",
+        "WGSRPD_name": "New Caledonia"
+    },
+    {
+        "order": "424",
+        "level": "L3",
+        "code": "PHX",
+        "WGSRPD_name": "Phoenix Is."
+    },
+    {
+        "order": "425",
+        "level": "L3",
+        "code": "SAM",
+        "WGSRPD_name": "Samoa"
+    },
+    {
+        "order": "426",
+        "level": "L4",
+        "code": "SAM-AS",
+        "WGSRPD_name": "American Samoa"
+    },
+    {
+        "order": "427",
+        "level": "L4",
+        "code": "SAM-WS",
+        "WGSRPD_name": "Samoa"
+    },
+    {
+        "order": "428",
+        "level": "L3",
+        "code": "SCZ",
+        "WGSRPD_name": "Santa Cruz Is."
+    },
+    {
+        "order": "429",
+        "level": "L3",
+        "code": "TOK",
+        "WGSRPD_name": "Tokelau-Manihiki"
+    },
+    {
+        "order": "430",
+        "level": "L4",
+        "code": "TOK-MA",
+        "WGSRPD_name": "Manihiki Is."
+    },
+    {
+        "order": "431",
+        "level": "L4",
+        "code": "TOK-SW",
+        "WGSRPD_name": "Swains I."
+    },
+    {
+        "order": "432",
+        "level": "L4",
+        "code": "TOK-TO",
+        "WGSRPD_name": "Tokelau"
+    },
+    {
+        "order": "433",
+        "level": "L3",
+        "code": "TON",
+        "WGSRPD_name": "Tonga"
+    },
+    {
+        "order": "434",
+        "level": "L3",
+        "code": "TUV",
+        "WGSRPD_name": "Tuvalu"
+    },
+    {
+        "order": "435",
+        "level": "L3",
+        "code": "VAN",
+        "WGSRPD_name": "Vanuatu"
+    },
+    {
+        "order": "436",
+        "level": "L3",
+        "code": "WAL",
+        "WGSRPD_name": "Wallis-Futuna Is."
+    },
+    {
+        "order": "437",
+        "level": "L2",
+        "code": "61",
+        "WGSRPD_name": "South-Central Pacific"
+    },
+    {
+        "order": "438",
+        "level": "L3",
+        "code": "COO",
+        "WGSRPD_name": "Cook Is."
+    },
+    {
+        "order": "439",
+        "level": "L3",
+        "code": "EAS",
+        "WGSRPD_name": "Easter Is."
+    },
+    {
+        "order": "440",
+        "level": "L3",
+        "code": "LIN",
+        "WGSRPD_name": "Line Is."
+    },
+    {
+        "order": "441",
+        "level": "L4",
+        "code": "LIN-KI",
+        "WGSRPD_name": "Kiribati Line Is."
+    },
+    {
+        "order": "442",
+        "level": "L4",
+        "code": "LIN-US",
+        "WGSRPD_name": "U.S. Line Is."
+    },
+    {
+        "order": "443",
+        "level": "L3",
+        "code": "MRQ",
+        "WGSRPD_name": "Marquesas"
+    },
+    {
+        "order": "444",
+        "level": "L3",
+        "code": "PIT",
+        "WGSRPD_name": "Pitcairn Is."
+    },
+    {
+        "order": "445",
+        "level": "L3",
+        "code": "SCI",
+        "WGSRPD_name": "Society Is."
+    },
+    {
+        "order": "446",
+        "level": "L3",
+        "code": "TUA",
+        "WGSRPD_name": "Tuamotu"
+    },
+    {
+        "order": "447",
+        "level": "L3",
+        "code": "TUB",
+        "WGSRPD_name": "Tubuai Is."
+    },
+    {
+        "order": "448",
+        "level": "L2",
+        "code": "62",
+        "WGSRPD_name": "Northwestern Pacific"
+    },
+    {
+        "order": "449",
+        "level": "L3",
+        "code": "CRL",
+        "WGSRPD_name": "Caroline Is."
+    },
+    {
+        "order": "450",
+        "level": "L4",
+        "code": "CRL-MF",
+        "WGSRPD_name": "Micronesia Federated States"
+    },
+    {
+        "order": "451",
+        "level": "L4",
+        "code": "CRL-PA",
+        "WGSRPD_name": "Palau"
+    },
+    {
+        "order": "452",
+        "level": "L3",
+        "code": "MCS",
+        "WGSRPD_name": "Marcus I."
+    },
+    {
+        "order": "453",
+        "level": "L3",
+        "code": "MRN",
+        "WGSRPD_name": "Marianas"
+    },
+    {
+        "order": "454",
+        "level": "L4",
+        "code": "MRN-GU",
+        "WGSRPD_name": "Guam"
+    },
+    {
+        "order": "455",
+        "level": "L4",
+        "code": "MRN-NM",
+        "WGSRPD_name": "Northern Marianas"
+    },
+    {
+        "order": "456",
+        "level": "L3",
+        "code": "MRS",
+        "WGSRPD_name": "Marshall Is."
+    },
+    {
+        "order": "457",
+        "level": "L3",
+        "code": "WAK",
+        "WGSRPD_name": "Wake I."
+    },
+    {
+        "order": "458",
+        "level": "L2",
+        "code": "63",
+        "WGSRPD_name": "North-Central Pacific"
+    },
+    {
+        "order": "459",
+        "level": "L3",
+        "code": "HAW",
+        "WGSRPD_name": "Hawaii"
+    },
+    {
+        "order": "460",
+        "level": "L4",
+        "code": "HAW-HI",
+        "WGSRPD_name": "Hawaiian Is."
+    },
+    {
+        "order": "461",
+        "level": "L4",
+        "code": "HAW-JI",
+        "WGSRPD_name": "Johnston I."
+    },
+    {
+        "order": "462",
+        "level": "L4",
+        "code": "HAW-MI",
+        "WGSRPD_name": "Midway Is."
+    },
+    {
+        "order": "463",
+        "level": "L1",
+        "code": "7",
+        "WGSRPD_name": "Northern America"
+    },
+    {
+        "order": "464",
+        "level": "L2",
+        "code": "70",
+        "WGSRPD_name": "Subarctic America"
+    },
+    {
+        "order": "465",
+        "level": "L3",
+        "code": "ALU",
+        "WGSRPD_name": "Aleutian Is."
+    },
+    {
+        "order": "466",
+        "level": "L3",
+        "code": "ASK",
+        "WGSRPD_name": "Alaska"
+    },
+    {
+        "order": "467",
+        "level": "L3",
+        "code": "GNL",
+        "WGSRPD_name": "Greenland"
+    },
+    {
+        "order": "468",
+        "level": "L3",
+        "code": "NUN",
+        "WGSRPD_name": "Nunavut"
+    },
+    {
+        "order": "469",
+        "level": "L3",
+        "code": "NWT",
+        "WGSRPD_name": "Northwest Territories"
+    },
+    {
+        "order": "470",
+        "level": "L3",
+        "code": "YUK",
+        "WGSRPD_name": "Yukon"
+    },
+    {
+        "order": "471",
+        "level": "L2",
+        "code": "71",
+        "WGSRPD_name": "Western Canada"
+    },
+    {
+        "order": "472",
+        "level": "L3",
+        "code": "ABT",
+        "WGSRPD_name": "Alberta"
+    },
+    {
+        "order": "473",
+        "level": "L3",
+        "code": "BRC",
+        "WGSRPD_name": "British Columbia"
+    },
+    {
+        "order": "474",
+        "level": "L3",
+        "code": "MAN",
+        "WGSRPD_name": "Manitoba"
+    },
+    {
+        "order": "475",
+        "level": "L3",
+        "code": "SAS",
+        "WGSRPD_name": "Saskatchewan"
+    },
+    {
+        "order": "476",
+        "level": "L2",
+        "code": "72",
+        "WGSRPD_name": "Eastern Canada"
+    },
+    {
+        "order": "477",
+        "level": "L3",
+        "code": "LAB",
+        "WGSRPD_name": "Labrador"
+    },
+    {
+        "order": "478",
+        "level": "L3",
+        "code": "NBR",
+        "WGSRPD_name": "New Brunswick"
+    },
+    {
+        "order": "479",
+        "level": "L3",
+        "code": "NFL",
+        "WGSRPD_name": "Newfoundland"
+    },
+    {
+        "order": "480",
+        "level": "L4",
+        "code": "NFL-NE",
+        "WGSRPD_name": "Newfoundland"
+    },
+    {
+        "order": "481",
+        "level": "L4",
+        "code": "NFL-SP",
+        "WGSRPD_name": "St. Pierre-Miquelon"
+    },
+    {
+        "order": "482",
+        "level": "L3",
+        "code": "NSC",
+        "WGSRPD_name": "Nova Scotia"
+    },
+    {
+        "order": "483",
+        "level": "L3",
+        "code": "ONT",
+        "WGSRPD_name": "Ontario"
+    },
+    {
+        "order": "484",
+        "level": "L3",
+        "code": "PEI",
+        "WGSRPD_name": "Prince Edward I."
+    },
+    {
+        "order": "485",
+        "level": "L3",
+        "code": "QUE",
+        "WGSRPD_name": "Québec"
+    },
+    {
+        "order": "486",
+        "level": "L2",
+        "code": "73",
+        "WGSRPD_name": "Northwestern U.S.A."
+    },
+    {
+        "order": "487",
+        "level": "L3",
+        "code": "COL",
+        "WGSRPD_name": "Colorado"
+    },
+    {
+        "order": "488",
+        "level": "L3",
+        "code": "IDA",
+        "WGSRPD_name": "Idaho"
+    },
+    {
+        "order": "489",
+        "level": "L3",
+        "code": "MNT",
+        "WGSRPD_name": "Montana"
+    },
+    {
+        "order": "490",
+        "level": "L3",
+        "code": "ORE",
+        "WGSRPD_name": "Oregon"
+    },
+    {
+        "order": "491",
+        "level": "L3",
+        "code": "WAS",
+        "WGSRPD_name": "Washington"
+    },
+    {
+        "order": "492",
+        "level": "L3",
+        "code": "WYO",
+        "WGSRPD_name": "Wyoming"
+    },
+    {
+        "order": "493",
+        "level": "L2",
+        "code": "74",
+        "WGSRPD_name": "North-Central U.S.A."
+    },
+    {
+        "order": "494",
+        "level": "L3",
+        "code": "ILL",
+        "WGSRPD_name": "Illinois"
+    },
+    {
+        "order": "495",
+        "level": "L3",
+        "code": "IOW",
+        "WGSRPD_name": "Iowa"
+    },
+    {
+        "order": "496",
+        "level": "L3",
+        "code": "KAN",
+        "WGSRPD_name": "Kansas"
+    },
+    {
+        "order": "497",
+        "level": "L3",
+        "code": "MIN",
+        "WGSRPD_name": "Minnesota"
+    },
+    {
+        "order": "498",
+        "level": "L3",
+        "code": "MSO",
+        "WGSRPD_name": "Missouri"
+    },
+    {
+        "order": "499",
+        "level": "L3",
+        "code": "NDA",
+        "WGSRPD_name": "North Dakota"
+    },
+    {
+        "order": "500",
+        "level": "L3",
+        "code": "NEB",
+        "WGSRPD_name": "Nebraska"
+    },
+    {
+        "order": "501",
+        "level": "L3",
+        "code": "OKL",
+        "WGSRPD_name": "Oklahoma"
+    },
+    {
+        "order": "502",
+        "level": "L3",
+        "code": "SDA",
+        "WGSRPD_name": "South Dakota"
+    },
+    {
+        "order": "503",
+        "level": "L3",
+        "code": "WIS",
+        "WGSRPD_name": "Wisconsin"
+    },
+    {
+        "order": "504",
+        "level": "L2",
+        "code": "75",
+        "WGSRPD_name": "Northeastern U.S.A."
+    },
+    {
+        "order": "505",
+        "level": "L3",
+        "code": "CNT",
+        "WGSRPD_name": "Connecticut"
+    },
+    {
+        "order": "506",
+        "level": "L3",
+        "code": "INI",
+        "WGSRPD_name": "Indiana"
+    },
+    {
+        "order": "507",
+        "level": "L3",
+        "code": "MAI",
+        "WGSRPD_name": "Maine"
+    },
+    {
+        "order": "508",
+        "level": "L3",
+        "code": "MAS",
+        "WGSRPD_name": "Massachusetts"
+    },
+    {
+        "order": "509",
+        "level": "L3",
+        "code": "MIC",
+        "WGSRPD_name": "Michigan"
+    },
+    {
+        "order": "510",
+        "level": "L3",
+        "code": "NWH",
+        "WGSRPD_name": "New Hampshire"
+    },
+    {
+        "order": "511",
+        "level": "L3",
+        "code": "NWJ",
+        "WGSRPD_name": "New Jersey"
+    },
+    {
+        "order": "512",
+        "level": "L3",
+        "code": "NWY",
+        "WGSRPD_name": "New York"
+    },
+    {
+        "order": "513",
+        "level": "L3",
+        "code": "OHI",
+        "WGSRPD_name": "Ohio"
+    },
+    {
+        "order": "514",
+        "level": "L3",
+        "code": "PEN",
+        "WGSRPD_name": "Pennsylvania"
+    },
+    {
+        "order": "515",
+        "level": "L3",
+        "code": "RHO",
+        "WGSRPD_name": "Rhode I."
+    },
+    {
+        "order": "516",
+        "level": "L3",
+        "code": "VER",
+        "WGSRPD_name": "Vermont"
+    },
+    {
+        "order": "517",
+        "level": "L3",
+        "code": "WVA",
+        "WGSRPD_name": "West Virginia"
+    },
+    {
+        "order": "518",
+        "level": "L2",
+        "code": "76",
+        "WGSRPD_name": "Southwestern U.S.A."
+    },
+    {
+        "order": "519",
+        "level": "L3",
+        "code": "ARI",
+        "WGSRPD_name": "Arizona"
+    },
+    {
+        "order": "520",
+        "level": "L3",
+        "code": "CAL",
+        "WGSRPD_name": "California"
+    },
+    {
+        "order": "521",
+        "level": "L3",
+        "code": "NEV",
+        "WGSRPD_name": "Nevada"
+    },
+    {
+        "order": "522",
+        "level": "L3",
+        "code": "UTA",
+        "WGSRPD_name": "Utah"
+    },
+    {
+        "order": "523",
+        "level": "L2",
+        "code": "77",
+        "WGSRPD_name": "South-Central U.S.A."
+    },
+    {
+        "order": "524",
+        "level": "L3",
+        "code": "NWM",
+        "WGSRPD_name": "New Mexico"
+    },
+    {
+        "order": "525",
+        "level": "L3",
+        "code": "TEX",
+        "WGSRPD_name": "Texas"
+    },
+    {
+        "order": "526",
+        "level": "L2",
+        "code": "78",
+        "WGSRPD_name": "Southeastern U.S.A."
+    },
+    {
+        "order": "527",
+        "level": "L3",
+        "code": "ALA",
+        "WGSRPD_name": "Alabama"
+    },
+    {
+        "order": "528",
+        "level": "L3",
+        "code": "ARK",
+        "WGSRPD_name": "Arkansas"
+    },
+    {
+        "order": "529",
+        "level": "L3",
+        "code": "DEL",
+        "WGSRPD_name": "Delaware"
+    },
+    {
+        "order": "530",
+        "level": "L3",
+        "code": "FLA",
+        "WGSRPD_name": "Florida"
+    },
+    {
+        "order": "531",
+        "level": "L3",
+        "code": "GEO",
+        "WGSRPD_name": "Georgia"
+    },
+    {
+        "order": "532",
+        "level": "L3",
+        "code": "KTY",
+        "WGSRPD_name": "Kentucky"
+    },
+    {
+        "order": "533",
+        "level": "L3",
+        "code": "LOU",
+        "WGSRPD_name": "Louisiana"
+    },
+    {
+        "order": "534",
+        "level": "L3",
+        "code": "MRY",
+        "WGSRPD_name": "Maryland"
+    },
+    {
+        "order": "535",
+        "level": "L3",
+        "code": "MSI",
+        "WGSRPD_name": "Mississippi"
+    },
+    {
+        "order": "536",
+        "level": "L3",
+        "code": "NCA",
+        "WGSRPD_name": "North Carolina"
+    },
+    {
+        "order": "537",
+        "level": "L3",
+        "code": "SCA",
+        "WGSRPD_name": "South Carolina"
+    },
+    {
+        "order": "538",
+        "level": "L3",
+        "code": "TEN",
+        "WGSRPD_name": "Tennessee"
+    },
+    {
+        "order": "539",
+        "level": "L3",
+        "code": "VRG",
+        "WGSRPD_name": "Virginia"
+    },
+    {
+        "order": "540",
+        "level": "L3",
+        "code": "WDC",
+        "WGSRPD_name": "District of Columbia"
+    },
+    {
+        "order": "541",
+        "level": "L2",
+        "code": "79",
+        "WGSRPD_name": "Mexico"
+    },
+    {
+        "order": "542",
+        "level": "L3",
+        "code": "MXC",
+        "WGSRPD_name": "Mexico Central"
+    },
+    {
+        "order": "543",
+        "level": "L4",
+        "code": "MXC-DF",
+        "WGSRPD_name": "Mexico Distrito Federal"
+    },
+    {
+        "order": "544",
+        "level": "L4",
+        "code": "MXC-ME",
+        "WGSRPD_name": "Mexico State"
+    },
+    {
+        "order": "545",
+        "level": "L4",
+        "code": "MXC-MO",
+        "WGSRPD_name": "Morelos"
+    },
+    {
+        "order": "546",
+        "level": "L4",
+        "code": "MXC-PU",
+        "WGSRPD_name": "Puebla"
+    },
+    {
+        "order": "547",
+        "level": "L4",
+        "code": "MXC-TL",
+        "WGSRPD_name": "Tlaxcala"
+    },
+    {
+        "order": "548",
+        "level": "L3",
+        "code": "MXE",
+        "WGSRPD_name": "Mexico Northeast"
+    },
+    {
+        "order": "549",
+        "level": "L4",
+        "code": "MXE-AG",
+        "WGSRPD_name": "Aguascalientes"
+    },
+    {
+        "order": "550",
+        "level": "L4",
+        "code": "MXE-CO",
+        "WGSRPD_name": "Coahuila"
+    },
+    {
+        "order": "551",
+        "level": "L4",
+        "code": "MXE-CU",
+        "WGSRPD_name": "Chihuahua"
+    },
+    {
+        "order": "552",
+        "level": "L4",
+        "code": "MXE-DU",
+        "WGSRPD_name": "Durango"
+    },
+    {
+        "order": "553",
+        "level": "L4",
+        "code": "MXE-GU",
+        "WGSRPD_name": "Guanajuato"
+    },
+    {
+        "order": "554",
+        "level": "L4",
+        "code": "MXE-HI",
+        "WGSRPD_name": "Hidalgo"
+    },
+    {
+        "order": "555",
+        "level": "L4",
+        "code": "MXE-NL",
+        "WGSRPD_name": "Nuevo León"
+    },
+    {
+        "order": "556",
+        "level": "L4",
+        "code": "MXE-QU",
+        "WGSRPD_name": "Querétaro"
+    },
+    {
+        "order": "557",
+        "level": "L4",
+        "code": "MXE-SL",
+        "WGSRPD_name": "San Luis Potosí"
+    },
+    {
+        "order": "558",
+        "level": "L4",
+        "code": "MXE-TA",
+        "WGSRPD_name": "Tamaulipas"
+    },
+    {
+        "order": "559",
+        "level": "L4",
+        "code": "MXE-ZA",
+        "WGSRPD_name": "Zacatecas"
+    },
+    {
+        "order": "560",
+        "level": "L3",
+        "code": "MXG",
+        "WGSRPD_name": "Mexico Gulf"
+    },
+    {
+        "order": "561",
+        "level": "L4",
+        "code": "MXG-VC",
+        "WGSRPD_name": "Veracruz"
+    },
+    {
+        "order": "562",
+        "level": "L3",
+        "code": "MXI",
+        "WGSRPD_name": "Mexican Pacific Is."
+    },
+    {
+        "order": "563",
+        "level": "L4",
+        "code": "MXI-GU",
+        "WGSRPD_name": "Guadalupe I."
+    },
+    {
+        "order": "564",
+        "level": "L4",
+        "code": "MXI-RA",
+        "WGSRPD_name": "Rocas Alijos"
+    },
+    {
+        "order": "565",
+        "level": "L4",
+        "code": "MXI-RG",
+        "WGSRPD_name": "Revillagigedo Is."
+    },
+    {
+        "order": "566",
+        "level": "L3",
+        "code": "MXN",
+        "WGSRPD_name": "Mexico Northwest"
+    },
+    {
+        "order": "567",
+        "level": "L4",
+        "code": "MXN-BC",
+        "WGSRPD_name": "Baja California"
+    },
+    {
+        "order": "568",
+        "level": "L4",
+        "code": "MXN-BS",
+        "WGSRPD_name": "Baja California Sur"
+    },
+    {
+        "order": "569",
+        "level": "L4",
+        "code": "MXN-SI",
+        "WGSRPD_name": "Sinaloa"
+    },
+    {
+        "order": "570",
+        "level": "L4",
+        "code": "MXN-SO",
+        "WGSRPD_name": "Sonora"
+    },
+    {
+        "order": "571",
+        "level": "L3",
+        "code": "MXS",
+        "WGSRPD_name": "Mexico Southwest"
+    },
+    {
+        "order": "572",
+        "level": "L4",
+        "code": "MXS-CL",
+        "WGSRPD_name": "Colima"
+    },
+    {
+        "order": "573",
+        "level": "L4",
+        "code": "MXS-GR",
+        "WGSRPD_name": "Guerrero"
+    },
+    {
+        "order": "574",
+        "level": "L4",
+        "code": "MXS-JA",
+        "WGSRPD_name": "Jalisco"
+    },
+    {
+        "order": "575",
+        "level": "L4",
+        "code": "MXS-MI",
+        "WGSRPD_name": "Michoacan"
+    },
+    {
+        "order": "576",
+        "level": "L4",
+        "code": "MXS-NA",
+        "WGSRPD_name": "Nayarit"
+    },
+    {
+        "order": "577",
+        "level": "L4",
+        "code": "MXS-OA",
+        "WGSRPD_name": "Oaxaca"
+    },
+    {
+        "order": "578",
+        "level": "L3",
+        "code": "MXT",
+        "WGSRPD_name": "Mexico Southeast"
+    },
+    {
+        "order": "579",
+        "level": "L4",
+        "code": "MXT-CA",
+        "WGSRPD_name": "Campeche"
+    },
+    {
+        "order": "580",
+        "level": "L4",
+        "code": "MXT-CI",
+        "WGSRPD_name": "Chiapas"
+    },
+    {
+        "order": "581",
+        "level": "L4",
+        "code": "MXT-QR",
+        "WGSRPD_name": "Quintana Roo"
+    },
+    {
+        "order": "582",
+        "level": "L4",
+        "code": "MXT-TB",
+        "WGSRPD_name": "Tabasco"
+    },
+    {
+        "order": "583",
+        "level": "L4",
+        "code": "MXT-YU",
+        "WGSRPD_name": "Yucatán"
+    },
+    {
+        "order": "584",
+        "level": "L1",
+        "code": "8",
+        "WGSRPD_name": "Southern America"
+    },
+    {
+        "order": "585",
+        "level": "L2",
+        "code": "80",
+        "WGSRPD_name": "Central America"
+    },
+    {
+        "order": "586",
+        "level": "L3",
+        "code": "BLZ",
+        "WGSRPD_name": "Belize"
+    },
+    {
+        "order": "587",
+        "level": "L3",
+        "code": "COS",
+        "WGSRPD_name": "Costa Rica"
+    },
+    {
+        "order": "588",
+        "level": "L3",
+        "code": "CPI",
+        "WGSRPD_name": "Central American Pacific Is."
+    },
+    {
+        "order": "589",
+        "level": "L4",
+        "code": "CPI-CL",
+        "WGSRPD_name": "Clipperton I."
+    },
+    {
+        "order": "590",
+        "level": "L4",
+        "code": "CPI-CO",
+        "WGSRPD_name": "Cocos I."
+    },
+    {
+        "order": "591",
+        "level": "L4",
+        "code": "CPI-MA",
+        "WGSRPD_name": "Malpelo I."
+    },
+    {
+        "order": "592",
+        "level": "L3",
+        "code": "ELS",
+        "WGSRPD_name": "El Salvador"
+    },
+    {
+        "order": "593",
+        "level": "L3",
+        "code": "GUA",
+        "WGSRPD_name": "Guatemala"
+    },
+    {
+        "order": "594",
+        "level": "L3",
+        "code": "HON",
+        "WGSRPD_name": "Honduras"
+    },
+    {
+        "order": "595",
+        "level": "L3",
+        "code": "NIC",
+        "WGSRPD_name": "Nicaragua"
+    },
+    {
+        "order": "596",
+        "level": "L3",
+        "code": "PAN",
+        "WGSRPD_name": "Panama"
+    },
+    {
+        "order": "597",
+        "level": "L2",
+        "code": "81",
+        "WGSRPD_name": "Caribbean"
+    },
+    {
+        "order": "598",
+        "level": "L3",
+        "code": "ARU",
+        "WGSRPD_name": "Aruba"
+    },
+    {
+        "order": "599",
+        "level": "L3",
+        "code": "BAH",
+        "WGSRPD_name": "Bahamas"
+    },
+    {
+        "order": "600",
+        "level": "L3",
+        "code": "BER",
+        "WGSRPD_name": "Bermuda"
+    },
+    {
+        "order": "601",
+        "level": "L3",
+        "code": "CAY",
+        "WGSRPD_name": "Cayman Is."
+    },
+    {
+        "order": "602",
+        "level": "L3",
+        "code": "CUB",
+        "WGSRPD_name": "Cuba"
+    },
+    {
+        "order": "603",
+        "level": "L3",
+        "code": "DOM",
+        "WGSRPD_name": "Dominican Republic"
+    },
+    {
+        "order": "604",
+        "level": "L3",
+        "code": "HAI",
+        "WGSRPD_name": "Haiti"
+    },
+    {
+        "order": "605",
+        "level": "L4",
+        "code": "HAI-HA",
+        "WGSRPD_name": "Haiti"
+    },
+    {
+        "order": "606",
+        "level": "L4",
+        "code": "HAI-NI",
+        "WGSRPD_name": "Navassa I."
+    },
+    {
+        "order": "607",
+        "level": "L3",
+        "code": "JAM",
+        "WGSRPD_name": "Jamaica"
+    },
+    {
+        "order": "608",
+        "level": "L3",
+        "code": "LEE",
+        "WGSRPD_name": "Leeward Is."
+    },
+    {
+        "order": "609",
+        "level": "L4",
+        "code": "LEE-AB",
+        "WGSRPD_name": "Antigua-Barbuda"
+    },
+    {
+        "order": "610",
+        "level": "L4",
+        "code": "LEE-AG",
+        "WGSRPD_name": "Anguilla"
+    },
+    {
+        "order": "611",
+        "level": "L4",
+        "code": "LEE-AV",
+        "WGSRPD_name": "Aves I."
+    },
+    {
+        "order": "612",
+        "level": "L4",
+        "code": "LEE-BV",
+        "WGSRPD_name": "British Virgin Is."
+    },
+    {
+        "order": "613",
+        "level": "L4",
+        "code": "LEE-GU",
+        "WGSRPD_name": "Guadeloupe"
+    },
+    {
+        "order": "614",
+        "level": "L4",
+        "code": "LEE-MO",
+        "WGSRPD_name": "Montserrat"
+    },
+    {
+        "order": "615",
+        "level": "L4",
+        "code": "LEE-NL",
+        "WGSRPD_name": "Netherlands Leeward Is."
+    },
+    {
+        "order": "616",
+        "level": "L4",
+        "code": "LEE-SK",
+        "WGSRPD_name": "St. Kitts-Nevis"
+    },
+    {
+        "order": "617",
+        "level": "L4",
+        "code": "LEE-SM",
+        "WGSRPD_name": "St. Martin-St. Barthelemy"
+    },
+    {
+        "order": "618",
+        "level": "L4",
+        "code": "LEE-VI",
+        "WGSRPD_name": "Virgin Is."
+    },
+    {
+        "order": "619",
+        "level": "L3",
+        "code": "NLA",
+        "WGSRPD_name": "Netherlands Antilles"
+    },
+    {
+        "order": "620",
+        "level": "L4",
+        "code": "NLA-BO",
+        "WGSRPD_name": "Bonaire"
+    },
+    {
+        "order": "621",
+        "level": "L4",
+        "code": "NLA-CU",
+        "WGSRPD_name": "Curaçao"
+    },
+    {
+        "order": "622",
+        "level": "L3",
+        "code": "PUE",
+        "WGSRPD_name": "Puerto Rico"
+    },
+    {
+        "order": "623",
+        "level": "L3",
+        "code": "SWC",
+        "WGSRPD_name": "Southwest Caribbean"
+    },
+    {
+        "order": "624",
+        "level": "L4",
+        "code": "SWC-CC",
+        "WGSRPD_name": "Colombian Caribbean Is."
+    },
+    {
+        "order": "625",
+        "level": "L4",
+        "code": "SWC-HC",
+        "WGSRPD_name": "Honduran Caribbean Is."
+    },
+    {
+        "order": "626",
+        "level": "L4",
+        "code": "SWC-NC",
+        "WGSRPD_name": "Nicaraguan Caribbean Is."
+    },
+    {
+        "order": "627",
+        "level": "L3",
+        "code": "TCI",
+        "WGSRPD_name": "Turks-Caicos Is."
+    },
+    {
+        "order": "628",
+        "level": "L3",
+        "code": "TRT",
+        "WGSRPD_name": "Trinidad-Tobago"
+    },
+    {
+        "order": "629",
+        "level": "L3",
+        "code": "VNA",
+        "WGSRPD_name": "Venezuelan Antilles"
+    },
+    {
+        "order": "630",
+        "level": "L3",
+        "code": "WIN",
+        "WGSRPD_name": "Windward Is."
+    },
+    {
+        "order": "631",
+        "level": "L4",
+        "code": "WIN-BA",
+        "WGSRPD_name": "Barbados"
+    },
+    {
+        "order": "632",
+        "level": "L4",
+        "code": "WIN-DO",
+        "WGSRPD_name": "Dominica"
+    },
+    {
+        "order": "633",
+        "level": "L4",
+        "code": "WIN-GR",
+        "WGSRPD_name": "Grenada"
+    },
+    {
+        "order": "634",
+        "level": "L4",
+        "code": "WIN-MA",
+        "WGSRPD_name": "Martinique"
+    },
+    {
+        "order": "635",
+        "level": "L4",
+        "code": "WIN-SL",
+        "WGSRPD_name": "St. Lucia"
+    },
+    {
+        "order": "636",
+        "level": "L4",
+        "code": "WIN-SV",
+        "WGSRPD_name": "St. Vincent"
+    },
+    {
+        "order": "637",
+        "level": "L2",
+        "code": "82",
+        "WGSRPD_name": "Northern South America"
+    },
+    {
+        "order": "638",
+        "level": "L3",
+        "code": "FRG",
+        "WGSRPD_name": "French Guiana"
+    },
+    {
+        "order": "639",
+        "level": "L3",
+        "code": "GUY",
+        "WGSRPD_name": "Guyana"
+    },
+    {
+        "order": "640",
+        "level": "L3",
+        "code": "SUR",
+        "WGSRPD_name": "Suriname"
+    },
+    {
+        "order": "641",
+        "level": "L3",
+        "code": "VEN",
+        "WGSRPD_name": "Venezuela"
+    },
+    {
+        "order": "642",
+        "level": "L2",
+        "code": "83",
+        "WGSRPD_name": "Western South America"
+    },
+    {
+        "order": "643",
+        "level": "L3",
+        "code": "BOL",
+        "WGSRPD_name": "Bolivia"
+    },
+    {
+        "order": "644",
+        "level": "L3",
+        "code": "CLM",
+        "WGSRPD_name": "Colombia"
+    },
+    {
+        "order": "645",
+        "level": "L3",
+        "code": "ECU",
+        "WGSRPD_name": "Ecuador"
+    },
+    {
+        "order": "646",
+        "level": "L3",
+        "code": "GAL",
+        "WGSRPD_name": "Galápagos"
+    },
+    {
+        "order": "647",
+        "level": "L3",
+        "code": "PER",
+        "WGSRPD_name": "Peru"
+    },
+    {
+        "order": "648",
+        "level": "L2",
+        "code": "84",
+        "WGSRPD_name": "Brazil"
+    },
+    {
+        "order": "649",
+        "level": "L3",
+        "code": "BZC",
+        "WGSRPD_name": "Brazil West-Central"
+    },
+    {
+        "order": "650",
+        "level": "L4",
+        "code": "BZC-DF",
+        "WGSRPD_name": "Brasilia Distrito Federal"
+    },
+    {
+        "order": "651",
+        "level": "L4",
+        "code": "BZC-GO",
+        "WGSRPD_name": "Goias"
+    },
+    {
+        "order": "652",
+        "level": "L4",
+        "code": "BZC-MS",
+        "WGSRPD_name": "Mato Grosso do Sul"
+    },
+    {
+        "order": "653",
+        "level": "L4",
+        "code": "BZC-MT",
+        "WGSRPD_name": "Mato Grosso"
+    },
+    {
+        "order": "654",
+        "level": "L3",
+        "code": "BZE",
+        "WGSRPD_name": "Brazil Northeast"
+    },
+    {
+        "order": "655",
+        "level": "L4",
+        "code": "BZE-AL",
+        "WGSRPD_name": "Alagoas"
+    },
+    {
+        "order": "656",
+        "level": "L4",
+        "code": "BZE-BA",
+        "WGSRPD_name": "Bahia"
+    },
+    {
+        "order": "657",
+        "level": "L4",
+        "code": "BZE-CE",
+        "WGSRPD_name": "Ceara"
+    },
+    {
+        "order": "658",
+        "level": "L4",
+        "code": "BZE-FN",
+        "WGSRPD_name": "Fernando de Noronha"
+    },
+    {
+        "order": "659",
+        "level": "L4",
+        "code": "BZE-MA",
+        "WGSRPD_name": "Maranhao"
+    },
+    {
+        "order": "660",
+        "level": "L4",
+        "code": "BZE-PB",
+        "WGSRPD_name": "Paraiba"
+    },
+    {
+        "order": "661",
+        "level": "L4",
+        "code": "BZE-PE",
+        "WGSRPD_name": "Pernambuco"
+    },
+    {
+        "order": "662",
+        "level": "L4",
+        "code": "BZE-PI",
+        "WGSRPD_name": "Piaui"
+    },
+    {
+        "order": "663",
+        "level": "L4",
+        "code": "BZE-RN",
+        "WGSRPD_name": "Rio Grande do Norte"
+    },
+    {
+        "order": "664",
+        "level": "L4",
+        "code": "BZE-SE",
+        "WGSRPD_name": "Sergipe"
+    },
+    {
+        "order": "665",
+        "level": "L3",
+        "code": "BZL",
+        "WGSRPD_name": "Brazil Southeast"
+    },
+    {
+        "order": "666",
+        "level": "L4",
+        "code": "BZL-ES",
+        "WGSRPD_name": "Espirito Santo"
+    },
+    {
+        "order": "667",
+        "level": "L4",
+        "code": "BZL-MG",
+        "WGSRPD_name": "Minas Gerais"
+    },
+    {
+        "order": "668",
+        "level": "L4",
+        "code": "BZL-RJ",
+        "WGSRPD_name": "Rio de Janeiro"
+    },
+    {
+        "order": "669",
+        "level": "L4",
+        "code": "BZL-SP",
+        "WGSRPD_name": "Sao Paulo"
+    },
+    {
+        "order": "670",
+        "level": "L4",
+        "code": "BZL-TR",
+        "WGSRPD_name": "Trindade"
+    },
+    {
+        "order": "671",
+        "level": "L3",
+        "code": "BZN",
+        "WGSRPD_name": "Brazil North"
+    },
+    {
+        "order": "672",
+        "level": "L4",
+        "code": "BZN-AC",
+        "WGSRPD_name": "Acre"
+    },
+    {
+        "order": "673",
+        "level": "L4",
+        "code": "BZN-AM",
+        "WGSRPD_name": "Amazonas"
+    },
+    {
+        "order": "674",
+        "level": "L4",
+        "code": "BZN-AP",
+        "WGSRPD_name": "Amapa"
+    },
+    {
+        "order": "675",
+        "level": "L4",
+        "code": "BZN-PA",
+        "WGSRPD_name": "Para"
+    },
+    {
+        "order": "676",
+        "level": "L4",
+        "code": "BZN-RM",
+        "WGSRPD_name": "Roraima"
+    },
+    {
+        "order": "677",
+        "level": "L4",
+        "code": "BZN-RO",
+        "WGSRPD_name": "Rondonia"
+    },
+    {
+        "order": "678",
+        "level": "L4",
+        "code": "BZN-TO",
+        "WGSRPD_name": "Tocantins"
+    },
+    {
+        "order": "679",
+        "level": "L3",
+        "code": "BZS",
+        "WGSRPD_name": "Brazil South"
+    },
+    {
+        "order": "680",
+        "level": "L4",
+        "code": "BZS-PR",
+        "WGSRPD_name": "Parana"
+    },
+    {
+        "order": "681",
+        "level": "L4",
+        "code": "BZS-RS",
+        "WGSRPD_name": "Rio Grande do Sul"
+    },
+    {
+        "order": "682",
+        "level": "L4",
+        "code": "BZS-SC",
+        "WGSRPD_name": "Santa Catarina"
+    },
+    {
+        "order": "683",
+        "level": "L2",
+        "code": "85",
+        "WGSRPD_name": "Southern South America"
+    },
+    {
+        "order": "684",
+        "level": "L3",
+        "code": "AGE",
+        "WGSRPD_name": "Argentina Northeast"
+    },
+    {
+        "order": "685",
+        "level": "L4",
+        "code": "AGE-BA",
+        "WGSRPD_name": "Buenos Aires"
+    },
+    {
+        "order": "686",
+        "level": "L4",
+        "code": "AGE-CD",
+        "WGSRPD_name": "Cordoba"
+    },
+    {
+        "order": "687",
+        "level": "L4",
+        "code": "AGE-CH",
+        "WGSRPD_name": "Chaco"
+    },
+    {
+        "order": "688",
+        "level": "L4",
+        "code": "AGE-CN",
+        "WGSRPD_name": "Corrientes"
+    },
+    {
+        "order": "689",
+        "level": "L4",
+        "code": "AGE-DF",
+        "WGSRPD_name": "Argentina Distrito Federal"
+    },
+    {
+        "order": "690",
+        "level": "L4",
+        "code": "AGE-ER",
+        "WGSRPD_name": "Entre Rios"
+    },
+    {
+        "order": "691",
+        "level": "L4",
+        "code": "AGE-FO",
+        "WGSRPD_name": "Formosa"
+    },
+    {
+        "order": "692",
+        "level": "L4",
+        "code": "AGE-LP",
+        "WGSRPD_name": "La Pampa"
+    },
+    {
+        "order": "693",
+        "level": "L4",
+        "code": "AGE-MI",
+        "WGSRPD_name": "Misiones"
+    },
+    {
+        "order": "694",
+        "level": "L4",
+        "code": "AGE-SF",
+        "WGSRPD_name": "Santa Fe"
+    },
+    {
+        "order": "695",
+        "level": "L3",
+        "code": "AGS",
+        "WGSRPD_name": "Argentina South"
+    },
+    {
+        "order": "696",
+        "level": "L4",
+        "code": "AGS-CB",
+        "WGSRPD_name": "Chubut"
+    },
+    {
+        "order": "697",
+        "level": "L4",
+        "code": "AGS-NE",
+        "WGSRPD_name": "Neuquen"
+    },
+    {
+        "order": "698",
+        "level": "L4",
+        "code": "AGS-RN",
+        "WGSRPD_name": "Rio Negro"
+    },
+    {
+        "order": "699",
+        "level": "L4",
+        "code": "AGS-SC",
+        "WGSRPD_name": "Santa Cruz"
+    },
+    {
+        "order": "700",
+        "level": "L4",
+        "code": "AGS-TF",
+        "WGSRPD_name": "Tierra del Fuego (Argentina)"
+    },
+    {
+        "order": "701",
+        "level": "L3",
+        "code": "AGW",
+        "WGSRPD_name": "Argentina Northwest"
+    },
+    {
+        "order": "702",
+        "level": "L4",
+        "code": "AGW-CA",
+        "WGSRPD_name": "Catamarca"
+    },
+    {
+        "order": "703",
+        "level": "L4",
+        "code": "AGW-JU",
+        "WGSRPD_name": "Jujuy"
+    },
+    {
+        "order": "704",
+        "level": "L4",
+        "code": "AGW-LR",
+        "WGSRPD_name": "La Rioja"
+    },
+    {
+        "order": "705",
+        "level": "L4",
+        "code": "AGW-ME",
+        "WGSRPD_name": "Mendoza"
+    },
+    {
+        "order": "706",
+        "level": "L4",
+        "code": "AGW-SA",
+        "WGSRPD_name": "Salta"
+    },
+    {
+        "order": "707",
+        "level": "L4",
+        "code": "AGW-SE",
+        "WGSRPD_name": "Santiago del Estero"
+    },
+    {
+        "order": "708",
+        "level": "L4",
+        "code": "AGW-SJ",
+        "WGSRPD_name": "San Juan"
+    },
+    {
+        "order": "709",
+        "level": "L4",
+        "code": "AGW-SL",
+        "WGSRPD_name": "San Luis"
+    },
+    {
+        "order": "710",
+        "level": "L4",
+        "code": "AGW-TU",
+        "WGSRPD_name": "Tucuman"
+    },
+    {
+        "order": "711",
+        "level": "L3",
+        "code": "CLC",
+        "WGSRPD_name": "Chile Central"
+    },
+    {
+        "order": "712",
+        "level": "L4",
+        "code": "CLC-BI",
+        "WGSRPD_name": "Biobio"
+    },
+    {
+        "order": "713",
+        "level": "L4",
+        "code": "CLC-CO",
+        "WGSRPD_name": "Coquimbo"
+    },
+    {
+        "order": "714",
+        "level": "L4",
+        "code": "CLC-LA",
+        "WGSRPD_name": "La Araucania"
+    },
+    {
+        "order": "715",
+        "level": "L4",
+        "code": "CLC-MA",
+        "WGSRPD_name": "Maule"
+    },
+    {
+        "order": "716",
+        "level": "L4",
+        "code": "CLC-OH",
+        "WGSRPD_name": "O'Higgins"
+    },
+    {
+        "order": "717",
+        "level": "L4",
+        "code": "CLC-SA",
+        "WGSRPD_name": "Santiago"
+    },
+    {
+        "order": "718",
+        "level": "L4",
+        "code": "CLC-VA",
+        "WGSRPD_name": "Valparaiso"
+    },
+    {
+        "order": "719",
+        "level": "L3",
+        "code": "CLN",
+        "WGSRPD_name": "Chile North"
+    },
+    {
+        "order": "720",
+        "level": "L4",
+        "code": "CLN-AN",
+        "WGSRPD_name": "Antofagasta"
+    },
+    {
+        "order": "721",
+        "level": "L4",
+        "code": "CLN-AT",
+        "WGSRPD_name": "Atacama"
+    },
+    {
+        "order": "722",
+        "level": "L4",
+        "code": "CLN-TA",
+        "WGSRPD_name": "Tarapaca"
+    },
+    {
+        "order": "723",
+        "level": "L3",
+        "code": "CLS",
+        "WGSRPD_name": "Chile South"
+    },
+    {
+        "order": "724",
+        "level": "L4",
+        "code": "CLS-AI",
+        "WGSRPD_name": "Aisen"
+    },
+    {
+        "order": "725",
+        "level": "L4",
+        "code": "CLS-LL",
+        "WGSRPD_name": "Los Lagos"
+    },
+    {
+        "order": "726",
+        "level": "L4",
+        "code": "CLS-MG",
+        "WGSRPD_name": "Magellanes"
+    },
+    {
+        "order": "727",
+        "level": "L3",
+        "code": "DSV",
+        "WGSRPD_name": "Desventurados Is."
+    },
+    {
+        "order": "728",
+        "level": "L3",
+        "code": "JNF",
+        "WGSRPD_name": "Juan Fernández Is."
+    },
+    {
+        "order": "729",
+        "level": "L3",
+        "code": "PAR",
+        "WGSRPD_name": "Paraguay"
+    },
+    {
+        "order": "730",
+        "level": "L3",
+        "code": "URU",
+        "WGSRPD_name": "Uruguay"
+    },
+    {
+        "order": "731",
+        "level": "L1",
+        "code": "9",
+        "WGSRPD_name": "Antarctic"
+    },
+    {
+        "order": "732",
+        "level": "L2",
+        "code": "90",
+        "WGSRPD_name": "Subantarctic Islands"
+    },
+    {
+        "order": "733",
+        "level": "L3",
+        "code": "ASP",
+        "WGSRPD_name": "Amsterdam-St.Paul Is."
+    },
+    {
+        "order": "734",
+        "level": "L3",
+        "code": "BOU",
+        "WGSRPD_name": "Bouvet I."
+    },
+    {
+        "order": "735",
+        "level": "L3",
+        "code": "CRZ",
+        "WGSRPD_name": "Crozet Is."
+    },
+    {
+        "order": "736",
+        "level": "L3",
+        "code": "FAL",
+        "WGSRPD_name": "Falkland Is."
+    },
+    {
+        "order": "737",
+        "level": "L3",
+        "code": "HMD",
+        "WGSRPD_name": "Heard-McDonald Is."
+    },
+    {
+        "order": "738",
+        "level": "L3",
+        "code": "KEG",
+        "WGSRPD_name": "Kerguelen"
+    },
+    {
+        "order": "739",
+        "level": "L3",
+        "code": "MAQ",
+        "WGSRPD_name": "Macquarie Is."
+    },
+    {
+        "order": "740",
+        "level": "L3",
+        "code": "MPE",
+        "WGSRPD_name": "Marion-Prince Edward Is."
+    },
+    {
+        "order": "741",
+        "level": "L3",
+        "code": "SGE",
+        "WGSRPD_name": "South Georgia"
+    },
+    {
+        "order": "742",
+        "level": "L3",
+        "code": "SSA",
+        "WGSRPD_name": "South Sandwich Is."
+    },
+    {
+        "order": "743",
+        "level": "L3",
+        "code": "TDC",
+        "WGSRPD_name": "Tristan da Cunha"
+    },
+    {
+        "order": "744",
+        "level": "L2",
+        "code": "91",
+        "WGSRPD_name": "Antarctic Continent"
+    },
+    {
+        "order": "745",
+        "level": "L3",
+        "code": "ANT",
+        "WGSRPD_name": "Antarctica"
+    }
+]
