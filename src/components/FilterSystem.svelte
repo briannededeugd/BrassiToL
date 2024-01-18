@@ -988,6 +988,7 @@
 		background: transparent;
 		border: none;
 		width: 15vw;
+		margin-left: 2em;
 		text-align: left;
 		justify-content: space-between;
 		align-items: center;
@@ -1069,6 +1070,7 @@
 		max-height: 30vh;
 		width: 15.5vw;
 		top: 3.5em;
+		margin-left: 2em;
 		overflow-y: auto;
 		padding: 1em;
 		gap: 0;

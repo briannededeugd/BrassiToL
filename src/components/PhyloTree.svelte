@@ -442,6 +442,43 @@
 			};
 		}
 
+		// Create a legend group
+		const legend = svg
+			.append("g")
+			.attr("class", "legend")
+			.attr("transform", "translate(-300px, 0)");
+
+		// Create one group per color in the colorScale
+		const legendItem = legend
+			.selectAll(".legend-item")
+			.data(colorScale.domain())
+			.enter()
+			.append("g")
+			.attr("class", "legend-item")
+			.attr("transform", function (d, i) {
+				return "translate(0," + i * 15 + ")";
+			});
+
+		// Append a colored rectangle to each legend item
+		legendItem
+			.append("rect")
+			.attr("width", 12)
+			.attr("height", 12)
+			.style("fill", colorScale);
+
+		// Append text to each legend item
+		legendItem
+			.append("text")
+			.style("font-size", ".75em")
+			.attr("x", 24)
+			.attr("y", 6)
+			.attr("dy", ".35em")
+			.style("text-anchor", "start")
+			.style("fill", "#E1E1E1")
+			.text(function (d) {
+				return d;
+			});
+
 		return Object.assign(svg.node(), { update });
 	};
 

@@ -62,11 +62,16 @@
 
 <style>
 	body {
-		background: url("./src/lib/img/sitebackground.jpeg");
+		background: url("./src/lib/img/sitebackground.jpeg") no-repeat center center
+			fixed;
 		background-size: cover;
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		min-height: 100%;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
 	}
+
 	main {
 		margin: 0.75em 2em;
 	}
