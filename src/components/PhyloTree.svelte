@@ -265,7 +265,7 @@
 
 		const svg = d3
 			.create("svg")
-			.attr("viewBox", [-outerRadius, -outerRadius, width, width])
+			.attr("viewBox", [-outerRadius, -375, width, width])
 			.attr("font-family", "sans-serif")
 			.attr("font-size", 10);
 
@@ -442,11 +442,11 @@
 			};
 		}
 
-		// Create a legend group
-		const legend = svg
+		var legendSvg = d3.select("#legend-container").append("svg");
+		var legend = legendSvg
 			.append("g")
 			.attr("class", "legend")
-			.attr("transform", "translate(-300px, 0)");
+			.attr("transform", "translate(20, 20)");
 
 		// Create one group per color in the colorScale
 		const legendItem = legend
@@ -456,22 +456,22 @@
 			.append("g")
 			.attr("class", "legend-item")
 			.attr("transform", function (d, i) {
-				return "translate(0," + i * 15 + ")";
+				return "translate(0," + i * 17.5 + ")";
 			});
 
 		// Append a colored rectangle to each legend item
 		legendItem
 			.append("rect")
-			.attr("width", 12)
-			.attr("height", 12)
+			.attr("width", 15)
+			.attr("height", 15)
 			.style("fill", colorScale);
 
 		// Append text to each legend item
 		legendItem
 			.append("text")
-			.style("font-size", ".75em")
+			.style("font-size", ".85em")
 			.attr("x", 24)
-			.attr("y", 6)
+			.attr("y", 7)
 			.attr("dy", ".35em")
 			.style("text-anchor", "start")
 			.style("fill", "#E1E1E1")
@@ -629,6 +629,11 @@
 	}
 </script>
 
+<div id="legend">
+	<h3>Supertribes</h3>
+	<div id="legend-container"></div>
+</div>
+
 <section id="svg-container">
 	<div id="phyloTree" />
 </section>
@@ -684,7 +689,7 @@
 	#tooltip {
 		display: flex;
 		gap: 1.5em;
-		background-color: #414d4f;
+		background-color: #0d1c1bcc;
 		border-radius: 5px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 		max-width: 30vw; /* Adjust to desired width */
@@ -755,5 +760,25 @@
 
 	#tooltip-values > ul {
 		font-weight: 100;
+	}
+
+	#legend {
+		position: absolute;
+		left: 2vw;
+		top: 50%; /* adjust as needed */
+		transform: translateY(-50%); /* to center it vertically */
+		font-family: "Inter", sans-serif;
+
+		background-color: #0d1c1b;
+		padding: 1em;
+		border-radius: 10px;
+		max-width: 170px;
+		height: 180px;
+	}
+
+	#legend > h3 {
+		font-size: 1em;
+		color: #e1e1e1;
+		margin: 0.5em 1em auto;
 	}
 </style>
