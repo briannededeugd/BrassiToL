@@ -13,6 +13,7 @@
 	let matchingCountryNames = [];
 	let selectedSpecies;
 	let projection, path;
+	import "../lib/fonts/fonts.css";
 
 	/**=========================================================
 	 *     onMount: What's being built when the page is loaded

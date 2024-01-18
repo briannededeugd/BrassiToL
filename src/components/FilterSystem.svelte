@@ -116,7 +116,7 @@
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
