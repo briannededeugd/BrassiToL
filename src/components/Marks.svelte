@@ -51,7 +51,7 @@
 
 	function findLandcodes(selectedSpecies) {
 		const matchedObjects = metadata.filter((item) =>
-			selectedSpecies.has(item.SPECIES)
+			selectedSpecies.has(item.SPECIES_NAME_PRINT)
 		);
 		const landCodes = matchedObjects.flatMap(
 			(item) => item.WCVP_WGSRPD_LEVEL_3_native
@@ -108,8 +108,10 @@
 			.attr("stroke", "#000")
 			.attr("stroke-width", ".5px");
 
-		drawLegend(maxFrequency, colorScale);
+		
 	}
+
+	//
 
 	function drawLegend(maxFrequency, colorScale) {
 		console.log("MAX FREQUENCY:", maxFrequency);
