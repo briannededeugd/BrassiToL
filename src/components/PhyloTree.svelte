@@ -61,6 +61,19 @@
 	let supertribes = [];
 	let colorScale;
 
+	let fullSpeciesName;
+	let familyName;
+	let subfamilyName;
+	let supertribeName;
+	let tribeName;
+	let genusName;
+	let speciesName;
+	let lifeformName;
+	let climateName;
+	let growthformName;
+	let societaluseName;
+	let imageId;
+
 	let mounted = false;
 	let treeData;
 	const width = 900;
@@ -71,7 +84,7 @@
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
 	onMount(async () => {
-		const response = await fetch("./src/lib/BrassiToL_metadata.json");
+		const response = await fetch("/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
@@ -130,7 +143,7 @@
 
 	// Find the species name from the ID
 	function findSpecies(label, metadata) {
-		let sampleId = extractSampleId(label); // Extract the SAMPLE id from the label
+		let sampleId = label; // Extract the SAMPLE id from the label
 		let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
 
 		// Function to get the first non-NA taxonomic category
@@ -211,7 +224,14 @@
 			setColor(root);
 		}
 
+		// function handleZoom(e) {
+		// 	d3.select("svg").attr("transform", e.transform);
+		// }
+		// let zoom = d3.zoom().on("zoom", handleZoom).scaleExtent([1, 5]);
+
 		sharedRoot = root;
+
+		// d3.select("#svg-container").call(zoom);
 
 		const svg = d3
 			.create("svg")
@@ -272,6 +292,7 @@
 			.attr("dy", ".31em")
 			.style("font-size", "5px")
 			.style("fill", (d) => findSuperTribeColor(d.data.name))
+			.style("cursor", "pointer")
 			.attr(
 				"transform",
 				(d) =>
@@ -295,15 +316,68 @@
 			link.transition(t).attr("d", checked ? linkVariable : linkConstant);
 		}
 
+		// Create the defaultstate of the tooltip
+		let tooltip = d3.select("#tooltip");
+
 		function mouseovered(active) {
 			return function (event, d) {
 				let superTribeColor = findSuperTribeColor(d.data.name);
+
+				// FINDING INFO
+				let metadataObject = metadata.find(
+					(item) => item.SAMPLE === d.data.name
+				);
+				console.log("THE OBJECT IS:", metadataObject);
+
+				// Capitalizing array items as well as strings
+				function formatDescription(description) {
+					if (Array.isArray(description)) {
+						// If it's an array, apply the function to each element
+						return description.map((item) => capitalizeFirstLetter(item));
+					} else if (typeof description === "string" && description !== "NA") {
+						// If it's a string and not "NA", capitalize the first letter
+						return capitalizeFirstLetter(description);
+					}
+					return description; // Return as is if none of the above conditions are met
+				}
+
+				// Making sure the meaning of each growth type appears instead of its short counterpart
+				const growthFormLabelMapping = {
+					H: "Herbaceous",
+					W: "Woody",
+				};
+
+				fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
+				familyName = metadataObject.FAMILY;
+				subfamilyName = metadataObject.SUBFAMILY;
+				supertribeName = metadataObject.SUPERTRIBE;
+				tribeName = metadataObject.TRIBE;
+				genusName = metadataObject.GENUS;
+				speciesName = metadataObject.SPECIES;
+				lifeformName = formatDescription(
+					metadataObject.WCVP_lifeform_description
+				);
+				climateName = formatDescription(
+					metadataObject.WCVP_climate_description
+				);
+				growthformName = growthFormLabelMapping[metadataObject.GROWTH_FORM];
+				societaluseName = metadataObject.SOCIETAL_USE;
+				imageId = metadataObject.powo_identifier;
 
 				// Apply the active class to the hovered label and remove from others
 				d3.selectAll("text").classed("label--active", false); // Remove active class from all
 				d3.select(this).classed("label--active", active);
 
 				if (active) {
+					tooltip
+						.style("visibility", "visible")
+						.style("top", "20vh")
+						.style("right", "5vw");
+
+					/**====================
+					 *     TREE EDITS
+					 *===================**/
+
 					// Change the color of all links and labels to grey
 					svg.selectAll(".link").attr("stroke", "#CCCCCC");
 					svg.selectAll("text").style("fill", "#CCCCCC");
@@ -326,6 +400,8 @@
 						currentNode = currentNode.parent;
 					} while (currentNode);
 				} else {
+					tooltip.style("visibility", "hidden");
+
 					d3.select(d.linkNode).attr("stroke", "#CCCCCC"); // Reset the path color
 					if (!d.children) {
 						d3.select(d.data.textNode).style("fill", superTribeColor); // Reset the label color
@@ -362,10 +438,15 @@
 	 *========================**/
 
 	function findSuperTribe(nodeLabel, metadata) {
-		let sampleId = extractSampleId(nodeLabel);
-		let superTribe = metadata.find(
-			(item) => item.SAMPLE === sampleId
-		)?.SUPERTRIBE;
+		let foundItem = metadata.find(function (item) {
+			return item.SAMPLE === nodeLabel;
+		});
+		let superTribe;
+		if (foundItem !== undefined) {
+			superTribe = foundItem.SUPERTRIBE;
+		} else {
+			superTribe = "Unplaced";
+		}
 		return superTribe;
 	}
 
@@ -450,6 +531,7 @@
 
 				if (isSpeciesSelected) {
 					let superTribeColor = findSuperTribeColor(node.data.name);
+					console.log(node.data.name); // = label/sample nr
 					// Propagate the superTribe color to all ancestors up to the root
 					node.ancestors().forEach((ancestor) => {
 						d3.select(ancestor.linkNode).attr("stroke", superTribeColor);
@@ -479,11 +561,125 @@
 	}
 </script>
 
-<div id="phyloTree" />
+<section id="svg-container">
+	<div id="phyloTree" />
+</section>
+
+<div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
+	<div id="tooltip-image">
+		<!-- <img
+			src="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+			alt="image of {fullSpeciesName}"
+		/> -->
+	</div>
+
+	<div id="tooltip-information">
+		<h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
+		<div id="tooltip-taxonomy">
+			<p>
+				<span>{familyName}</span> > <span>{subfamilyName}</span> >
+				<span>{supertribeName}</span>
+				> <span>{tribeName}</span> > <span>{genusName}</span>
+				<span>{speciesName}</span>
+			</p>
+		</div>
+		<div id="tooltip-metadata">
+			<div id="tooltip-properties">
+				<ul>
+					<li>Life Form:</li>
+					<li>Growth Form:</li>
+					<li>Climate:</li>
+					<li>Societal Use:</li>
+				</ul>
+			</div>
+			<div id="tooltip-values">
+				<ul>
+					<li id="lifeform">{lifeformName}</li>
+					<li id="growthform">{growthformName}</li>
+					<li id="climate">{climateName}</li>
+					<li id="societaluse">{societaluseName}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
 <style>
 	#phyloTree {
 		width: 100%;
 		height: 500px;
+	}
+
+	#svg-container {
+		height: 200vh;
+		width: 100vw;
+		overflow: hidden;
+	}
+
+	#tooltip {
+		display: flex;
+		background-color: #414d4f;
+		border-radius: 5px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+		max-width: 30vw; /* Adjust to desired width */
+		color: white;
+		font-size: 1em;
+		padding: 1em;
+		z-index: 1000;
+	}
+
+	#tooltip h3 {
+		font-family: "Bayon", sans-serif;
+		font-weight: 100;
+		font-size: 1.5em;
+		margin: 0.75em 0.75em 0 0;
+		line-height: 1em;
+	}
+
+	#tooltip-image {
+		width: 40%;
+	}
+
+	#tooltip-information {
+		width: 60%;
+	}
+
+	#tooltip-metadata {
+		display: flex;
+		font-size: 0.75em;
+		font-family: "Inter", sans-serif;
+		width: 100%;
+	}
+
+	#tooltip-taxonomy p {
+		line-height: 1.5em;
+	}
+
+	#tooltip-taxonomy p > span {
+		background-color: white;
+		font-family: "Inter", sans-serif;
+		color: black;
+		padding: 0.25em 0.75em;
+		text-align: center;
+		font-size: 0.7em;
+		border-radius: 20px;
+		font-weight: 900;
+	}
+
+	#tooltip-properties > ul {
+		padding: 0;
+		font-weight: 900;
+	}
+	#tooltip-properties > ul,
+	#tooltip-values > ul {
+		list-style-type: none;
+	}
+
+	#tooltip-values {
+		margin-bottom: 1em;
+	}
+
+	#tooltip-values > ul {
+		font-weight: 100;
 	}
 </style>

@@ -112,7 +112,7 @@
 	};
 
 	onMount(async () => {
-		const response = await fetch("./src/lib/BrassiToL_metadata.json");
+		const response = await fetch("/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
@@ -147,7 +147,12 @@
 
 		// Usage
 		processMetadataCategory("subfamilies", "SUBFAMILY");
+
 		processMetadataCategory("supertribes", "SUPERTRIBE");
+		console.log(
+			"WHEN FILTERING SUPERTRIBES:",
+			checkboxStates.supertribes.items
+		);
 		processMetadataCategory("tribes", "TRIBE");
 		processMetadataCategory("genuses", "GENUS");
 		processMetadataCategory("species", "SPECIES");
@@ -995,37 +1000,23 @@
 	/* ************************* */
 
 	.filtercategory {
+		font-family: "Bayon", sans-serif;
+		font-size: 1.5em;
+		color: black;
 		position: relative;
 		display: flex;
 		background: transparent;
-		border-radius: 10px;
-		border: solid 1px black;
+		border: none;
 		width: 15vw;
-		height: 3.5em;
-		padding-left: 1em;
 		text-align: left;
 		justify-content: space-between;
 		align-items: center;
-	}
-
-	.filtercategory .arrow {
-		content: "";
-		display: inline-block;
-		width: 0.5em;
-		height: 0.5em;
-		border-right: 1px solid black;
-		border-bottom: 1px solid black;
-		margin-right: 1em;
-		transform: rotate(45deg);
-		transition: transform 0.3s ease; /* Smooth transition for the arrow */
-	}
-
-	.filtercategory.open .arrow {
-		transform: rotate(-135deg); /* Arrow up */
+		transition: all 0.3s;
 	}
 
 	.filtercategory:hover {
 		cursor: pointer;
+		color: #729a68;
 	}
 
 	/*****************/
