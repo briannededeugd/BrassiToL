@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from "svelte";
+	import * as d3 from "d3";
 	import { writable } from "svelte/store";
 	import PhyloTree from "../components/PhyloTree.svelte";
 	import FilterSystem from "../components/FilterSystem.svelte";
@@ -17,6 +18,12 @@
 			})
 			.catch((error) => console.error("Error loading local JSON:", error));
 	});
+
+	function closeInfo() {
+		const popUp = d3.select("#countryPopup");
+		popUp.style("visibility", "hidden");
+	}
+
 	const width = 1200,
 		height = 800;
 
@@ -47,35 +54,32 @@
 			<FilterSystem />
 		</section>
 
-		<!-- DIT MISSCHIEN AANPASSEN ZODAT DE MAP ITS OWN BUSINESS MIND??? ZOLANG IK HEB GESWITCHT BLIJFT EEN STUKJE VAN WORLDMAP MEEDOEN -->
 		<section class="content">
 			{#if $isFlipped}
-				<div class="worldMap">
-					<svg {width} {height}>
-						<Marks isFlipped={$isFlipped} />
-					</svg>
-					<MapLegend isFlipped={$isFlipped} />
+				<svg {width} {height}>
+					<Marks isFlipped={$isFlipped} />
+				</svg>
+				<MapLegend isFlipped={$isFlipped} />
 
-					<!-- THE HOVER TOOLTIP -->
-					<article id="mapInfo" style="visibility: hidden">
-						<h3 id="countryname">Test</h3>
-						<p id="countryfrequency">Test matches</p>
-					</article>
+				<!-- THE HOVER TOOLTIP -->
+				<article id="mapInfo" style="visibility: hidden">
+					<h3 id="countryname">Test</h3>
+					<p id="countryfrequency">Test matches</p>
+				</article>
 
-					<!-- THE CLICK TOOLTIP -->
-					<article id="countryPopup" style="visibility: hidden">
-						<section id="popupMetadata">
-							<section>
-								<h3 id="nameOfCountry">Test</h3>
-								<p id="frequencyOfCountry">Test Frequency</p>
-							</section>
-							<button id="closePopup">✕</button>
+				<!-- THE CLICK TOOLTIP -->
+				<article id="countryPopup" style="visibility: hidden">
+					<section id="popupMetadata">
+						<section>
+							<h3 id="nameOfCountry">Test</h3>
+							<p id="frequencyOfCountry">Test Frequency</p>
 						</section>
-						<ul id="speciesList">
-							<!-- EMPTY LIST -->
-						</ul>
-					</article>
-				</div>
+						<button id="closePopup" on:click={closeInfo}>✕</button>
+					</section>
+					<ul id="speciesList">
+						<!-- EMPTY LIST -->
+					</ul>
+				</article>
 			{:else}
 				<div class="phyloTree">
 					<PhyloTree />
@@ -209,16 +213,10 @@
 		z-index: 9999;
 	}
 
-	.worldMap {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.worldMap svg {
+	.content > svg {
 		position: absolute;
-		top: 40vh;
-		left: 55%;
+		top: 30vh;
+		left: 47.5%;
 		transform: translateX(-50%);
 	}
 
@@ -278,5 +276,13 @@
 	#popupMetadata button:hover {
 		cursor: pointer;
 		color: #729a68;
+	}
+
+	#speciesList {
+		list-style-type: none;
+		padding: 0;
+		margin-bottom: 0;
+		max-height: 82px;
+		overflow-y: auto;
 	}
 </style>

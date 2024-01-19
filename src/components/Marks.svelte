@@ -20,6 +20,8 @@
 	let dataLoaded = false;
 	let selectedSpecies;
 	let projection, path;
+	const width = 1200,
+		height = 800;
 	import "../lib/fonts/fonts.css";
 
 	$: selectedSpecies = $selectedSpeciesStore;
@@ -52,7 +54,9 @@
 			console.log("LANDCODES", landcodes);
 			console.log("COUNTRIES", countries);
 
-			projection = geoNaturalEarth1();
+			projection = geoNaturalEarth1()
+				.scale(250)
+				.translate([width / 2, height / 2]);
 			path = geoPath(projection);
 
 			dataLoaded = true; // Set this flag only after all data has been loaded
@@ -84,7 +88,7 @@
 				return landcodeObj ? landcodeObj.WGSRPD_name : null;
 			})
 			.filter((name) => name !== null);
-			
+
 		const countryFrequency = new Map();
 		wgsrpdNames.forEach((name) => {
 			countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
@@ -109,8 +113,9 @@
 		maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
 		const colorScale = d3
 			.scaleLinear()
-			.domain([0, maxFrequency])
-			.range(["#ffffff", "#729a68"]); // Adjust the colors as needed
+			.domain([0, 10])
+			.range(["#ffffff", "#729a68"])
+			.clamp(true); // Adjust the colors as needed
 
 		const countriesSvg = d3.select("svg");
 
@@ -149,6 +154,7 @@
 				countryInfo = matchingCountryNames.find(
 					(cn) => cn.name === d.properties.name
 				);
+				console.log("COUNTRY INFO:", countryInfo);
 
 				if (countryInfo && countryInfo.frequency > 0) {
 					let countryPopUp = d3.select("#countryPopup");
@@ -168,15 +174,47 @@
 					let speciesList = d3.select("#speciesList");
 					speciesList.selectAll("li").remove();
 
+					// From country name (countryInfo.name) to country code (in landcodes)
+					const relevantName = [
+						...new Set(
+							landcodes
+								.filter((lc) => lc.WGSRPD_name === countryInfo.name)
+								.map((item) => item.code)
+						),
+					];
+					console.log("REL NAMES:", relevantName);
+
 					// Find and append species to the list
-					const speciesInCountry = metadata.filter(
-						(item) =>
-							item.WCVP_WGSRPD_LEVEL_3_native.includes(countryInfo.code) &&
-							selectedSpecies.has(item.SPECIES_NAME_PRINT)
+					const relevantDataItems = metadata.filter((item) => {
+						// Check if WCVP_WGSRPD_LEVEL_3_native is an array and has any matching code
+						if (Array.isArray(item.WCVP_WGSRPD_LEVEL_3_native)) {
+							return item.WCVP_WGSRPD_LEVEL_3_native.some((code) =>
+								relevantName.includes(code)
+							);
+						}
+						// If it's not an array, directly check for inclusion
+						return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
+					});
+
+					console.log(
+						"DE OBJECTEN DIE HET GOEDE LAND HEBBEN:",
+						relevantDataItems
 					);
 
-					speciesInCountry.forEach((species) => {
-						speciesList.append("li").text(species.SPECIES_NAME_PRINT);
+					const relevantSpecies = relevantDataItems.filter((item) => {
+						return selectedSpecies.has(item.SPECIES_NAME_PRINT);
+					});
+					console.log("RELEVANT SPECIES", relevantSpecies);
+
+					const speciesNames = relevantSpecies.map(
+						(item) => item.SPECIES_NAME_PRINT
+					);
+					speciesNames.forEach((name) => {
+						speciesList
+							.append("li")
+							.text(name)
+							.style("font-size", "0.7em")
+							.style("margin-top", ".75em");
 					});
 				}
 			})
