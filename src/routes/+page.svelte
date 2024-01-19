@@ -64,8 +64,13 @@
 
 					<!-- THE CLICK TOOLTIP -->
 					<article id="countryPopup" style="visibility: hidden">
-						<h3 id="nameOfCountry">Test</h3>
-						<p id="frequencyOfCountry">Test Frequency</p>
+						<section id="popupMetadata">
+							<section>
+								<h3 id="nameOfCountry">Test</h3>
+								<p id="frequencyOfCountry">Test Frequency</p>
+							</section>
+							<button id="closePopup">✕</button>
+						</section>
 						<ul id="speciesList">
 							<!-- EMPTY LIST -->
 						</ul>
@@ -252,7 +257,26 @@
 		font-size: 0.65em;
 		padding-top: 0;
 		margin-top: 0 !important;
-		padding-bottom: 1em;
+	}
+
+	#popupMetadata {
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
 		border-bottom: 1px solid #729a68;
+		padding-bottom: 0.5em;
+	}
+
+	#popupMetadata button {
+		height: 20px;
+		width: 20px;
+		color: #e1e1e1;
+		border: none;
+		background: transparent;
+	}
+
+	#popupMetadata button:hover {
+		cursor: pointer;
+		color: #729a68;
 	}
 </style>
