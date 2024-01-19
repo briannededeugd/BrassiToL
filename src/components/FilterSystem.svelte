@@ -1054,11 +1054,11 @@
 		max-height: 30vh;
 		top: 3.5em;
 		overflow-y: hidden;
-		padding: 1em;
+		padding: 1em 1em 3em;
 		gap: 4vw;
 		color: #e1e1e1;
 
-		background-color: #38383880;
+		background-color: #0d1c1bc5;
 		backdrop-filter: blur(5px);
 		border: none;
 		border-radius: 0 0 10px 10px;
@@ -1077,7 +1077,7 @@
 		gap: 0;
 		color: #e1e1e1;
 
-		background-color: #38383880;
+		background-color: #0d1c1bc5;
 		backdrop-filter: blur(5px);
 		border: none;
 		border-radius: 0 0 10px 10px;
