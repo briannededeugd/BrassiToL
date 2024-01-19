@@ -14,6 +14,7 @@
 	let countries = [];
 	let matchingCountryNames = [];
 	let countryInformation = { name: "", frequency: 0 };
+	let countryInfo = { name: "", frequency: 0 };
 
 	let maxFrequency;
 	let dataLoaded = false;
@@ -83,6 +84,7 @@
 				return landcodeObj ? landcodeObj.WGSRPD_name : null;
 			})
 			.filter((name) => name !== null);
+			
 		const countryFrequency = new Map();
 		wgsrpdNames.forEach((name) => {
 			countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
@@ -124,11 +126,8 @@
 				countryInformation = matchingCountryNames.find(
 					(cn) => cn.name === d.properties.name
 				);
-
-				console.log("What have we learned:", countryInformation);
-
 				if (countryInformation && countryInformation.frequency > 0) {
-					let tooltip = d3.select("article");
+					let tooltip = d3.select("#mapInfo");
 
 					tooltip
 						.style("visibility", "visible")
@@ -136,16 +135,50 @@
 						.style("left", event.clientX + 10 + "px")
 						.style("top", event.clientY + 10 + "px");
 
-					d3.select("article > h3").text(countryInformation.name);
-					d3.select("article > p").text(
+					d3.select("#mapInfo > h3").text(countryInformation.name);
+					d3.select("#mapInfo > p").text(
 						countryInformation.frequency + " " + "species"
 					);
 				}
 			})
-			.on("mouseout", function (event, d) {
+			.on("mouseout", function () {
 				let tooltip = d3.select("#mapInfo");
-
 				tooltip.style("visibility", "hidden");
+			})
+			.on("click", function (event, d) {
+				countryInfo = matchingCountryNames.find(
+					(cn) => cn.name === d.properties.name
+				);
+
+				if (countryInfo && countryInfo.frequency > 0) {
+					let countryPopUp = d3.select("#countryPopup");
+
+					countryPopUp
+						.style("visibility", "visible")
+						.style("position", "absolute")
+						.style("left", event.clientX + 10 + "px")
+						.style("top", event.clientY + 10 + "px");
+
+					d3.select("#nameOfCountry").text(countryInfo.name);
+					d3.select("#frequencyOfCountry").text(
+						countryInfo.frequency + " " + "species"
+					);
+
+					// Clear existing list items
+					let speciesList = d3.select("#speciesList");
+					speciesList.selectAll("li").remove();
+
+					// Find and append species to the list
+					const speciesInCountry = metadata.filter(
+						(item) =>
+							item.WCVP_WGSRPD_LEVEL_3_native.includes(countryInfo.code) &&
+							selectedSpecies.has(item.SPECIES_NAME_PRINT)
+					);
+
+					speciesInCountry.forEach((species) => {
+						speciesList.append("li").text(species.SPECIES_NAME_PRINT);
+					});
+				}
 			})
 			.attr("fill", function (d) {
 				const countryData = matchingCountryNames.find(

@@ -55,9 +55,20 @@
 						<Marks isFlipped={$isFlipped} />
 					</svg>
 					<MapLegend isFlipped={$isFlipped} />
+
+					<!-- THE HOVER TOOLTIP -->
 					<article id="mapInfo" style="visibility: hidden">
 						<h3 id="countryname">Test</h3>
 						<p id="countryfrequency">Test matches</p>
+					</article>
+
+					<!-- THE CLICK TOOLTIP -->
+					<article id="countryPopup" style="visibility: hidden">
+						<h3 id="nameOfCountry">Test</h3>
+						<p id="frequencyOfCountry">Test Frequency</p>
+						<ul id="speciesList">
+							<!-- EMPTY LIST -->
+						</ul>
 					</article>
 				</div>
 			{:else}
@@ -210,7 +221,8 @@
 	/* TOOLTIP */
 	/* *********** */
 
-	#mapInfo {
+	#mapInfo,
+	#countryPopup {
 		background-color: #26322ff3;
 		backdrop-filter: blur(5px);
 		font-family: "Inter", sans-serif;
@@ -224,7 +236,8 @@
 		z-index: 9999;
 	}
 
-	#mapInfo h3 {
+	#mapInfo h3,
+	#countryPopup h3 {
 		color: #e1e1e1;
 		font-size: 0.85em;
 		margin: 0 auto;
@@ -233,5 +246,13 @@
 	#mapInfo p {
 		font-size: 0.65em;
 		margin: 0 auto;
+	}
+
+	#countryPopup p {
+		font-size: 0.65em;
+		padding-top: 0;
+		margin-top: 0 !important;
+		padding-bottom: 1em;
+		border-bottom: 1px solid #729a68;
 	}
 </style>

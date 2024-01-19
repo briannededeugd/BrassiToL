@@ -53,7 +53,7 @@
 		padding: 1em 2em;
 		border-radius: 10px;
 		max-width: 210px;
-		height: 170px;
+		height: 190px;
 		color: white;
 	}
 
@@ -70,8 +70,8 @@
 
 	.legend-color {
 		display: inline-block;
-		width: 20px; /* Width of the color box */
-		height: 20px; /* Height of the color box */
+		width: 25px; /* Width of the color box */
+		height: 25px; /* Height of the color box */
 		margin-right: 10px; /* Space between the color box and the text */
 	}
 
