@@ -6,43 +6,64 @@
 	import { quadInOut } from "svelte/easing";
 	import { selectedSpeciesStore } from "./store.js";
 
+	export let isFlipped; // Accept isFlipped as a prop
+
 	let mounted = false;
 	let metadata = [];
 	let landcodes = [];
 	let countries = [];
 	let matchingCountryNames = [];
+	let countryInformation = { name: "", frequency: 0 };
+
+	let maxFrequency;
+	let dataLoaded = false;
 	let selectedSpecies;
 	let projection, path;
 	import "../lib/fonts/fonts.css";
+
+	$: selectedSpecies = $selectedSpeciesStore;
+
+	$: {
+		if (isFlipped && dataLoaded && selectedSpecies) {
+			findLandcodes(selectedSpecies);
+			drawMap();
+		} else if (!isFlipped) {
+			clearMap();
+		}
+	}
 
 	/**=========================================================
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
 	onMount(async () => {
-		const response = await fetch("./src/lib/BrassiToL_metadata.json");
-		metadata = await response.json();
-		console.log("METADATA", metadata);
+		try {
+			const responses = await Promise.all([
+				fetch("./src/lib/BrassiToL_metadata.json"),
+				fetch("./src/lib/BrassiToL_landcodes.json"),
+				fetch("./src/lib/countries.json"),
+			]);
 
-		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
-		landcodes = await landcodeResponse.json();
-		console.log("LANDCODES", landcodes);
+			metadata = await responses[0].json();
+			landcodes = await responses[1].json();
+			countries = await responses[2].json();
 
-		const countriesResponse = await fetch("./src/lib/countries.json");
-		countries = await countriesResponse.json();
-		console.log("COUNTRIES", countries);
+			console.log("METADATA", metadata);
+			console.log("LANDCODES", landcodes);
+			console.log("COUNTRIES", countries);
 
-		mounted = true;
+			projection = geoNaturalEarth1();
+			path = geoPath(projection);
 
-		projection = geoNaturalEarth1();
-		path = geoPath(projection);
-
-		selectedSpeciesStore.subscribe((value) => {
-			console.log("Come subscribe to my channel", value);
-			selectedSpecies = value;
-			findLandcodes(selectedSpecies);
-			drawMap();
-		});
+			dataLoaded = true; // Set this flag only after all data has been loaded
+		} catch (error) {
+			console.error("Error loading data:", error);
+		}
 	});
+
+	function clearMap() {
+		const countriesSvg = d3.select("svg");
+		countriesSvg.selectAll("path").remove(); // Clear paths
+	}
 
 	/**===============================
 	 *     Getting the landcodes
@@ -83,22 +104,49 @@
 	 *===============================**/
 
 	function drawMap() {
-		const maxFrequency = Math.max(
-			...matchingCountryNames.map((cn) => cn.frequency)
-		);
+		maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
 		const colorScale = d3
 			.scaleLinear()
 			.domain([0, maxFrequency])
-			.range(["lightgrey", "blue"]); // Adjust the colors as needed
+			.range(["#ffffff", "#729a68"]); // Adjust the colors as needed
 
-		const svg = d3.select("svg");
-		svg.selectAll("path").remove(); // Clear existing paths
-		svg
+		const countriesSvg = d3.select("svg");
+
+		countriesSvg.selectAll("path").remove(); // Clear existing paths
+
+		countriesSvg
 			.selectAll("path")
 			.data(countries.features)
 			.enter()
 			.append("path")
 			.attr("d", path)
+			.on("mouseover", function (event, d) {
+				countryInformation = matchingCountryNames.find(
+					(cn) => cn.name === d.properties.name
+				);
+
+				console.log("What have we learned:", countryInformation);
+
+				if (countryInformation && countryInformation.frequency > 0) {
+					let tooltip = d3.select("article");
+
+					tooltip
+						.style("visibility", "visible")
+						.style("position", "absolute")
+						.style("left", event.clientX + 10 + "px")
+						.style("top", event.clientY + 10 + "px");
+
+					d3.select("article > h3").text(countryInformation.name);
+					d3.select("article > p").text(
+						countryInformation.frequency + " " + "species"
+					);
+				}
+			})
+			.on("mouseout", function (event, d) {
+				let tooltip = d3.select("#mapInfo");
+
+				tooltip.style("visibility", "hidden");
+			})
 			.attr("fill", function (d) {
 				const countryData = matchingCountryNames.find(
 					(cn) => cn.name === d.properties.name
@@ -106,65 +154,15 @@
 				return countryData ? colorScale(countryData.frequency) : "white";
 			})
 			.attr("stroke", "#000")
-			.attr("stroke-width", ".5px");
-
-		
-	}
-
-	//
-
-	function drawLegend(maxFrequency, colorScale) {
-		console.log("MAX FREQUENCY:", maxFrequency);
-		const legendWidth = 300,
-			legendHeight = 50;
-		const numSwatches = 10; // Number of swatches in the legend
-
-		const svgLegend = d3
-			.select("#legend")
-			.append("svg")
-			.attr("width", legendWidth)
-			.attr("height", legendHeight);
-
-		const xScale = d3
-			.scaleLinear()
-			.domain([0, maxFrequency])
-			.range([0, legendWidth]);
-
-		// Create colored rectangles based on the frequency scale
-		svgLegend
-			.selectAll("rect")
-			.data(d3.range(numSwatches))
-			.enter()
-			.append("rect")
-			.attr("x", (d, i) => xScale((d * maxFrequency) / numSwatches))
-			.attr("y", 0)
-			.attr("width", legendWidth / numSwatches)
-			.attr("height", legendHeight / 2)
-			.attr("fill", (d) => colorScale((d * maxFrequency) / numSwatches));
-
-		// Add text labels at specific frequency values
-		svgLegend
-			.append("text")
-			.attr("x", xScale(0))
-			.attr("y", legendHeight)
-			.text("Low Frequency");
-
-		svgLegend
-			.append("text")
-			.attr("x", xScale(maxFrequency))
-			.attr("y", legendHeight)
-			.attr("text-anchor", "end")
-			.text("High Frequency");
+			.attr("stroke-width", ".5px")
+			.style("cursor", "pointer");
 	}
 </script>
 
-<svg></svg>
-<div id="legend"></div>
+<svg> </svg>
 
 <style>
-	#legend {
-		margin-top: 20px;
-		text-align: center;
-		font-size: 12px;
+	svg {
+		z-index: 1;
 	}
 </style>

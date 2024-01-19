@@ -4,6 +4,7 @@
 	import PhyloTree from "../components/PhyloTree.svelte";
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
+	import MapLegend from "../components/MapLegend.svelte";
 	import "../lib/fonts/fonts.css";
 
 	let dataset = [];
@@ -23,6 +24,8 @@
 
 	function toggleView() {
 		isFlipped.update((n) => !n);
+		if (!isFlipped) {
+		}
 	}
 </script>
 
@@ -44,12 +47,18 @@
 			<FilterSystem />
 		</section>
 
+		<!-- DIT MISSCHIEN AANPASSEN ZODAT DE MAP ITS OWN BUSINESS MIND??? ZOLANG IK HEB GESWITCHT BLIJFT EEN STUKJE VAN WORLDMAP MEEDOEN -->
 		<section class="content">
 			{#if $isFlipped}
 				<div class="worldMap">
 					<svg {width} {height}>
-						<Marks />
+						<Marks isFlipped={$isFlipped} />
 					</svg>
+					<MapLegend isFlipped={$isFlipped} />
+					<article id="mapInfo" style="visibility: hidden">
+						<h3 id="countryname">Test</h3>
+						<p id="countryfrequency">Test matches</p>
+					</article>
 				</div>
 			{:else}
 				<div class="phyloTree">
@@ -195,5 +204,34 @@
 		top: 40vh;
 		left: 55%;
 		transform: translateX(-50%);
+	}
+
+	/* *********** */
+	/* TOOLTIP */
+	/* *********** */
+
+	#mapInfo {
+		background-color: #26322ff3;
+		backdrop-filter: blur(5px);
+		font-family: "Inter", sans-serif;
+		border-radius: 5px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+		border: 1px solid #e1e1e1;
+		min-width: 10vw;
+		min-height: max-content;
+		color: #e1e1e1;
+		padding: 1em;
+		z-index: 9999;
+	}
+
+	#mapInfo h3 {
+		color: #e1e1e1;
+		font-size: 0.85em;
+		margin: 0 auto;
+	}
+
+	#mapInfo p {
+		font-size: 0.65em;
+		margin: 0 auto;
 	}
 </style>

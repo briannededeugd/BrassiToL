@@ -764,12 +764,12 @@
 
 	#legend {
 		position: absolute;
-		left: 2vw;
-		top: 50%; /* adjust as needed */
+		left: 2.5vw;
+		top: 82%; /* adjust as needed */
 		transform: translateY(-50%); /* to center it vertically */
 		font-family: "Inter", sans-serif;
 
-		background-color: #0d1c1b;
+		background-color: #0d1c1bc5;
 		padding: 1em;
 		border-radius: 10px;
 		max-width: 170px;

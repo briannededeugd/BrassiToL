@@ -1059,6 +1059,7 @@
 		color: #e1e1e1;
 
 		background-color: #38383880;
+		backdrop-filter: blur(5px);
 		border: none;
 		border-radius: 0 0 10px 10px;
 	}
@@ -1077,6 +1078,7 @@
 		color: #e1e1e1;
 
 		background-color: #38383880;
+		backdrop-filter: blur(5px);
 		border: none;
 		border-radius: 0 0 10px 10px;
 	}
