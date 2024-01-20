@@ -11,7 +11,7 @@
 	let dataset = [];
 
 	onMount(async () => {
-		fetch("/static/countries.json")
+		fetch("/countries.json")
 			.then((response) => response.json())
 			.then((data) => {
 				dataset = data.features;

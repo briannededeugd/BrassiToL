@@ -41,9 +41,9 @@
 	onMount(async () => {
 		try {
 			const responses = await Promise.all([
-				fetch("/static/BrassiToL_metadata.json"),
-				fetch("/static/BrassiToL_landcodes.json"),
-				fetch("/static/countries.json"),
+				fetch("/BrassiToL_metadata.json"),
+				fetch("/BrassiToL_landcodes.json"),
+				fetch("/countries.json"),
 			]);
 
 			metadata = await responses[0].json();
