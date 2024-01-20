@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/hello.js": {
-      "includeFiles": ["src/lib/**"]
-    }
-  }
-}
