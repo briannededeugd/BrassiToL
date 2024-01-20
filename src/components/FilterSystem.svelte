@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
-	import "../lib/fonts/fonts.css";
+	import "/static/fonts/fonts.css";
 	import { selectedSpeciesStore } from "./store.js";
 
 	// Newick String
@@ -112,11 +112,11 @@
 	};
 
 	onMount(async () => {
-		const response = await fetch("./src/lib/BrassiToL_metadata.json");
+		const response = await fetch("/static/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("/static/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 

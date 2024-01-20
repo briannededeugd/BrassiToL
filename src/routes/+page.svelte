@@ -6,12 +6,12 @@
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
 	import MapLegend from "../components/MapLegend.svelte";
-	import "../lib/fonts/fonts.css";
+	import "/fonts/fonts.css?url";
 
 	let dataset = [];
 
 	onMount(async () => {
-		fetch("./src/lib/countries.json")
+		fetch("/static/countries.json")
 			.then((response) => response.json())
 			.then((data) => {
 				dataset = data.features;
@@ -91,7 +91,7 @@
 
 <style>
 	body {
-		background: url("./src/lib/img/sitebackground.jpeg") no-repeat center center
+		background: url("/static/img/sitebackground.jpeg") no-repeat center center
 			fixed;
 		background-size: cover;
 		width: 100%;

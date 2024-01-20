@@ -22,7 +22,7 @@
 	let projection, path;
 	const width = 1200,
 		height = 800;
-	import "../lib/fonts/fonts.css";
+	import "/static/fonts/fonts.css";
 
 	$: selectedSpecies = $selectedSpeciesStore;
 
@@ -41,9 +41,9 @@
 	onMount(async () => {
 		try {
 			const responses = await Promise.all([
-				fetch("./src/lib/BrassiToL_metadata.json"),
-				fetch("./src/lib/BrassiToL_landcodes.json"),
-				fetch("./src/lib/countries.json"),
+				fetch("/static/BrassiToL_metadata.json"),
+				fetch("/static/BrassiToL_landcodes.json"),
+				fetch("/static/countries.json"),
 			]);
 
 			metadata = await responses[0].json();
