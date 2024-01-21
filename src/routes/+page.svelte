@@ -6,7 +6,7 @@
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
 	import MapLegend from "../components/MapLegend.svelte";
-	import "/fonts/fonts.css?url";
+	import "/fonts/fonts.css";
 
 	let dataset = [];
 
@@ -121,6 +121,7 @@
 		justify-content: space-between;
 		border-bottom: 2px solid #729a68;
 		margin-bottom: 2.5em;
+		z-index: 9999;
 	}
 
 	.title .switch-view {
@@ -210,7 +211,7 @@
 
 	.content {
 		margin-top: 15vh;
-		z-index: 9999;
+		z-index: 9888;
 	}
 
 	.content > svg {

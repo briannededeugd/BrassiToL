@@ -15,6 +15,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.5.1",
 		"biojs-io-newick": "^1.5.0",
 		"csvtojson": "^2.0.10",
 		"d3": "^7.8.5",

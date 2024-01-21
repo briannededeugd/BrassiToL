@@ -1174,7 +1174,7 @@
 		width: 10vw;
 		margin: auto 0.2em 0.75em;
 		padding-left: 1em;
-		background-image: url("../lib/img/magnifyingglass-small.png"); /* Path to your icon */
+		background-image: url("/static/img/magnifyingglass-small.png"); /* Path to your icon */
 		background-size: 15px 15px; /* Size of your icon */
 		background-position: right 1em center; /* Position of your icon */
 		background-repeat: no-repeat;
