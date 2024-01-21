@@ -6,7 +6,7 @@
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
 	import MapLegend from "../components/MapLegend.svelte";
-	import "/fonts/fonts.css";
+	import "/static/fonts/fonts.css";
 
 	let dataset = [];
 
