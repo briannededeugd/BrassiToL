@@ -974,29 +974,23 @@
 	<div id="settingOptions" style="visibility: hidden">
 		<div id="showOutgroups">
 			<button
-				><img src="../static/img/outgroups.png" alt="Show outgroups" /></button
+				><img src="./img/outgroups.png" alt="Show outgroups" /></button
 			>
 		</div>
 		<div id="showSupertribes">
 			<button
-				><img
-					src="../static/img/hierarchy.png"
-					alt="Show supertribes"
-				/></button
+				><img src="./img/hierarchy.png" alt="Show supertribes" /></button
 			>
 		</div>
 		<div id="switchToLightMode">
 			<button
-				><img
-					src="/static/light.png"
-					alt="Switch to light mode"
-				/></button
+				><img src="./img/light.png" alt="Switch to light mode" /></button
 			>
 		</div>
 	</div>
 	<div id="settings">
 		<button>
-			<img src="../static/img/settings.png" alt="Show settings" />
+			<img src="./img/settings.png" alt="Show settings" />
 		</button>
 	</div>
 	<div id="lensToggle">
