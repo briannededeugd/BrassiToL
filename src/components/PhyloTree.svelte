@@ -199,7 +199,6 @@
 
 		const lensButton = d3.select("#lensToggle");
 		const lensIcon = d3.select("#lensToggle button");
-		const lensPopup = d3.select("#lensToggle button:hover::before")
 		const magnifyingGlass = d3.select("#magnifier");
 		let lensOn = false;
 
@@ -208,13 +207,11 @@
 				magnifyingGlass.style("visibility", "visible");
 				lensButton.style("background-color", "#e1e1e1");
 				lensIcon.style("color", "#011401");
-				lensPopup.style("content", "Hide lens");
 				lensOn = true;
 			} else {
 				magnifyingGlass.style("visibility", "hidden");
 				lensButton.style("background-color", "#0d1c1bc5");
 				lensIcon.style("color", "#e1e1e1");
-				lensPopup.style("content", "Show lens");
 				lensOn = false;
 			}
 		});
@@ -225,19 +222,20 @@
 
 		const settingsToggle = d3.select("#settings");
 		const settings = d3.select("#settingOptions");
-		const settingsPopup = d3.select("#settings button:hover::before")
 		let settingsShown = false;
 
 		settingsToggle.on("click", function () {
 			if (settingsShown === false) {
 				settings.style("visibility", "visible");
-				settingsToggle.style("background-color", "#e1e1e1");
-				settingsPopup.style("content", "Hide settings");
+				settingsToggle
+					.style("background-color", "#e1e1e1")
+					.classed("activeSettings", true);
 				settingsShown = true;
 			} else {
 				settings.style("visibility", "hidden");
-				settingsToggle.style("background-color", "#0d1c1bc5");
-				settingsPopup.style("content", "Show settings");
+				settingsToggle
+					.style("background-color", "#0d1c1bc5")
+					.classed("activeSettings", false);
 				settingsShown = false;
 			}
 		});
@@ -1284,6 +1282,10 @@
 
 	#settings:hover::before {
 		content: "Show settings";
+	}
+
+	.activeSettings:hover::before {
+		content: "Hide settings";
 	}
 
 	#lensToggle:hover::before {
