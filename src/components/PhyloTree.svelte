@@ -62,6 +62,8 @@
 	let supertribes = [];
 	let colorScale;
 
+	let sampleNumber;
+	let superTribeColor;
 	let fullSpeciesName;
 	let familyName;
 	let subfamilyName;
@@ -168,17 +170,15 @@
 		supertribes = [...uniqueItems];
 		console.log("ALL SUPERTRIBES:", supertribes);
 
-		colorScale = d3
-			.scaleOrdinal()
-			.domain(supertribes)
-			.range([
-				"#0f72b2",
-				"#cc79a7",
-				"#169e73",
-				"#d55e00",
-				"#56b4e9",
-				"#e69f01",
-			]);
+		colorScale = d3.scaleOrdinal().domain(supertribes).range([
+			"#907ad6", // Arabodae
+			"#cc79a7", // Camelinodae
+			"#169e73", // Brassicodae
+			"#d55e00", // Heliophilodae
+			"#56b4e9", // Hesperodae
+			"#e69f01", // Unplaced
+			"#e1e1e1", // NA
+		]);
 
 		mounted = true;
 
@@ -198,18 +198,47 @@
 		 *========================**/
 
 		const lensButton = d3.select("#lensToggle");
+		const lensIcon = d3.select("#lensToggle button");
 		const magnifyingGlass = d3.select("#magnifier");
 		let lensOn = false;
 
 		lensButton.on("click", function () {
 			if (lensOn === false) {
 				magnifyingGlass.style("visibility", "visible");
+				lensButton.style("background-color", "#e1e1e1");
+				lensIcon.style("color", "#011401");
 				lensOn = true;
 			} else {
 				magnifyingGlass.style("visibility", "hidden");
+				lensButton.style("background-color", "#0d1c1bc5");
+				lensIcon.style("color", "#e1e1e1");
 				lensOn = false;
 			}
 		});
+
+		/**======================
+		 *    TOGGLE SETTINGS
+		 *========================**/
+
+		const settingsToggle = d3.select("#settings");
+		const settings = d3.select("#settingOptions");
+		let settingsShown = false;
+
+		settingsToggle.on("click", function () {
+			if (settingsShown === false) {
+				settings.style("visibility", "visible");
+				settingsToggle.style("background-color", "#e1e1e1");
+				settingsShown = true;
+			} else {
+				settings.style("visibility", "hidden");
+				settingsToggle.style("background-color", "#0d1c1bc5");
+				settingsShown = false;
+			}
+		});
+
+		/**======================
+		 *    HOVER OVER CONTROLS
+		 *========================**/
 
 		// For filtering
 		selectedSpeciesStore.subscribe((value) => {
@@ -407,7 +436,7 @@
 
 		let currentZoomLevel = 1;
 		const maxZoomLevel = 3;
-		const minZoomLevel = 1;
+		const minZoomLevel = 1 / (1.25 * 1.25); // Allowing zoom out two levels from default
 		const zoomStep = 1.25; // 25% increase for each zoom in
 
 		// Initialize the transform
@@ -457,9 +486,9 @@
 			let newTransform;
 
 			if (currentZoomLevel === 1) {
-				// Reset the position and scale when zooming out to the original level
+				// Reset to default position and scale
 				newTransform = d3.zoomIdentity;
-				transform = { x: 0, y: 0, scale: 1 }; // Reset the transform
+				transform = { x: 0, y: 0, scale: 1 };
 			} else {
 				// Maintain the current position and apply the new scale
 				newTransform = d3.zoomIdentity
@@ -491,7 +520,7 @@
 			}
 
 			.link--inactive {
-  				stroke: #1F3035 !important;
+  				stroke: #405f7470 !important;
 			}
 
 			.link-extension--active {
@@ -592,13 +621,17 @@
 					W: "Woody",
 				};
 
+				sampleNumber = metadataObject.SAMPLE;
+				superTribeColor = findSuperTribeColor(sampleNumber);
+
+				// Make the supertribe name the right color (according to the legend and tree)
+				const span = d3.select("#supertribespan");
+				span.style("background-color", superTribeColor);
+
 				fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
-				familyName = metadataObject.FAMILY;
 				subfamilyName = metadataObject.SUBFAMILY;
 				supertribeName = metadataObject.SUPERTRIBE;
 				tribeName = metadataObject.TRIBE;
-				genusName = metadataObject.GENUS;
-				speciesName = metadataObject.SPECIES;
 				lifeformName = formatDescription(
 					metadataObject.WCVP_lifeform_description
 				);
@@ -616,16 +649,43 @@
 				if (active) {
 					tooltip
 						.style("visibility", "visible")
-						.style("top", "20vh")
-						.style("right", "5vw");
+						.style("left", function () {
+							if (event.clientX > 1200) {
+								return event.clientX - 200 + "px";
+							} else if (event.clientX > 1060) {
+								return event.clientX - 100 + "px";
+							} else if (event.clientX > 490) {
+								return event.clientX + 80 + "px";
+							} else {
+								return event.clientX + 40 + "px";
+							}
+						})
+						.style("top", function () {
+							if (event.clientX > 1060) {
+								return event.clientY + 80 + "px";
+							} else if ((event.clientX < 400) & (event.clientY > 120)) {
+								return event.clientY + 50 + "px";
+							} else if (event.clientX < 400) {
+								return event.clientY - 200 + "px";
+							} else {
+								return event.clientY - 20 + "px";
+							}
+						});
+
+					console.log(
+						"Y-Position:",
+						event.clientY,
+						"X-Position:",
+						event.clientX
+					);
 
 					/**====================
 					 *     TREE EDITS
 					 *===================**/
 
 					// Change the color of all links and labels to grey
-					svg.selectAll(".link").attr("stroke", "#1F3035");
-					svg.selectAll("text").style("fill", "#1F3035");
+					svg.selectAll(".link").attr("stroke", "#405f7470");
+					svg.selectAll("text").style("fill", "#405f7470");
 
 					// Now highlight the path and label of the hovered node
 					let currentNode = d;
@@ -827,9 +887,9 @@
 					});
 				} else {
 					// Dim the path and label of unselected nodes
-					d3.select(node.linkNode).attr("stroke", "#1F3035");
+					d3.select(node.linkNode).attr("stroke", "#405f7470");
 					if (!node.children) {
-						d3.select(node.data.textNode).style("fill", "#1F3035");
+						d3.select(node.data.textNode).style("fill", "#405f7470");
 					}
 				}
 			});
@@ -839,9 +899,9 @@
 	function findSuperTribeColor(nodeLabel) {
 		let superTribe = findSuperTribe(nodeLabel, metadata);
 		if (colorScale) {
-			return superTribe ? colorScale(superTribe) : "#1F3035"; // Use colorScale if it's defined
+			return superTribe ? colorScale(superTribe) : "#405f7470"; // Use colorScale if it's defined
 		}
-		return "#1F3035"; // Fallback color if colorScale is not defined or no superTribe is found
+		return "#405f7470"; // Fallback color if colorScale is not defined or no superTribe is found
 	}
 </script>
 
@@ -864,41 +924,75 @@
 
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
 	<div id="tooltip-image">
-		<!-- IMAGE HERE -->
+		<a
+			href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+		>
+			<i class="fa-solid fa-link"></i>
+		</a>
 	</div>
 
 	<div id="tooltip-information">
 		<h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
 		<div id="tooltip-taxonomy">
 			<p>
-				<span>{familyName}</span> > <span>{subfamilyName}</span> >
-				<span>{supertribeName}</span>
-				> <span>{tribeName}</span> > <span>{genusName}</span>
-				<span>{speciesName}</span>
+				<span>{subfamilyName}</span>
+				<i class="fas fa-angle-right"></i>
+				<span id="supertribespan">{supertribeName}</span>
+				<i class="fas fa-angle-right"></i>
+				<span>{tribeName}</span>
+				<i class="fas fa-angle-right"></i>
+				<span>{fullSpeciesName}</span>
 			</p>
 		</div>
 		<div id="tooltip-metadata">
-			<div id="tooltip-properties">
-				<ul>
-					<li>Life Form:</li>
-					<li>Growth Form:</li>
-					<li>Climate:</li>
-					<li>Societal Use:</li>
-				</ul>
+			<div>
+				<p>
+					Life form <br />
+					<span>{lifeformName}</span>
+				</p>
+
+				<p>
+					Climate<br />
+					<span>{climateName}</span>
+				</p>
 			</div>
-			<div id="tooltip-values">
-				<ul>
-					<li id="lifeform">{lifeformName}</li>
-					<li id="growthform">{growthformName}</li>
-					<li id="climate">{climateName}</li>
-					<li id="societaluse">{societaluseName}</li>
-				</ul>
+			<div>
+				<p>
+					Growth form <br />
+					<span>{growthformName}</span>
+				</p>
+				<p>
+					Societal Use <br />
+					<span>{societaluseName}</span>
+				</p>
 			</div>
 		</div>
 	</div>
 </div>
 
 <section id="zoomControls">
+	<div id="settingOptions" style="visibility: hidden">
+		<div id="showOutgroups">
+			<button
+				><img src="/static/img/outgroups.png" alt="Show outgroups" /></button
+			>
+		</div>
+		<div id="showSupertribes">
+			<button
+				><img src="/static/img/hierarchy.png" alt="Show supertribes" /></button
+			>
+		</div>
+		<div id="switchToLightMode">
+			<button
+				><img src="/static/img/light.png" alt="Switch to light mode" /></button
+			>
+		</div>
+	</div>
+	<div id="settings">
+		<button>
+			<img src="/static/img/settings.png" alt="Show settings" />
+		</button>
+	</div>
 	<div id="lensToggle">
 		<button>
 			<i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -947,51 +1041,88 @@
 	/* TOOL TIP STYLES */
 	/* *************** */
 	#tooltip {
-		display: flex;
-		gap: 1.5em;
-		background-color: #0d1c1bcc;
-		border-radius: 5px;
+		background-color: #0d1c1b9c;
+		border-radius: 10px;
+		border: 0.65px solid #e1e1e1;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-		max-width: 30vw; /* Adjust to desired width */
+		min-width: 14vw;
+		max-width: 14vw;
 		color: #e1e1e1;
-		font-size: 1em;
-		padding: 1em;
+		font-size: 0.65em;
 		z-index: 1000;
+		pointer-events: none;
 	}
 
 	#tooltip-image {
+		width: 100%;
+		height: 10vh;
 		background: url("/static/img/sampleimage.jpeg");
 		background-size: cover;
 		background-position: center;
-		background-repeat: none;
-		border-radius: 2.5px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	#tooltip-image a {
+		color: #0d1c1b9c;
+		background-color: #e1e1e1b8;
+		padding: 1em 0.75em 0.75em;
+		border-radius: 5px;
+		position: relative;
+		top: 15px;
+		left: 165px;
 	}
 
 	#tooltip h3 {
 		font-family: "Bayon", sans-serif;
 		font-weight: 100;
 		font-size: 1.5em;
-		margin: 0.75em 0.75em 0 0;
+		margin: 0.75em 0;
 		line-height: 1em;
 	}
 
-	#tooltip-image {
-		width: 40%;
-	}
-
 	#tooltip-information {
-		width: 60%;
+		padding: 1.5em;
 	}
 
 	#tooltip-metadata {
 		display: flex;
-		font-size: 0.75em;
+		justify-content: space-between;
 		font-family: "Inter", sans-serif;
 		width: 100%;
 	}
 
+	#tooltip-metadata p {
+		color: #cdcccc;
+		font-size: 0.9em;
+		font-weight: 400;
+	}
+
+	#tooltip-metadata p > span {
+		color: #e1e1e1;
+		font-size: 1.1em;
+		font-weight: 600;
+	}
+
+	#tooltip-taxonomy {
+		max-width: 100%;
+	}
 	#tooltip-taxonomy p {
-		line-height: 1.5em;
+		line-height: 1.75em;
+		overflow-wrap: break-word; /* Optional: allows breaking at arbitrary points if necessary */
+		word-wrap: break-word;
+	}
+
+	#tooltip-taxonomy p::before {
+		content: "";
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.5em;
+		background-image: url("/static/img/hierarchy.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		vertical-align: middle;
 	}
 
 	#tooltip-taxonomy p > span {
@@ -1000,26 +1131,10 @@
 		color: black;
 		padding: 0.25em 0.75em;
 		text-align: center;
-		font-size: 0.7em;
+		font-size: 0.75em;
 		border-radius: 20px;
 		font-weight: 900;
-	}
-
-	#tooltip-properties > ul {
-		padding: 0;
-		font-weight: 900;
-	}
-	#tooltip-properties > ul,
-	#tooltip-values > ul {
-		list-style-type: none;
-	}
-
-	#tooltip-values {
-		margin-bottom: 1em;
-	}
-
-	#tooltip-values > ul {
-		font-weight: 100;
+		white-space: nowrap;
 	}
 
 	/* ************* */
@@ -1052,18 +1167,27 @@
 
 	#zoomControls {
 		position: absolute;
-		top: 82.5vh;
+		bottom: 3.5vh;
 		right: 3.5vw;
+		width: 1.75vw;
+	}
+
+	#zoomControls button:hover {
+		cursor: pointer;
 	}
 
 	#zoomInAndOut,
-	#lensToggle {
+	#lensToggle,
+	#showOutgroups,
+	#showSupertribes,
+	#switchToLightMode,
+	#settings {
 		border: 1px solid #e1e1e1;
 		border-radius: 5px;
 		padding: 0.25em;
 		background-color: #0d1c1bc5;
 		backdrop-filter: blur(5px);
-		max-width: max-content;
+		min-width: 100%;
 
 		display: flex;
 		flex-direction: column;
@@ -1072,7 +1196,11 @@
 	}
 
 	#zoomInAndOut button,
-	#lensToggle button {
+	#lensToggle button,
+	#showOutgroups button,
+	#showSupertribes button,
+	#switchToLightMode button,
+	#settings button {
 		background: transparent;
 		border: none;
 		color: #e1e1e1;
@@ -1086,10 +1214,45 @@
 	}
 
 	#lensToggle {
-		height: 20px;
-		width: 20px;
+		height: 1.75vw;
 		font-size: 0.85em !important;
 		margin-bottom: 1em;
+	}
+
+	#showOutgroups,
+	#showSupertribes,
+	#switchToLightMode,
+	#settings {
+		height: 1.75vw;
+		font-size: 0.85em !important;
+		margin-bottom: 0.5em;
+	}
+
+	#settings {
+		margin-bottom: 1em;
+	}
+
+	#settings img {
+		width: 1.2em; /* Set the width to 1em */
+		height: auto; /* Maintain the aspect ratio */
+		margin-top: 0.35em;
+	}
+
+	#showSupertribes img,
+	#showOutgroups img {
+		width: 1.2em;
+		height: auto;
+		margin-top: 0.4em;
+	}
+
+	#switchToLightMode img {
+		width: 1.4em;
+		height: auto;
+		margin-top: 0.25em;
+	}
+
+	#showSupertribes img {
+		margin-left: 0.1em;
 	}
 
 	#lensToggle:hover {
@@ -1099,5 +1262,66 @@
 	#zoomIn {
 		border-bottom: 1px solid #e1e1e1;
 		padding-bottom: 0.35em;
+		height: 1.75vw;
+	}
+
+	#zoomOut {
+		height: 1.9vw;
+		padding-top: 0.2em;
+	}
+
+	#showOutgroups:hover::before {
+		content: "Show outgroups";
+	}
+
+	#showSupertribes:hover::before {
+		content: "Show supertribes";
+	}
+
+	#switchToLightMode:hover::before {
+		content: "Switch to light mode";
+	}
+
+	#settings:hover::before {
+		content: "Show settings";
+	}
+
+	#lensToggle:hover::before {
+		content: "Show lens";
+	}
+
+	#zoomIn:hover::before {
+		content: "Zoom in";
+		font-size: 0.75em !important;
+	}
+
+	#zoomOut:hover::before {
+		content: "Zoom out";
+		font-size: 0.75em !important;
+	}
+
+	#showOutgroups:hover::before,
+	#showSupertribes:hover::before,
+	#switchToLightMode:hover::before,
+	#settings:hover::before,
+	#lensToggle:hover::before,
+	#zoomIn:hover::before,
+	#zoomOut:hover::before {
+		font-family: "Inter", sans-serif;
+		position: absolute;
+		right: 3vw;
+		color: #e1e1e1;
+		height: 1.75vw;
+		font-size: 0.85em;
+		font-weight: 600;
+		padding-top: 0.75em;
+		padding-left: 1em;
+		padding-right: 1em;
+		text-align: right;
+		width: max-content;
+
+		background-color: #0d1c1b97;
+		border: 0.5px solid #e1e1e1;
+		border-radius: 5px;
 	}
 </style>

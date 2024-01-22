@@ -17,6 +17,14 @@
 				dataset = data.features;
 			})
 			.catch((error) => console.error("Error loading local JSON:", error));
+
+		const welcomeMessage = d3.select("#welcomeMessage");
+		const button = d3.select("#confirmationButton");
+
+		button.on("click", function () {
+			welcomeMessage.style("visibility", "hidden");
+			console.log("closing the welcome message");
+		});
 	});
 
 	function closeInfo() {
@@ -51,6 +59,7 @@
 		</section>
 
 		<section class="filtercontainer">
+			<p>Explore Tree by</p>
 			<FilterSystem />
 		</section>
 
@@ -86,6 +95,13 @@
 				</div>
 			{/if}
 		</section>
+
+		<div id="welcomeMessage" style="visibility: visible">
+			<div id="dragTutorial">
+				<h3>Drag to the left or right to rotate the Tree of Life</h3>
+				<button id="confirmationButton"> Got it! </button>
+			</div>
+		</div>
 	</main>
 </body>
 
@@ -105,9 +121,61 @@
 		margin: 0.75em 2em;
 	}
 
+	#welcomeMessage {
+		background-color: #0000003e;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		font-family: "Inter", sans-serif;
+	}
+
+	#dragTutorial {
+		background-color: #0d1c1bb6;
+		border: 0.85px solid #e1e1e1;
+		border-radius: 5px;
+		color: #e1e1e1;
+		width: 15vw;
+		height: 15vh;
+		padding: 1em 3em;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	#dragTutorial h3 {
+		font-size: 1em;
+		margin-bottom: 1.25em;
+	}
+
+	#dragTutorial button {
+		font-weight: 600;
+		border-radius: 25px;
+		border: none;
+		background-color: #729a68;
+		color: white;
+		padding: 0.5em 3em;
+	}
+
+	#dragTutorial button:hover {
+		background-color: #445c3d;
+		cursor: pointer;
+	}
+
 	.filtercontainer {
 		position: absolute;
 		z-index: 8000;
+	}
+
+	.filtercontainer > p {
+		font-family: "Inter", sans-serif;
+		color: #e1e1e1;
+		margin: 0.75em 0 0.5em 0.25em;
+		padding: 0;
 	}
 
 	/**********************/
@@ -120,7 +188,7 @@
 		align-items: center;
 		justify-content: space-between;
 		border-bottom: 2px solid #729a68;
-		margin-bottom: 2.5em;
+		margin-bottom: 0.95em;
 		z-index: 9999;
 	}
 
@@ -187,11 +255,23 @@
 	}
 
 	h1 {
-		font-size: 2.5em;
+		font-size: 2em;
 		font-family: "Abel", sans-serif;
-		margin: 0.5em 0;
+		margin-bottom: 0.5em;
 		color: #e1e1e1;
-		grid-area: 1 / 1 / 1 / 3;
+	}
+
+	h1::before {
+		content: "";
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.35em;
+		margin-bottom: 0.2em;
+		background-image: url("/static/img/croplogo.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		vertical-align: middle;
 	}
 
 	h1 > span:first-of-type {

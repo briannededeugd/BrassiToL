@@ -5,6 +5,7 @@
 	import { draw } from "svelte/transition";
 	import { quadInOut } from "svelte/easing";
 	import { selectedSpeciesStore } from "./store.js";
+	import "/static/fonts/fonts.css";
 
 	export let isFlipped; // Accept isFlipped as a prop
 
@@ -22,7 +23,6 @@
 	let projection, path;
 	const width = 1200,
 		height = 800;
-	import "/static/fonts/fonts.css";
 
 	$: selectedSpecies = $selectedSpeciesStore;
 
@@ -115,7 +115,7 @@
 			.scaleLinear()
 			.domain([0, 10])
 			.range(["#ffffff", "#729a68"])
-			.clamp(true); // Adjust the colors as needed
+			.clamp(true);
 
 		const countriesSvg = d3.select("svg");
 
@@ -222,7 +222,7 @@
 				const countryData = matchingCountryNames.find(
 					(cn) => cn.name === d.properties.name
 				);
-				return countryData ? colorScale(countryData.frequency) : "white";
+				return countryData ? colorScale(countryData.frequency) : "#ffffff";
 			})
 			.attr("stroke", "#000")
 			.attr("stroke-width", ".5px")
