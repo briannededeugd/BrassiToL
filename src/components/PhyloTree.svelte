@@ -973,19 +973,13 @@
 <section id="zoomControls">
 	<div id="settingOptions" style="visibility: hidden">
 		<div id="showOutgroups">
-			<button
-				><img src="./img/outgroups.png" alt="Show outgroups" /></button
-			>
+			<button><img src="./img/outgroups.png" alt="Show outgroups" /></button>
 		</div>
 		<div id="showSupertribes">
-			<button
-				><img src="./img/hierarchy.png" alt="Show supertribes" /></button
-			>
+			<button><img src="./img/hierarchy.png" alt="Show supertribes" /></button>
 		</div>
 		<div id="switchToLightMode">
-			<button
-				><img src="./img/light.png" alt="Switch to light mode" /></button
-			>
+			<button><img src="./img/light.png" alt="Switch to light mode" /></button>
 		</div>
 	</div>
 	<div id="settings">
@@ -1283,11 +1277,11 @@
 	}
 
 	#settings:hover::before {
-		content: "Show settings";
+		content: "Show/Hide settings";
 	}
 
 	#lensToggle:hover::before {
-		content: "Show lens";
+		content: "Show/Hide lens";
 	}
 
 	#zoomIn:hover::before {
