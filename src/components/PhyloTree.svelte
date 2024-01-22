@@ -988,7 +988,7 @@
 		<div id="switchToLightMode">
 			<button
 				><img
-					src="../static/img/light.png"
+					src="/static/light.png"
 					alt="Switch to light mode"
 				/></button
 			>
