@@ -227,15 +227,11 @@
 		settingsToggle.on("click", function () {
 			if (settingsShown === false) {
 				settings.style("visibility", "visible");
-				settingsToggle
-					.style("background-color", "#e1e1e1")
-					.classed("activeSettings", true);
+				settingsToggle.style("background-color", "#e1e1e1");
 				settingsShown = true;
 			} else {
 				settings.style("visibility", "hidden");
-				settingsToggle
-					.style("background-color", "#0d1c1bc5")
-					.classed("activeSettings", false);
+				settingsToggle.style("background-color", "#0d1c1bc5");
 				settingsShown = false;
 			}
 		});
@@ -1282,10 +1278,6 @@
 
 	#settings:hover::before {
 		content: "Show settings";
-	}
-
-	.activeSettings:hover::before {
-		content: "Hide settings";
 	}
 
 	#lensToggle:hover::before {
