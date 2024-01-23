@@ -1108,6 +1108,7 @@
 		transform-origin: center center;
 		transform-box: fill-box;
 		transition: transform 0.1s;
+		transform: rotate(90deg);
 		position: absolute;
 		top: 8em;
 	}
