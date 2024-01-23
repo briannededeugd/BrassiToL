@@ -5,19 +5,19 @@ Welcome to the Github repository of the Brassicaceae Tree of Life: an interactiv
 ### Application Architecture 
 At the core of this application is Svelte, a framework that handles timing and user interaction as fast as can be, which results in a highly efficient and fast web application. Svelte's component-based architecture is ideal for the Brassicaceae project, as it allows for a modular and maintainable codebase. Each component is designed to be self-contained, managing its own state and behaviors, which simplifies the development process and enhances the application's overall performance.
 
-*D3 integration*
+#### D3 integration
 D3.js is one of the most popular tools for visualizations, and it's no different in this environment. It is seamlessly integrated into the Brassicaceae Tree of Life application, and without it, the tree would not exist as it does now. The combination of Svelte's reactivity and D3's dynamic graphical tools enables the interactions and real-time visualizations of the Brassicaceae phylogenetic tree. This integration allows users to explore the complex dataset the tree is based on through intuitive and engaging graphical representations.
 
-*Reactive statements*
+#### Reactive statements
 Once you dive into the code behind the application, you'll inevitably run into countless reactive statements and await/async's. These statements ensure that the UI updates automatically and efficiently when the data changes, which is crucial in a data-intensive application like the Brassicaceae Tree of Life, where user interactions or data transformations necessitate immediate visual feedback.
 
-*Data transformation*
+#### Data transformation
 Handling and transforming large datasets is efficiently addressed in every step of this project. I have implemented custom scripts that run once in the command line interface to transform data from CSV files into JavaScript-friendly formats (mostly JSON). This preprocessing step is vital for optimizing performance, as it enables quicker data rendering and manipulation within the Svelte and D3 environment. An example of this is the metadata csv-file, a huge information source about all nodes in the tree. To use this data in my code, I have translated this file to JSON, turned properties with multiple comma-separated values into arrays, linked information like 'countries' and 'geographical areas' to external datasets (such as the official landcodes to generate an accurate and interactive worldmap), and created relations between each node in the tree to the correct data in the file. Transforming the data to logical formats and useable endpoints was a big task that ultimately made the rest of the code more intuitive and logical.
 
-*Vite and Deployment*
+#### Vite and Deployment
 The creator of the Brassicaceae Tree of Life (and our 'client') Kasper Hendriks' biggest wish was for the tree to be interactive and reliably accessible to users worldwide. To achieve this and make that wish come true, I've made the choice to utilize the fast development environment of Vite, which significantly speeds up the development process. For deployment, the application is hosted on Vercel, which I've selected because of its easy use, scalability, and integration with our front-end framework, Svelte. By combining these, we ensure that the Brassicaceae Tree of Life is not only performant but also accessible to any and every user.
 
-*Conclusion*
+#### Conclusion
 All in all, the structure of this Brassicaceae Tree of Life is steadfast and reliable. Web technologies like Svelte, D3, Vite and Vercel can be combined to put together a highly interactive, efficient, and beautiful application that visualizes complex data in a user-friendly manner. Both the scientific community, curious students and enthusiasts have all access to explore the interesting world of the Brassicaceae family!
 
 ### Installation
