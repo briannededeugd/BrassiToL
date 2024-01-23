@@ -99,7 +99,7 @@
 
 		<div id="welcomeMessage" style="visibility: visible">
 			<div id="dragTutorial">
-				<h3>Drag to the left or right to rotate the Tree of Life</h3>
+				<h3>Drag to the left or right to rotate the Tree of Life.</h3>
 				<button id="confirmationButton"> Got it! </button>
 			</div>
 		</div>
@@ -112,7 +112,7 @@
 
 <style>
 	body {
-		background: url("/static/img/sitebackground.jpeg") no-repeat center center
+		background: url("./src/lib/img/sitebackground.jpeg") no-repeat center center
 			fixed;
 		background-size: cover;
 		width: 100%;
@@ -273,7 +273,7 @@
 		height: 1em;
 		margin-right: 0.35em;
 		margin-bottom: 0.2em;
-		background-image: url("/static/img/croplogo.png");
+		background-image: url("./src/lib/img/croplogo.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
