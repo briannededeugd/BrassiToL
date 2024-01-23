@@ -117,23 +117,23 @@
 	}
 
 	#quicklinks ul li:first-of-type a::before {
-		background-image: url("/static/lib/img/linkedin.jpg");
+		background-image: url("/static/img/linkedin.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(2) a::before {
-		background-image: url("/static/lib/img/kew.jpg");
+		background-image: url("/static/img/kew.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(3) a::before {
-		background-image: url("/static/lib/img/naturalis.jpg");
+		background-image: url("/static/img/naturalis.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(4) a::before {
-		background-image: url("/static/lib/img/inaturalist.jpg");
+		background-image: url("/static/img/inaturalist.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(5) a::before {
-		background-image: url("/static/lib/img/osnabruck.jpg");
+		background-image: url("/static/img/osnabruck.jpg");
 	}
 
 	/* CREDITS */

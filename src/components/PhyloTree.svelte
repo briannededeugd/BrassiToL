@@ -973,23 +973,18 @@
 <section id="zoomControls">
 	<div id="settingOptions" style="visibility: hidden">
 		<div id="showOutgroups">
-			<button><img src="./lib/img/outgroups.png" alt="Show outgroups" /></button
-			>
+			<button><img src="./img/outgroups.png" alt="Show outgroups" /></button>
 		</div>
 		<div id="showSupertribes">
-			<button
-				><img src="./lib/img/hierarchy.png" alt="Show supertribes" /></button
-			>
+			<button><img src="./img/hierarchy.png" alt="Show supertribes" /></button>
 		</div>
 		<div id="switchToLightMode">
-			<button
-				><img src="./lib/img/light.png" alt="Switch to light mode" /></button
-			>
+			<button><img src="./img/light.png" alt="Switch to light mode" /></button>
 		</div>
 	</div>
 	<div id="settings">
 		<button>
-			<img src="./lib/img/settings.png" alt="Show settings" />
+			<img src="./img/settings.png" alt="Show settings" />
 		</button>
 	</div>
 	<div id="lensToggle">
@@ -1055,7 +1050,7 @@
 	#tooltip-image {
 		width: 100%;
 		height: 10vh;
-		background: url("/static/lib/img/sampleimage.jpeg");
+		background: url("/static/img/sampleimage.jpeg");
 		background-size: cover;
 		background-position: center;
 		border-top-left-radius: 10px;
@@ -1118,7 +1113,7 @@
 		width: 1em;
 		height: 1em;
 		margin-right: 0.5em;
-		background-image: url("/static/lib/img/hierarchy.png");
+		background-image: url("/static/img/hierarchy.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;

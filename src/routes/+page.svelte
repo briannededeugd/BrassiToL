@@ -112,8 +112,8 @@
 
 <style>
 	body {
-		background: url("/static/lib/img/sitebackground.jpeg") no-repeat center
-			center fixed;
+		background: url("/static/img/sitebackground.jpeg") no-repeat center center
+			fixed;
 		background-size: cover;
 		width: 100%;
 		min-height: 100%;
@@ -273,7 +273,7 @@
 		height: 1em;
 		margin-right: 0.35em;
 		margin-bottom: 0.2em;
-		background-image: url("/static/lib/img/croplogo.png");
+		background-image: url("/static/img/croplogo.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
