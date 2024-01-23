@@ -1119,10 +1119,6 @@
 		overflow: hidden;
 	}
 
-	#tree-container {
-		transform: rotate(90deg);
-	}
-
 	/* *************** */
 	/* TOOL TIP STYLES */
 	/* *************** */
