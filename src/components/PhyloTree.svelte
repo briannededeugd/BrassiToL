@@ -494,6 +494,85 @@
 	 *               Functions for creating
 	 *=============================================**/
 
+	/**======================
+	 *    TIME RINGS
+	 *========================**/
+
+	function createTimeRings(svg, root) {
+		const branchLengths = [];
+
+		// Recursive function to traverse the tree and collect branch lengths
+		function extractBranchLengths(node) {
+			if (node.children) {
+				node.children.forEach((child) => {
+					const branchLength = child.data.length || 0;
+					branchLengths.push(branchLength);
+					extractBranchLengths(child);
+				});
+			}
+		}
+
+		extractBranchLengths(root);
+
+		// Find the maximum branch length
+		const maxBranchLength = d3.max(branchLengths);
+
+		// Choose the number of rings and calculate interval
+		const numberOfRings = 6;
+		const ringInterval = maxBranchLength / numberOfRings;
+
+		// Create an array for the ring values
+		const ringValues = d3
+			.range(numberOfRings)
+			.map((i) => maxBranchLength - i * ringInterval);
+
+		// Scales for positioning and coloring the rings
+		const timeScale = d3
+			.scaleLinear()
+			.domain([0, maxBranchLength])
+			.range([innerRadius, 0]); // Adjust innerRadius as per your tree configuration
+
+		// Custom interpolator function
+		function myColorInterpolator(t) {
+			return d3.interpolateRgb("#3c4d4b", "#1b342b")(t);
+		}
+
+		// Using the custom interpolator with scaleSequential
+		const colorScale = d3
+			.scaleSequential(myColorInterpolator)
+			.domain([0, numberOfRings - 1]);
+
+		// Create the rings
+		svg
+			.selectAll(".time-ring")
+			.data(ringValues)
+			.enter()
+			.append("circle")
+			.attr("class", "time-ring")
+			.attr("cx", 0)
+			.attr("cy", 0)
+			.attr("r", (d) => timeScale(d))
+			.attr("fill", (d, i) => colorScale(i))
+			.attr("stroke", "#667771")
+			.attr("stroke-width", ".5px")
+			.lower(); // This ensures rings are behind the tree
+
+		// Add labels to the rings
+		svg
+			.selectAll(".time-label")
+			.data(ringValues)
+			.enter()
+			.append("text")
+			.attr("class", "time-label")
+			.attr("x", (d) => timeScale(d))
+			.attr("y", 5)
+			.attr("dy", "0.35em")
+			.attr("fill", "#667771")
+			.attr("font-size", ".75em")
+			.attr("text-anchor", "start")
+			.text((d) => `${Math.round(d)} MA`);
+	}
+
 	let sharedRoot;
 	// Draw the phylogenetic tree
 	const createPhylogeneticTree = (data) => {
@@ -520,7 +599,7 @@
 		 *========================================================================**/
 
 		let currentZoomLevel = 1;
-		const maxZoomLevel = 3;
+		const maxZoomLevel = 1.5;
 		const minZoomLevel = 1 / (1.25 * 1.25); // Allowing zoom out two levels from default
 		const zoomStep = 1.25; // 25% increase for each zoom in
 
@@ -567,6 +646,21 @@
 			}
 		});
 
+		d3.select("#resetZoom").on("click", function () {
+			// Reset current zoom level to default
+			currentZoomLevel = 1;
+
+			// Reset transform to default
+			transform = { x: 0, y: 0, scale: 1 };
+
+			// Apply the default transform to the tree container
+			d3.select("#tree-container")
+				.transition()
+				.duration(750)
+				.call(zoom.transform, d3.zoomIdentity) // d3.zoomIdentity sets the transform back to default
+				.on("end", updateZoom); // Ensure updateZoom is called after the transition
+		});
+
 		function zoomTo(scale) {
 			let newTransform;
 
@@ -597,6 +691,8 @@
 			.attr("viewBox", [-outerRadius, -outerRadius, width, width])
 			.attr("font-family", "sans-serif")
 			.attr("font-size", 10);
+
+		createTimeRings(svg, sharedRoot);
 
 		svg.append("style").text(`
 			.link--active {
@@ -728,7 +824,7 @@
 				imageId = metadataObject.powo_identifier;
 
 				// Apply the active class to the hovered label and remove from others
-				d3.selectAll("text").classed("label--active", false); // Remove active class from all
+				d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
 				d3.select(this).classed("label--active", active);
 
 				if (active) {
@@ -770,7 +866,7 @@
 
 					// Change the color of all links and labels to grey
 					svg.selectAll(".link").attr("stroke", "#405f7470");
-					svg.selectAll("text").style("fill", "#405f7470");
+					svg.selectAll("text.node").style("fill", "#405f7470");
 
 					// Now highlight the path and label of the hovered node
 					let currentNode = d;
@@ -1061,13 +1157,25 @@
 <section id="zoomControls">
 	<div id="settingOptions" style="visibility: hidden">
 		<div id="showOutgroups">
-			<button><img src="./img/outgroups.png" alt="Show outgroups" /></button>
+			<button
+				><img src="./img/outgroups.png" alt="Show outgroups" /></button
+			>
 		</div>
 		<div id="showSupertribes">
-			<button><img src="./img/hierarchy.png" alt="Show supertribes" /></button>
+			<button
+				><img
+					src="./img/hierarchy.png"
+					alt="Show supertribes"
+				/></button
+			>
 		</div>
 		<div id="switchToLightMode">
-			<button><img src="./img/light.png" alt="Switch to light mode" /></button>
+			<button
+				><img
+					src="./img/light.png"
+					alt="Switch to light mode"
+				/></button
+			>
 		</div>
 	</div>
 	<div id="settings">
@@ -1087,6 +1195,11 @@
 		<div id="zoomOut">
 			<button>–</button>
 		</div>
+	</div>
+	<div id="resetZoom">
+		<button>
+			<img src="./img/zoom.png" alt="Reset zoom" />
+		</button>
 	</div>
 </section>
 
@@ -1265,7 +1378,8 @@
 	#showOutgroups,
 	#showSupertribes,
 	#switchToLightMode,
-	#settings {
+	#settings,
+	#resetZoom {
 		border: 1px solid #e1e1e1;
 		border-radius: 5px;
 		padding: 0.25em;
@@ -1284,7 +1398,8 @@
 	#showOutgroups button,
 	#showSupertribes button,
 	#switchToLightMode button,
-	#settings button {
+	#settings button,
+	#resetZoom button {
 		background: transparent;
 		border: none;
 		color: #e1e1e1;
@@ -1303,6 +1418,12 @@
 		margin-bottom: 1em;
 	}
 
+	#resetZoom {
+		height: 1.75vw;
+		font-size: 0.85em !important;
+		margin-top: 1em;
+	}
+
 	#showOutgroups,
 	#showSupertribes,
 	#switchToLightMode,
@@ -1314,6 +1435,10 @@
 
 	#settings {
 		margin-bottom: 1em;
+	}
+
+	#zoomInAndOut {
+		margin-bottom: 0.5em;
 	}
 
 	#settings img {
@@ -1339,7 +1464,8 @@
 		margin-left: 0.1em;
 	}
 
-	#lensToggle img {
+	#lensToggle img,
+	#resetZoom img {
 		width: 1.3em;
 		height: auto;
 		margin-top: 0.25em;
@@ -1387,13 +1513,18 @@
 		font-size: 0.75em !important;
 	}
 
+	#resetZoom:hover::before {
+		content: "Reset zoom";
+	}
+
 	#showOutgroups:hover::before,
 	#showSupertribes:hover::before,
 	#switchToLightMode:hover::before,
 	#settings:hover::before,
 	#lensToggle:hover::before,
 	#zoomIn:hover::before,
-	#zoomOut:hover::before {
+	#zoomOut:hover::before,
+	#resetZoom:hover::before {
 		font-family: "Inter", sans-serif;
 		position: absolute;
 		right: 3vw;
