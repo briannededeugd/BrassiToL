@@ -6,6 +6,7 @@
 	import FilterSystem from "../components/FilterSystem.svelte";
 	import Marks from "../components/Marks.svelte";
 	import MapLegend from "../components/MapLegend.svelte";
+	import Footer from "../components/Footer.svelte";
 	import "/static/fonts/fonts.css";
 
 	let dataset = [];
@@ -103,12 +104,16 @@
 			</div>
 		</div>
 	</main>
+
+	<footer class="footer">
+		<Footer />
+	</footer>
 </body>
 
 <style>
 	body {
-		background: url("/static/img/sitebackground.jpeg") no-repeat center center
-			fixed;
+		background: url("/static/lib/img/sitebackground.jpeg") no-repeat center
+			center fixed;
 		background-size: cover;
 		width: 100%;
 		min-height: 100%;
@@ -123,7 +128,7 @@
 
 	#welcomeMessage {
 		background-color: #0000003e;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -268,7 +273,7 @@
 		height: 1em;
 		margin-right: 0.35em;
 		margin-bottom: 0.2em;
-		background-image: url("/static/img/croplogo.png");
+		background-image: url("/static/lib/img/croplogo.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
@@ -365,5 +370,15 @@
 		margin-bottom: 0;
 		max-height: 82px;
 		overflow-y: auto;
+	}
+
+	/* ****** */
+	/* FOOTER */
+	/* ****** */
+
+	footer {
+		position: absolute;
+		min-width: 100vw;
+		top: 200vh;
 	}
 </style>
