@@ -1235,7 +1235,8 @@
 		border-radius: 10px;
 		max-width: 170px;
 		height: 180px;
-		z-index: 9999;
+		z-index: 7000;
+		/* Z-index change */
 	}
 
 	#legend > h3 {

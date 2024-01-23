@@ -173,7 +173,7 @@
 
 	.filtercontainer {
 		position: absolute;
-		z-index: 8000;
+		z-index: 9800;
 	}
 
 	.filtercontainer > p {
