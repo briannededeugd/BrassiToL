@@ -72,11 +72,11 @@
 	};
 
 	onMount(async () => {
-		const response = await fetch("/static/BrassiToL_metadata.json");
+		const response = await fetch("/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("/static/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
