@@ -15,8 +15,9 @@
 			<p>
 				Hendriks, K. P., Kiefer, C., Al-Shehbaz, I. A., Bailey, C. D., van
 				Huysduynen, A. H., Nikolov, L. A., ... & Lens, F. (2023). Global
-				Brassicaceae phylogeny based on filtering of 1,000-gene dataset. Current
-				Biology, 33(19), 4052-4068.
+				Brassicaceae phylogeny based on filtering of 1,000-gene dataset. <em
+					>Current Biology</em
+				>, 33(19), 4052-4068.
 			</p>
 		</div>
 		<div id="quicklinks">

@@ -80,6 +80,8 @@
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
+		d3.select("#clearFilters").on("click", clearAllFilters);
+
 		/**======================
 		 *    NEW SETS FOR FILTERING FAMILIES
 		 *========================**/
@@ -360,34 +362,61 @@
 
 	function handleGlobalSearchCheckboxChange(item) {
 		// Find the item in its original category and update its checked state
-		[
-			subfamilies,
-			supertribes,
-			tribes,
-			genuses,
-			species,
-			geographicareas,
-			continents,
-			countries,
-			growthform,
-			societaluse,
-			lifeform,
-			climates,
-		].forEach((category) => {
-			let categoryItem = category.find(
+		const categories = [
+			checkboxStates.subfamilies,
+			checkboxStates.supertribes,
+			checkboxStates.tribes,
+			checkboxStates.genuses,
+			checkboxStates.species,
+			checkboxStates.geographicareas,
+			checkboxStates.continents,
+			checkboxStates.countries,
+			checkboxStates.growthForm,
+			checkboxStates.societaluse,
+			checkboxStates.lifeform,
+			checkboxStates.climates,
+		];
+
+		categories.forEach((category) => {
+			const index = category.items.findIndex(
 				(categoryItem) => categoryItem.label === item.label
 			);
-			if (categoryItem) {
-				categoryItem.checked = item.checked;
+			if (index !== -1) {
+				category.items[index] = {
+					...category.items[index],
+					checked: item.checked,
+				};
 			}
+		});
+
+		// Trigger reactivity by assigning a new array
+		categories.forEach((category) => {
+			category.items = [...category.items];
 		});
 
 		updateTreeVisualization();
 	}
 
+	function clearAllFilters() {
+		console.log("Clear filters requested!");
+		Object.keys(checkboxStates).forEach((category) => {
+			checkboxStates[category].items.forEach((item) => {
+				item.checked = false;
+			});
+
+			// If the category has 'allSelected', reset it as well
+			if ("allSelected" in checkboxStates[category]) {
+				checkboxStates[category].allSelected = false;
+			}
+		});
+
+		updateTreeVisualization(); // Update the tree visualization
+	}
+
 	function updateTreeVisualization() {
 		console.log("CALLED FOR UPDATE");
 		let selectedSpecies = new Set();
+
 		Object.entries(checkboxStates).forEach(([category, state]) => {
 			state.items.forEach((item) => {
 				if (item.checked) {
@@ -408,6 +437,12 @@
 
 		console.log("SPECIES TEST:", selectedSpecies);
 		selectedSpeciesStore.set(selectedSpecies);
+
+		if (selectedSpecies.size > 0) {
+			d3.select("#clearFilters").style("visibility", "visible");
+		} else {
+			d3.select("#clearFilters").style("visibility", "hidden");
+		}
 	}
 
 	function getCategoryProperty(category) {
@@ -501,6 +536,28 @@
 		geographyOpen = false;
 		characteristicsOpen = false;
 	}
+
+	/**============================================
+	 *               CHECKED COUNTS
+	 *=============================================**/
+
+	$: checkedTaxCount =
+		checkboxStates.subfamilies.items.filter((item) => item.checked).length +
+		checkboxStates.supertribes.items.filter((item) => item.checked).length +
+		checkboxStates.tribes.items.filter((item) => item.checked).length +
+		checkboxStates.genuses.items.filter((item) => item.checked).length +
+		checkboxStates.species.items.filter((item) => item.checked).length;
+
+	$: checkedGeoCount =
+		checkboxStates.geographicareas.items.filter((item) => item.checked).length +
+		checkboxStates.continents.items.filter((item) => item.checked).length +
+		checkboxStates.countries.items.filter((item) => item.checked).length;
+
+	$: checkedCharCount =
+		checkboxStates.growthForm.items.filter((item) => item.checked).length +
+		checkboxStates.societaluse.items.filter((item) => item.checked).length +
+		checkboxStates.lifeform.items.filter((item) => item.checked).length +
+		checkboxStates.climates.items.filter((item) => item.checked).length;
 </script>
 
 <section class="filtersystem">
@@ -513,6 +570,9 @@
 			style="color: {taxonomyOpen ? '#729a68' : '#e1e1e1'}"
 		>
 			Taxonomy
+			{#if checkedTaxCount > 0}
+				<span class="checkbox-count">({checkedTaxCount})</span>
+			{/if}
 		</button>
 
 		{#if taxonomyOpen}
@@ -664,6 +724,9 @@
 			style="color: {geographyOpen ? '#729a68' : '#e1e1e1'}"
 		>
 			Geography
+			{#if checkedGeoCount > 0}
+				<span class="checkbox-count">({checkedGeoCount})</span>
+			{/if}
 		</button>
 		{#if geographyOpen}
 			<div class="geographyDropdown">
@@ -757,8 +820,11 @@
 			on:click={toggleCharacteristics}
 			style="color: {characteristicsOpen ? '#729a68' : '#e1e1e1'}"
 		>
-			Characteristics</button
-		>
+			Characteristics
+			{#if checkedCharCount > 0}
+				<span class="checkbox-count">({checkedCharCount})</span>
+			{/if}
+		</button>
 		{#if characteristicsOpen}
 			<div class="characteristicsDropdown">
 				<!-- GROWTH FORM -->
@@ -922,6 +988,9 @@
 			</div>
 		{/if}
 	</section>
+
+	<div class="spacer"></div>
+	<button id="clearFilters" style="visibility: hidden">Clear Filters</button>
 </section>
 
 <style>
@@ -930,6 +999,28 @@
 		font-size: 0.85em;
 	}
 
+	.spacer {
+		flex-grow: 1;
+	}
+
+	#clearFilters {
+		margin-left: auto;
+		font-family: "Bayon", sans-serif;
+		background-color: transparent;
+		color: #e1e1e1;
+		border: none;
+		font-size: 1em;
+	}
+
+	#clearFilters:hover {
+		color: #729a68;
+		cursor: pointer;
+	}
+
+	/* .checkbox-count {
+		margin-left: auto;
+	} */
+
 	/***********************************/
 	/*    FILTER SYSTEM GLOBAL STYLE   */
 	/***********************************/
@@ -937,7 +1028,7 @@
 	.filtersystem {
 		position: relative;
 		display: flex;
-		gap: 2em;
+		gap: 5em;
 	}
 
 	.filtersystem > .dropdown-container:last-of-type input[type="text"] {
@@ -978,14 +1069,20 @@
 		color: black;
 		position: relative;
 		display: flex;
+		gap: 1em;
 		background: transparent;
 		border: none;
-		width: 15vw;
+		width: 10vw;
 		text-align: left;
-		justify-content: space-between;
+		/* justify-content: space-between; */
 		align-items: center;
 		transition: all 0.3s;
 		color: #e1e1e1;
+	}
+
+	.filtercategory > span {
+		font-family: "Inter", sans-serif;
+		font-size: 0.8em !important;
 	}
 
 	.filtercategory:hover {
@@ -1106,7 +1203,7 @@
 		font-size: 0.8em;
 	}
 
-	.checkbox-list label input[type="checkbox"] {
+	input[type="checkbox"] {
 		border: none;
 		accent-color: #729a68;
 	}

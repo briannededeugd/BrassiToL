@@ -9,16 +9,7 @@
 	import Footer from "../components/Footer.svelte";
 	import "/static/fonts/fonts.css";
 
-	let dataset = [];
-
 	onMount(async () => {
-		fetch("/countries.json")
-			.then((response) => response.json())
-			.then((data) => {
-				dataset = data.features;
-			})
-			.catch((error) => console.error("Error loading local JSON:", error));
-
 		const welcomeMessage = d3.select("#welcomeMessage");
 		const button = d3.select("#confirmationButton");
 
@@ -174,6 +165,7 @@
 	.filtercontainer {
 		position: absolute;
 		z-index: 9800;
+		width: 95vw;
 	}
 
 	.filtercontainer > p {

@@ -68,6 +68,8 @@
 	let colorScale;
 	let supertribesShown = false;
 	let outgroupsShown = false;
+	let isTooltipPinned = false;
+	let lastClickedLabel = null;
 	let svg;
 
 	let sampleNumber;
@@ -83,6 +85,7 @@
 	let climateName;
 	let growthformName;
 	let societaluseName;
+	let geographicareaName;
 	let imageId;
 	let transform = d3.zoomIdentity.toString();
 	let currentZoomLevel = 1;
@@ -321,6 +324,26 @@
 				supertribesIcon.attr("src", "./img/hierarchy.png");
 				updateTreeColors(selectedSpecies);
 			}
+		});
+
+		/**======================
+		 *    CLOSE PINNED TOOLTIP
+		 *========================**/
+
+		const closingButton = d3.select("#shutTooltip");
+		const theTooltipContainer = d3.select("#tooltip");
+
+		closingButton.on("click", function () {
+			theTooltipContainer.style("visibility", "hidden");
+			isTooltipPinned = false;
+
+			if (lastClickedLabel) {
+				lastClickedLabel.classed("label--active", false); // Remove the active class
+				lastClickedLabel = null; // Reset the reference
+			}
+
+			// Re-enable pointer events for labels if you've disabled them
+			d3.selectAll("text.node").style("pointer-events", "auto");
 		});
 
 		// For filtering
@@ -587,6 +610,7 @@
 			);
 
 		cluster(root);
+		rotateTree(root);
 		setRadius(root, (root.data.length = 0), innerRadius / maxLength(root));
 		if (colorScale) {
 			setColor(root);
@@ -739,6 +763,9 @@
 			})
 			.attr("d", linkVariable);
 
+		// Create the defaultstate of the tooltip
+		let tooltip = d3.select("#tooltip");
+
 		svg
 			.append("g")
 			.selectAll("text")
@@ -760,6 +787,21 @@
 			.text((d) => findSpeciesName(d.data.name, metadata))
 			.on("mouseover", mouseovered(true))
 			.on("mouseout", mouseovered(false))
+			.on("click", function (event, d) {
+				event.stopPropagation(); // This prevents the event from reaching SVG labels
+				isTooltipPinned = !isTooltipPinned; // Toggle the pinned state
+				lastClickedLabel = d3.select(this); // Store the clicked label
+				console.log("LAST CLICKED LABEL:", lastClickedLabel);
+
+				if (isTooltipPinned) {
+					tooltip.style("z-index", 9999);
+					d3.selectAll("text.node").style("pointer-events", "none"); // Disable pointer events for labels
+				} else {
+					tooltip.style("visibility", "hidden");
+					d3.selectAll("text.node").style("pointer-events", "auto");
+				}
+			})
+
 			.each(function (d) {
 				d.data.textNode = this;
 			});
@@ -771,9 +813,6 @@
 				.attr("d", checked ? linkExtensionVariable : linkExtensionConstant);
 			link.transition(t).attr("d", checked ? linkVariable : linkConstant);
 		}
-
-		// Create the defaultstate of the tooltip
-		let tooltip = d3.select("#tooltip");
 
 		function mouseovered(active) {
 			return function (event, d) {
@@ -821,13 +860,14 @@
 				);
 				growthformName = growthFormLabelMapping[metadataObject.GROWTH_FORM];
 				societaluseName = metadataObject.SOCIETAL_USE;
+				geographicareaName = metadataObject.WCVP_geographic_area;
 				imageId = metadataObject.powo_identifier;
 
 				// Apply the active class to the hovered label and remove from others
 				d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
 				d3.select(this).classed("label--active", active);
 
-				if (active) {
+				if (active && !isTooltipPinned) {
 					tooltip
 						.style("visibility", "visible")
 						.style("left", function () {
@@ -885,7 +925,7 @@
 
 						currentNode = currentNode.parent;
 					} while (currentNode);
-				} else {
+				} else if (!active && !isTooltipPinned) {
 					tooltip.style("visibility", "hidden");
 
 					d3.select(d.linkNode).attr("stroke", "#E1E1E1"); // Reset the path color
@@ -946,6 +986,11 @@
 		.cluster()
 		.size([360, innerRadius])
 		.separation((a, b) => 1);
+
+	let rotateTree = (d) => {
+		d.x = (d.x + 90) % 360; // Rotate each node by 90 degrees
+		if (d.children) d.children.forEach(rotateTree);
+	};
 
 	// Set the radius of each node by recursively summing and scaling the distance from the root
 	let setRadius = (d, y0, k) => {
@@ -1108,6 +1153,9 @@
 
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
 	<div id="tooltip-image">
+		<button id="shutTooltip">
+			<img src="./img/close.png" alt="Close tooltip" />
+		</button>
 		<a
 			href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
 		>
@@ -1116,6 +1164,7 @@
 	</div>
 
 	<div id="tooltip-information">
+		<p id="source">Image Source: iNaturalist, guyincognito</p>
 		<h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
 		<div id="tooltip-taxonomy">
 			<p>
@@ -1151,6 +1200,7 @@
 				</p>
 			</div>
 		</div>
+		<p id="geographicareaname">{geographicareaName}</p>
 	</div>
 </div>
 
@@ -1198,7 +1248,7 @@
 	</div>
 	<div id="resetZoom">
 		<button>
-			<img src="./img/zoom.png" alt="Reset zoom" />
+			<img src="./img/reset.png" alt="Reset zoom" />
 		</button>
 	</div>
 </section>
@@ -1240,17 +1290,19 @@
 		border-radius: 10px;
 		border: 0.65px solid #e1e1e1;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-		min-width: 15vw;
-		max-width: 15vw;
+		min-width: 16vw;
+		max-width: 16vw;
 		color: #e1e1e1;
 		font-size: 0.65em;
-		z-index: 1000;
-		pointer-events: none;
+		z-index: 9999;
+		/*pointer-events: none;*/
 	}
 
 	#tooltip-image {
+		display: flex;
 		width: 100%;
 		height: 10vh;
+		justify-content: space-between;
 		background: url("/static/img/sampleimage.jpeg");
 		background-size: cover;
 		background-position: center;
@@ -1258,26 +1310,106 @@
 		border-top-right-radius: 10px;
 	}
 
+	#tooltip-image button,
+	#tooltip-image button img {
+		background-color: transparent;
+		border: none;
+		width: 1.5vw;
+		height: 1.5vw;
+		margin: 0.35em 0.15em;
+	}
+
+	#tooltip-image button:hover,
+	#tooltip-image button img:hover {
+		cursor: pointer;
+	}
+
+	#shutTooltip:hover::before {
+		content: "Close tooltip";
+		font-family: "Inter", sans-serif;
+		position: absolute;
+		left: -9em;
+		color: #e1e1e1;
+		height: 1.75vw;
+		font-size: 0.85em;
+		font-weight: 600;
+		padding-top: 0.75em;
+		padding-left: 1em;
+		padding-right: 1em;
+		text-align: left;
+		width: max-content;
+
+		background-color: #0d1c1b97;
+		border: 0.5px solid #e1e1e1;
+		border-radius: 5px;
+	}
+
 	#tooltip-image a {
 		color: #0d1c1b9c;
 		background-color: #e1e1e1b8;
 		padding: 1em 0.75em 0.75em;
 		border-radius: 5px;
-		position: relative;
-		top: 15px;
-		left: 180px;
+		height: 1.5vh;
+		margin: 0.5em;
+	}
+
+	#tooltip-image a:hover::after {
+		content: "View on POWO";
+		font-family: "Inter", sans-serif;
+		position: absolute;
+		right: -10em;
+		top: 0;
+		color: #e1e1e1;
+		height: 1.75vw;
+		font-size: 1.1em;
+		font-weight: 600;
+		padding-top: 0.75em;
+		padding-left: 1em;
+		padding-right: 1em;
+		text-align: left;
+		width: max-content;
+
+		background-color: #0d1c1b97;
+		border: 0.5px solid #e1e1e1;
+		border-radius: 5px;
 	}
 
 	#tooltip h3 {
 		font-family: "Bayon", sans-serif;
 		font-weight: 100;
-		font-size: 1.5em;
-		margin: 0.75em 0;
+		font-size: 1.75em;
+		margin-top: 0.85em;
+		margin-bottom: 0.95em;
 		line-height: 1em;
 	}
 
 	#tooltip-information {
-		padding: 1.5em;
+		padding: 0.5em 1.5em 1em;
+	}
+
+	#source {
+		font-family: "Inter", sans-serif;
+		font-weight: 600;
+		font-size: 0.65em;
+	}
+
+	#geographicareaname {
+		font-family: "Inter", sans-serif;
+		font-weight: 600;
+		font-size: 1em;
+	}
+
+	#geographicareaname::before {
+		content: "";
+		display: inline-block;
+		width: 1.5em;
+		height: 1.5em;
+		margin-right: 0.35em;
+		margin-bottom: 0.2em;
+		background-image: url("/static/img/location.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		vertical-align: middle;
 	}
 
 	#tooltip-metadata {
@@ -1311,10 +1443,11 @@
 	#tooltip-taxonomy p::before {
 		content: "";
 		display: inline-block;
-		width: 1em;
-		height: 1em;
+		width: 1.5em;
+		height: 1.5em;
 		margin-right: 0.5em;
-		background-image: url("/static/img/hierarchy.png");
+		padding-bottom: 0.5em;
+		background-image: url("/static/img/dna.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
