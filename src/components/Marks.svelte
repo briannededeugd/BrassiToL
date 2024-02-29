@@ -42,8 +42,8 @@
 		try {
 			const responses = await Promise.all([
 				fetch("/BrassiToL_metadata.json"),
-				fetch("/BrassiToL_landcodes.json"),
-				fetch("/countries.json"),
+				fetch("/wgsrpd_mapping.json"),
+				fetch("/TDWG_level3_map.json"),
 			]);
 
 			metadata = await responses[0].json();
@@ -84,8 +84,8 @@
 		);
 		const wgsrpdNames = landCodes
 			.map((code) => {
-				const landcodeObj = landcodes.find((lc) => lc.code === code);
-				return landcodeObj ? landcodeObj.WGSRPD_name : null;
+				const landcodeObj = landcodes.find((lc) => lc.LEVEL3_COD === code);
+				return landcodeObj ? landcodeObj.LEVEL3_NAM : null;
 			})
 			.filter((name) => name !== null);
 
@@ -93,11 +93,12 @@
 		wgsrpdNames.forEach((name) => {
 			countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
 		});
+
 		matchingCountryNames = countries.features
-			.filter((feature) => countryFrequency.has(feature.properties.name))
+			.filter((feature) => countryFrequency.has(feature.properties.LEVEL3_NAM))
 			.map((country) => ({
-				name: country.properties.name,
-				frequency: countryFrequency.get(country.properties.name),
+				name: country.properties.LEVEL3_NAM,
+				frequency: countryFrequency.get(country.properties.LEVEL3_NAM),
 			}));
 
 		console.log("MATCHING COUNTRIES:", matchingCountryNames);
@@ -129,7 +130,7 @@
 			.attr("d", path)
 			.on("mouseover", function (event, d) {
 				countryInformation = matchingCountryNames.find(
-					(cn) => cn.name === d.properties.name
+					(cn) => cn.name === d.properties.LEVEL3_NAM
 				);
 				if (countryInformation && countryInformation.frequency > 0) {
 					let tooltip = d3.select("#mapInfo");
@@ -152,7 +153,7 @@
 			})
 			.on("click", function (event, d) {
 				countryInfo = matchingCountryNames.find(
-					(cn) => cn.name === d.properties.name
+					(cn) => cn.name === d.properties.LEVEL3_NAM
 				);
 				console.log("COUNTRY INFO:", countryInfo);
 
@@ -178,8 +179,8 @@
 					const relevantName = [
 						...new Set(
 							landcodes
-								.filter((lc) => lc.WGSRPD_name === countryInfo.name)
-								.map((item) => item.code)
+								.filter((lc) => lc.LEVEL3_NAM === countryInfo.name)
+								.map((item) => item.LEVEL3_COD)
 						),
 					];
 					console.log("REL NAMES:", relevantName);
@@ -220,7 +221,7 @@
 			})
 			.attr("fill", function (d) {
 				const countryData = matchingCountryNames.find(
-					(cn) => cn.name === d.properties.name
+					(cn) => cn.name === d.properties.LEVEL3_NAM
 				);
 				return countryData ? colorScale(countryData.frequency) : "#ffffff";
 			})

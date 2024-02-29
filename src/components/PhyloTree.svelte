@@ -827,10 +827,22 @@
 				function formatDescription(description) {
 					if (Array.isArray(description)) {
 						// If it's an array, apply the function to each element
-						return description.map((item) => capitalizeFirstLetter(item));
+						return description
+							.map((item) => capitalizeFirstLetter(item))
+							.join(", ");
 					} else if (typeof description === "string" && description !== "NA") {
-						// If it's a string and not "NA", capitalize the first letter
-						return capitalizeFirstLetter(description);
+						// If it's a string and not "NA", capitalize the first letter of the first and last word
+						const words = description.split(" ");
+						if (words.length > 1) {
+							words[0] = capitalizeFirstLetter(words[0]); // Capitalize the first word
+							words[words.length - 1] = capitalizeFirstLetter(
+								words[words.length - 1]
+							); // Capitalize the last word
+							return words.join(" ");
+						} else {
+							// If there's only one word, just capitalize it
+							return capitalizeFirstLetter(description);
+						}
 					}
 					return description; // Return as is if none of the above conditions are met
 				}
@@ -859,7 +871,7 @@
 					metadataObject.WCVP_climate_description
 				);
 				growthformName = growthFormLabelMapping[metadataObject.GROWTH_FORM];
-				societaluseName = metadataObject.SOCIETAL_USE;
+				societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
 				geographicareaName = metadataObject.WCVP_geographic_area;
 				imageId = metadataObject.powo_identifier;
 
@@ -1290,10 +1302,10 @@
 		border-radius: 10px;
 		border: 0.65px solid #e1e1e1;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-		min-width: 16vw;
-		max-width: 16vw;
+		min-width: 20vw;
+		max-width: 20vw;
 		color: #e1e1e1;
-		font-size: 0.65em;
+		font-size: 0.75em;
 		z-index: 9999;
 		/*pointer-events: none;*/
 	}
