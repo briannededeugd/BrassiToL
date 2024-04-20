@@ -23,7 +23,7 @@ All in all, the structure of this Brassicaceae Tree of Life is steadfast and rel
 ### Installation
 This application is online and accessible [here](https://brassitol.vercel.app/), but you can also run it in your local computer environment:
 
-1. Download all contents of the repository from the [Code page](https://github.com/briannededeugd/techtrack-23-24);
+1. Download all contents of the repository from the [Code page](https://github.com/briannededeugd/BrassiToL);
 2. You should find them in your `Downloads` folder. Create a new folder and name it `my-app`. Drag all of your downloaded content into `my-app`.
 2. Open your Command Line Interface (Terminal);
 3. Navigate to your Downloads folder using `cd Downloads` (meaning Change Directories to Downloads);<br>
