@@ -2,6 +2,10 @@
 	import "../lib/fonts/fonts.css";
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="./src/lib/styles/footer.css" />
+</svelte:head>
+
 <section id="footer">
 	<section id="maincontent">
 		<div id="about">
@@ -54,107 +58,3 @@
 		</p>
 	</section>
 </section>
-
-<style>
-	#footer {
-		min-width: 100vw;
-		color: #e1e1e1;
-		font-family: "Inter", sans-serif;
-		font-size: 0.85em;
-		font-weight: 600;
-	}
-
-	#footer h3 {
-		font-family: "Bayon", sans-serif;
-		font-size: 1.75em;
-		font-weight: 100;
-	}
-
-	#maincontent {
-		background-color: #0e291f97;
-		display: flex;
-		justify-content: space-between;
-		padding: 8vh 10vw;
-	}
-
-	#about {
-		max-width: 30vw;
-	}
-
-	/* QUICK LINKS */
-
-	#quicklinks {
-		min-width: 20vw;
-	}
-	#quicklinks ul {
-		list-style-type: none;
-		padding: 0;
-	}
-
-	#quicklinks ul > * {
-		padding: 0.5em 0;
-	}
-
-	#quicklinks ul li a {
-		text-decoration: none;
-		color: #e1e1e1;
-		font-size: 0.9em !important;
-	}
-
-	#quicklinks ul li a:hover {
-		text-decoration: underline;
-	}
-
-	#quicklinks ul li a::before {
-		content: "";
-		display: inline-block;
-		border-radius: 2.5px;
-		background-size: contain;
-		background-repeat: no-repeat;
-		vertical-align: middle;
-		height: 2em;
-		width: 2em;
-		margin-right: 1em;
-	}
-
-	#quicklinks ul li:first-of-type a::before {
-		background-image: url("./src/lib/img/linkedin.jpg");
-	}
-
-	#quicklinks ul li:nth-of-type(2) a::before {
-		background-image: url("./src/lib/img/kew.jpg");
-	}
-
-	#quicklinks ul li:nth-of-type(3) a::before {
-		background-image: url("./src/lib/img/naturalis.jpg");
-	}
-
-	#quicklinks ul li:nth-of-type(4) a::before {
-		background-image: url("./src/lib/img/inaturalist.jpg");
-	}
-
-	#quicklinks ul li:nth-of-type(5) a::before {
-		background-image: url("./src/lib/img/osnabruck.jpg");
-	}
-
-	/* CREDITS */
-	#credits {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		height: 3em;
-		background-color: #07241a;
-		margin-top: 0;
-		text-align: center;
-		align-items: center;
-	}
-
-	#credits p {
-		font-size: 0.75em;
-		padding-top: 0.5em;
-	}
-
-	#credits p span {
-		color: #667771;
-	}
-</style>

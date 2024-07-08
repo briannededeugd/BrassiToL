@@ -1,0 +1,422 @@
+
+  #magnifier {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid #e1e1e1;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    left: 60vw;
+    top: 32.5vh;
+  }
+
+  #phyloTree {
+    width: 100vw;
+    height: 80vh;
+    transform-origin: center center;
+    transform-box: fill-box;
+    transition: transform 0.1s;
+    position: absolute;
+    top: 8em;
+  }
+
+  #svg-container,
+  #tree-container {
+    height: 200vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  /* *************** */
+  /* TOOL TIP STYLES */
+  /* *************** */
+  #tooltip {
+    background-color: #0d1c1b9c;
+    border-radius: 10px;
+    border: 0.65px solid #e1e1e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    min-width: 20vw;
+    max-width: 20vw;
+    color: #e1e1e1;
+    font-size: 0.75em;
+    z-index: 9999;
+    /*pointer-events: none;*/
+  }
+
+  #tooltip-image {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-between;
+    background: url("../img/sampleimage.jpeg");
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  #tooltip-image button,
+  #tooltip-image button img {
+    background-color: transparent;
+    border: none;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin: 0.35em 0.15em;
+  }
+
+  #tooltip-image button:hover,
+  #tooltip-image button img:hover {
+    cursor: pointer;
+  }
+
+  #shutTooltip:hover::before {
+    content: "Close tooltip";
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    left: -9em;
+    color: #e1e1e1;
+    height: 1.75vw;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding-top: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
+    width: max-content;
+
+    background-color: #0d1c1b97;
+    border: 0.5px solid #e1e1e1;
+    border-radius: 5px;
+  }
+
+  #tooltip-image a {
+    color: #0d1c1b9c;
+    background-color: #e1e1e1b8;
+    padding: 1em 0.75em 0.75em;
+    border-radius: 5px;
+    height: 1.5vh;
+    margin: 0.5em;
+  }
+
+  #tooltip-image a:hover::after {
+    content: "View on POWO";
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    right: -10em;
+    top: 0;
+    color: #e1e1e1;
+    height: 1.75vw;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-top: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
+    width: max-content;
+
+    background-color: #0d1c1b97;
+    border: 0.5px solid #e1e1e1;
+    border-radius: 5px;
+  }
+
+  #tooltip h3 {
+    font-family: "Bayon", sans-serif;
+    font-weight: 100;
+    font-size: 1.75em;
+    margin-top: 0.85em;
+    margin-bottom: 0.95em;
+    line-height: 1em;
+  }
+
+  #tooltip-information {
+    padding: 0.5em 1.5em 1em;
+  }
+
+  #source {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.65em;
+  }
+
+  #geographicareaname {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+  }
+
+  #geographicareaname::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.35em;
+    margin-bottom: 0.2em;
+    background-image: url("../img/location.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+  }
+
+  #tooltip-metadata {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter", sans-serif;
+    width: 100%;
+  }
+
+  #tooltip-metadata p {
+    color: #cdcccc;
+    font-size: 0.9em;
+    font-weight: 400;
+  }
+
+  #tooltip-metadata p > span {
+    color: #e1e1e1;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
+  #tooltip-taxonomy {
+    max-width: 100%;
+  }
+  #tooltip-taxonomy p {
+    line-height: 1.75em;
+    overflow-wrap: break-word; /* Optional: allows breaking at arbitrary points if necessary */
+    word-wrap: break-word;
+  }
+
+  #tooltip-taxonomy p::before {
+    content: "";
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+    padding-bottom: 0.5em;
+    background-image: url("../img/dna.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+  }
+
+  #tooltip-taxonomy p > span {
+    background-color: #e1e1e1;
+    font-family: "Inter", sans-serif;
+    color: black;
+    padding: 0.25em 0.75em;
+    text-align: center;
+    font-size: 0.85em;
+    border-radius: 20px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  /* ************* */
+  /* LEGEND STYLES */
+  /* ************* */
+  #legend {
+    position: absolute;
+    visibility: visible;
+    left: 2.5vw;
+    top: 82%; /* adjust as needed */
+    transform: translateY(-50%); /* to center it vertically */
+    font-family: "Inter", sans-serif;
+
+    background-color: #0d1c1bc5;
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 170px;
+    height: 180px;
+    z-index: 7000;
+    /* Z-index change */
+  }
+
+  #legend > h3 {
+    font-size: 1em;
+    color: #e1e1e1;
+    margin: 0.5em 1em auto;
+  }
+
+  /* *********** */
+  /* ZOOM STYLES */
+  /* *********** */
+
+  #zoomControls {
+    position: absolute;
+    bottom: 3.5vh;
+    right: 3.5vw;
+    width: 1.75vw;
+  }
+
+  #zoomControls button:hover {
+    cursor: pointer;
+  }
+
+  #zoomInAndOut,
+  #lensToggle,
+  #showOutgroups,
+  #showSupertribes,
+  #switchToLightMode,
+  #settings,
+  #resetZoom {
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 0.25em;
+    background-color: #0d1c1bc5;
+    backdrop-filter: blur(5px);
+    min-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #zoomInAndOut button,
+  #lensToggle button,
+  #showOutgroups button,
+  #showSupertribes button,
+  #switchToLightMode button,
+  #settings button,
+  #resetZoom button {
+    background: transparent;
+    border: none;
+    color: #e1e1e1;
+    font-size: 1.2em;
+  }
+
+  #zoomInAndOut button:hover,
+  #lensToggle button:hover {
+    cursor: pointer;
+    color: #729a68;
+  }
+
+  #lensToggle {
+    height: 1.75vw;
+    font-size: 0.85em !important;
+    margin-bottom: 1em;
+  }
+
+  #resetZoom {
+    height: 1.75vw;
+    font-size: 0.85em !important;
+    margin-top: 1em;
+  }
+
+  #showOutgroups,
+  #showSupertribes,
+  #switchToLightMode,
+  #settings {
+    height: 1.75vw;
+    font-size: 0.85em !important;
+    margin-bottom: 0.5em;
+  }
+
+  #settings {
+    margin-bottom: 1em;
+  }
+
+  #zoomInAndOut {
+    margin-bottom: 0.5em;
+  }
+
+  #settings img {
+    width: 1.2em; /* Set the width to 1em */
+    height: auto; /* Maintain the aspect ratio */
+    margin-top: 0.35em;
+  }
+
+  #showSupertribes img,
+  #showOutgroups img {
+    width: 1.2em;
+    height: auto;
+    margin-top: 0.4em;
+  }
+
+  #switchToLightMode img {
+    width: 1.4em;
+    height: auto;
+    margin-top: 0.25em;
+  }
+
+  #showSupertribes img {
+    margin-left: 0.1em;
+  }
+
+  #lensToggle img,
+  #resetZoom img {
+    width: 1.3em;
+    height: auto;
+    margin-top: 0.25em;
+    margin-right: 0.05em;
+  }
+
+  #zoomIn {
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 0.35em;
+    height: 1.75vw;
+  }
+
+  #zoomOut {
+    height: 1.9vw;
+    padding-top: 0.2em;
+  }
+
+  #showOutgroups:hover::before {
+    content: "Show outgroups";
+  }
+
+  #showSupertribes:hover::before {
+    content: "Hide supertribes";
+  }
+
+  #switchToLightMode:hover::before {
+    content: "Switch to light mode";
+  }
+
+  #settings:hover::before {
+    content: "Show settings";
+  }
+
+  #lensToggle:hover::before {
+    content: "Show lens";
+  }
+
+  #zoomIn:hover::before {
+    content: "Zoom in";
+    font-size: 0.75em !important;
+  }
+
+  #zoomOut:hover::before {
+    content: "Zoom out";
+    font-size: 0.75em !important;
+  }
+
+  #resetZoom:hover::before {
+    content: "Reset zoom";
+  }
+
+  #showOutgroups:hover::before,
+  #showSupertribes:hover::before,
+  #switchToLightMode:hover::before,
+  #settings:hover::before,
+  #lensToggle:hover::before,
+  #zoomIn:hover::before,
+  #zoomOut:hover::before,
+  #resetZoom:hover::before {
+    font-family: "Inter", sans-serif;
+    position: absolute;
+    right: 3vw;
+    color: #e1e1e1;
+    height: 1.75vw;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding-top: 0.75em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: right;
+    width: max-content;
+
+    background-color: #0d1c1b97;
+    border: 0.5px solid #e1e1e1;
+    border-radius: 5px;
+  }
