@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
-	import "/static/fonts/fonts.css";
+	import "../lib/fonts/fonts.css";
 	import { selectedSpeciesStore } from "./store.js";
 	import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -167,11 +167,11 @@
 	 *     onMount: What's being built when the page is loaded
 	 *=========================================================**/
 	onMount(async () => {
-		const response = await fetch("/BrassiToL_metadata.json");
+		const response = await fetch("./src/lib/BrassiToL_metadata.json");
 		metadata = await response.json();
 		console.log("METADATA", metadata);
 
-		const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
+		const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
 		landcodes = await landcodeResponse.json();
 		console.log("LANDCODES", landcodes);
 
@@ -205,12 +205,12 @@
 			if (outgroupsShown) {
 				outgroupsShown = false;
 				svg = createPhylogeneticTree(parsedData);
-				outgroupIcon.attr("src", "./img/outgroups.png");
+				outgroupIcon.attr("src", "./src/lib/img/outgroups.png");
 				outgroupsToggle.style("background-color", "#0d1c1bc5");
 			} else {
 				outgroupsShown = true;
 				svg = createPhylogeneticTree(parsedOutgroupData);
-				outgroupIcon.attr("src", "./img/darkoutgroups.png");
+				outgroupIcon.attr("src", "./src/lib/img/darkoutgroups.png");
 				outgroupsToggle.style("background-color", "#e1e1e1");
 			}
 
@@ -248,12 +248,12 @@
 			if (lensOn === false) {
 				magnifyingGlass.style("visibility", "visible");
 				lensButton.style("background-color", "#e1e1e1");
-				lensIcon.attr("src", "./img/darkzoom.png");
+				lensIcon.attr("src", "./src/lib/img/darkzoom.png");
 				lensOn = true;
 			} else {
 				magnifyingGlass.style("visibility", "hidden");
 				lensButton.style("background-color", "#0d1c1bc5");
-				lensIcon.attr("src", "./img/zoom.png");
+				lensIcon.attr("src", "./src/lib/img/zoom.png");
 				lensOn = false;
 			}
 		});
@@ -271,12 +271,12 @@
 			if (settingsShown === false) {
 				settings.style("visibility", "visible");
 				settingsToggle.style("background-color", "#e1e1e1");
-				settingsIcon.attr("src", "./img/darksettings.png");
+				settingsIcon.attr("src", "./src/lib/img/darksettings.png");
 				settingsShown = true;
 			} else {
 				settings.style("visibility", "hidden");
 				settingsToggle.style("background-color", "#0d1c1bc5");
-				settingsIcon.attr("src", "./img/settings.png");
+				settingsIcon.attr("src", "./src/lib/img/settings.png");
 				settingsShown = false;
 			}
 		});
@@ -292,11 +292,11 @@
 		modeToggle.on("click", function () {
 			if (lightmode === false) {
 				modeToggle.style("background-color", "#e1e1e1");
-				modeIcon.attr("src", "./img/darklight.png");
+				modeIcon.attr("src", "./src/lib/img/darklight.png");
 				lightmode = true;
 			} else {
 				modeToggle.style("background-color", "#0d1c1bc5");
-				modeIcon.attr("src", "./img/light.png");
+				modeIcon.attr("src", "./src/lib/img/light.png");
 				lightmode = false;
 			}
 		});
@@ -315,13 +315,13 @@
 				supertribesShown = true;
 				legend.style("visibility", "hidden");
 				showSupertribes.style("background-color", "#e1e1e1");
-				supertribesIcon.attr("src", "./img/darkhierarchy.png");
+				supertribesIcon.attr("src", "./src/lib/img/darkhierarchy.png");
 				updateTreeColors(selectedSpecies);
 			} else {
 				supertribesShown = false;
 				legend.style("visibility", "visible");
 				showSupertribes.style("background-color", "#0d1c1bc5");
-				supertribesIcon.attr("src", "./img/hierarchy.png");
+				supertribesIcon.attr("src", "./src/lib/img/hierarchy.png");
 				updateTreeColors(selectedSpecies);
 			}
 		});
@@ -1166,7 +1166,7 @@
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
 	<div id="tooltip-image">
 		<button id="shutTooltip">
-			<img src="./img/close.png" alt="Close tooltip" />
+			<img src="./src/lib/img/close.png" alt="Close tooltip" />
 		</button>
 		<a
 			href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
@@ -1220,13 +1220,13 @@
 	<div id="settingOptions" style="visibility: hidden">
 		<div id="showOutgroups">
 			<button
-				><img src="./img/outgroups.png" alt="Show outgroups" /></button
+				><img src="./src/lib/img/outgroups.png" alt="Show outgroups" /></button
 			>
 		</div>
 		<div id="showSupertribes">
 			<button
 				><img
-					src="./img/hierarchy.png"
+					src="./src/lib/img/hierarchy.png"
 					alt="Show supertribes"
 				/></button
 			>
@@ -1234,7 +1234,7 @@
 		<div id="switchToLightMode">
 			<button
 				><img
-					src="./img/light.png"
+					src="./src/lib/img/light.png"
 					alt="Switch to light mode"
 				/></button
 			>
@@ -1242,12 +1242,12 @@
 	</div>
 	<div id="settings">
 		<button>
-			<img src="./img/settings.png" alt="Show settings" />
+			<img src="./src/lib/img/settings.png" alt="Show settings" />
 		</button>
 	</div>
 	<div id="lensToggle">
 		<button>
-			<img src="./img/zoom.png" alt="Show lens" />
+			<img src="./src/lib/img/zoom.png" alt="Show lens" />
 		</button>
 	</div>
 	<div id="zoomInAndOut">
@@ -1260,7 +1260,7 @@
 	</div>
 	<div id="resetZoom">
 		<button>
-			<img src="./img/reset.png" alt="Reset zoom" />
+			<img src="./src/lib/img/reset.png" alt="Reset zoom" />
 		</button>
 	</div>
 </section>
@@ -1315,7 +1315,7 @@
 		width: 100%;
 		height: 10vh;
 		justify-content: space-between;
-		background: url("/static/img/sampleimage.jpeg");
+		background: url("./src/lib/img/sampleimage.jpeg");
 		background-size: cover;
 		background-position: center;
 		border-top-left-radius: 10px;
@@ -1418,7 +1418,7 @@
 		height: 1.5em;
 		margin-right: 0.35em;
 		margin-bottom: 0.2em;
-		background-image: url("/static/img/location.png");
+		background-image: url("./src/lib/img/location.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
@@ -1459,7 +1459,7 @@
 		height: 1.5em;
 		margin-right: 0.5em;
 		padding-bottom: 0.5em;
-		background-image: url("/static/img/dna.png");
+		background-image: url("./src/lib/img/dna.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;

@@ -7,7 +7,7 @@
 	import Marks from "../components/Marks.svelte";
 	import MapLegend from "../components/MapLegend.svelte";
 	import Footer from "../components/Footer.svelte";
-	import "/static/fonts/fonts.css";
+	import "../lib/fonts/fonts.css";
 
 	onMount(async () => {
 		const welcomeMessage = d3.select("#welcomeMessage");
@@ -103,7 +103,7 @@
 
 <style>
 	body {
-		background: url("/static/img/sitebackground.jpeg") no-repeat center center
+		background: url("./src/lib/img/sitebackground.jpeg") no-repeat center center
 			fixed;
 		background-size: cover;
 		width: 100%;
@@ -265,7 +265,7 @@
 		height: 1em;
 		margin-right: 0.35em;
 		margin-bottom: 0.2em;
-		background-image: url("/static/img/croplogo.png");
+		background-image: url("./src/lib/img/croplogo.png");
 		background-size: contain;
 		background-repeat: no-repeat;
 		vertical-align: middle;
