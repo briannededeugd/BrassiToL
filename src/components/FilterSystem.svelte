@@ -18,24 +18,6 @@
   let metadata = [];
   let landcodes = [];
 
-  // for filtering: taxonomy
-  let subfamilies = [];
-  let supertribes = [];
-  let tribes = [];
-  let genuses = [];
-  let species = [];
-
-  // for filtering: geography
-  let geographicareas = [];
-  let continents = [];
-  let countries = [];
-
-  // for filtering: characteristics
-  let growthform = [];
-  let societaluse = [];
-  let lifeform = [];
-  let climates = [];
-
   // for searching
   let autocompleteOpen = false;
 
@@ -259,7 +241,6 @@
   let geographyOpen = false;
   let characteristicsOpen = false;
 
-  let searchFamily = "";
   let searchSubfamily = "";
   let searchSupertribe = "";
   let searchTribe = "";
