@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import * as d3 from "d3";
-	import "/static/fonts/fonts.css";
+	import "../lib/fonts/fonts.css";
 
 	export let isFlipped; // Accept isFlipped as a prop
 
