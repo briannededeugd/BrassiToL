@@ -370,7 +370,7 @@
 
       const item = allItems[property];
 
-      if (item.checked) {
+      if (item.checked && selectedItems.includes(item.value) == false) {
         selectedItems.push(item.value);
       }
     }
