@@ -5,6 +5,7 @@
   import { writable } from "svelte/store";
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./queryStore";
+  import { page } from "$app/stores";
 
   // Simple 'capitalize every first letter'-function
   function capitalizeFirstLetter(string) {
@@ -22,6 +23,27 @@
   let selectedCategories = [];
 
   const categoryStore = createCategoryStore(selectedCategories);
+  
+  // Reactive statement to update selectedCategories based on URL query parameters
+  $: {
+    // Directly use $page.url.searchParams to access query parameters
+    const queryParams = $page.url.searchParams;
+
+    // Loop through all parameter names
+    for (const param of queryParams.keys()) {
+      // Log the parameter key name (or the category name)
+      console.log(`Parameter Name: ${param}`);
+
+      // Log the values for each category
+      const paramValue = queryParams.get(param);
+      console.log(`Parameter Value: ${paramValue}`);
+
+      // NEXT is processing, so I have to split the paramValues (e.g. W,H => [ "W", "H"]) &
+      // Loop through this array find their checkboxes &
+      // Change these checkboxes' 'checked'-value to true &
+      // Call the updateTreeVisualization() function
+    }
+  }
 
   // for searching
   let autocompleteOpen = false;
@@ -67,7 +89,8 @@
 
     d3.select("#clearFilters").on("click", clearAllFilters);
 
-    const queryParams = new URLSearchParams(window.location.search);
+    // const queryParams = new URLSearchParams(window.location.search);
+
     const categories = [
       "subfamilies",
       "supertribes",
@@ -82,15 +105,15 @@
       "lifeform",
       "climates",
     ]; // Add other categories as needed
-    categories.forEach((category) => {
-      const serializedItems = queryParams.get(category);
-      if (serializedItems) {
-        const items = serializedItems
-          .split(",")
-          .map((label) => ({ label, checked: true }));
-        checkboxStates[category].items = items;
-      }
-    });
+    // categories.forEach((category) => {
+    //   const serializedItems = queryParams.get(category);
+    //   if (serializedItems) {
+    //     const items = serializedItems
+    //       .split(",")
+    //       .map((label) => ({ label, checked: true }));
+    //     checkboxStates[category].items = items;
+    //   }
+    // });
 
     /**======================
      *    NEW SETS FOR FILTERING FAMILIES
