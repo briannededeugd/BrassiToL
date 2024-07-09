@@ -1,5 +1,5 @@
 // src/routes/api/hello.js
-export async function get(req) {
+export async function get() {
   return {
     status: 200,
     body: {
@@ -7,3 +7,5 @@ export async function get(req) {
     }
   };
 }
+
+// Prev had get(hello)

@@ -31,9 +31,9 @@
           r = c;
           break;
         case ",":
-          var c = {};
-          e[e.length - 1].branchset.push(c);
-          r = c;
+          var b = {};
+          e[e.length - 1].branchset.push(b);
+          r = b;
           break;
         case ")":
           r = e.pop();
@@ -73,29 +73,23 @@
   let svg;
 
   let sampleNumber;
-  let superTribeColor;
+
   let fullSpeciesName;
-  let familyName;
   let subfamilyName;
   let supertribeName;
   let tribeName;
-  let genusName;
-  let speciesName;
   let lifeformName;
   let climateName;
   let growthformName;
   let societaluseName;
   let geographicareaName;
+
   let imageId;
-  let transform = d3.zoomIdentity.toString();
-  let currentZoomLevel = 1;
 
   let lensRadius = 90; // Radius of the magnifying lens
-  let magnificationFactor = 3; // How much the lens should magnify
+  // let magnificationFactor = 3; // How much the lens should magnify
   let lensPosition = { x: 180, y: 100 }; // Fixed position of the lens
 
-  let mounted = false;
-  let treeData;
   const width = 900;
   const outerRadius = width / 2;
   const innerRadius = outerRadius - 170;
@@ -159,7 +153,7 @@
   }
 
   // Function called when the mouse is released
-  function stopRotate(event) {
+  function stopRotate() {
     isDragging = false;
   }
 
@@ -190,8 +184,6 @@
       "#e69f01", // Unplaced
       "#e1e1e1", // NA
     ]);
-
-    mounted = true;
 
     /**============================
      *    CHECK OUTGROUPS TOGGLE
@@ -360,7 +352,7 @@
   function appendMagnifier() {
     const magnifier = d3.select("#magnifier");
     // Create the magnifying lens
-    const lens = magnifier
+    magnifier
       .append("circle")
       .attr("class", "magnifying-lens")
       .attr("position", "absolute")
@@ -382,10 +374,10 @@
     nodes.each(function () {
       const node = d3.select(this);
       // Assuming cx and cy are the original, untransformed center positions of the nodes
-      let nodeX = parseFloat(node.attr("cx"));
-      let nodeY = parseFloat(node.attr("cy"));
+      // let nodeX = parseFloat(node.attr("cx"));
+      // let nodeY = parseFloat(node.attr("cy"));
 
-      let rotatedPosition = rotateCoordinates(nodeX, nodeY, rotation);
+      // let rotatedPosition = rotateCoordinates(nodeX, nodeY, rotation);
 
       if (isWithinLens(lensPosition, lensRadius)) {
         // Apply magnification
@@ -394,16 +386,16 @@
     });
   }
 
-  function rotateCoordinates(x, y, angle) {
-    // Rotate (x, y) around the origin (0, 0) by 'angle' degrees
-    let radians = (angle * Math.PI) / 180;
-    let cos = Math.cos(radians);
-    let sin = Math.sin(radians);
-    return {
-      x: cos * x - sin * y,
-      y: sin * x + cos * y,
-    };
-  }
+  // function rotateCoordinates(x, y, angle) {
+  //   // Rotate (x, y) around the origin (0, 0) by 'angle' degrees
+  //   let radians = (angle * Math.PI) / 180;
+  //   let cos = Math.cos(radians);
+  //   let sin = Math.sin(radians);
+  //   return {
+  //     x: cos * x - sin * y,
+  //     y: sin * x + cos * y,
+  //   };
+  // }
 
   function isWithinLens(nodePos, lensX, lensY, lensRadius) {
     // Calculate distance from lens center to node
@@ -426,39 +418,39 @@
   }
 
   // Find the species name from the ID
-  function findSpecies(label, metadata) {
-    let sampleId = label; // Extract the SAMPLE id from the label
-    let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+  // function findSpecies(label, metadata) {
+  //   let sampleId = label; // Extract the SAMPLE id from the label
+  //   let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
 
-    // Function to get the first non-NA taxonomic category
-    function getTaxonomicCategory(entry) {
-      if (entry.SPECIES !== "NA") return entry.SPECIES;
-      if (entry.GENUS !== "NA") return entry.GENUS;
-      if (entry.TRIBE !== "NA") return entry.TRIBE;
-      if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
-      if (entry.SUBFAMILY !== "NA") return entry.SUBFAMILY;
-      return null;
-    }
+  //   // Function to get the first non-NA taxonomic category
+  //   function getTaxonomicCategory(entry) {
+  //     if (entry.SPECIES !== "NA") return entry.SPECIES;
+  //     if (entry.GENUS !== "NA") return entry.GENUS;
+  //     if (entry.TRIBE !== "NA") return entry.TRIBE;
+  //     if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
+  //     if (entry.SUBFAMILY !== "NA") return entry.SUBFAMILY;
+  //     return null;
+  //   }
 
-    if (matchingEntry) {
-      const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-      return taxonomicCategory
-        ? capitalizeFirstLetter(taxonomicCategory)
-        : capitalizeFirstLetter(label);
-    } else {
-      sampleId = label.slice(1); // Remove the first character (":")
-      matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+  //   if (matchingEntry) {
+  //     const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+  //     return taxonomicCategory
+  //       ? capitalizeFirstLetter(taxonomicCategory)
+  //       : capitalizeFirstLetter(label);
+  //   } else {
+  //     sampleId = label.slice(1); // Remove the first character (":")
+  //     matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
 
-      if (matchingEntry) {
-        const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-        return taxonomicCategory
-          ? capitalizeFirstLetter(taxonomicCategory)
-          : capitalizeFirstLetter(label);
-      } else {
-        return "";
-      }
-    }
-  }
+  //     if (matchingEntry) {
+  //       const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+  //       return taxonomicCategory
+  //         ? capitalizeFirstLetter(taxonomicCategory)
+  //         : capitalizeFirstLetter(label);
+  //     } else {
+  //       return "";
+  //     }
+  //   }
+  // }
 
   function findFullSpecies(label, metadata) {
     console.log("Let's find em!");
@@ -791,7 +783,7 @@
       .text((d) => findSpeciesName(d.data.name, metadata))
       .on("mouseover", mouseovered(true))
       .on("mouseout", mouseovered(false))
-      .on("click", function (event, d) {
+      .on("click", function (event) {
         event.stopPropagation(); // This prevents the event from reaching SVG labels
         isTooltipPinned = !isTooltipPinned; // Toggle the pinned state
         lastClickedLabel = d3.select(this); // Store the clicked label
@@ -812,9 +804,7 @@
 
     function update(checked) {
       const t = d3.transition().duration(750);
-      linkExtension
-        .transition(t)
-        .attr("d", checked ? linkExtensionVariable : linkExtensionConstant);
+      linkExtension.transition(t).attr("d", linkExtensionConstant);
       link.transition(t).attr("d", checked ? linkVariable : linkConstant);
     }
 
@@ -1165,6 +1155,9 @@
   id="svg-container"
   on:mousemove={rotateSVG}
   on:mousedown={startRotate}
+  aria-roledescription="Rotate the tree"
+  role="button"
+  tabindex="0"
 >
   <section id="tree-container">
     <div id="phyloTree" />

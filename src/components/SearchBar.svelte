@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
   import { Converter } from "csvtojson/v2/Converter";
-  import * as d3 from "d3";
 
   let data = [];
   let searchQuery = "";
