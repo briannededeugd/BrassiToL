@@ -47,9 +47,9 @@
       landcodes = await responses[1].json();
       countries = await responses[2].json();
 
-      console.log("METADATA", metadata);
-      console.log("LANDCODES", landcodes);
-      console.log("COUNTRIES", countries);
+      console.debug("METADATA", metadata);
+      console.debug("LANDCODES", landcodes);
+      console.debug("COUNTRIES", countries);
 
       projection = geoNaturalEarth1()
         .scale(250)
@@ -78,7 +78,7 @@
       selectedSpecies.has(item.SPECIES_NAME_PRINT),
     );
 
-    // We don't want the same species twice in the list, so we make a new set and filter based on if the species is already in the list
+    // We don't want the same species twice in the list, so we make a new set and filter based on whether the species is already in the list
     const seenSpecies = new Set();
     const matchedObjects = originalMatchedObjects.filter((species) => {
       if (!seenSpecies.has(species.SPECIES_NAME_PRINT)) {
@@ -88,7 +88,7 @@
       return false;
     });
 
-    console.log("MATCHED OBJCTS:", matchedObjects);
+    console.debug("MATCHED OBJCTS:", matchedObjects);
 
     const landCodes = matchedObjects.flatMap(
       (item) => item.WCVP_WGSRPD_LEVEL_3_native,
@@ -165,7 +165,7 @@
         countryInfo = matchingCountryNames.find(
           (cn) => cn.name === d.properties.LEVEL3_NAM,
         );
-        console.log("COUNTRY INFO:", countryInfo);
+        console.debug("COUNTRY INFO:", countryInfo);
 
         if (countryInfo && countryInfo.frequency > 0) {
           let countryPopUp = d3.select("#countryPopup");
@@ -193,7 +193,7 @@
                 .map((item) => item.LEVEL3_COD),
             ),
           ];
-          console.log("REL NAMES:", relevantName);
+          console.debug("REL NAMES:", relevantName);
 
           // Find and append species to the list
           const relevantDataItems = metadata.filter((item) => {
@@ -207,7 +207,7 @@
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
           });
 
-          console.log(
+          console.debug(
             "DE OBJECTEN DIE HET GOEDE LAND HEBBEN:",
             relevantDataItems,
           );
@@ -215,7 +215,7 @@
           const relevantSpecies = relevantDataItems.filter((item) => {
             return selectedSpecies.has(item.SPECIES_NAME_PRINT);
           });
-          console.log("RELEVANT SPECIES", relevantSpecies);
+          console.debug("RELEVANT SPECIES", relevantSpecies);
 
           const speciesNames = relevantSpecies.map(
             (item) => item.SPECIES_NAME_PRINT,
