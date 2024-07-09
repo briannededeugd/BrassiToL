@@ -3,6 +3,7 @@
   import * as d3 from "d3";
   import "../lib/fonts/fonts.css";
   import { selectedSpeciesStore } from "./store.js";
+  import { createCategoryStore } from "./queryStore";
 
   // Simple 'capitalize every first letter'-function
   function capitalizeFirstLetter(string) {
@@ -17,6 +18,7 @@
    *=============================================**/
   let metadata = [];
   let landcodes = [];
+  let selectedItems = [];
 
   // for searching
   let autocompleteOpen = false;
@@ -56,13 +58,36 @@
   onMount(async () => {
     const response = await fetch("./src/lib/BrassiToL_metadata.json");
     metadata = await response.json();
-    console.log("METADATA", metadata);
 
     const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
-    console.log("LANDCODES", landcodes);
 
     d3.select("#clearFilters").on("click", clearAllFilters);
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const categories = [
+      "subfamilies",
+      "supertribes",
+      "tribes",
+      "genuses",
+      "species",
+      "geographicareas",
+      "continents",
+      "countries",
+      "growthForm",
+      "societaluse",
+      "lifeform",
+      "climates",
+    ]; // Add other categories as needed
+    categories.forEach((category) => {
+      const serializedItems = queryParams.get(category);
+      if (serializedItems) {
+        const items = serializedItems
+          .split(",")
+          .map((label) => ({ label, checked: true }));
+        checkboxStates[category].items = items;
+      }
+    });
 
     /**======================
      *    NEW SETS FOR FILTERING FAMILIES
@@ -91,12 +116,7 @@
 
     // Usage
     processMetadataCategory("subfamilies", "SUBFAMILY");
-
     processMetadataCategory("supertribes", "SUPERTRIBE");
-    console.log(
-      "WHEN FILTERING SUPERTRIBES:",
-      checkboxStates.supertribes.items,
-    );
     processMetadataCategory("tribes", "TRIBE");
     processMetadataCategory("genuses", "GENUS");
     processMetadataCategory("species", "SPECIES");
@@ -321,7 +341,7 @@
     updateTreeVisualization();
   }
 
-  function handleCheckboxChange(category, itemLabel) {
+  function handleCheckboxChange(category, itemLabel, categoryname) {
     let item = [category].find((item) => item.label === itemLabel);
     if (item) {
       item.checked = !item.checked;
@@ -334,6 +354,43 @@
         items: [...[category]],
       },
     };
+
+    checkboxStates[category].items = checkboxStates[category].items.map(
+      (item) => ({
+        ...item,
+        checked: item.checked,
+      }),
+    );
+
+    const allItems = checkboxStates[category].items[0];
+    console.log("ALL ITEMS:", allItems);
+
+    for (const property in allItems) {
+      if (property === "checked") continue;
+
+      const item = allItems[property];
+
+      if (item.checked) {
+        selectedItems.push(item.value);
+      }
+    }
+
+    const selectedCategories = {
+      category: categoryname,
+      selected: selectedItems,
+    };
+
+    console.log(
+      "Wat uiteindelijk naar de url gestuurd moet worden",
+      selectedCategories,
+    );
+
+    // // Still need to see whether this'll be necessary
+    // const serializedItems = selectedItems.join(",");
+
+    // // Update the URL with the serialized items
+    // const categoryStore = createCategoryStore(category);
+    // categoryStore.set(serializedItems);
 
     // New logic for filtering and updating the tree
     updateTreeVisualization();
@@ -379,7 +436,6 @@
   }
 
   function clearAllFilters() {
-    console.log("Clear filters requested!");
     Object.keys(checkboxStates).forEach((category) => {
       checkboxStates[category].items.forEach((item) => {
         item.checked = false;
@@ -395,7 +451,6 @@
   }
 
   function updateTreeVisualization() {
-    console.log("CALLED FOR UPDATE");
     let selectedSpecies = new Set();
 
     Object.entries(checkboxStates).forEach(([category, state]) => {
@@ -580,6 +635,7 @@
                     handleCheckboxChange(
                       checkboxStates.subfamilies.items,
                       subfamily.label,
+                      "subfamilies",
                     )}
                   value={subfamily}
                 />
@@ -607,6 +663,7 @@
                     handleCheckboxChange(
                       checkboxStates.supertribes.items,
                       supertribe.label,
+                      "supertribes",
                     )}
                   value={supertribe}
                 />
@@ -634,6 +691,7 @@
                     handleCheckboxChange(
                       checkboxStates.tribes.items,
                       tribe.label,
+                      "tribes",
                     )}
                   value={tribe}
                 />
@@ -661,6 +719,7 @@
                     handleCheckboxChange(
                       checkboxStates.genuses.items,
                       genus.label,
+                      "genuses",
                     )}
                   value={genus}
                 />
@@ -688,6 +747,7 @@
                     handleCheckboxChange(
                       checkboxStates.species.items,
                       specie.label,
+                      "species",
                     )}
                   value={specie}
                 />
@@ -733,6 +793,7 @@
                     handleCheckboxChange(
                       checkboxStates.continents.items,
                       continent.label,
+                      "continents",
                     )}
                 />
                 {continent.label}
@@ -759,6 +820,7 @@
                     handleCheckboxChange(
                       checkboxStates.geographicareas.items,
                       geographicarea.label,
+                      "geographicareas",
                     )}
                   value={geographicarea.label}
                 />
@@ -786,6 +848,7 @@
                     handleCheckboxChange(
                       checkboxStates.countries.items,
                       country.label,
+                      "countries",
                     )}
                 />
                 {country.label}
@@ -837,6 +900,7 @@
                     handleCheckboxChange(
                       checkboxStates.growthForm.items,
                       item.label,
+                      "growthform",
                     )}
                 />
                 {item.label}
@@ -870,6 +934,7 @@
                     handleCheckboxChange(
                       checkboxStates.societaluse.items,
                       item.label,
+                      "societaluse",
                     )}
                 />
                 {item.label}
@@ -903,6 +968,7 @@
                     handleCheckboxChange(
                       checkboxStates.lifeform.items,
                       item.label,
+                      "lifeform",
                     )}
                 />
                 <span>{item.label}</span>
@@ -936,6 +1002,7 @@
                     handleCheckboxChange(
                       checkboxStates.climates.items,
                       item.label,
+                      "climates",
                     )}
                 />
                 <span>{item.label}</span>

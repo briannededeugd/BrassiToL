@@ -15,7 +15,6 @@
 
     button.on("click", function () {
       welcomeMessage.style("visibility", "hidden");
-      console.log("closing the welcome message");
     });
   });
 
