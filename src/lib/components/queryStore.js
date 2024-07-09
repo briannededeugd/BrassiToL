@@ -5,9 +5,9 @@ export function createCategoryStore(initialCategories) {
   const { subscribe, set } = writable(initialCategories);
 
   function flattenCategories(categories) {
-    return categories.flatMap(category => {
+    return categories.flatMap((category) => {
       const categoryName = Object.keys(category)[0];
-      return category[categoryName].map(value => [categoryName, value]);
+      return category[categoryName].map((value) => [categoryName, value]);
     });
   }
 
