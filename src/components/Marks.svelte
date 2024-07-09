@@ -4,6 +4,7 @@
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "./store.js";
   import "../lib/fonts/fonts.css";
+  // import { match } from "assert";
 
   export let isFlipped; // Accept isFlipped as a prop
 
@@ -46,9 +47,9 @@
       landcodes = await responses[1].json();
       countries = await responses[2].json();
 
-      console.log("METADATA", metadata);
-      console.log("LANDCODES", landcodes);
-      console.log("COUNTRIES", countries);
+      console.debug("METADATA", metadata);
+      console.debug("LANDCODES", landcodes);
+      console.debug("COUNTRIES", countries);
 
       projection = geoNaturalEarth1()
         .scale(250)
@@ -72,9 +73,23 @@
    *=============================**/
 
   function findLandcodes(selectedSpecies) {
-    const matchedObjects = metadata.filter((item) =>
+    // All matched objects in an array
+    const originalMatchedObjects = metadata.filter((item) =>
       selectedSpecies.has(item.SPECIES_NAME_PRINT),
     );
+
+    // We don't want the same species twice in the list, so we make a new set and filter based on whether the species is already in the list
+    const seenSpecies = new Set();
+    const matchedObjects = originalMatchedObjects.filter((species) => {
+      if (!seenSpecies.has(species.SPECIES_NAME_PRINT)) {
+        seenSpecies.add(species.SPECIES_NAME_PRINT);
+        return true;
+      }
+      return false;
+    });
+
+    console.debug("MATCHED OBJCTS:", matchedObjects);
+
     const landCodes = matchedObjects.flatMap(
       (item) => item.WCVP_WGSRPD_LEVEL_3_native,
     );
@@ -86,6 +101,7 @@
       .filter((name) => name !== null);
 
     const countryFrequency = new Map();
+
     wgsrpdNames.forEach((name) => {
       countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
     });
@@ -97,7 +113,6 @@
         frequency: countryFrequency.get(country.properties.LEVEL3_NAM),
       }));
 
-    console.log("MATCHING COUNTRIES:", matchingCountryNames);
     return matchingCountryNames;
   }
 
@@ -107,7 +122,6 @@
    *===============================**/
 
   function drawMap() {
-    // let maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
     const colorScale = d3
       .scaleLinear()
       .domain([0, 10])
@@ -116,7 +130,7 @@
 
     const countriesSvg = d3.select("svg");
 
-    countriesSvg.selectAll("path").remove(); // Clear existing paths
+    countriesSvg.selectAll("path").remove();
 
     countriesSvg
       .selectAll("path")
@@ -151,7 +165,7 @@
         countryInfo = matchingCountryNames.find(
           (cn) => cn.name === d.properties.LEVEL3_NAM,
         );
-        console.log("COUNTRY INFO:", countryInfo);
+        console.debug("COUNTRY INFO:", countryInfo);
 
         if (countryInfo && countryInfo.frequency > 0) {
           let countryPopUp = d3.select("#countryPopup");
@@ -179,7 +193,7 @@
                 .map((item) => item.LEVEL3_COD),
             ),
           ];
-          console.log("REL NAMES:", relevantName);
+          console.debug("REL NAMES:", relevantName);
 
           // Find and append species to the list
           const relevantDataItems = metadata.filter((item) => {
@@ -193,7 +207,7 @@
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
           });
 
-          console.log(
+          console.debug(
             "DE OBJECTEN DIE HET GOEDE LAND HEBBEN:",
             relevantDataItems,
           );
@@ -201,12 +215,17 @@
           const relevantSpecies = relevantDataItems.filter((item) => {
             return selectedSpecies.has(item.SPECIES_NAME_PRINT);
           });
-          console.log("RELEVANT SPECIES", relevantSpecies);
+          console.debug("RELEVANT SPECIES", relevantSpecies);
 
           const speciesNames = relevantSpecies.map(
             (item) => item.SPECIES_NAME_PRINT,
           );
-          speciesNames.forEach((name) => {
+
+          // Removing the duplicates by spreading the species names in a set
+          let uniqueSpecies = [...new Set(speciesNames)];
+          let uniqueSpeciesNames = uniqueSpecies.sort();
+
+          uniqueSpeciesNames.forEach((name) => {
             speciesList
               .append("li")
               .text(name)
