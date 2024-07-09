@@ -6,6 +6,7 @@
   import { quadInOut } from "svelte/easing";
   import { selectedSpeciesStore } from "./store.js";
   import "../lib/fonts/fonts.css";
+  // import { match } from "assert";
 
   export let isFlipped; // Accept isFlipped as a prop
 
@@ -76,9 +77,23 @@
    *=============================**/
 
   function findLandcodes(selectedSpecies) {
-    const matchedObjects = metadata.filter((item) =>
+    // All matched objects in an array
+    const originalMatchedObjects = metadata.filter((item) =>
       selectedSpecies.has(item.SPECIES_NAME_PRINT),
     );
+
+    // We don't want the same species twice in the list, so we make a new set and filter based on if the species is already in the list
+    const seenSpecies = new Set();
+    const matchedObjects = originalMatchedObjects.filter((species) => {
+      if (!seenSpecies.has(species.SPECIES_NAME_PRINT)) {
+        seenSpecies.add(species.SPECIES_NAME_PRINT);
+        return true;
+      }
+      return false;
+    });
+
+    console.log("MATCHED OBJCTS:", matchedObjects);
+
     const landCodes = matchedObjects.flatMap(
       (item) => item.WCVP_WGSRPD_LEVEL_3_native,
     );
@@ -90,9 +105,14 @@
       .filter((name) => name !== null);
 
     const countryFrequency = new Map();
+
     wgsrpdNames.forEach((name) => {
       countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
+      console.log("WHAT GET NAME MEANS:", countryFrequency.get(name));
     });
+
+    // let countryUniqueFrequency = [...new Set(countryFrequency)];
+    // console.log("UNIQUE COUNTRY FREQUENCIES:", countryUniqueFrequency);
 
     matchingCountryNames = countries.features
       .filter((feature) => countryFrequency.has(feature.properties.LEVEL3_NAM))
@@ -210,7 +230,11 @@
           const speciesNames = relevantSpecies.map(
             (item) => item.SPECIES_NAME_PRINT,
           );
-          speciesNames.forEach((name) => {
+
+          // Removing the duplicates by spreading the species names in a set
+          let uniqueSpecies = [...new Set(speciesNames)];
+
+          uniqueSpecies.forEach((name) => {
             speciesList
               .append("li")
               .text(name)
