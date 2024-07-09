@@ -2,15 +2,12 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { geoPath, geoNaturalEarth1 } from "d3";
-  import { draw } from "svelte/transition";
-  import { quadInOut } from "svelte/easing";
   import { selectedSpeciesStore } from "./store.js";
   import "../lib/fonts/fonts.css";
   // import { match } from "assert";
 
   export let isFlipped; // Accept isFlipped as a prop
 
-  let mounted = false;
   let metadata = [];
   let landcodes = [];
   let countries = [];
@@ -18,7 +15,6 @@
   let countryInformation = { name: "", frequency: 0 };
   let countryInfo = { name: "", frequency: 0 };
 
-  let maxFrequency;
   let dataLoaded = false;
   let selectedSpecies;
   let projection, path;
@@ -131,7 +127,7 @@
    *===============================**/
 
   function drawMap() {
-    maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
+    // let maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
     const colorScale = d3
       .scaleLinear()
       .domain([0, 10])
