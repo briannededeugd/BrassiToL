@@ -386,16 +386,23 @@
       (cat) => Object.keys(cat)[0] === categoryname,
     );
 
-    if (existingCategoryIndex >= 0) {
-      // Update the existing category
-      selectedCategories[existingCategoryIndex][categoryname] = selectedItems;
+    if (selectedItems.length > 0) {
+      if (existingCategoryIndex >= 0) {
+        // Update the existing category
+        selectedCategories[existingCategoryIndex][categoryname] = selectedItems;
+      } else {
+        // Add a new category entry
+        const newCategory = {};
+        newCategory[categoryname] = selectedItems;
+        selectedCategories.push(newCategory);
+      }
     } else {
-      // Add a new category entry
-      const newCategory = {};
-      newCategory[categoryname] = selectedItems;
-      selectedCategories.push(newCategory);
+      if (existingCategoryIndex >= 0) {
+        // Remove the category if there are no selected items
+        selectedCategories.splice(existingCategoryIndex, 1);
+      }
     }
-
+    
     console.log(
       "Wat uiteindelijk naar de url gestuurd moet worden",
       selectedCategories,
