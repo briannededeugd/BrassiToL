@@ -104,11 +104,7 @@
 
     wgsrpdNames.forEach((name) => {
       countryFrequency.set(name, (countryFrequency.get(name) || 0) + 1);
-      console.log("WHAT GET NAME MEANS:", countryFrequency.get(name));
     });
-
-    // let countryUniqueFrequency = [...new Set(countryFrequency)];
-    // console.log("UNIQUE COUNTRY FREQUENCIES:", countryUniqueFrequency);
 
     matchingCountryNames = countries.features
       .filter((feature) => countryFrequency.has(feature.properties.LEVEL3_NAM))
@@ -117,7 +113,6 @@
         frequency: countryFrequency.get(country.properties.LEVEL3_NAM),
       }));
 
-    console.log("MATCHING COUNTRIES:", matchingCountryNames);
     return matchingCountryNames;
   }
 
@@ -127,7 +122,6 @@
    *===============================**/
 
   function drawMap() {
-    // let maxFrequency = Math.max(...matchingCountryNames.map((cn) => cn.frequency));
     const colorScale = d3
       .scaleLinear()
       .domain([0, 10])
@@ -136,7 +130,7 @@
 
     const countriesSvg = d3.select("svg");
 
-    countriesSvg.selectAll("path").remove(); // Clear existing paths
+    countriesSvg.selectAll("path").remove();
 
     countriesSvg
       .selectAll("path")
@@ -229,8 +223,9 @@
 
           // Removing the duplicates by spreading the species names in a set
           let uniqueSpecies = [...new Set(speciesNames)];
+          let uniqueSpeciesNames = uniqueSpecies.sort();
 
-          uniqueSpecies.forEach((name) => {
+          uniqueSpeciesNames.forEach((name) => {
             speciesList
               .append("li")
               .text(name)
