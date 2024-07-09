@@ -21,6 +21,8 @@
   let landcodes = [];
   let selectedCategories = [];
 
+  const categoryStore = createCategoryStore(selectedCategories);
+
   // for searching
   let autocompleteOpen = false;
 
@@ -402,13 +404,13 @@
         selectedCategories.splice(existingCategoryIndex, 1);
       }
     }
-    
+
     console.log(
       "Wat uiteindelijk naar de url gestuurd moet worden",
       selectedCategories,
     );
 
-    const categoryStore = writable(selectedCategories);
+    // Update the categoryStore with the new selectedCategories
     categoryStore.set(selectedCategories);
 
     // New logic for filtering and updating the tree

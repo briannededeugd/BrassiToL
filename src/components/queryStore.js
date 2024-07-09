@@ -1,6 +1,5 @@
 import { writable } from "svelte/store";
 import { goto } from "$app/navigation";
-// import { page } from "$app/stores";
 
 export function createCategoryStore(initialCategories) {
   const { subscribe, set } = writable(initialCategories);
@@ -30,6 +29,7 @@ export function createCategoryStore(initialCategories) {
 
       const urlSearchParams = new URLSearchParams(query);
       const g = `?${urlSearchParams.toString()}`;
+      console.log("Navigating to URL:", g);
       goto(g, { keepFocus: true, replaceState: true, noScroll: true });
 
       set(categories);
