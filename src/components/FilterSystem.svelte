@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import "../lib/fonts/fonts.css";
+  import { writable } from "svelte/store";
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./queryStore";
 
@@ -338,14 +339,22 @@
       },
     };
 
-    updateTreeVisualization();
+    handleCheckboxChange();
+    // updateTreeVisualization();
   }
 
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let selectedItems = [];
-    let item = [category].find((item) => item.label === itemLabel);
-    if (item) {
-      item.checked = !item.checked;
+
+    //*-----------------------------------------*//
+    // MODIFYING THE CHECKBOXES AND THEIR STATES //
+    //*-----------------------------------------*//
+
+    if (itemLabel) {
+      let item = [category].find((item) => item.label === itemLabel);
+      if (item) {
+        item.checked = !item.checked;
+      }
     }
 
     checkboxStates = {
@@ -356,13 +365,9 @@
       },
     };
 
-    checkboxStates[category].items = checkboxStates[category].items.map(
-      (item) => ({
-        ...item,
-        checked: item.checked,
-      }),
-    );
-
+    //*-------------------------------------------------*//
+    // EXPORTING THE CHECKBOXES TO THE STORE FOR THE URL //
+    //*-------------------------------------------------*//
     const allItems = checkboxStates[category].items[0];
     console.log("ALL ITEMS:", allItems);
 
@@ -396,18 +401,12 @@
       selectedCategories,
     );
 
-    // // Still need to see whether this'll be necessary
-    // const serializedItems = selectedItems.join(",");
-
-    // // Update the URL with the serialized items
-    // const categoryStore = createCategoryStore(category);
-    // categoryStore.set(serializedItems);
+    const categoryStore = writable(selectedCategories);
+    categoryStore.set(selectedCategories);
 
     // New logic for filtering and updating the tree
     updateTreeVisualization();
   }
-
-  console.log("CHECKBOXSTATES:", checkboxStates);
 
   function handleGlobalSearchCheckboxChange(item) {
     // Find the item in its original category and update its checked state
@@ -482,7 +481,6 @@
       });
     });
 
-    console.log("SPECIES TEST:", selectedSpecies);
     selectedSpeciesStore.set(selectedSpecies);
 
     if (selectedSpecies.size > 0) {
