@@ -18,7 +18,7 @@
    *=============================================**/
   let metadata = [];
   let landcodes = [];
-  let selectedItems = [];
+  let selectedCategories = [];
 
   // for searching
   let autocompleteOpen = false;
@@ -342,6 +342,7 @@
   }
 
   function handleCheckboxChange(category, itemLabel, categoryname) {
+    let selectedItems = [];
     let item = [category].find((item) => item.label === itemLabel);
     if (item) {
       item.checked = !item.checked;
@@ -375,10 +376,20 @@
       }
     }
 
-    const selectedCategories = {
-      category: categoryname,
-      selected: selectedItems,
-    };
+    // Check if the categoryname already exists in selectedCategories
+    const existingCategoryIndex = selectedCategories.findIndex(
+      (cat) => Object.keys(cat)[0] === categoryname,
+    );
+
+    if (existingCategoryIndex >= 0) {
+      // Update the existing category
+      selectedCategories[existingCategoryIndex][categoryname] = selectedItems;
+    } else {
+      // Add a new category entry
+      const newCategory = {};
+      newCategory[categoryname] = selectedItems;
+      selectedCategories.push(newCategory);
+    }
 
     console.log(
       "Wat uiteindelijk naar de url gestuurd moet worden",
