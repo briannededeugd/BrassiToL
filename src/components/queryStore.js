@@ -29,7 +29,6 @@ export function createCategoryStore(initialCategories) {
 
       const urlSearchParams = new URLSearchParams(query);
       const g = `?${urlSearchParams.toString()}`;
-      console.log("Navigating to URL:", g);
       goto(g, { keepFocus: true, replaceState: true, noScroll: true });
 
       set(categories);

@@ -33,7 +33,7 @@
     // Loop through all parameter names
     for (const param of queryParams.keys()) {
       // Log the parameter key name (or the category name)
-      console.log(`Parameter Name: ${param}`);
+      // console.log(`Parameter Name: ${param}`);
 
       // Log the values for each category
       const paramValue = queryParams.get(param);
@@ -46,30 +46,26 @@
         (categoryFilter) => categoryFilter.value,
       );
 
-      console.log(
-        "WHAT ARE THE CATEGORY FILTERS?",
-        categoryFilters,
-        "AND THE INDEXES?",
-        categoryIndex,
-      );
-
       appliedFilters.forEach((filter) => {
         console.log(filter);
 
         categoryFilters.map((item) => {
           if (item === filter.label) {
-            console.log("Hey, it matches!");
-
             categoryIndex.forEach((checkbox) => {
               if (checkbox.value === item) {
-                checkbox.checked = true;
+                checkbox.checked = true; // Keep the checkbox checked if the filter is still applied
               }
             });
-
             updateTreeVisualization();
           } else {
-            console.log("Hey, it doesn't match.");
-            return;
+            categoryIndex.forEach((checkbox) => {
+              if (checkbox.value === item) {
+                checkbox.checked = false;
+              }
+            });
+            // Remove the filter from queryParams
+            queryParams.delete(param); // This will cause the page to reload with the updated URL
+            updateTreeVisualization();
           }
         });
       });
@@ -375,17 +371,38 @@
 
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let selectedItems = [];
+    console.log("SELECTED ITEMS:", selectedItems, "ITEM LABEL:", itemLabel);
 
     //*-----------------------------------------*//
     // MODIFYING THE CHECKBOXES AND THEIR STATES //
     //*-----------------------------------------*//
 
+    /**======================
+     *!    THE ISSUE START
+     *========================**/
     if (itemLabel) {
-      let item = [category].find((item) => item.label === itemLabel);
-      if (item) {
-        item.checked = !item.checked;
-      }
+      let itemsArray = [category]
+        .find((item) => item)
+        .map((item) => item.checked);
+      console.log("WHAT ITEM:", itemsArray);
+
+      itemsArray.forEach((item) => {
+        if (item) {
+          item.checked = !item.checked;
+        }
+      });
     }
+
+    // let item = [category].find((item) => item.value === itemValue);
+    // if (item) {
+    //   item.checked = !item.checked;
+    // } else {
+    //   console.log("as i thought; faulty");
+    // }
+
+    /**======================
+     *!    THE ISSUE END
+     *========================**/
 
     checkboxStates = {
       ...checkboxStates,
@@ -394,6 +411,8 @@
         items: [...[category]],
       },
     };
+
+    console.log(checkboxStates);
 
     //*-------------------------------------------------*//
     // EXPORTING THE CHECKBOXES TO THE STORE FOR THE URL //
@@ -405,8 +424,7 @@
       if (property === "checked") continue;
 
       const item = allItems[property];
-
-      if (item.checked && selectedItems.includes(item.value) == false) {
+      if (item.checked && !selectedItems.includes(item.value)) {
         selectedItems.push(item.value);
       }
     }
@@ -492,6 +510,10 @@
       if ("allSelected" in checkboxStates[category]) {
         checkboxStates[category].allSelected = false;
       }
+
+      // console.log(window.location.href);
+      // location.reload();
+      // window.location.href.split("?")[0]; // This will cause the page to reload with the updated URL
     });
 
     updateTreeVisualization(); // Update the tree visualization
@@ -945,7 +967,7 @@
                   on:change={() =>
                     handleCheckboxChange(
                       checkboxStates.growthForm.items,
-                      item.label,
+                      item.value,
                       "growthForm",
                     )}
                 />
