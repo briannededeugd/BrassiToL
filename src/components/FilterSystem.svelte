@@ -21,9 +21,10 @@
   let metadata = [];
   let landcodes = [];
   let selectedCategories = [];
+  let paramValue;
 
   const categoryStore = createCategoryStore(selectedCategories);
-  
+
   // Reactive statement to update selectedCategories based on URL query parameters
   $: {
     // Directly use $page.url.searchParams to access query parameters
@@ -36,12 +37,42 @@
 
       // Log the values for each category
       const paramValue = queryParams.get(param);
-      console.log(`Parameter Value: ${paramValue}`);
+      let appliedFilters = paramValue
+        .split(",")
+        .map((label) => ({ label, checked: true }));
 
-      // NEXT is processing, so I have to split the paramValues (e.g. W,H => [ "W", "H"]) &
-      // Loop through this array find their checkboxes &
-      // Change these checkboxes' 'checked'-value to true &
-      // Call the updateTreeVisualization() function
+      let categoryIndex = checkboxStates[`${param}`].items;
+      let categoryFilters = categoryIndex.map(
+        (categoryFilter) => categoryFilter.value,
+      );
+
+      console.log(
+        "WHAT ARE THE CATEGORY FILTERS?",
+        categoryFilters,
+        "AND THE INDEXES?",
+        categoryIndex,
+      );
+
+      appliedFilters.forEach((filter) => {
+        console.log(filter);
+
+        categoryFilters.map((item) => {
+          if (item === filter.label) {
+            console.log("Hey, it matches!");
+
+            categoryIndex.forEach((checkbox) => {
+              if (checkbox.value === item) {
+                checkbox.checked = true;
+              }
+            });
+
+            updateTreeVisualization();
+          } else {
+            console.log("Hey, it doesn't match.");
+            return;
+          }
+        });
+      });
     }
   }
 
@@ -88,32 +119,6 @@
     landcodes = await landcodeResponse.json();
 
     d3.select("#clearFilters").on("click", clearAllFilters);
-
-    // const queryParams = new URLSearchParams(window.location.search);
-
-    const categories = [
-      "subfamilies",
-      "supertribes",
-      "tribes",
-      "genuses",
-      "species",
-      "geographicareas",
-      "continents",
-      "countries",
-      "growthForm",
-      "societaluse",
-      "lifeform",
-      "climates",
-    ]; // Add other categories as needed
-    // categories.forEach((category) => {
-    //   const serializedItems = queryParams.get(category);
-    //   if (serializedItems) {
-    //     const items = serializedItems
-    //       .split(",")
-    //       .map((label) => ({ label, checked: true }));
-    //     checkboxStates[category].items = items;
-    //   }
-    // });
 
     /**======================
      *    NEW SETS FOR FILTERING FAMILIES
@@ -941,7 +946,7 @@
                     handleCheckboxChange(
                       checkboxStates.growthForm.items,
                       item.label,
-                      "growthform",
+                      "growthForm",
                     )}
                 />
                 {item.label}
