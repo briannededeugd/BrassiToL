@@ -37,37 +37,46 @@
 
       // Log the values for each category
       const paramValue = queryParams.get(param);
+      // console.log("the value:", paramValue);
       let appliedFilters = paramValue
         .split(",")
         .map((label) => ({ label, checked: true }));
+      // console.log("params verwerkt:", appliedFilters);
 
       let categoryIndex = checkboxStates[`${param}`].items;
       let categoryFilters = categoryIndex.map(
         (categoryFilter) => categoryFilter.value,
       );
+      // console.log("THE CAT FILTERS:", categoryFilters);
 
       appliedFilters.forEach((filter) => {
-        console.log(filter);
-
-        categoryFilters.map((item) => {
+        categoryFilters.filter((item) => {
           if (item === filter.label) {
-            categoryIndex.forEach((checkbox) => {
-              if (checkbox.value === item) {
-                checkbox.checked = true; // Keep the checkbox checked if the filter is still applied
-              }
-            });
-            updateTreeVisualization();
-          } else {
-            categoryIndex.forEach((checkbox) => {
-              if (checkbox.value === item) {
-                checkbox.checked = false;
-              }
-            });
-            // Remove the filter from queryParams
-            queryParams.delete(param); // This will cause the page to reload with the updated URL
-            updateTreeVisualization();
+            categoryIndex.filter((checkbox) => (checkbox.checked = true));
+            // console.log(
+            //   "what the index looks like after the check:",
+            //   categoryIndex,
+            // );
+
+            // categoryIndex.forEach((checkbox) => {
+            //   if (checkbox.value === item) {
+            //     checkbox.checked = true; // Keep the checkbox checked if the filter is still applied
+            //     console.log(
+            //       "what the index looks like after the check:",
+            //       categoryIndex,
+            //     );
+            //   } else {
+            //     checkbox.checked = false;
+            //   }
           }
+          updateTreeVisualization();
         });
+
+        // else {
+        //   // Remove the filter from queryParams
+        //   queryParams.delete(param); // This will cause the page to reload with the updated URL
+        //   updateTreeVisualization();
+        // }
       });
     }
   }
@@ -369,40 +378,25 @@
     // updateTreeVisualization();
   }
 
+  console.log(checkboxStates);
+
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let selectedItems = [];
-    console.log("SELECTED ITEMS:", selectedItems, "ITEM LABEL:", itemLabel);
 
     //*-----------------------------------------*//
     // MODIFYING THE CHECKBOXES AND THEIR STATES //
     //*-----------------------------------------*//
 
-    /**======================
-     *!    THE ISSUE START
-     *========================**/
-    if (itemLabel) {
-      let itemsArray = [category]
-        .find((item) => item)
-        .map((item) => item.checked);
-      console.log("WHAT ITEM:", itemsArray);
+    let itemsArray = checkboxStates[categoryname].items;
+    let relevantCheckbox = itemsArray.find((item) => item.value == itemLabel);
 
-      itemsArray.forEach((item) => {
-        if (item) {
-          item.checked = !item.checked;
-        }
-      });
+    if (relevantCheckbox) {
+      if (relevantCheckbox.checked == true) {
+        relevantCheckbox.checked = false;
+      } else {
+        relevantCheckbox.checked = true;
+      }
     }
-
-    // let item = [category].find((item) => item.value === itemValue);
-    // if (item) {
-    //   item.checked = !item.checked;
-    // } else {
-    //   console.log("as i thought; faulty");
-    // }
-
-    /**======================
-     *!    THE ISSUE END
-     *========================**/
 
     checkboxStates = {
       ...checkboxStates,
@@ -412,13 +406,13 @@
       },
     };
 
-    console.log(checkboxStates);
+    console.log(checkboxStates[categoryname].items);
 
     //*-------------------------------------------------*//
     // EXPORTING THE CHECKBOXES TO THE STORE FOR THE URL //
     //*-------------------------------------------------*//
-    const allItems = checkboxStates[category].items[0];
-    console.log("ALL ITEMS:", allItems);
+    const allItems = checkboxStates[categoryname].items[0];
+    // console.log("ALL ITEMS:", allItems);
 
     for (const property in allItems) {
       if (property === "checked") continue;
@@ -450,11 +444,6 @@
         selectedCategories.splice(existingCategoryIndex, 1);
       }
     }
-
-    console.log(
-      "Wat uiteindelijk naar de url gestuurd moet worden",
-      selectedCategories,
-    );
 
     // Update the categoryStore with the new selectedCategories
     categoryStore.set(selectedCategories);
