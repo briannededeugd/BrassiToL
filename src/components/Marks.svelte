@@ -238,7 +238,12 @@
         const countryData = matchingCountryNames.find(
           (cn) => cn.name === d.properties.LEVEL3_NAM,
         );
-        return countryData ? colorScale(countryData.frequency) : "#ffffff";
+
+        if (matchingCountryNames.length >= 1) {
+          return countryData ? colorScale(countryData.frequency) : "#ffffff26";
+        } else {
+          return "#ffffff";
+        }
       })
       .attr("stroke", "#000")
       .attr("stroke-width", ".5px")
