@@ -105,7 +105,6 @@
     if (svgElement) {
       // Combine zoom/pan transformation with rotation
       svgElement.attr("transform", `rotate(${rotation}deg)`);
-      console.log("TRANSFORMING:", rotation);
 
       updateMagnification();
     }
@@ -165,17 +164,14 @@
   onMount(async () => {
     const response = await fetch("./src/lib/BrassiToL_metadata.json");
     metadata = await response.json();
-    console.log("METADATA", metadata);
 
     const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
-    console.log("LANDCODES", landcodes);
 
     const uniqueItems = new Set(
       metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA"),
     );
     supertribes = [...uniqueItems];
-    console.log("ALL SUPERTRIBES:", supertribes);
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
@@ -411,11 +407,8 @@
   }
 
   function findFullSpecies(label, metadata) {
-    console.log("Let's find em!");
     let sampleId = label; // Extract the SAMPLE id from the label
-    console.log("THEE LABEL:", sampleId);
     let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
-    console.log("THEE MATCHES:", matchingEntry);
 
     // Function to get the first non-NA taxonomic category
     function getTaxonomicCategory(entry) {
@@ -1127,8 +1120,6 @@
    *========================================================================**/
 
   function updateTreeColors(speciesSet) {
-    console.log("UPDATE COLOR FUNCTION CALLED");
-
     sharedRoot.each((node) => {
       let defaultColor = "#e1e1e1";
       let superTribeColor = findSuperTribeColor(node.data.name);
