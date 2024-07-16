@@ -71,8 +71,6 @@
   let lastClickedLabel = null;
   let svg;
   let infocontainer;
-
-  let sampleNumber;
   let isTooltipHoverVisible = false;
 
   let sampleNumber;
@@ -404,33 +402,10 @@
     const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
     return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
   }
-  
+
   function findFullSpecies(label, metadata) {
     let sampleId = label; // Extract the SAMPLE id from the label
     let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
-
-    // Function to get the first non-NA taxonomic category
-    function getTaxonomicCategory(entry) {
-      if (entry.SPECIES_NAME_PRINT !== "NA") return entry.SPECIES_NAME_PRINT;
-    }
-
-    if (matchingEntry) {
-      const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-      return taxonomicCategory;
-    } else {
-      sampleId = label.slice(1); // Remove the first character (":")
-      matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
-
-      if (matchingEntry) {
-        const taxonomicCategory = getTaxonomicCategory(matchingEntry);
-        return taxonomicCategory
-          ? capitalizeFirstLetter(taxonomicCategory)
-          : capitalizeFirstLetter(label);
-      } else {
-        return "";
-      }
-    }
-  }
 
     // Function to get the first non-NA taxonomic category
     function getTaxonomicCategory(entry) {
@@ -774,7 +749,7 @@
         let metadataObject = metadata.find(
           (item) => item.SAMPLE === d.data.name,
         );
-        
+
         sampleNumber = metadataObject.SAMPLE;
         superTribeColor = findSuperTribeColor(sampleNumber);
 
