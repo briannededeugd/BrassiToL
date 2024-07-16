@@ -27,6 +27,7 @@
 		"newick": "^2.0.0",
 		"phylocanvas": "^2.8.1",
 		"phylotree": "^1.4.2",
+		"prettier-plugin-svelte": "^3.2.5",
 		"svelte-fusioncharts": "^1.0.0",
 		"topojson": "^3.0.2",
 		"topojson-client": "^3.1.0"
