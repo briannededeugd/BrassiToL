@@ -324,9 +324,15 @@
      *    CLOSE PINNED TOOLTIP
      *========================**/
 
-    const closingButton = d3.select("#shutTooltip");
+    d3.select("#shutTooltip").on("click", closePopup);
+    d3.select("body").on("keydown", function (event) {
+      if (event && event.keyCode === 27) {
+        console.debug("ESC was pressed");
+        closePopup();
+      }
+    });
 
-    closingButton.on("click", function () {
+    function closePopup() {
       infocontainer.style("visibility", "hidden");
 
       isTooltipPinned = false;
@@ -338,7 +344,7 @@
 
       // Re-enable pointer events for labels if you've disabled them
       d3.selectAll("text.node").style("pointer-events", "auto");
-    });
+    }
 
     // For filtering
     selectedSpeciesStore.subscribe((value) => {
@@ -382,7 +388,6 @@
       }
     });
   }
-
 
   function isWithinLens(nodePos, lensX, lensY, lensRadius) {
     // Calculate distance from lens center to node
