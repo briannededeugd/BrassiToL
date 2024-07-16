@@ -1202,7 +1202,7 @@
   <div id="largetooltip" class="largetooltip">
     <div id="tooltip-image">
       <button id="shutTooltip">
-        <img src="./src/lib/img/close.png" alt="Close tooltip" />
+        <img src="/img/close.png" alt="Close tooltip" />
       </button>
       <a
         href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"

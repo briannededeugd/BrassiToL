@@ -82,8 +82,8 @@
   #tooltip-image button img {
     background-color: transparent;
     border: none;
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 2em;
+    height: 2em;
     margin: 0.35em 0.15em;
   }
 
