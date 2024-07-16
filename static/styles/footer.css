@@ -61,23 +61,23 @@
 	}
 
 	#quicklinks ul li:first-of-type a::before {
-		background-image: url("../img/linkedin.jpg");
+		background-image: url("/img/linkedin.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(2) a::before {
-		background-image: url("../img/kew.jpg");
+		background-image: url("/img/kew.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(3) a::before {
-		background-image: url("../img/naturalis.jpg");
+		background-image: url("/img/naturalis.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(4) a::before {
-		background-image: url("../img/inaturalist.jpg");
+		background-image: url("/img/inaturalist.jpg");
 	}
 
 	#quicklinks ul li:nth-of-type(5) a::before {
-		background-image: url("../img/osnabruck.jpg");
+		background-image: url("/img/osnabruck.jpg");
 	}
 
 	/* CREDITS */
