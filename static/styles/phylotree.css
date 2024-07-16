@@ -30,17 +30,40 @@
   /* *************** */
   /* TOOL TIP STYLES */
   /* *************** */
-  #tooltip {
+  .infobox {
+    position: fixed;
+    min-height: 100vh;
+    min-width: 100vw;
+    backdrop-filter: blur(.5px);
+    background-color: #0d1d1a50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 9999;
+  }
+
+  #tooltip,
+  #largetooltip {
     background-color: #0d1c1b9c;
     border-radius: 10px;
     border: 0.65px solid #e1e1e1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    min-width: 20vw;
-    max-width: 20vw;
+    width: 300px;
     color: #e1e1e1;
     font-size: 0.75em;
     z-index: 9999;
-    /*pointer-events: none;*/
+    backdrop-filter: blur(2px);
+  }
+
+  #largetooltip {
+    font-size: .9em;
+    width: 450px;
+    
+    & .tooltip-information {
+      padding: .5em 2.5em 1em;
+    }
   }
 
   #tooltip-image {
@@ -59,8 +82,8 @@
   #tooltip-image button img {
     background-color: transparent;
     border: none;
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 2em;
+    height: 2em;
     margin: 0.35em 0.15em;
   }
 
@@ -119,7 +142,9 @@
     border-radius: 5px;
   }
 
-  #tooltip h3 {
+  #tooltip h3,
+  #largetooltip h3,
+  #tooltiphover h3 {
     font-family: "Bayon", sans-serif;
     font-weight: 100;
     font-size: 1.75em;
@@ -128,7 +153,7 @@
     line-height: 1em;
   }
 
-  #tooltip-information {
+  .tooltip-information {
     padding: 0.5em 1.5em 1em;
   }
 
@@ -176,16 +201,17 @@
     font-weight: 600;
   }
 
-  #tooltip-taxonomy {
+  .tooltip-taxonomy {
     max-width: 100%;
   }
-  #tooltip-taxonomy p {
+  
+  .tooltip-taxonomy p {
     line-height: 1.75em;
     overflow-wrap: break-word; /* Optional: allows breaking at arbitrary points if necessary */
     word-wrap: break-word;
   }
 
-  #tooltip-taxonomy p::before {
+  .tooltip-taxonomy p::before {
     content: "";
     display: inline-block;
     width: 1.5em;
@@ -198,7 +224,7 @@
     vertical-align: middle;
   }
 
-  #tooltip-taxonomy p > span {
+  .tooltip-taxonomy p > span {
     background-color: #e1e1e1;
     font-family: "Inter", sans-serif;
     color: black;
@@ -227,7 +253,7 @@
     max-width: 170px;
     height: 180px;
     z-index: 7000;
-    /* Z-index change */
+    pointer-events: none;
   }
 
   #legend > h3 {
