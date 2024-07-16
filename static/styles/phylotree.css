@@ -253,7 +253,7 @@
     max-width: 170px;
     height: 180px;
     z-index: 7000;
-    /* Z-index change */
+    pointer-events: none;
   }
 
   #legend > h3 {
