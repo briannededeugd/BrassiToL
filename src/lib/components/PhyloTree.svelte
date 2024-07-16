@@ -785,7 +785,7 @@
             .style("visibility", "visible")
             .style("cursor", "pointer")
             .style("left", function () {
-              if (event.clientX > (equivalentPixelValue - 300)) {
+              if (event.clientX > equivalentPixelValue - 300) {
                 return event.clientX - 200 + "px";
               } else {
                 return event.clientX + 50 + "px";
@@ -851,28 +851,23 @@
           (item) => item.SAMPLE === d.data.name,
         );
 
-        // Capitalizing array items as well as strings
+        // Helper function to capitalize the first letter of a string
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        // Function to format descriptions
         function formatDescription(description) {
+          // Check if the description is an array
           if (Array.isArray(description)) {
-            // If it's an array, apply the function to each element
-            return description
-              .map((item) => capitalizeFirstLetter(item))
-              .join(", ");
+            // Map over the array and capitalize each item
+            return description.map(capitalizeFirstLetter).join(", ");
           } else if (typeof description === "string" && description !== "NA") {
-            // If it's a string and not "NA", capitalize the first letter of the first and last word
-            const words = description.split(" ");
-            if (words.length > 1) {
-              words[0] = capitalizeFirstLetter(words[0]); // Capitalize the first word
-              words[words.length - 1] = capitalizeFirstLetter(
-                words[words.length - 1],
-              ); // Capitalize the last word
-              return words.join(" ");
-            } else {
-              // If there's only one word, just capitalize it
-              return capitalizeFirstLetter(description);
-            }
+            // If it's a string and not "NA", capitalize the first letter
+            return capitalizeFirstLetter(description);
           }
-          return description; // Return as is if none of the above conditions are met
+          // Return as is if none of the above conditions are met
+          return description;
         }
 
         // Making sure the meaning of each growth type appears instead of its short counterpart
