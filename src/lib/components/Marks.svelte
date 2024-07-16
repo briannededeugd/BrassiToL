@@ -3,7 +3,7 @@
   import * as d3 from "d3";
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "./store.js";
-   
+
   // import { match } from "assert";
 
   export let isFlipped; // Accept isFlipped as a prop
