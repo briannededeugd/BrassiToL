@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import * as d3 from "d3";
-  import "../lib/fonts/fonts.css";
   import { selectedSpeciesStore } from "./store.js";
 
   // Simple 'capitalize every first letter'-function
@@ -54,11 +53,11 @@
   };
 
   onMount(async () => {
-    const response = await fetch("./src/lib/BrassiToL_metadata.json");
+    const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
     console.log("METADATA", metadata);
 
-    const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+    const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
     console.log("LANDCODES", landcodes);
 
@@ -542,7 +541,8 @@
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="./src/lib/styles/filters.css" />
+  <link rel="stylesheet" href="/styles/filters.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
 </svelte:head>
 
 <section class="filtersystem">

@@ -3,7 +3,7 @@
   import * as d3 from "d3";
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "./store.js";
-  import "../lib/fonts/fonts.css";
+   
   // import { match } from "assert";
 
   export let isFlipped; // Accept isFlipped as a prop
@@ -38,9 +38,9 @@
   onMount(async () => {
     try {
       const responses = await Promise.all([
-        fetch("./src/lib/BrassiToL_metadata.json"),
-        fetch("./src/lib/wgsrpd_mapping.json"),
-        fetch("./src/lib/TDWG_level3_map.json"),
+        fetch("/BrassiToL_metadata.json"),
+        fetch("/wgsrpd_mapping.json"),
+        fetch("/TDWG_level3_map.json"),
       ]);
 
       metadata = await responses[0].json();

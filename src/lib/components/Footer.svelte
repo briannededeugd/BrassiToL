@@ -1,9 +1,6 @@
-<script>
-	import "../lib/fonts/fonts.css";
-</script>
-
 <svelte:head>
-  <link rel="stylesheet" href="./src/lib/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
 </svelte:head>
 
 <section id="footer">
