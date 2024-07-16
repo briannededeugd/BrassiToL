@@ -1,10 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import * as d3 from "d3";
-  import "../lib/fonts/fonts.css";
-  import { writable } from "svelte/store";
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./queryStore";
+  import { writable } from "svelte/store";
   import { page } from "$app/stores";
 
   // Simple 'capitalize every first letter'-function
@@ -117,10 +116,10 @@
   };
 
   onMount(async () => {
-    const response = await fetch("./src/lib/BrassiToL_metadata.json");
+    const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
 
-    const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+    const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
 
     d3.select("#clearFilters").on("click", clearAllFilters);
@@ -654,7 +653,8 @@
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="./src/lib/styles/filters.css" />
+  <link rel="stylesheet" href="/styles/filters.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
 </svelte:head>
 
 <section class="filtersystem">

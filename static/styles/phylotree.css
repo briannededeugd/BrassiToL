@@ -71,7 +71,7 @@
     width: 100%;
     height: 10vh;
     justify-content: space-between;
-    background: url("../img/sampleimage.jpeg");
+    background: url("/img/sampleimage.jpeg");
     background-size: cover;
     background-position: center;
     border-top-left-radius: 10px;
@@ -176,7 +176,7 @@
     height: 1.5em;
     margin-right: 0.35em;
     margin-bottom: 0.2em;
-    background-image: url("../img/location.png");
+    background-image: url("/img/location.png");
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
@@ -218,7 +218,7 @@
     height: 1.5em;
     margin-right: 0.5em;
     padding-bottom: 0.5em;
-    background-image: url("../img/dna.png");
+    background-image: url("/img/dna.png");
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;

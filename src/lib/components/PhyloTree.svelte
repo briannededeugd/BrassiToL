@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import * as d3 from "d3";
-  import "../lib/fonts/fonts.css";
   import { selectedSpeciesStore } from "./store.js";
   import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -71,10 +70,8 @@
   let isTooltipPinned = false;
   let lastClickedLabel = null;
   let svg;
-  let infocontainer;
 
   let sampleNumber;
-  let isTooltipHoverVisible = false;
 
   let fullSpeciesName;
   let subfamilyName;
@@ -105,6 +102,7 @@
     if (svgElement) {
       // Combine zoom/pan transformation with rotation
       svgElement.attr("transform", `rotate(${rotation}deg)`);
+      console.log("TRANSFORMING:", rotation);
 
       updateMagnification();
     }
@@ -162,16 +160,19 @@
    *     onMount: What's being built when the page is loaded
    *=========================================================**/
   onMount(async () => {
-    const response = await fetch("./src/lib/BrassiToL_metadata.json");
+    const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
+    console.log("METADATA", metadata);
 
-    const landcodeResponse = await fetch("./src/lib/BrassiToL_landcodes.json");
+    const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
+    console.log("LANDCODES", landcodes);
 
     const uniqueItems = new Set(
       metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA"),
     );
     supertribes = [...uniqueItems];
+    console.log("ALL SUPERTRIBES:", supertribes);
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
@@ -190,18 +191,17 @@
     svg = createPhylogeneticTree(parsedData);
     const outgroupsToggle = d3.select("#showOutgroups");
     const outgroupIcon = d3.select("#showOutgroups button img");
-    infocontainer = d3.selectAll(".infobox");
 
     outgroupsToggle.on("click", function () {
       if (outgroupsShown) {
         outgroupsShown = false;
         svg = createPhylogeneticTree(parsedData);
-        outgroupIcon.attr("src", "./src/lib/img/outgroups.png");
+        outgroupIcon.attr("src", "/img/outgroups.png");
         outgroupsToggle.style("background-color", "#0d1c1bc5");
       } else {
         outgroupsShown = true;
         svg = createPhylogeneticTree(parsedOutgroupData);
-        outgroupIcon.attr("src", "./src/lib/img/darkoutgroups.png");
+        outgroupIcon.attr("src", "/img/darkoutgroups.png");
         outgroupsToggle.style("background-color", "#e1e1e1");
       }
 
@@ -239,12 +239,12 @@
       if (lensOn === false) {
         magnifyingGlass.style("visibility", "visible");
         lensButton.style("background-color", "#e1e1e1");
-        lensIcon.attr("src", "./src/lib/img/darkzoom.png");
+        lensIcon.attr("src", "/img/darkzoom.png");
         lensOn = true;
       } else {
         magnifyingGlass.style("visibility", "hidden");
         lensButton.style("background-color", "#0d1c1bc5");
-        lensIcon.attr("src", "./src/lib/img/zoom.png");
+        lensIcon.attr("src", "/img/zoom.png");
         lensOn = false;
       }
     });
@@ -262,12 +262,12 @@
       if (settingsShown === false) {
         settings.style("visibility", "visible");
         settingsToggle.style("background-color", "#e1e1e1");
-        settingsIcon.attr("src", "./src/lib/img/darksettings.png");
+        settingsIcon.attr("src", "/img/darksettings.png");
         settingsShown = true;
       } else {
         settings.style("visibility", "hidden");
         settingsToggle.style("background-color", "#0d1c1bc5");
-        settingsIcon.attr("src", "./src/lib/img/settings.png");
+        settingsIcon.attr("src", "/img/settings.png");
         settingsShown = false;
       }
     });
@@ -283,11 +283,11 @@
     modeToggle.on("click", function () {
       if (lightmode === false) {
         modeToggle.style("background-color", "#e1e1e1");
-        modeIcon.attr("src", "./src/lib/img/darklight.png");
+        modeIcon.attr("src", "/img/darklight.png");
         lightmode = true;
       } else {
         modeToggle.style("background-color", "#0d1c1bc5");
-        modeIcon.attr("src", "./src/lib/img/light.png");
+        modeIcon.attr("src", "/img/light.png");
         lightmode = false;
       }
     });
@@ -306,13 +306,13 @@
         supertribesShown = true;
         legend.style("visibility", "hidden");
         showSupertribes.style("background-color", "#e1e1e1");
-        supertribesIcon.attr("src", "./src/lib/img/darkhierarchy.png");
+        supertribesIcon.attr("src", "/img/darkhierarchy.png");
         updateTreeColors(selectedSpecies);
       } else {
         supertribesShown = false;
         legend.style("visibility", "visible");
         showSupertribes.style("background-color", "#0d1c1bc5");
-        supertribesIcon.attr("src", "./src/lib/img/hierarchy.png");
+        supertribesIcon.attr("src", "/img/hierarchy.png");
         updateTreeColors(selectedSpecies);
       }
     });
@@ -321,17 +321,11 @@
      *    CLOSE PINNED TOOLTIP
      *========================**/
 
-    d3.select("#shutTooltip").on("click", closePopup);
-    d3.select("body").on("keydown", function (event) {
-      if (event && event.keyCode === 27) {
-        console.debug("ESC was pressed");
-        closePopup();
-      }
-    });
+    const closingButton = d3.select("#shutTooltip");
+    const theTooltipContainer = d3.select("#tooltip");
 
-    function closePopup() {
-      infocontainer.style("visibility", "hidden");
-
+    closingButton.on("click", function () {
+      theTooltipContainer.style("visibility", "hidden");
       isTooltipPinned = false;
 
       if (lastClickedLabel) {
@@ -341,7 +335,7 @@
 
       // Re-enable pointer events for labels if you've disabled them
       d3.selectAll("text.node").style("pointer-events", "auto");
-    }
+    });
 
     // For filtering
     selectedSpeciesStore.subscribe((value) => {
@@ -378,6 +372,11 @@
 
     nodes.each(function () {
       const node = d3.select(this);
+      // Assuming cx and cy are the original, untransformed center positions of the nodes
+      // let nodeX = parseFloat(node.attr("cx"));
+      // let nodeY = parseFloat(node.attr("cy"));
+
+      // let rotatedPosition = rotateCoordinates(nodeX, nodeY, rotation);
 
       if (isWithinLens(lensPosition, lensRadius)) {
         // Apply magnification
@@ -385,6 +384,17 @@
       }
     });
   }
+
+  // function rotateCoordinates(x, y, angle) {
+  //   // Rotate (x, y) around the origin (0, 0) by 'angle' degrees
+  //   let radians = (angle * Math.PI) / 180;
+  //   let cos = Math.cos(radians);
+  //   let sin = Math.sin(radians);
+  //   return {
+  //     x: cos * x - sin * y,
+  //     y: sin * x + cos * y,
+  //   };
+  // }
 
   function isWithinLens(nodePos, lensX, lensY, lensRadius) {
     // Calculate distance from lens center to node
@@ -406,13 +416,52 @@
     return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
   }
 
+  // Find the species name from the ID
+  // function findSpecies(label, metadata) {
+  //   let sampleId = label; // Extract the SAMPLE id from the label
+  //   let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+  //   // Function to get the first non-NA taxonomic category
+  //   function getTaxonomicCategory(entry) {
+  //     if (entry.SPECIES !== "NA") return entry.SPECIES;
+  //     if (entry.GENUS !== "NA") return entry.GENUS;
+  //     if (entry.TRIBE !== "NA") return entry.TRIBE;
+  //     if (entry.SUPERTRIBE !== "NA") return entry.SUPERTRIBE;
+  //     if (entry.SUBFAMILY !== "NA") return entry.SUBFAMILY;
+  //     return null;
+  //   }
+
+  //   if (matchingEntry) {
+  //     const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+  //     return taxonomicCategory
+  //       ? capitalizeFirstLetter(taxonomicCategory)
+  //       : capitalizeFirstLetter(label);
+  //   } else {
+  //     sampleId = label.slice(1); // Remove the first character (":")
+  //     matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+
+  //     if (matchingEntry) {
+  //       const taxonomicCategory = getTaxonomicCategory(matchingEntry);
+  //       return taxonomicCategory
+  //         ? capitalizeFirstLetter(taxonomicCategory)
+  //         : capitalizeFirstLetter(label);
+  //     } else {
+  //       return "";
+  //     }
+  //   }
+  // }
+
   function findFullSpecies(label, metadata) {
+    console.log("Let's find em!");
     let sampleId = label; // Extract the SAMPLE id from the label
+    console.log("THEE LABEL:", sampleId);
     let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
+    console.log("THEE MATCHES:", matchingEntry);
 
     // Function to get the first non-NA taxonomic category
     function getTaxonomicCategory(entry) {
       if (entry.SPECIES_NAME_PRINT !== "NA") return entry.SPECIES_NAME_PRINT;
+      // return null;
     }
 
     if (matchingEntry) {
@@ -733,7 +782,21 @@
       .text((d) => findSpeciesName(d.data.name, metadata))
       .on("mouseover", mouseovered(true))
       .on("mouseout", mouseovered(false))
-      .on("click", pinInfo(true))
+      .on("click", function (event) {
+        event.stopPropagation(); // This prevents the event from reaching SVG labels
+        isTooltipPinned = !isTooltipPinned; // Toggle the pinned state
+        lastClickedLabel = d3.select(this); // Store the clicked label
+        console.log("LAST CLICKED LABEL:", lastClickedLabel);
+
+        if (isTooltipPinned) {
+          tooltip.style("z-index", 9999);
+          d3.selectAll("text.node").style("pointer-events", "none"); // Disable pointer events for labels
+        } else {
+          tooltip.style("visibility", "hidden");
+          d3.selectAll("text.node").style("pointer-events", "auto");
+        }
+      })
+
       .each(function (d) {
         d.data.textNode = this;
       });
@@ -787,7 +850,7 @@
         superTribeColor = findSuperTribeColor(sampleNumber);
 
         // Make the supertribe name the right color (according to the legend and tree)
-        const span = d3.selectAll(".supertribespan");
+        const span = d3.select("#supertribespan");
         span.style("background-color", superTribeColor);
 
         fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
@@ -814,13 +877,13 @@
             .style("visibility", "visible")
             .style("left", function () {
               if (event.clientX > 1200) {
-                return event.clientX - 400 + "px";
-              } else if (event.clientX > 1060) {
                 return event.clientX - 200 + "px";
+              } else if (event.clientX > 1060) {
+                return event.clientX - 100 + "px";
               } else if (event.clientX > 490) {
-                return event.clientX + 150 + "px";
+                return event.clientX + 80 + "px";
               } else {
-                return event.clientX + 200 + "px";
+                return event.clientX + 40 + "px";
               }
             })
             .style("top", function () {
@@ -834,6 +897,13 @@
                 return event.clientY - 20 + "px";
               }
             });
+
+          console.log(
+            "Y-Position:",
+            event.clientY,
+            "X-Position:",
+            event.clientX,
+          );
 
           /**====================
            *     TREE EDITS
@@ -862,113 +932,6 @@
           } while (currentNode);
         } else if (!active && !isTooltipPinned) {
           tooltip.style("visibility", "hidden");
-
-          d3.select(d.linkNode).attr("stroke", "#E1E1E1"); // Reset the path color
-          if (!d.children) {
-            d3.select(d.data.textNode).style("fill", superTribeColor); // Reset the label color
-          }
-
-          // Re-apply the filter settings to the rest of the tree
-          updateTreeColors(selectedSpecies);
-        }
-      };
-    }
-
-    function pinInfo(active) {
-      return function (event, d) {
-        let superTribeColor = findSuperTribeColor(d.data.name);
-
-        // FINDING INFO
-        let metadataObject = metadata.find(
-          (item) => item.SAMPLE === d.data.name,
-        );
-
-        // Capitalizing array items as well as strings
-        function formatDescription(description) {
-          if (Array.isArray(description)) {
-            // If it's an array, apply the function to each element
-            return description
-              .map((item) => capitalizeFirstLetter(item))
-              .join(", ");
-          } else if (typeof description === "string" && description !== "NA") {
-            // If it's a string and not "NA", capitalize the first letter of the first and last word
-            const words = description.split(" ");
-            if (words.length > 1) {
-              words[0] = capitalizeFirstLetter(words[0]); // Capitalize the first word
-              words[words.length - 1] = capitalizeFirstLetter(
-                words[words.length - 1],
-              ); // Capitalize the last word
-              return words.join(" ");
-            } else {
-              // If there's only one word, just capitalize it
-              return capitalizeFirstLetter(description);
-            }
-          }
-          return description; // Return as is if none of the above conditions are met
-        }
-        // Making sure the meaning of each growth type appears instead of its short counterpart
-        const growthFormLabelMapping = {
-          H: "Herbaceous",
-          W: "Woody",
-        };
-
-        sampleNumber = metadataObject.SAMPLE;
-        superTribeColor = findSuperTribeColor(sampleNumber);
-
-        // Make the supertribe name the right color (according to the legend and tree)
-        const span = d3.selectAll(".supertribespan");
-        span.style("background-color", superTribeColor);
-
-        fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
-        subfamilyName = metadataObject.SUBFAMILY;
-        supertribeName = metadataObject.SUPERTRIBE;
-        tribeName = metadataObject.TRIBE;
-        lifeformName = formatDescription(
-          metadataObject.WCVP_lifeform_description,
-        );
-        climateName = formatDescription(
-          metadataObject.WCVP_climate_description,
-        );
-        growthformName = growthFormLabelMapping[metadataObject.GROWTH_FORM];
-        societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
-        geographicareaName = metadataObject.WCVP_geographic_area;
-        imageId = metadataObject.powo_identifier;
-
-        // Apply the active class to the hovered label and remove from others
-        d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
-        d3.select(this).classed("label--active", active);
-
-        if (active && !isTooltipPinned) {
-          infocontainer.style("visibility", "visible");
-
-          /**====================
-           *     TREE EDITS
-           *===================**/
-
-          // Change the color of all links and labels to grey
-          svg.selectAll(".link").attr("stroke", "#405f7470");
-          svg.selectAll("text.node").style("fill", "#405f7470");
-
-          // Now highlight the path and label of the hovered node
-          let currentNode = d;
-          do {
-            d3.select(currentNode.linkNode)
-              .attr("stroke", superTribeColor)
-              .raise();
-
-            if (!currentNode.children) {
-              // If it's a leaf node
-              d3.select(currentNode.data.textNode).style(
-                "fill",
-                superTribeColor,
-              );
-            }
-
-            currentNode = currentNode.parent;
-          } while (currentNode);
-        } else if (!active && !isTooltipPinned) {
-          isTooltipPinned = false;
-          infocontainer.style("visibility", "hidden");
 
           d3.select(d.linkNode).attr("stroke", "#E1E1E1"); // Reset the path color
           if (!d.children) {
@@ -1120,6 +1083,10 @@
    *========================================================================**/
 
   function updateTreeColors(speciesSet) {
+<<<<<<< HEAD:src/components/PhyloTree.svelte
+=======
+    console.log("UPDATE COLOR FUNCTION CALLED");
+>>>>>>> b8572b4 (ADD/FIX: Correct file structure, streamlined production/development environments):src/lib/components/PhyloTree.svelte
 
     sharedRoot.each((node) => {
       let defaultColor = "#e1e1e1";
@@ -1176,7 +1143,8 @@
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="./src/lib/styles/phylotree.css" />
+  <link rel="stylesheet" href="/styles/phylotree.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
 </svelte:head>
 
 <div id="legend">
@@ -1199,75 +1167,56 @@
   </section>
 </section>
 
-<section class="infobox" style="visibility: hidden;">
-  <div id="largetooltip" class="largetooltip">
-    <div id="tooltip-image">
-      <button id="shutTooltip">
-        <img src="./src/lib/img/close.png" alt="Close tooltip" />
-      </button>
-      <a
-        href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
-      >
-        <i class="fa-solid fa-link"></i>
-      </a>
-    </div>
-
-    <div class="tooltip-information">
-      <p id="source">Image Source: iNaturalist, guyincognito</p>
-      <h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
-      <div class="tooltip-taxonomy">
-        <p>
-          <span>{subfamilyName}</span>
-          <i class="fas fa-angle-right"></i>
-          <span class="supertribespan">{supertribeName}</span>
-          <i class="fas fa-angle-right"></i>
-          <span>{tribeName}</span>
-          <i class="fas fa-angle-right"></i>
-          <span>{fullSpeciesName}</span>
-        </p>
-      </div>
-      <div id="tooltip-metadata">
-        <div>
-          <p>
-            Life form <br />
-            <span>{lifeformName}</span>
-          </p>
-
-          <p>
-            Climate<br />
-            <span>{climateName}</span>
-          </p>
-        </div>
-        <div>
-          <p>
-            Growth form <br />
-            <span>{growthformName}</span>
-          </p>
-          <p>
-            Societal Use <br />
-            <span>{societaluseName}</span>
-          </p>
-        </div>
-      </div>
-      <p id="geographicareaname">{geographicareaName}</p>
-    </div>
-  </div>
-</section>
-
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
-  <div class="tooltip-information">
-    <h3 class="tooltip-title">{fullSpeciesName}</h3>
-    <div class="tooltip-taxonomy">
+  <div id="tooltip-image">
+    <button id="shutTooltip">
+      <img src="/img/close.png" alt="Close tooltip" />
+    </button>
+    <a
+      href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+    >
+      <i class="fa-solid fa-link"></i>
+    </a>
+  </div>
+
+  <div id="tooltip-information">
+    <p id="source">Image Source: iNaturalist, guyincognito</p>
+    <h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
+    <div id="tooltip-taxonomy">
       <p>
         <span>{subfamilyName}</span>
         <i class="fas fa-angle-right"></i>
-        <span class="supertribespan">{supertribeName}</span>
+        <span id="supertribespan">{supertribeName}</span>
         <i class="fas fa-angle-right"></i>
         <span>{tribeName}</span>
         <i class="fas fa-angle-right"></i>
         <span>{fullSpeciesName}</span>
       </p>
     </div>
+    <div id="tooltip-metadata">
+      <div>
+        <p>
+          Life form <br />
+          <span>{lifeformName}</span>
+        </p>
+
+        <p>
+          Climate<br />
+          <span>{climateName}</span>
+        </p>
+      </div>
+      <div>
+        <p>
+          Growth form <br />
+          <span>{growthformName}</span>
+        </p>
+        <p>
+          Societal Use <br />
+          <span>{societaluseName}</span>
+        </p>
+      </div>
+    </div>
+    <p id="geographicareaname">{geographicareaName}</p>
   </div>
 </div>
 
@@ -1275,13 +1224,13 @@
   <div id="settingOptions" style="visibility: hidden">
     <div id="showOutgroups">
       <button
-        ><img src="./src/lib/img/outgroups.png" alt="Show outgroups" /></button
+        ><img src="/img/outgroups.png" alt="Show outgroups" /></button
       >
     </div>
     <div id="showSupertribes">
       <button
         ><img
-          src="./src/lib/img/hierarchy.png"
+          src="/img/hierarchy.png"
           alt="Show supertribes"
         /></button
       >
@@ -1289,7 +1238,7 @@
     <div id="switchToLightMode">
       <button
         ><img
-          src="./src/lib/img/light.png"
+          src="/img/light.png"
           alt="Switch to light mode"
         /></button
       >
@@ -1297,12 +1246,12 @@
   </div>
   <div id="settings">
     <button>
-      <img src="./src/lib/img/settings.png" alt="Show settings" />
+      <img src="/img/settings.png" alt="Show settings" />
     </button>
   </div>
   <div id="lensToggle">
     <button>
-      <img src="./src/lib/img/zoom.png" alt="Show lens" />
+      <img src="/img/zoom.png" alt="Show lens" />
     </button>
   </div>
   <div id="zoomInAndOut">
@@ -1315,7 +1264,7 @@
   </div>
   <div id="resetZoom">
     <button>
-      <img src="./src/lib/img/reset.png" alt="Reset zoom" />
+      <img src="/img/reset.png" alt="Reset zoom" />
     </button>
   </div>
 </section>

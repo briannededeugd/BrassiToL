@@ -1,7 +1,5 @@
 <script>
   import * as d3 from "d3";
-  import "../lib/fonts/fonts.css";
-
   export let isFlipped; // Accept isFlipped as a prop
 
   // Reactive statement to react to changes in isFlipped
@@ -16,7 +14,8 @@
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="./src/lib/styles/maplegend.css" />
+  <link rel="stylesheet" href="/styles/maplegend.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
 </svelte:head>
 
 {#if isFlipped}

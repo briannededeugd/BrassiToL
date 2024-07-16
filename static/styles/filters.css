@@ -195,7 +195,7 @@
     width: 10vw;
     margin: auto 0.2em 0.75em;
     padding-left: 1em;
-    background-image: url("../img/magnifyingglass-small.png");
+    background-image: url("/img/magnifyingglass-small.png");
     background-size: 15px 15px;
     background-position: right 1em center;
     background-repeat: no-repeat;
