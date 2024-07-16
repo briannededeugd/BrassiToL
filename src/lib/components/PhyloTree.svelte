@@ -227,7 +227,7 @@
       console.error("Container not found");
     }
 
-    appendMagnifier();
+    // appendMagnifier();
 
     /**======================
      *    TOGGLE ZOOM LENS
@@ -759,36 +759,6 @@
           (item) => item.SAMPLE === d.data.name,
         );
 
-        // Capitalizing array items as well as strings
-        function formatDescription(description) {
-          if (Array.isArray(description)) {
-            // If it's an array, apply the function to each element
-            return description
-              .map((item) => capitalizeFirstLetter(item))
-              .join(", ");
-          } else if (typeof description === "string" && description !== "NA") {
-            // If it's a string and not "NA", capitalize the first letter of the first and last word
-            const words = description.split(" ");
-            if (words.length > 1) {
-              words[0] = capitalizeFirstLetter(words[0]); // Capitalize the first word
-              words[words.length - 1] = capitalizeFirstLetter(
-                words[words.length - 1],
-              ); // Capitalize the last word
-              return words.join(" ");
-            } else {
-              // If there's only one word, just capitalize it
-              return capitalizeFirstLetter(description);
-            }
-          }
-          return description; // Return as is if none of the above conditions are met
-        }
-
-        // Making sure the meaning of each growth type appears instead of its short counterpart
-        const growthFormLabelMapping = {
-          H: "Herbaceous",
-          W: "Woody",
-        };
-
         sampleNumber = metadataObject.SAMPLE;
         superTribeColor = findSuperTribeColor(sampleNumber);
 
@@ -800,44 +770,32 @@
         subfamilyName = metadataObject.SUBFAMILY;
         supertribeName = metadataObject.SUPERTRIBE;
         tribeName = metadataObject.TRIBE;
-        lifeformName = formatDescription(
-          metadataObject.WCVP_lifeform_description,
-        );
-        climateName = formatDescription(
-          metadataObject.WCVP_climate_description,
-        );
-        growthformName = growthFormLabelMapping[metadataObject.GROWTH_FORM];
-        societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
-        geographicareaName = metadataObject.WCVP_geographic_area;
-        imageId = metadataObject.powo_identifier;
 
         // Apply the active class to the hovered label and remove from others
         d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
         d3.select(this).classed("label--active", active);
 
         if (active && !isTooltipPinned) {
+          // Calculate 80% of the viewport width in pixels
+          const vwPercentage = 80 / 100; // Convert 80% to a decimal
+          const viewportWidth = window.innerWidth; // Get the current viewport width
+          const equivalentPixelValue = Math.round(viewportWidth * vwPercentage); // Calculate the equivalent pixel value
+
           tooltip
             .style("visibility", "visible")
+            .style("cursor", "pointer")
             .style("left", function () {
-              if (event.clientX > 1200) {
-                return event.clientX - 400 + "px";
-              } else if (event.clientX > 1060) {
+              if (event.clientX > (equivalentPixelValue - 300)) {
                 return event.clientX - 200 + "px";
-              } else if (event.clientX > 490) {
-                return event.clientX + 150 + "px";
               } else {
-                return event.clientX + 200 + "px";
+                return event.clientX + 50 + "px";
               }
             })
             .style("top", function () {
-              if (event.clientX > 1060) {
-                return event.clientY + 80 + "px";
-              } else if ((event.clientX < 400) & (event.clientY > 120)) {
-                return event.clientY + 50 + "px";
-              } else if (event.clientX < 400) {
+              if (event.clientY > 400) {
                 return event.clientY - 200 + "px";
               } else {
-                return event.clientY - 20 + "px";
+                return event.clientY - 150 + "px";
               }
             });
 
@@ -880,11 +838,15 @@
       };
     }
 
+    // FUNCTION
+    // The goal of this function is to collect all the necessary data for a pop-up, dependent on the clicked node (hence why it's called on "click" of each label in the tree)
+    // It uses the "d" (data) to find the correct object in the metadata file, then loads in all necessary properties
+    // Since most of these properties come in as their JSON-selves, we must perform a little surgery on them to format them for the frontend
     function pinInfo(active) {
       return function (event, d) {
         let superTribeColor = findSuperTribeColor(d.data.name);
 
-        // FINDING INFO
+        // FINDING INFO IN THE METADATA
         let metadataObject = metadata.find(
           (item) => item.SAMPLE === d.data.name,
         );
@@ -912,6 +874,7 @@
           }
           return description; // Return as is if none of the above conditions are met
         }
+
         // Making sure the meaning of each growth type appears instead of its short counterpart
         const growthFormLabelMapping = {
           H: "Herbaceous",
@@ -950,29 +913,31 @@
           /**====================
            *     TREE EDITS
            *===================**/
-
-          // Change the color of all links and labels to grey
+          // Now that we have all the data in their correct formats, we must edit the tree to highlight the hovered label
+          // First, we change the color of all links and labels to grey
           svg.selectAll(".link").attr("stroke", "#405f7470");
           svg.selectAll("text.node").style("fill", "#405f7470");
 
-          // Now highlight the path and label of the hovered node
+          // Then we highlight the path and label of the hovered node
+          // Now, it's clear in the tree which label you're hovering over and what its path is
           let currentNode = d;
           do {
             d3.select(currentNode.linkNode)
+              // We make the distinction between leaves and nodes. If there are children present, we can assume it's a path and modify the stroke
               .attr("stroke", superTribeColor)
               .raise();
 
             if (!currentNode.children) {
-              // If it's a leaf node
+              // However, if there are no more children, we can assume we've reached the node (endpoint, text) and modify its fill
               d3.select(currentNode.data.textNode).style(
                 "fill",
                 superTribeColor,
               );
             }
-
             currentNode = currentNode.parent;
           } while (currentNode);
         } else if (!active && !isTooltipPinned) {
+          // When the user no longer hovers over a label, this function is called
           isTooltipPinned = false;
           infocontainer.style("visibility", "hidden");
 
@@ -1285,25 +1250,13 @@
 <section id="zoomControls">
   <div id="settingOptions" style="visibility: hidden">
     <div id="showOutgroups">
-      <button
-        ><img src="/img/outgroups.png" alt="Show outgroups" /></button
-      >
+      <button><img src="/img/outgroups.png" alt="Show outgroups" /></button>
     </div>
     <div id="showSupertribes">
-      <button
-        ><img
-          src="/img/hierarchy.png"
-          alt="Show supertribes"
-        /></button
-      >
+      <button><img src="/img/hierarchy.png" alt="Show supertribes" /></button>
     </div>
     <div id="switchToLightMode">
-      <button
-        ><img
-          src="/img/light.png"
-          alt="Switch to light mode"
-        /></button
-      >
+      <button><img src="/img/light.png" alt="Switch to light mode" /></button>
     </div>
   </div>
   <div id="settings">
