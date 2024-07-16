@@ -2,12 +2,12 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { writable } from "svelte/store";
-  import PhyloTree from "../components/PhyloTree.svelte";
-  import FilterSystem from "../components/FilterSystem.svelte";
-  import Marks from "../components/Marks.svelte";
-  import MapLegend from "../components/MapLegend.svelte";
-  import Footer from "../components/Footer.svelte";
-  import "../lib/fonts/fonts.css";
+  import PhyloTree from "$lib/components/PhyloTree.svelte";
+  import FilterSystem from "$lib/components/FilterSystem.svelte";
+  import Marks from "$lib/components/Marks.svelte";
+  import MapLegend from "$lib/components/MapLegend.svelte";
+  import Footer from "$lib/components/Footer.svelte";
+   
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");
@@ -103,7 +103,7 @@
 
 <style>
   body {
-    background: url("./src/lib/img/sitebackground.jpeg") no-repeat center center
+    background: url("/img/sitebackground.jpeg") no-repeat center center
       fixed;
     background-size: cover;
     width: 100%;
@@ -265,7 +265,7 @@
     height: 1em;
     margin-right: 0.35em;
     margin-bottom: 0.2em;
-    background-image: url("./src/lib/img/croplogo.png");
+    background-image: url("/img/croplogo.png");
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
