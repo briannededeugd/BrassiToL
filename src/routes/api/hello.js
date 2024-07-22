@@ -3,8 +3,8 @@ export async function get() {
   return {
     status: 200,
     body: {
-      message: 'Hello, world!'
-    }
+      message: "Hello, world!",
+    },
   };
 }
 

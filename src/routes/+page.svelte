@@ -7,7 +7,6 @@
   import Marks from "$lib/components/Marks.svelte";
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
-   
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");
@@ -15,7 +14,6 @@
 
     button.on("click", function () {
       welcomeMessage.style("visibility", "hidden");
-      console.log("closing the welcome message");
     });
   });
 
@@ -31,8 +29,6 @@
 
   function toggleView() {
     isFlipped.update((n) => !n);
-    // if (!isFlipped) {
-    // }
   }
 </script>
 
@@ -103,8 +99,7 @@
 
 <style>
   body {
-    background: url("/img/sitebackground.jpeg") no-repeat center center
-      fixed;
+    background: url("/img/sitebackground.jpeg") no-repeat center center fixed;
     background-size: cover;
     width: 100%;
     min-height: 100%;

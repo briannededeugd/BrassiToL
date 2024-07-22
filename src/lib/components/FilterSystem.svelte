@@ -2,6 +2,11 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { selectedSpeciesStore } from "./store.js";
+  import { createCategoryStore } from "./querystore.js";
+  import { writable } from "svelte/store";
+  import { page } from "$app/stores";
+  import { goto } from "$app/navigation";
+  import Page from "../../routes/+page.svelte";
 
   // Simple 'capitalize every first letter'-function
   function capitalizeFirstLetter(string) {
@@ -16,6 +21,15 @@
    *=============================================**/
   let metadata = [];
   let landcodes = [];
+  let selectedCategories = {};
+  let paramValue;
+  let selectedItems = [];
+
+  /**============================================
+   *             Dynamic URL Check
+   *=============================================**/
+
+  const categoryStore = createCategoryStore(selectedCategories);
 
   // for searching
   let autocompleteOpen = false;
@@ -55,11 +69,9 @@
   onMount(async () => {
     const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
-    console.log("METADATA", metadata);
 
     const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
     landcodes = await landcodeResponse.json();
-    console.log("LANDCODES", landcodes);
 
     d3.select("#clearFilters").on("click", clearAllFilters);
 
@@ -90,12 +102,7 @@
 
     // Usage
     processMetadataCategory("subfamilies", "SUBFAMILY");
-
     processMetadataCategory("supertribes", "SUPERTRIBE");
-    console.log(
-      "WHEN FILTERING SUPERTRIBES:",
-      checkboxStates.supertribes.items,
-    );
     processMetadataCategory("tribes", "TRIBE");
     processMetadataCategory("genuses", "GENUS");
     processMetadataCategory("species", "SPECIES");
@@ -229,6 +236,95 @@
     processCategory("societaluse", "SOCIETAL_USE", true);
     processCategory("lifeform", "WCVP_lifeform_description", true);
     processCategory("climates", "WCVP_climate_description");
+
+    /**============================================
+     *           REACTIVE URL PARAM FILTERS
+     *=============================================**/
+
+    // Access URL parameters
+    const queryParams = $page.url.searchParams;
+    const queryParamsKeys = [...queryParams.keys()];
+
+    // Process each parameter
+    for (const param of queryParams.keys()) {
+      const paramValue = queryParams.get(param);
+      let appliedFilters = paramValue
+        .split(",")
+        .map((label) => ({ label, checked: true }));
+
+      const category = param;
+
+      let categoryIndex = checkboxStates[category].items;
+      let categoryFilters = categoryIndex.map(
+        (categoryFilter) => categoryFilter.value,
+      );
+
+      appliedFilters.forEach((filter) => {
+        categoryFilters.forEach((item) => {
+          if (item === filter.label) {
+            const checkboxFilter = categoryIndex.find(
+              (checkbox) => checkbox.value === filter.label,
+            );
+            checkboxFilter.checked = true;
+          }
+        });
+      });
+
+      // set etc
+      const indvParam = paramValue.split(",");
+
+      let selectedPairing = {
+        cat: category,
+        value: indvParam,
+      };
+
+      const { cat, value } = selectedPairing;
+      if (!selectedCategories[cat]) {
+        selectedCategories[cat] = [];
+        selectedCategories[cat].push(...value);
+        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+      } else if (!selectedCategories[cat].includes(value)) {
+        selectedCategories[cat].push(value);
+        selectedCategories[cat].push(...value);
+        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+      }
+
+      categoryStore.set(selectedCategories);
+    }
+
+    async function getSelectedSpecies() {
+      let selectedSpecies = new Set();
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            let property = getCategoryProperty(category);
+            let value = item.value || item.label;
+            let matchingItems = metadata.filter((metaItem) => {
+              let dataValue = metaItem[property];
+              return Array.isArray(dataValue)
+                ? dataValue.includes(value)
+                : dataValue === value;
+            });
+            matchingItems.forEach((match) =>
+              selectedSpecies.add(match.SPECIES_NAME_PRINT),
+            );
+          }
+        });
+      });
+
+      await selectedSpeciesStore.set(selectedSpecies);
+
+      if (selectedSpecies.size > 0) {
+        d3.select("#clearFilters").style("visibility", "visible");
+      } else {
+        d3.select("#clearFilters").style("visibility", "hidden");
+      }
+    }
+
+    getSelectedSpecies();
+
+    // Call updateTreeVisualization again after processing all params
+    updateTreeVisualization();
   });
 
   /**============================================
@@ -293,7 +389,7 @@
       return items; // Return all items if search term is empty
     }
     return items
-      .filter((item) => item.label.toLowerCase().startsWith(searchTerm))
+      .filter((item) => item.label.toLowerCase().startsWith(searchTerm)) // If we want to also have results that INCLUDE the searchterm, we can change startsWith to includes
       .sort((a, b) => {
         // Sort checked items to the top
         if (a.checked === b.checked) {
@@ -305,6 +401,7 @@
 
   function toggleSelectAll(category) {
     const allSelected = !checkboxStates[category].allSelected;
+
     checkboxStates = {
       ...checkboxStates,
       [category]: {
@@ -317,47 +414,120 @@
       },
     };
 
+    const allArray = checkboxStates[category].items.map((item) => item.value);
+    console.log(allArray);
+
+    if (checkboxStates[category].allSelected === true) {
+      console.log(checkboxStates[category].allSelected);
+      allArray.forEach((item) => {
+        let selectedPairing = {
+          cat: category,
+          value: item,
+        };
+
+        const { cat, value } = selectedPairing;
+        if (!selectedCategories[cat]) {
+          selectedCategories[cat] = [];
+          selectedCategories[cat].push(value);
+        } else if (!selectedCategories[cat].includes(value)) {
+          selectedCategories[cat].push(value);
+          selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+        }
+      });
+
+      console.log(selectedCategories);
+    } else {
+      console.log(checkboxStates[category].allSelected);
+      selectedCategories[category] = [];
+    }
+    categoryStore.set(selectedCategories);
+
     updateTreeVisualization();
   }
 
-  function handleCheckboxChange(category, itemLabel) {
-    let item = [category].find((item) => item.label === itemLabel);
-    if (item) {
-      item.checked = !item.checked;
+  function handleCheckboxChange(category, itemLabel, categoryname) {
+    let itemsArray = checkboxStates[categoryname].items;
+
+    const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
+
+    if (!relevantCheckbox) {
+      console.error("Relevant checkbox not found");
+      return;
     }
 
-    checkboxStates = {
-      ...checkboxStates,
-      [category]: {
-        ...[category],
-        items: [...[category]],
-      },
+    let selectedPairing = {
+      category: categoryname,
+      value: relevantCheckbox.value,
     };
+
+    // Check if the checkbox is checked or unchecked
+    if (relevantCheckbox.checked) {
+      // Checkbox is checked, add to selectedItems and update selectedCategories
+      selectedItems.push(selectedPairing);
+
+      checkboxStates[categoryname].items.forEach((checkbox) => {
+        if (checkbox.value === selectedPairing.value) {
+          checkbox.checked = true;
+        }
+      });
+
+      // Update selectedCategories
+      const { category, value } = selectedPairing;
+      if (!selectedCategories[category]) {
+        selectedCategories[category] = [value];
+      } else if (!selectedCategories[category].includes(value)) {
+        selectedCategories[category].push(value);
+      }
+    } else {
+      // Checkbox is unchecked, remove from selectedItems and selectedCategories
+      selectedItems = selectedItems.filter(
+        (item) => item.value !== relevantCheckbox.value,
+      );
+
+      checkboxStates[categoryname].items.forEach((checkbox) => {
+        if (checkbox.value === selectedPairing.value) {
+          checkbox.checked = false;
+        }
+      });
+
+      const categoryValues = selectedCategories[categoryname];
+      if (categoryValues) {
+        selectedCategories[categoryname] = categoryValues.filter(
+          (value) => value !== relevantCheckbox.value,
+        );
+      }
+    }
+
+    // Update the categoryStore with the new selectedCategories
+    categoryStore.set(selectedCategories);
 
     // New logic for filtering and updating the tree
     updateTreeVisualization();
   }
 
-  console.log("CHECKBOXSTATES:", checkboxStates);
-
   function handleGlobalSearchCheckboxChange(item) {
+    let categoryName;
+    let checked;
+
     // Find the item in its original category and update its checked state
-    const categories = [
-      checkboxStates.subfamilies,
-      checkboxStates.supertribes,
-      checkboxStates.tribes,
-      checkboxStates.genuses,
-      checkboxStates.species,
-      checkboxStates.geographicareas,
-      checkboxStates.continents,
-      checkboxStates.countries,
-      checkboxStates.growthForm,
-      checkboxStates.societaluse,
-      checkboxStates.lifeform,
-      checkboxStates.climates,
-    ];
+    const categoryNames = {
+      subfamilies: checkboxStates.subfamilies,
+      supertribes: checkboxStates.supertribes,
+      tribes: checkboxStates.tribes,
+      genuses: checkboxStates.genuses,
+      species: checkboxStates.species,
+      geographicareas: checkboxStates.geographicareas,
+      continents: checkboxStates.continents,
+      countries: checkboxStates.countries,
+      growthForm: checkboxStates.growthForm,
+      societaluse: checkboxStates.societaluse,
+      lifeform: checkboxStates.lifeform,
+      climates: checkboxStates.climates,
+    };
+    const categories = Object.values(categoryNames);
 
     categories.forEach((category) => {
+      // Create indexes
       const index = category.items.findIndex(
         (categoryItem) => categoryItem.label === item.label,
       );
@@ -367,7 +537,65 @@
           checked: item.checked,
         };
       }
+
+      // Track selected checkboxes and their categories for parameter changes
+      checked = category.items.filter(
+        (checkbox) => checkbox.label === item.label,
+      );
+
+      if (checked.length >= 1) {
+        // Find the name of the current category using the mapping
+        categoryName = Object.keys(categoryNames).find(
+          (key) => categoryNames[key] === category,
+        );
+      }
     });
+
+    // Only proceed if the checkbox is checked or found in one or more categories
+    if (item.checked || checked.length >= 1) {
+      let selectedPairing = {
+        category: categoryName,
+        value: item.value,
+      };
+
+      // Further processing for when the checkbox is checked
+      if (item.checked) {
+        // Checkbox is checked, add to selectedItems and update selectedCategories
+        selectedItems.push(selectedPairing);
+
+        // Update selectedCategories
+        const { category, value } = selectedPairing;
+        if (!selectedCategories[category]) {
+          selectedCategories[category] = [value];
+        } else if (!selectedCategories[category].includes(value)) {
+          selectedCategories[category].push(value);
+        }
+      }
+
+      // New logic for filtering and updating the tree
+      updateTreeVisualization();
+    } else {
+      // Checkbox is unchecked, remove from selectedItems and selectedCategories
+      selectedItems = selectedItems.filter(
+        (select) => select.value !== item.value,
+      );
+
+      checkboxStates[categoryName].items.forEach((checkbox) => {
+        if (checkbox.value === item.value) {
+          checkbox.checked = false;
+        }
+      });
+
+      const categoryValues = selectedCategories[categoryName];
+      if (categoryName) {
+        selectedCategories[categoryName] = categoryValues.filter(
+          (value) => value !== item.value,
+        );
+      }
+    }
+
+    // Update the categoryStore with the new selectedCategories
+    categoryStore.set(selectedCategories);
 
     // Trigger reactivity by assigning a new array
     categories.forEach((category) => {
@@ -378,7 +606,6 @@
   }
 
   function clearAllFilters() {
-    console.log("Clear filters requested!");
     Object.keys(checkboxStates).forEach((category) => {
       checkboxStates[category].items.forEach((item) => {
         item.checked = false;
@@ -388,13 +615,15 @@
       if ("allSelected" in checkboxStates[category]) {
         checkboxStates[category].allSelected = false;
       }
+
+      selectedCategories = {};
+      categoryStore.set(selectedCategories);
     });
 
     updateTreeVisualization(); // Update the tree visualization
   }
 
   function updateTreeVisualization() {
-    console.log("CALLED FOR UPDATE");
     let selectedSpecies = new Set();
 
     Object.entries(checkboxStates).forEach(([category, state]) => {
@@ -415,7 +644,6 @@
       });
     });
 
-    console.log("SPECIES TEST:", selectedSpecies);
     selectedSpeciesStore.set(selectedSpecies);
 
     if (selectedSpecies.size > 0) {
@@ -580,6 +808,7 @@
                     handleCheckboxChange(
                       checkboxStates.subfamilies.items,
                       subfamily.label,
+                      "subfamilies",
                     )}
                   value={subfamily}
                 />
@@ -607,6 +836,7 @@
                     handleCheckboxChange(
                       checkboxStates.supertribes.items,
                       supertribe.label,
+                      "supertribes",
                     )}
                   value={supertribe}
                 />
@@ -634,6 +864,7 @@
                     handleCheckboxChange(
                       checkboxStates.tribes.items,
                       tribe.label,
+                      "tribes",
                     )}
                   value={tribe}
                 />
@@ -661,6 +892,7 @@
                     handleCheckboxChange(
                       checkboxStates.genuses.items,
                       genus.label,
+                      "genuses",
                     )}
                   value={genus}
                 />
@@ -688,6 +920,7 @@
                     handleCheckboxChange(
                       checkboxStates.species.items,
                       specie.label,
+                      "species",
                     )}
                   value={specie}
                 />
@@ -733,6 +966,7 @@
                     handleCheckboxChange(
                       checkboxStates.continents.items,
                       continent.label,
+                      "continents",
                     )}
                 />
                 {continent.label}
@@ -759,6 +993,7 @@
                     handleCheckboxChange(
                       checkboxStates.geographicareas.items,
                       geographicarea.label,
+                      "geographicareas",
                     )}
                   value={geographicarea.label}
                 />
@@ -786,6 +1021,7 @@
                     handleCheckboxChange(
                       checkboxStates.countries.items,
                       country.label,
+                      "countries",
                     )}
                 />
                 {country.label}
@@ -837,6 +1073,7 @@
                     handleCheckboxChange(
                       checkboxStates.growthForm.items,
                       item.label,
+                      "growthForm",
                     )}
                 />
                 {item.label}
@@ -870,6 +1107,7 @@
                     handleCheckboxChange(
                       checkboxStates.societaluse.items,
                       item.label,
+                      "societaluse",
                     )}
                 />
                 {item.label}
@@ -903,6 +1141,7 @@
                     handleCheckboxChange(
                       checkboxStates.lifeform.items,
                       item.label,
+                      "lifeform",
                     )}
                 />
                 <span>{item.label}</span>
@@ -936,6 +1175,7 @@
                     handleCheckboxChange(
                       checkboxStates.climates.items,
                       item.label,
+                      "climates",
                     )}
                 />
                 <span>{item.label}</span>
