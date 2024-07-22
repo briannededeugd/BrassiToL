@@ -6,6 +6,7 @@
   import { writable } from "svelte/store";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
+  import Page from "../../routes/+page.svelte";
 
   // Simple 'capitalize every first letter'-function
   function capitalizeFirstLetter(string) {
@@ -271,7 +272,6 @@
 
       // set etc
       const indvParam = paramValue.split(",");
-      console.log("The param value:", indvParam);
 
       let selectedPairing = {
         cat: category,
@@ -289,7 +289,6 @@
         selectedCategories[cat] = [...new Set(selectedCategories[cat])];
       }
 
-      console.log("The selected categories are:", selectedCategories);
       categoryStore.set(selectedCategories);
     }
 
@@ -320,9 +319,6 @@
       } else {
         d3.select("#clearFilters").style("visibility", "hidden");
       }
-
-      // console.log("The parameter categories are:", queryParamsKeys);
-      console.log("The selected categories are:", selectedCategories);
     }
 
     getSelectedSpecies();
@@ -481,23 +477,28 @@
   }
 
   function handleGlobalSearchCheckboxChange(item) {
+    let categoryName;
+    let checked;
+
     // Find the item in its original category and update its checked state
-    const categories = [
-      checkboxStates.subfamilies,
-      checkboxStates.supertribes,
-      checkboxStates.tribes,
-      checkboxStates.genuses,
-      checkboxStates.species,
-      checkboxStates.geographicareas,
-      checkboxStates.continents,
-      checkboxStates.countries,
-      checkboxStates.growthForm,
-      checkboxStates.societaluse,
-      checkboxStates.lifeform,
-      checkboxStates.climates,
-    ];
+    const categoryNames = {
+      subfamilies: checkboxStates.subfamilies,
+      supertribes: checkboxStates.supertribes,
+      tribes: checkboxStates.tribes,
+      genuses: checkboxStates.genuses,
+      species: checkboxStates.species,
+      geographicareas: checkboxStates.geographicareas,
+      continents: checkboxStates.continents,
+      countries: checkboxStates.countries,
+      growthForm: checkboxStates.growthForm,
+      societaluse: checkboxStates.societaluse,
+      lifeform: checkboxStates.lifeform,
+      climates: checkboxStates.climates,
+    };
+    const categories = Object.values(categoryNames);
 
     categories.forEach((category) => {
+      // Create indexes
       const index = category.items.findIndex(
         (categoryItem) => categoryItem.label === item.label,
       );
@@ -507,7 +508,46 @@
           checked: item.checked,
         };
       }
+
+      // Track selected checkboxes and their categories for parameter changes
+      checked = category.items.filter(
+        (checkbox) => checkbox.label === item.label,
+      );
+
+      // Find the name of the current category using the mapping
+      categoryName = Object.keys(categoryNames).find(
+        (key) => categoryNames[key] === category,
+      );
     });
+
+    // Only proceed if the checkbox is checked or found in one or more categories
+    if (item.checked || checked.length >= 1) {
+
+      let selectedPairing = {
+        category: categoryName,
+        value: item.value,
+      };
+
+      // Further processing for when the checkbox is checked
+      if (item.checked) {
+        // Checkbox is checked, add to selectedItems and update selectedCategories
+        selectedItems.push(selectedPairing);
+
+        // Update selectedCategories
+        const { category, value } = selectedPairing;
+        if (!selectedCategories[category]) {
+          selectedCategories[category] = [value];
+        } else if (!selectedCategories[category].includes(value)) {
+          selectedCategories[category].push(value);
+        }
+      }
+
+      // Update the categoryStore with the new selectedCategories
+      categoryStore.set(selectedCategories);
+
+      // New logic for filtering and updating the tree
+      updateTreeVisualization();
+    }
 
     // Trigger reactivity by assigning a new array
     categories.forEach((category) => {
