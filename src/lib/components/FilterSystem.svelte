@@ -306,9 +306,7 @@
         .split(",")
         .map((label) => ({ label, checked: true }));
 
-      // Assuming param is the actual category name and not the parameter name
-      // Adjust this logic based on how your URL parameters are structured
-      const category = param; // This should match the category names defined in checkboxStates
+      const category = param;
 
       let categoryIndex = checkboxStates[category].items;
       let categoryFilters = categoryIndex.map(
@@ -318,14 +316,51 @@
       appliedFilters.forEach((filter) => {
         categoryFilters.forEach((item) => {
           if (item === filter.label) {
-            categoryIndex.forEach((checkbox) => {
-              checkbox.checked = true;
-            });
-            updateTreeVisualization(); // Ensure this is called after all updates
+            const checkboxFilter = categoryIndex.find(checkbox => checkbox.value === filter.label);
+
+            checkboxFilter.checked = true;
+            console.log(checkboxFilter);
           }
         });
       });
     }
+
+    async function getSelectedSpecies() {
+      let selectedSpecies = new Set();
+
+      console.log(
+        "THE RIGHT CHECKBOXSTATE ITEMS:",
+        checkboxStates.societaluse.items,
+      );
+
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            let property = getCategoryProperty(category);
+            let value = item.value || item.label;
+            let matchingItems = metadata.filter((metaItem) => {
+              let dataValue = metaItem[property];
+              return Array.isArray(dataValue)
+                ? dataValue.includes(value)
+                : dataValue === value;
+            });
+            matchingItems.forEach((match) =>
+              selectedSpecies.add(match.SPECIES_NAME_PRINT),
+            );
+          }
+        });
+      });
+
+      await selectedSpeciesStore.set(selectedSpecies);
+
+      if (selectedSpecies.size > 0) {
+        d3.select("#clearFilters").style("visibility", "visible");
+      } else {
+        d3.select("#clearFilters").style("visibility", "hidden");
+      }
+    }
+
+    getSelectedSpecies();
 
     // Call updateTreeVisualization again after processing all params
     updateTreeVisualization();
