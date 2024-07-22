@@ -30,62 +30,6 @@
 
   const categoryStore = createCategoryStore(selectedCategories);
 
-  // Reactive statement to update selectedCategories based on URL query parameters
-  // $: {
-  //   // Directly use $page.url.searchParams to access query parameters
-  //   const queryParams = $page.url.searchParams;
-
-  //   // Loop through all parameter names
-  //   for (const param of queryParams.keys()) {
-  //     // Log the parameter key name (or the category name)
-  //     // console.log(`Parameter Name: ${param}`);
-
-  //     // Log the values for each category
-  //     const paramValue = queryParams.get(param);
-  //     // console.log("the value:", paramValue);
-  //     let appliedFilters = paramValue
-  //       .split(",")
-  //       .map((label) => ({ label, checked: true }));
-  //     // console.log("params verwerkt:", appliedFilters);
-
-  //     let categoryIndex = checkboxStates[`${param}`].items;
-  //     let categoryFilters = categoryIndex.map(
-  //       (categoryFilter) => categoryFilter.value,
-  //     );
-  //     // console.log("THE CAT FILTERS:", categoryFilters);
-
-  //     appliedFilters.forEach((filter) => {
-  //       categoryFilters.filter((item) => {
-  //         if (item === filter.label) {
-  //           categoryIndex.filter((checkbox) => (checkbox.checked = true));
-  //           // console.log(
-  //           //   "what the index looks like after the check:",
-  //           //   categoryIndex,
-  //           // );
-
-  //           // categoryIndex.forEach((checkbox) => {
-  //           //   if (checkbox.value === item) {
-  //           //     checkbox.checked = true; // Keep the checkbox checked if the filter is still applied
-  //           //     console.log(
-  //           //       "what the index looks like after the check:",
-  //           //       categoryIndex,
-  //           //     );
-  //           //   } else {
-  //           //     checkbox.checked = false;
-  //           //   }
-  //         }
-  //         updateTreeVisualization();
-  //       });
-
-  //       // else {
-  //       //   // Remove the filter from queryParams
-  //       //   queryParams.delete(param); // This will cause the page to reload with the updated URL
-  //       //   updateTreeVisualization();
-  //       // }
-  //     });
-  //   }
-  // }
-
   // for searching
   let autocompleteOpen = false;
 
@@ -298,6 +242,7 @@
 
     // Access URL parameters
     const queryParams = $page.url.searchParams;
+    const queryParamsKeys = [...queryParams.keys()];
 
     // Process each parameter
     for (const param of queryParams.keys()) {
@@ -316,23 +261,40 @@
       appliedFilters.forEach((filter) => {
         categoryFilters.forEach((item) => {
           if (item === filter.label) {
-            const checkboxFilter = categoryIndex.find(checkbox => checkbox.value === filter.label);
-
+            const checkboxFilter = categoryIndex.find(
+              (checkbox) => checkbox.value === filter.label,
+            );
             checkboxFilter.checked = true;
-            console.log(checkboxFilter);
           }
         });
       });
+
+      // set etc
+      const indvParam = paramValue.split(",");
+      console.log("The param value:", indvParam);
+
+      let selectedPairing = {
+        cat: category,
+        value: indvParam,
+      };
+
+      const { cat, value } = selectedPairing;
+      if (!selectedCategories[cat]) {
+        selectedCategories[cat] = [];
+        selectedCategories[cat].push(...value);
+        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+      } else if (!selectedCategories[cat].includes(value)) {
+        selectedCategories[cat].push(value);
+        selectedCategories[cat].push(...value);
+        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+      }
+
+      console.log("The selected categories are:", selectedCategories);
+      categoryStore.set(selectedCategories);
     }
 
     async function getSelectedSpecies() {
       let selectedSpecies = new Set();
-
-      console.log(
-        "THE RIGHT CHECKBOXSTATE ITEMS:",
-        checkboxStates.societaluse.items,
-      );
-
       Object.entries(checkboxStates).forEach(([category, state]) => {
         state.items.forEach((item) => {
           if (item.checked) {
@@ -358,6 +320,9 @@
       } else {
         d3.select("#clearFilters").style("visibility", "hidden");
       }
+
+      // console.log("The parameter categories are:", queryParamsKeys);
+      console.log("The selected categories are:", selectedCategories);
     }
 
     getSelectedSpecies();
@@ -455,24 +420,6 @@
     updateTreeVisualization();
   }
 
-  // function handleCheckboxChange(category, itemLabel) {
-  //   let item = [category].find((item) => item.label === itemLabel);
-  //   if (item) {
-  //     item.checked = !item.checked;
-  //   }
-
-  //   checkboxStates = {
-  //     ...checkboxStates,
-  //     [category]: {
-  //       ...[category],
-  //       items: [...[category]],
-  //     },
-  //   };
-
-  //   // New logic for filtering and updating the tree
-  //   updateTreeVisualization();
-  // }
-
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let itemsArray = checkboxStates[categoryname].items;
 
@@ -526,17 +473,12 @@
       }
     }
 
-    console.log("Updated selectedItems:", selectedItems);
-    console.log("Updated selectedCategories:", selectedCategories);
-
     // Update the categoryStore with the new selectedCategories
     categoryStore.set(selectedCategories);
 
     // New logic for filtering and updating the tree
     updateTreeVisualization();
   }
-
-  // console.log("CHECKBOXSTATES:", checkboxStates);
 
   function handleGlobalSearchCheckboxChange(item) {
     // Find the item in its original category and update its checked state

@@ -15,7 +15,6 @@
 
     button.on("click", function () {
       welcomeMessage.style("visibility", "hidden");
-      console.log("closing the welcome message");
     });
   });
 
@@ -31,8 +30,6 @@
 
   function toggleView() {
     isFlipped.update((n) => !n);
-    // if (!isFlipped) {
-    // }
   }
 </script>
 
