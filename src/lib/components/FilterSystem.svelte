@@ -586,6 +586,9 @@
       if ("allSelected" in checkboxStates[category]) {
         checkboxStates[category].allSelected = false;
       }
+
+      selectedCategories = {};
+      categoryStore.set(selectedCategories);
     });
 
     updateTreeVisualization(); // Update the tree visualization
