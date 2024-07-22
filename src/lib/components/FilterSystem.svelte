@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { selectedSpeciesStore } from "./store.js";
-  import { createCategoryStore } from "./queryStore";
+  import { createCategoryStore } from "./querystore.js";
   import { writable } from "svelte/store";
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
