@@ -7,7 +7,6 @@
   import Marks from "$lib/components/Marks.svelte";
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
-   
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");
@@ -100,8 +99,7 @@
 
 <style>
   body {
-    background: url("/img/sitebackground.jpeg") no-repeat center center
-      fixed;
+    background: url("/img/sitebackground.jpeg") no-repeat center center fixed;
     background-size: cover;
     width: 100%;
     min-height: 100%;

@@ -389,7 +389,7 @@
       return items; // Return all items if search term is empty
     }
     return items
-      .filter((item) => item.label.toLowerCase().startsWith(searchTerm))
+      .filter((item) => item.label.toLowerCase().startsWith(searchTerm)) // If we want to also have results that INCLUDE the searchterm, we can change startsWith to includes
       .sort((a, b) => {
         // Sort checked items to the top
         if (a.checked === b.checked) {
@@ -418,7 +418,7 @@
     console.log(allArray);
 
     if (checkboxStates[category].allSelected === true) {
-      console.log(checkboxStates[category].allSelected)
+      console.log(checkboxStates[category].allSelected);
       allArray.forEach((item) => {
         let selectedPairing = {
           cat: category,
