@@ -401,6 +401,7 @@
 
   function toggleSelectAll(category) {
     const allSelected = !checkboxStates[category].allSelected;
+
     checkboxStates = {
       ...checkboxStates,
       [category]: {
@@ -412,6 +413,34 @@
         })),
       },
     };
+
+    const allArray = checkboxStates[category].items.map((item) => item.value);
+    console.log(allArray);
+
+    if (checkboxStates[category].allSelected === true) {
+      console.log(checkboxStates[category].allSelected)
+      allArray.forEach((item) => {
+        let selectedPairing = {
+          cat: category,
+          value: item,
+        };
+
+        const { cat, value } = selectedPairing;
+        if (!selectedCategories[cat]) {
+          selectedCategories[cat] = [];
+          selectedCategories[cat].push(value);
+        } else if (!selectedCategories[cat].includes(value)) {
+          selectedCategories[cat].push(value);
+          selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+        }
+      });
+
+      console.log(selectedCategories);
+    } else {
+      console.log(checkboxStates[category].allSelected);
+      selectedCategories[category] = [];
+    }
+    categoryStore.set(selectedCategories);
 
     updateTreeVisualization();
   }
