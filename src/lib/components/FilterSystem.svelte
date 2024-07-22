@@ -514,15 +514,16 @@
         (checkbox) => checkbox.label === item.label,
       );
 
-      // Find the name of the current category using the mapping
-      categoryName = Object.keys(categoryNames).find(
-        (key) => categoryNames[key] === category,
-      );
+      if (checked.length >= 1) {
+        // Find the name of the current category using the mapping
+        categoryName = Object.keys(categoryNames).find(
+          (key) => categoryNames[key] === category,
+        );
+      }
     });
 
     // Only proceed if the checkbox is checked or found in one or more categories
     if (item.checked || checked.length >= 1) {
-
       let selectedPairing = {
         category: categoryName,
         value: item.value,
@@ -542,12 +543,30 @@
         }
       }
 
-      // Update the categoryStore with the new selectedCategories
-      categoryStore.set(selectedCategories);
-
       // New logic for filtering and updating the tree
       updateTreeVisualization();
+    } else {
+      // Checkbox is unchecked, remove from selectedItems and selectedCategories
+      selectedItems = selectedItems.filter(
+        (select) => select.value !== item.value,
+      );
+
+      checkboxStates[categoryName].items.forEach((checkbox) => {
+        if (checkbox.value === item.value) {
+          checkbox.checked = false;
+        }
+      });
+
+      const categoryValues = selectedCategories[categoryName];
+      if (categoryName) {
+        selectedCategories[categoryName] = categoryValues.filter(
+          (value) => value !== item.value,
+        );
+      }
     }
+
+    // Update the categoryStore with the new selectedCategories
+    categoryStore.set(selectedCategories);
 
     // Trigger reactivity by assigning a new array
     categories.forEach((category) => {
