@@ -22,8 +22,14 @@
   let metadata = [];
   let landcodes = [];
   let selectedCategories = {};
-  let paramValue;
   let selectedItems = [];
+  let unionizeFilters;
+
+  let firstLevelFilters = [];
+  let secondLevelFilters = [];
+  let thirdLevelFilters = [];
+  let fourthLevelFilters = [];
+  let fifthLevelFilters = [];
 
   /**============================================
    *             Dynamic URL Check
@@ -74,6 +80,7 @@
     landcodes = await landcodeResponse.json();
 
     d3.select("#clearFilters").on("click", clearAllFilters);
+    unionizeFilters = document.querySelector("#unionizeFiltersInput");
 
     /**======================
      *    NEW SETS FOR FILTERING FAMILIES
@@ -447,7 +454,6 @@
 
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let itemsArray = checkboxStates[categoryname].items;
-
     const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
 
     if (!relevantCheckbox) {
@@ -626,25 +632,74 @@
   function updateTreeVisualization() {
     let selectedSpecies = new Set();
 
-    Object.entries(checkboxStates).forEach(([category, state]) => {
-      state.items.forEach((item) => {
-        if (item.checked) {
-          let property = getCategoryProperty(category);
-          let value = item.value || item.label;
-          let matchingItems = metadata.filter((metaItem) => {
-            let dataValue = metaItem[property];
-            return Array.isArray(dataValue)
-              ? dataValue.includes(value)
-              : dataValue === value;
-          });
-          matchingItems.forEach((match) =>
-            selectedSpecies.add(match.SPECIES_NAME_PRINT),
-          );
-        }
+    if (!unionizeFilters.checked) {
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            let property = getCategoryProperty(category);
+            let value = item.value || item.label;
+            let matchingItems = metadata.filter((metaItem) => {
+              let dataValue = metaItem[property];
+              return Array.isArray(dataValue)
+                ? dataValue.includes(value)
+                : dataValue === value;
+            });
+            matchingItems.forEach((match) =>
+              selectedSpecies.add(match.SPECIES_NAME_PRINT),
+            );
+          }
+        });
       });
-    });
 
-    selectedSpeciesStore.set(selectedSpecies);
+      selectedSpeciesStore.set(selectedSpecies);
+    } else {
+      if (firstLevelFilters.length === 0) {
+        populateSelectedSpecies(metadata, firstLevelFilters);
+      } else if (secondLevelFilters.length === 0) {
+        populateSelectedSpecies(firstLevelFilters, secondLevelFilters);
+      } else if (thirdLevelFilters.length === 0) {
+        populateSelectedSpecies(secondLevelFilters, thirdLevelFilters);
+      } else if (fourthLevelFilters.length === 0) {
+        populateSelectedSpecies(thirdLevelFilters, fourthLevelFilters);
+      } else if (fifthLevelFilters.length === 0) {
+        populateSelectedSpecies(fourthLevelFilters, fifthLevelFilters);
+      } else {
+        console.log("Maximum levels reached msg or something");
+      }
+
+      function populateSelectedSpecies(data, level) {
+        let collectedMatchingItems = data; // Initialize with the input data
+
+        Object.entries(checkboxStates).forEach(([category, state]) => {
+          state.items.forEach((item) => {
+            if (item.checked) {
+              let property = getCategoryProperty(category);
+              let value = item.value || item.label;
+              // Filter collectedMatchingItems progressively
+              collectedMatchingItems = collectedMatchingItems.filter(
+                (metaItem) => {
+                  let dataValue = metaItem[property];
+                  return Array.isArray(dataValue)
+                    ? dataValue.includes(value)
+                    : dataValue === value;
+                },
+              );
+            }
+          });
+        });
+
+        // Assuming you want to add SPECIES_NAME_PRINT of matching items to level
+        collectedMatchingItems.forEach((match) => {
+          selectedSpecies.add(match.SPECIES_NAME_PRINT);
+          level.push(match);
+        });
+
+        console.log("THE DATA WE'RE FILTERING WITH:", data);
+        console.log("AND THE LEVEL (matches count):", level.length);
+
+        selectedSpeciesStore.set(selectedSpecies);
+      }
+    }
 
     if (selectedSpecies.size > 0) {
       d3.select("#clearFilters").style("visibility", "visible");
@@ -1216,7 +1271,7 @@
 
   <!-- UNIONIZE FILTERS -->
   <label id="unionize-filters">
-    <input type="checkbox" />
+    <input type="checkbox" id="unionizeFiltersInput" />
     <div class="container">
       <div>
         <p>Off</p>
@@ -1226,7 +1281,7 @@
       </div>
     </div>
   </label>
-  
+
   <div class="spacer"></div>
   <button id="clearFilters" style="visibility: hidden">Clear Filters</button>
 </section>
