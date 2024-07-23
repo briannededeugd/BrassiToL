@@ -212,3 +212,63 @@
     border: none;
     accent-color: #729a68;
   }
+
+  /* **************** */
+  /* UNIONIZE FILTERS */
+  /* **************** */
+
+  #unionize-filters {
+    display: flex;
+
+    & input[type=checkbox] {
+      visibility: hidden;
+      max-height: 0.01em;
+      width: 0;
+      opacity: 0;
+    }
+
+    & .container {
+      display: flex;
+      height: max-content;
+      color: white;
+      font-family: "Bayon", sans-serif;
+      font-size: 1.5em;
+      position: relative;
+
+      & div {
+        padding: 0 .5em;
+        width: 35px;
+        cursor: pointer;
+        border-radius: 16px;
+        position: relative;
+        z-index: 1;
+        text-align: center;
+
+        & p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        border-radius: 16px;
+        background-color: #729a69;
+        left: 0;
+        z-index: 0;
+        transition: all .3s ease-in-out;
+      }
+    }
+
+    &:has(input[type=checkbox]:checked) {
+      & .container {
+        &::before {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }

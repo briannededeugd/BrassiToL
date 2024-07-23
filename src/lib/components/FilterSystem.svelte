@@ -1214,6 +1214,19 @@
     {/if}
   </section>
 
+  <!-- UNIONIZE FILTERS -->
+  <label id="unionize-filters">
+    <input type="checkbox" />
+    <div class="container">
+      <div>
+        <p>Off</p>
+      </div>
+      <div>
+        <p>On</p>
+      </div>
+    </div>
+  </label>
+  
   <div class="spacer"></div>
   <button id="clearFilters" style="visibility: hidden">Clear Filters</button>
 </section>
