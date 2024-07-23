@@ -249,75 +249,102 @@
      *=============================================**/
 
     // Access URL parameters
-    const queryParams = $page.url.searchParams;
-    const queryParamsKeys = [...queryParams.keys()];
+    const queryParams = new URLSearchParams(window.location.search);
+
+    // Temporary storage for selected categories
+    let selectedCategories = {};
 
     // Process each parameter
-    for (const param of queryParams.keys()) {
-      const paramValue = queryParams.get(param);
-      let appliedFilters = paramValue
-        .split(",")
-        .map((label) => ({ label, checked: true }));
+    for (const [param, paramValue] of queryParams.entries()) {
+      if (param === "unionizeFilters") {
+        unionizeFilters.checked = paramValue === "true";
+      } else {
+        let appliedFilters = paramValue
+          .split(",")
+          .map((label) => ({ label, checked: true }));
+        const category = param;
 
-      const category = param;
+        let categoryIndex = checkboxStates[category].items;
+        let categoryFilters = categoryIndex.map(
+          (categoryFilter) => categoryFilter.value,
+        );
 
-      let categoryIndex = checkboxStates[category].items;
-      let categoryFilters = categoryIndex.map(
-        (categoryFilter) => categoryFilter.value,
-      );
-
-      appliedFilters.forEach((filter) => {
-        categoryFilters.forEach((item) => {
-          if (item === filter.label) {
-            const checkboxFilter = categoryIndex.find(
-              (checkbox) => checkbox.value === filter.label,
-            );
-            checkboxFilter.checked = true;
-          }
+        appliedFilters.forEach((filter) => {
+          categoryFilters.forEach((item) => {
+            if (item === filter.label) {
+              const checkboxFilter = categoryIndex.find(
+                (checkbox) => checkbox.value === filter.label,
+              );
+              checkboxFilter.checked = true;
+            }
+          });
         });
-      });
 
-      // set etc
-      const indvParam = paramValue.split(",");
+        // Set the selected categories
+        let indvParam = paramValue.split(",");
+        let selectedPairing = { cat: category, value: indvParam };
+        const { cat, value } = selectedPairing;
 
-      let selectedPairing = {
-        cat: category,
-        value: indvParam,
-      };
-
-      const { cat, value } = selectedPairing;
-      if (!selectedCategories[cat]) {
-        selectedCategories[cat] = [];
-        selectedCategories[cat].push(...value);
-        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
-      } else if (!selectedCategories[cat].includes(value)) {
-        selectedCategories[cat].push(value);
-        selectedCategories[cat].push(...value);
-        selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+        if (!selectedCategories[cat]) {
+          selectedCategories[cat] = [];
+          selectedCategories[cat].push(...value);
+          selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+        } else if (!selectedCategories[cat].includes(value)) {
+          selectedCategories[cat].push(...value);
+          selectedCategories[cat] = [...new Set(selectedCategories[cat])];
+        }
       }
-
-      categoryStore.set(selectedCategories);
     }
 
+    // Update the category store with selected categories
+    categoryStore.set(selectedCategories);
+
+    // Function to get selected species based on the current checkbox states
     async function getSelectedSpecies() {
       let selectedSpecies = new Set();
-      Object.entries(checkboxStates).forEach(([category, state]) => {
-        state.items.forEach((item) => {
-          if (item.checked) {
-            let property = getCategoryProperty(category);
-            let value = item.value || item.label;
-            let matchingItems = metadata.filter((metaItem) => {
-              let dataValue = metaItem[property];
-              return Array.isArray(dataValue)
-                ? dataValue.includes(value)
-                : dataValue === value;
-            });
-            matchingItems.forEach((match) =>
-              selectedSpecies.add(match.SPECIES_NAME_PRINT),
-            );
-          }
+
+      if (!unionizeFilters.checked) {
+        Object.entries(checkboxStates).forEach(([category, state]) => {
+          state.items.forEach((item) => {
+            if (item.checked) {
+              let property = getCategoryProperty(category);
+              let value = item.value || item.label;
+              let matchingItems = metadata.filter((metaItem) => {
+                let dataValue = metaItem[property];
+                return Array.isArray(dataValue)
+                  ? dataValue.includes(value)
+                  : dataValue === value;
+              });
+              matchingItems.forEach((match) =>
+                selectedSpecies.add(match.SPECIES_NAME_PRINT),
+              );
+            }
+          });
         });
-      });
+      } else {
+        let collectedMatchingItems = metadata;
+
+        Object.entries(checkboxStates).forEach(([category, state]) => {
+          state.items.forEach((item) => {
+            if (item.checked) {
+              let property = getCategoryProperty(category);
+              let value = item.value || item.label;
+              collectedMatchingItems = collectedMatchingItems.filter(
+                (metaItem) => {
+                  let dataValue = metaItem[property];
+                  return Array.isArray(dataValue)
+                    ? dataValue.includes(value)
+                    : dataValue === value;
+                },
+              );
+            }
+          });
+        });
+
+        collectedMatchingItems.forEach((match) => {
+          selectedSpecies.add(match.SPECIES_NAME_PRINT);
+        });
+      }
 
       await selectedSpeciesStore.set(selectedSpecies);
 
@@ -328,9 +355,10 @@
       }
     }
 
+    // Get selected species based on the initial state
     getSelectedSpecies();
 
-    // Call updateTreeVisualization again after processing all params
+    // Call updateTreeVisualization after processing all params
     updateTreeVisualization();
   });
 
