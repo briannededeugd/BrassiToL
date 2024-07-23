@@ -450,10 +450,8 @@
     };
 
     const allArray = checkboxStates[category].items.map((item) => item.value);
-    console.log(allArray);
 
     if (checkboxStates[category].allSelected === true) {
-      console.log(checkboxStates[category].allSelected);
       allArray.forEach((item) => {
         let selectedPairing = {
           cat: category,
@@ -469,10 +467,7 @@
           selectedCategories[cat] = [...new Set(selectedCategories[cat])];
         }
       });
-
-      console.log(selectedCategories);
     } else {
-      console.log(checkboxStates[category].allSelected);
       selectedCategories[category] = [];
     }
     categoryStore.set(selectedCategories);
@@ -512,14 +507,13 @@
         delete selectedCategories["unionizeFilters"];
       }
 
-       // Clear all levels
+      // Clear all levels
       firstLevelFilters = [];
       secondLevelFilters = [];
       thirdLevelFilters = [];
       fourthLevelFilters = [];
       fifthLevelFilters = [];
 
-      console.log("THE SELECTED CATEGORIES", selectedCategories);
       categoryStore.set(selectedCategories);
 
       updateTreeVisualization();
@@ -719,6 +713,11 @@
         checkboxStates[category].allSelected = false;
       }
 
+      // Reset and/or
+      if (unionizeFilters.checked) {
+        unionizeFilters.click();
+      }
+
       selectedCategories = {};
       categoryStore.set(selectedCategories);
     });
@@ -761,7 +760,8 @@
       } else if (fifthLevelFilters.length === 0) {
         populateSelectedSpecies(fourthLevelFilters, fifthLevelFilters);
       } else {
-        console.log("Maximum levels reached msg or something");
+        d3.select("#levelwarning").style.opacity = 1;
+        console.log("FINALLY REACHED THIS ONE");
       }
 
       function populateSelectedSpecies(data, level) {
@@ -789,10 +789,6 @@
           selectedSpecies.add(match.SPECIES_NAME_PRINT);
           level.push(match);
         });
-
-        console.log("THE DATA WE'RE FILTERING WITH:", data);
-        console.log("AND THE LEVEL (matches count):", level.length);
-
         selectedSpeciesStore.set(selectedSpecies);
       }
     }
@@ -1338,6 +1334,23 @@
     {/if}
   </section>
 
+  <!-- UNIONIZE FILTERS -->
+  <label id="unionize-filters">
+    <input
+      type="checkbox"
+      id="unionizeFiltersInput"
+      on:change={() => handleUnionizeFiltersChange()}
+    />
+    <div class="container">
+      <div>
+        <p>And</p>
+      </div>
+      <div>
+        <p>Or</p>
+      </div>
+    </div>
+  </label>
+
   <!-- SEARCH -->
   <section class="dropdown-container">
     <input type="text" placeholder="Search" bind:value={searchAll} />
@@ -1365,23 +1378,14 @@
     {/if}
   </section>
 
-  <!-- UNIONIZE FILTERS -->
-  <label id="unionize-filters">
-    <input
-      type="checkbox"
-      id="unionizeFiltersInput"
-      on:change={() => handleUnionizeFiltersChange()}
-    />
-    <div class="container">
-      <div>
-        <p>Off</p>
-      </div>
-      <div>
-        <p>On</p>
-      </div>
-    </div>
-  </label>
-
   <div class="spacer"></div>
   <button id="clearFilters" style="visibility: hidden">Clear Filters</button>
+</section>
+
+<section id="levelwarning">
+  <h3>Your maximum level of stacked filters has been reached.</h3>
+  <p>
+    You cannot filter deeper than this. Uncheck one of your checkboxes to
+    continue filtering.
+  </p>
 </section>

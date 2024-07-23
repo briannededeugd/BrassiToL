@@ -15,6 +15,8 @@
     color: #e1e1e1;
     border: none;
     font-size: 1em;
+    line-height: 1;
+    width: 80px;
   }
 
   #clearFilters:hover {
@@ -45,7 +47,6 @@
     background: transparent;
     border: none;
     width: 15vw;
-    margin-left: 2em;
     text-align: left;
     justify-content: space-between;
     align-items: center;
@@ -234,12 +235,15 @@
       font-family: "Bayon", sans-serif;
       font-size: 1.5em;
       position: relative;
+      /* background-color: #0c261d; */
+      border: 1px solid #729a68;
+      border-radius: 10px;
 
       & div {
         padding: 0 .5em;
         width: 35px;
         cursor: pointer;
-        border-radius: 16px;
+        border-radius: 10px;
         position: relative;
         z-index: 1;
         text-align: center;
@@ -256,9 +260,10 @@
         position: absolute;
         height: 100%;
         width: 50%;
-        border-radius: 16px;
-        background-color: #729a69;
-        left: 0;
+        border-radius: 06px;
+        background-color: #729a699d;
+        backdrop-filter: blur(5px);
+        right: 0%;
         z-index: 0;
         transition: all .3s ease-in-out;
       }
@@ -267,8 +272,21 @@
     &:has(input[type=checkbox]:checked) {
       & .container {
         &::before {
-          transform: translateX(100%);
+          transform: translateX(-100%);
         }
       }
     }
+  }
+
+  #levelwarning {
+    max-width: 120px;
+    border-radius: 16px;
+    background-color: #0d1c1bc5;
+    backdrop-filter: blur(5px);
+    padding: .5em 1em;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
   }
