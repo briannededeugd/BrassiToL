@@ -496,12 +496,13 @@
         selectedCategories[category].push(value);
       }
 
+      // Reset levels to avoid duplicates when toggling
       firstLevelFilters = [];
       secondLevelFilters = [];
       thirdLevelFilters = [];
       fourthLevelFilters = [];
       fifthLevelFilters = [];
-      
+
       // Update the categoryStore with the new selectedCategories
       categoryStore.set(selectedCategories);
       updateTreeVisualization();
