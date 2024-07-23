@@ -499,12 +499,22 @@
       // Update the categoryStore with the new selectedCategories
       categoryStore.set(selectedCategories);
     } else {
-      const categoryValues = selectedCategories[categoryname];
-      if (categoryValues) {
-        selectedCategories[categoryname] = categoryValues.filter(
-          (value) => value !== relevantCheckbox.value,
-        );
+      // Remove the unionizeFilters property from selectedCategories if it exists
+      if ("unionizeFilters" in selectedCategories) {
+        delete selectedCategories["unionizeFilters"];
       }
+
+       // Clear all levels
+      firstLevelFilters = [];
+      secondLevelFilters = [];
+      thirdLevelFilters = [];
+      fourthLevelFilters = [];
+      fifthLevelFilters = [];
+
+      console.log("THE SELECTED CATEGORIES", selectedCategories);
+      categoryStore.set(selectedCategories);
+
+      updateTreeVisualization();
     }
   }
 
