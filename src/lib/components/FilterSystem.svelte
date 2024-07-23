@@ -452,6 +452,34 @@
     updateTreeVisualization();
   }
 
+  function handleUnionizeFiltersChange() {
+    let selectedPairing = {
+      category: "unionizeFilters",
+      value: unionizeFilters.checked,
+    };
+
+    if (unionizeFilters.checked) {
+      selectedItems.push(selectedPairing);
+
+      const { category, value } = selectedPairing;
+      if (!selectedCategories[category]) {
+        selectedCategories[category] = [value];
+      } else if (!selectedCategories[category].includes(value)) {
+        selectedCategories[category].push(value);
+      }
+
+      // Update the categoryStore with the new selectedCategories
+      categoryStore.set(selectedCategories);
+    } else {
+      const categoryValues = selectedCategories[categoryname];
+      if (categoryValues) {
+        selectedCategories[categoryname] = categoryValues.filter(
+          (value) => value !== relevantCheckbox.value,
+        );
+      }
+    }
+  }
+
   function handleCheckboxChange(category, itemLabel, categoryname) {
     let itemsArray = checkboxStates[categoryname].items;
     const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
@@ -1293,7 +1321,11 @@
 
   <!-- UNIONIZE FILTERS -->
   <label id="unionize-filters">
-    <input type="checkbox" id="unionizeFiltersInput" />
+    <input
+      type="checkbox"
+      id="unionizeFiltersInput"
+      on:change={() => handleUnionizeFiltersChange()}
+    />
     <div class="container">
       <div>
         <p>Off</p>
