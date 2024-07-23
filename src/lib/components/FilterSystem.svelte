@@ -502,6 +502,22 @@
           (value) => value !== relevantCheckbox.value,
         );
       }
+
+      if (unionizeFilters.checked) {
+        if (firstLevelFilters.length === 0) {
+          return;
+        } else if (secondLevelFilters.length === 0) {
+          firstLevelFilters = [];
+        } else if (thirdLevelFilters.length === 0) {
+          secondLevelFilters = [];
+        } else if (fourthLevelFilters.length === 0) {
+          thirdLevelFilters = [];
+        } else if (fifthLevelFilters.length === 0) {
+          fourthLevelFilters = [];
+        } else {
+          fifthLevelFilters = [];
+        }
+      }
     }
 
     // Update the categoryStore with the new selectedCategories
@@ -688,7 +704,6 @@
           });
         });
 
-        // Assuming you want to add SPECIES_NAME_PRINT of matching items to level
         collectedMatchingItems.forEach((match) => {
           selectedSpecies.add(match.SPECIES_NAME_PRINT);
           level.push(match);
