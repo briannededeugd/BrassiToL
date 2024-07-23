@@ -633,6 +633,13 @@
         item.checked = false;
       });
 
+      // Clear all levels
+      firstLevelFilters = [];
+      secondLevelFilters = [];
+      thirdLevelFilters = [];
+      fourthLevelFilters = [];
+      fifthLevelFilters = [];
+
       // If the category has 'allSelected', reset it as well
       if ("allSelected" in checkboxStates[category]) {
         checkboxStates[category].allSelected = false;
