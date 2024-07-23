@@ -496,8 +496,15 @@
         selectedCategories[category].push(value);
       }
 
+      firstLevelFilters = [];
+      secondLevelFilters = [];
+      thirdLevelFilters = [];
+      fourthLevelFilters = [];
+      fifthLevelFilters = [];
+      
       // Update the categoryStore with the new selectedCategories
       categoryStore.set(selectedCategories);
+      updateTreeVisualization();
     } else {
       // Remove the unionizeFilters property from selectedCategories if it exists
       if ("unionizeFilters" in selectedCategories) {
