@@ -803,39 +803,200 @@
         value: item.value,
       };
 
-      // Further processing for when the checkbox is checked
-      if (item.checked) {
-        // Checkbox is checked, add to selectedItems and update selectedCategories
-        selectedItems.push(selectedPairing);
+      if (unionizeFilters.checked) {
+        if (filterIndex < 5) {
+          if (item.checked) {
+            /**
+             * THIS IF SAYS
+             * "You have not reached your maximum yet, so
+             * this checkbox that you're trying to add is
+             * added, no problem!"
+             */
+            // Checkbox is checked, add to selectedItems and update selectedCategories
+            selectedItems.push(selectedPairing);
 
-        // Update selectedCategories
-        const { category, value } = selectedPairing;
-        if (!selectedCategories[category]) {
-          selectedCategories[category] = [value];
-        } else if (!selectedCategories[category].includes(value)) {
-          selectedCategories[category].push(value);
+            checkboxStates[categoryName].items.forEach((checkbox) => {
+              if (checkbox.value === selectedPairing.value) {
+                checkbox.checked = true;
+              }
+            });
+
+            // Update selectedCategories
+            const { category, value } = selectedPairing;
+            if (!selectedCategories[category]) {
+              selectedCategories[category] = [value];
+            } else if (!selectedCategories[category].includes(value)) {
+              selectedCategories[category].push(value);
+            }
+
+            maxFiltersReached.set(false);
+          } else {
+            /**
+             * THIS ELSE SAYS
+             * "You have not yet reached your maximum, so
+             * removing this filter is no problem!"
+             */
+            // Checkbox is unchecked, remove from selectedItems and selectedCategories
+            selectedItems = selectedItems.filter(
+              (item) => item.value !== item.value,
+            );
+
+            checkboxStates[categoryName].items.forEach((checkbox) => {
+              if (checkbox.value === selectedPairing.value) {
+                checkbox.checked = false;
+              }
+            });
+
+            const categoryValues = selectedCategories[categoryName];
+            if (categoryValues) {
+              selectedCategories[categoryName] = categoryValues.filter(
+                (value) => value !== item.value,
+              );
+            }
+
+            if (firstLevelFilters.length === 0) {
+              return;
+            } else if (secondLevelFilters.length === 0) {
+              firstLevelFilters = [];
+            } else if (thirdLevelFilters.length === 0) {
+              secondLevelFilters = [];
+            } else if (fourthLevelFilters.length === 0) {
+              thirdLevelFilters = [];
+            } else if (fifthLevelFilters.length === 0) {
+              fourthLevelFilters = [];
+            } else {
+              fifthLevelFilters = [];
+            }
+          }
+        } else if (filterIndex >= 5) {
+          if (item.checked) {
+            /**
+             * THIS IF SAYS
+             * "You have reached five filters, so we are adding
+             * your fifth filter to the URL and the tree, but then
+             * we're disabling all other filters, because this is
+             * your maximum."
+             */
+            // Checkbox is checked, add to selectedItems and update selectedCategories
+            selectedItems.push(selectedPairing);
+
+            checkboxStates[categoryName].items.forEach((checkbox) => {
+              if (checkbox.value === selectedPairing.value) {
+                checkbox.checked = true;
+              }
+            });
+
+            // Update selectedCategories
+            const { category, value } = selectedPairing;
+            if (!selectedCategories[category]) {
+              selectedCategories[category] = [value];
+            } else if (!selectedCategories[category].includes(value)) {
+              selectedCategories[category].push(value);
+            }
+
+            console.log("fifth level is now full");
+            const allCheckboxes = d3.selectAll(
+              ".dropdown-container input[type=checkbox]",
+            );
+            allCheckboxes.each(function (d, i, nodes) {
+              const checkbox = d3.select(this);
+              if (!checkbox.property("checked")) {
+                checkbox.property("disabled", true);
+              }
+            });
+
+            maxFiltersReached.set(true);
+          } else {
+            /**
+             * THIS ELSE SAYS
+             * "You have reached five filters, which is your max, but
+             * you are unchecking a filter, which brings you down to
+             * four filters, which is not your max."
+             */
+            filterIndex = 4;
+            // Checkbox is unchecked, remove from selectedItems and selectedCategories
+            selectedItems = selectedItems.filter(
+              (item) => item.value !== item.value,
+            );
+
+            checkboxStates[categoryName].items.forEach((checkbox) => {
+              if (checkbox.value === selectedPairing.value) {
+                checkbox.checked = false;
+              }
+            });
+
+            const categoryValues = selectedCategories[categoryName];
+            if (categoryValues) {
+              selectedCategories[categoryName] = categoryValues.filter(
+                (value) => value !== item.value,
+              );
+            }
+
+            if (unionizeFilters.checked) {
+              if (firstLevelFilters.length === 0) {
+                return;
+              } else if (secondLevelFilters.length === 0) {
+                firstLevelFilters = [];
+              } else if (thirdLevelFilters.length === 0) {
+                secondLevelFilters = [];
+              } else if (fourthLevelFilters.length === 0) {
+                thirdLevelFilters = [];
+              } else if (fifthLevelFilters.length === 0) {
+                fourthLevelFilters = [];
+              } else {
+                fifthLevelFilters = [];
+              }
+            }
+
+            // Remove disabling of filters
+            const allCheckboxes = d3.selectAll(
+              ".dropdown-container input[type=checkbox]",
+            );
+            allCheckboxes.each(function (d, i, nodes) {
+              const checkbox = d3.select(this);
+              if (!checkbox.property("checked")) {
+                checkbox.property("disabled", false);
+              }
+            });
+
+            maxFiltersReached.set(false);
+          }
         }
-      }
+      } else {
+        if (item.checked) {
+          selectedItems.push(selectedPairing);
 
-      // New logic for filtering and updating the tree
-      updateTreeVisualization();
-    } else {
-      // Checkbox is unchecked, remove from selectedItems and selectedCategories
-      selectedItems = selectedItems.filter(
-        (select) => select.value !== item.value,
-      );
+          checkboxStates[categoryName].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = true;
+            }
+          });
 
-      checkboxStates[categoryName].items.forEach((checkbox) => {
-        if (checkbox.value === item.value) {
-          checkbox.checked = false;
+          // Update selectedCategories
+          const { category, value } = selectedPairing;
+          if (!selectedCategories[category]) {
+            selectedCategories[category] = [value];
+          } else if (!selectedCategories[category].includes(value)) {
+            selectedCategories[category].push(value);
+          }
+        } else {
+          selectedItems = selectedItems.filter(
+            (item) => item.value !== item.value,
+          );
+
+          checkboxStates[categoryName].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = false;
+            }
+          });
+
+          const categoryValues = selectedCategories[categoryName];
+          if (categoryValues) {
+            selectedCategories[categoryName] = categoryValues.filter(
+              (value) => value !== item.value,
+            );
+          }
         }
-      });
-
-      const categoryValues = selectedCategories[categoryName];
-      if (categoryName) {
-        selectedCategories[categoryName] = categoryValues.filter(
-          (value) => value !== item.value,
-        );
       }
     }
 
@@ -876,7 +1037,8 @@
       selectedCategories = {};
       categoryStore.set(selectedCategories);
     });
-
+    
+    maxFiltersReached.set(false);
     updateTreeVisualization(); // Update the tree visualization
   }
 
