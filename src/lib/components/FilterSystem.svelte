@@ -3,10 +3,11 @@
   import * as d3 from "d3";
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./querystore.js";
-  import { writable } from "svelte/store";
-  import { page } from "$app/stores";
-  import { goto } from "$app/navigation";
-  import Page from "../../routes/+page.svelte";
+  import { maxFiltersReached } from "./maximumstore.js";
+  // import { writable } from "svelte/store";
+  // import { page } from "$app/stores";
+  // import { goto } from "$app/navigation";
+  // import Page from "../../routes/+page.svelte";
 
   // Simple 'capitalize every first letter'-function
   function capitalizeFirstLetter(string) {
@@ -24,6 +25,7 @@
   let selectedCategories = {};
   let selectedItems = [];
   let unionizeFilters;
+  let filterIndex = 0;
 
   let firstLevelFilters = [];
   let secondLevelFilters = [];
@@ -520,7 +522,15 @@
     }
   }
 
+  /**
+   * @name HandleCheckboxChange
+   * @functio Detects when a checkbox changes and handles what happens next
+   * @param {*} itemLabel is the name of the checkbox - this is unique to its category
+   * @param {*} categoryname specifies the name of the category to which this checkbox belongs
+   *                          - because some names are seen across many categories
+  */
   function handleCheckboxChange(category, itemLabel, categoryname) {
+    filterIndex++;
     let itemsArray = checkboxStates[categoryname].items;
     const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
 
@@ -534,64 +544,169 @@
       value: relevantCheckbox.value,
     };
 
-    // Check if the checkbox is checked or unchecked
-    if (relevantCheckbox.checked) {
-      // Checkbox is checked, add to selectedItems and update selectedCategories
-      selectedItems.push(selectedPairing);
+    if (filterIndex < 5) {
+      if (relevantCheckbox.checked) {
+        /**
+         * THIS IF SAYS
+         * "You have not reached your maximum yet, so
+         * this checkbox that you're trying to add is
+         * added, no problem!"
+        */
+        // Checkbox is checked, add to selectedItems and update selectedCategories
+        selectedItems.push(selectedPairing);
 
-      checkboxStates[categoryname].items.forEach((checkbox) => {
-        if (checkbox.value === selectedPairing.value) {
-          checkbox.checked = true;
+        checkboxStates[categoryname].items.forEach((checkbox) => {
+          if (checkbox.value === selectedPairing.value) {
+            checkbox.checked = true;
+          }
+        });
+
+        // Update selectedCategories
+        const { category, value } = selectedPairing;
+        if (!selectedCategories[category]) {
+          selectedCategories[category] = [value];
+        } else if (!selectedCategories[category].includes(value)) {
+          selectedCategories[category].push(value);
         }
-      });
 
-      // Update selectedCategories
-      const { category, value } = selectedPairing;
-      if (!selectedCategories[category]) {
-        selectedCategories[category] = [value];
-      } else if (!selectedCategories[category].includes(value)) {
-        selectedCategories[category].push(value);
-      }
-    } else {
-      // Checkbox is unchecked, remove from selectedItems and selectedCategories
-      selectedItems = selectedItems.filter(
-        (item) => item.value !== relevantCheckbox.value,
-      );
-
-      checkboxStates[categoryname].items.forEach((checkbox) => {
-        if (checkbox.value === selectedPairing.value) {
-          checkbox.checked = false;
-        }
-      });
-
-      const categoryValues = selectedCategories[categoryname];
-      if (categoryValues) {
-        selectedCategories[categoryname] = categoryValues.filter(
-          (value) => value !== relevantCheckbox.value,
+        maxFiltersReached.set(false);
+      } else {
+        /**
+         * THIS ELSE SAYS
+         * "You have not yet reached your maximum, so
+         * removing this filter is no problem!"
+        */
+        // Checkbox is unchecked, remove from selectedItems and selectedCategories
+        selectedItems = selectedItems.filter(
+          (item) => item.value !== relevantCheckbox.value,
         );
-      }
 
-      if (unionizeFilters.checked) {
-        if (firstLevelFilters.length === 0) {
-          return;
-        } else if (secondLevelFilters.length === 0) {
-          firstLevelFilters = [];
-        } else if (thirdLevelFilters.length === 0) {
-          secondLevelFilters = [];
-        } else if (fourthLevelFilters.length === 0) {
-          thirdLevelFilters = [];
-        } else if (fifthLevelFilters.length === 0) {
-          fourthLevelFilters = [];
-        } else {
-          fifthLevelFilters = [];
+        checkboxStates[categoryname].items.forEach((checkbox) => {
+          if (checkbox.value === selectedPairing.value) {
+            checkbox.checked = false;
+          }
+        });
+
+        const categoryValues = selectedCategories[categoryname];
+        if (categoryValues) {
+          selectedCategories[categoryname] = categoryValues.filter(
+            (value) => value !== relevantCheckbox.value,
+          );
         }
+
+        if (unionizeFilters.checked) {
+          if (firstLevelFilters.length === 0) {
+            return;
+          } else if (secondLevelFilters.length === 0) {
+            firstLevelFilters = [];
+          } else if (thirdLevelFilters.length === 0) {
+            secondLevelFilters = [];
+          } else if (fourthLevelFilters.length === 0) {
+            thirdLevelFilters = [];
+          } else if (fifthLevelFilters.length === 0) {
+            fourthLevelFilters = [];
+          } else {
+            fifthLevelFilters = [];
+          }
+        }
+      }
+    } else if (filterIndex >= 5) {
+      if (relevantCheckbox.checked) {
+        /**
+         * THIS IF SAYS
+         * "You have reached five filters, so we are adding
+         * your fifth filter to the URL and the tree, but then
+         * we're disabling all other filters, because this is
+         * your maximum."
+        */
+        // Checkbox is checked, add to selectedItems and update selectedCategories
+        selectedItems.push(selectedPairing);
+
+        checkboxStates[categoryname].items.forEach((checkbox) => {
+          if (checkbox.value === selectedPairing.value) {
+            checkbox.checked = true;
+          }
+        });
+
+        // Update selectedCategories
+        const { category, value } = selectedPairing;
+        if (!selectedCategories[category]) {
+          selectedCategories[category] = [value];
+        } else if (!selectedCategories[category].includes(value)) {
+          selectedCategories[category].push(value);
+        }
+
+        console.log("fifth level is now full");
+        const allCheckboxes = d3.selectAll(
+          ".dropdown-container input[type=checkbox]",
+        );
+        allCheckboxes.each(function (d, i, nodes) {
+          const checkbox = d3.select(this);
+          if (!checkbox.property("checked")) {
+            checkbox.property("disabled", true);
+          }
+        });
+
+        maxFiltersReached.set(true);
+      } else {
+        /**
+         * THIS ELSE SAYS
+         * "You have reached five filters, which is your max, but
+         * you are unchecking a filter, which brings you down to
+         * four filters, which is not your max."
+        */
+        filterIndex = 4;
+        // Checkbox is unchecked, remove from selectedItems and selectedCategories
+        selectedItems = selectedItems.filter(
+          (item) => item.value !== relevantCheckbox.value,
+        );
+
+        checkboxStates[categoryname].items.forEach((checkbox) => {
+          if (checkbox.value === selectedPairing.value) {
+            checkbox.checked = false;
+          }
+        });
+
+        const categoryValues = selectedCategories[categoryname];
+        if (categoryValues) {
+          selectedCategories[categoryname] = categoryValues.filter(
+            (value) => value !== relevantCheckbox.value,
+          );
+        }
+
+        if (unionizeFilters.checked) {
+          if (firstLevelFilters.length === 0) {
+            return;
+          } else if (secondLevelFilters.length === 0) {
+            firstLevelFilters = [];
+          } else if (thirdLevelFilters.length === 0) {
+            secondLevelFilters = [];
+          } else if (fourthLevelFilters.length === 0) {
+            thirdLevelFilters = [];
+          } else if (fifthLevelFilters.length === 0) {
+            fourthLevelFilters = [];
+          } else {
+            fifthLevelFilters = [];
+          }
+        }
+
+        // Remove disabling of filters
+        const allCheckboxes = d3.selectAll(
+          ".dropdown-container input[type=checkbox]",
+        );
+        allCheckboxes.each(function (d, i, nodes) {
+          const checkbox = d3.select(this);
+          if (!checkbox.property("checked")) {
+            checkbox.property("disabled", false);
+          }
+        });
+
+        maxFiltersReached.set(false);
       }
     }
 
     // Update the categoryStore with the new selectedCategories
     categoryStore.set(selectedCategories);
-
-    // New logic for filtering and updating the tree
     updateTreeVisualization();
   }
 
@@ -749,19 +864,39 @@
 
       selectedSpeciesStore.set(selectedSpecies);
     } else {
-      if (firstLevelFilters.length === 0) {
-        populateSelectedSpecies(metadata, firstLevelFilters);
-      } else if (secondLevelFilters.length === 0) {
-        populateSelectedSpecies(firstLevelFilters, secondLevelFilters);
-      } else if (thirdLevelFilters.length === 0) {
-        populateSelectedSpecies(secondLevelFilters, thirdLevelFilters);
-      } else if (fourthLevelFilters.length === 0) {
-        populateSelectedSpecies(thirdLevelFilters, fourthLevelFilters);
-      } else if (fifthLevelFilters.length === 0) {
-        populateSelectedSpecies(fourthLevelFilters, fifthLevelFilters);
+      //! To avoid the app counting unionizeFilters as a filter, add a check that only goes through the filters if any checkboxStates have changed
+
+      // Add a boolean
+      let anyCheckboxChecked = false;
+      // Check if any checkboxes are checked
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            anyCheckboxChecked = true;
+          }
+        });
+      });
+
+      // If we have actually filtered, go through the filtering logic
+      if (anyCheckboxChecked === true) {
+        if (firstLevelFilters.length === 0) {
+          populateSelectedSpecies(metadata, firstLevelFilters);
+        } else if (secondLevelFilters.length === 0) {
+          populateSelectedSpecies(firstLevelFilters, secondLevelFilters);
+        } else if (thirdLevelFilters.length === 0) {
+          populateSelectedSpecies(secondLevelFilters, thirdLevelFilters);
+        } else if (fourthLevelFilters.length === 0) {
+          populateSelectedSpecies(thirdLevelFilters, fourthLevelFilters);
+          // maxFiltersReached.set(false);
+        } else if (fifthLevelFilters.length === 0) {
+          populateSelectedSpecies(fourthLevelFilters, fifthLevelFilters);
+          maxFiltersReached.set(false);
+        } else {
+          maxFiltersReached.set(true);
+          return;
+        }
       } else {
-        d3.select("#levelwarning").style.opacity = 1;
-        console.log("FINALLY REACHED THIS ONE");
+        return;
       }
 
       function populateSelectedSpecies(data, level) {
@@ -943,6 +1078,7 @@
           <input
             type="text"
             placeholder="Search Subfamily"
+            name="searchsubfamily"
             bind:value={searchSubfamily}
           />
           <div class="checkbox-list">
@@ -950,6 +1086,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={subfamily.label}
                   bind:checked={subfamily.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -971,6 +1108,7 @@
           <input
             type="text"
             placeholder="Search Supertribe"
+            name="searchsupertribe"
             bind:value={searchSupertribe}
           />
           <div class="checkbox-list">
@@ -978,6 +1116,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={supertribe.label}
                   bind:checked={supertribe.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -999,6 +1138,7 @@
           <input
             type="text"
             placeholder="Search Tribe"
+            name="searchtribes"
             bind:value={searchTribe}
           />
           <div class="checkbox-list">
@@ -1006,6 +1146,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={tribe.label}
                   bind:checked={tribe.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1027,6 +1168,7 @@
           <input
             type="text"
             placeholder="Search Genus"
+            name="searchgenus"
             bind:value={searchGenus}
           />
           <div class="checkbox-list">
@@ -1034,6 +1176,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={genus.label}
                   bind:checked={genus.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1055,6 +1198,7 @@
           <input
             type="text"
             placeholder="Search Species"
+            name="searchspecies"
             bind:value={searchSpecies}
           />
           <div class="checkbox-list">
@@ -1062,6 +1206,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={specie.label}
                   bind:checked={specie.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1100,6 +1245,7 @@
           <h3>Botanical Continents</h3>
           <input
             type="text"
+            name="searchbotanicalcontinent"
             placeholder="Search Botanical Continent"
             bind:value={searchContinent}
           />
@@ -1108,6 +1254,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={continent.label}
                   bind:checked={continent.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1128,6 +1275,7 @@
           <input
             type="text"
             placeholder="Search Geographic Area"
+            name="searchgeographicarea"
             bind:value={searchGeographicArea}
           />
           <div class="checkbox-list">
@@ -1135,6 +1283,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={geographicarea.label}
                   bind:checked={geographicarea.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1156,6 +1305,7 @@
           <input
             type="text"
             placeholder="Search Botanical Countries"
+            name="searchbotanicalcountries"
             bind:value={searchCountries}
           />
           <div class="checkbox-list">
@@ -1163,6 +1313,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={country.label}
                   bind:checked={country.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1202,6 +1353,7 @@
             <label>
               <input
                 type="checkbox"
+                name="selectallgrowthforms"
                 bind:checked={checkboxStates.growthForm.allSelected}
                 on:change={() => toggleSelectAll("growthForm")}
               />
@@ -1215,6 +1367,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1236,6 +1389,7 @@
             <label>
               <input
                 type="checkbox"
+                name="selectallsocietaluses"
                 bind:checked={checkboxStates.societaluse.allSelected}
                 on:change={() => toggleSelectAll("societaluse")}
               />
@@ -1249,6 +1403,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1270,6 +1425,7 @@
             <label>
               <input
                 type="checkbox"
+                name="selectalllifeforms"
                 bind:checked={checkboxStates.lifeform.allSelected}
                 on:change={() => toggleSelectAll("lifeform")}
               />
@@ -1283,6 +1439,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1304,6 +1461,7 @@
             <label>
               <input
                 type="checkbox"
+                name="selectallclimates"
                 bind:checked={checkboxStates.climates.allSelected}
                 on:change={() => toggleSelectAll("climates")}
               />
@@ -1317,6 +1475,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
@@ -1353,7 +1512,12 @@
 
   <!-- SEARCH -->
   <section class="dropdown-container">
-    <input type="text" placeholder="Search" bind:value={searchAll} />
+    <input
+      type="text"
+      placeholder="Search"
+      name="searchall"
+      bind:value={searchAll}
+    />
 
     {#if searchAll.trim() !== ""}
       <div class="autocomplete-dropdown">
@@ -1366,6 +1530,7 @@
               <label>
                 <input
                   type="checkbox"
+                  name={result.label}
                   bind:checked={result.checked}
                   on:change={() => handleGlobalSearchCheckboxChange(result)}
                 />
@@ -1380,12 +1545,4 @@
 
   <div class="spacer"></div>
   <button id="clearFilters" style="visibility: hidden">Clear Filters</button>
-</section>
-
-<section id="levelwarning">
-  <h3>Your maximum level of stacked filters has been reached.</h3>
-  <p>
-    You cannot filter deeper than this. Uncheck one of your checkboxes to
-    continue filtering.
-  </p>
 </section>

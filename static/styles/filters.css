@@ -277,16 +277,3 @@
       }
     }
   }
-
-  #levelwarning {
-    max-width: 120px;
-    border-radius: 16px;
-    background-color: #0d1c1bc5;
-    backdrop-filter: blur(5px);
-    padding: .5em 1em;
-    opacity: 0;
-    transition: all .3s ease-in-out;
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-  }
