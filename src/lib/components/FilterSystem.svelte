@@ -771,8 +771,6 @@
           } else if (!selectedCategories[category].includes(value)) {
             selectedCategories[category].push(value);
           }
-
-          maxFiltersReached.set(false);
         } else {
           /**
            * THIS ELSE SAYS
@@ -1117,9 +1115,7 @@
             fourthLevelFilters,
             fifthLevelFilters,
           );
-          maxFiltersReached.set(false);
         } else {
-          maxFiltersReached.set(true);
           return; // Exit if max filters reached
         }
       } else {
@@ -1131,7 +1127,6 @@
     // Set noFilterResults based on the state of selectedSpecies and checkboxes
     if (anyCheckboxChecked && selectedSpecies.size === 0) {
       noFilterResults.set(true);
-      console.log("sorry babes", noFilterResults);
     } else {
       noFilterResults.set(false);
     }
