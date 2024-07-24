@@ -4,22 +4,11 @@
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./querystore.js";
   import { maxFiltersReached } from "./maximumstore.js";
-  // import { writable } from "svelte/store";
-  // import { page } from "$app/stores";
-  // import { goto } from "$app/navigation";
-  // import Page from "../../routes/+page.svelte";
-
-  // Simple 'capitalize every first letter'-function
-  function capitalizeFirstLetter(string) {
-    return string
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
-  }
 
   /**============================================
    *               Declaring Variables
    *=============================================**/
+  // Data and empty states
   let metadata = [];
   let landcodes = [];
   let selectedCategories = {};
@@ -27,33 +16,34 @@
   let unionizeFilters;
   let filterIndex = 0;
 
+  // Levels for unionized filtering
   let firstLevelFilters = [];
   let secondLevelFilters = [];
   let thirdLevelFilters = [];
   let fourthLevelFilters = [];
   let fifthLevelFilters = [];
 
-  /**============================================
-   *             Dynamic URL Check
-   *=============================================**/
+  //  Check states of dropdowns
+  let taxonomyOpen = false;
+  let geographyOpen = false;
+  let characteristicsOpen = false;
 
-  const categoryStore = createCategoryStore(selectedCategories);
+  // Initial search terms
+  let searchSubfamily = "";
+  let searchSupertribe = "";
+  let searchTribe = "";
+  let searchGenus = "";
+  let searchSpecies = "";
+  let searchContinent = "";
+  let searchGeographicArea = "";
+  let searchCountries = "";
+  let searchAll = "";
 
-  // for searching
+  // Autocompletion and search results
   let autocompleteOpen = false;
-
-  $: autocompleteOpen = searchAll.trim() !== "";
-
   let globalSearchResults = [];
-  $: {
-    globalSearchResults = globalFilterItems(searchAll);
-  }
 
-  function createCheckboxState(withAllSelected = false) {
-    return withAllSelected ? { allSelected: false, items: [] } : { items: [] };
-  }
-
-  // checkbox states
+  // Checkbox states (kind of like the database with which we'll work)
   let checkboxStates = {
     // Taxonomy categories without 'allSelected'
     subfamilies: createCheckboxState(),
@@ -74,6 +64,75 @@
     climates: createCheckboxState(true),
   };
 
+  // Stores
+  const categoryStore = createCategoryStore(selectedCategories);
+
+  // Reactive statements and variables
+  $: autocompleteOpen = searchAll.trim() !== "";
+  $: globalSearchResults = globalFilterItems(searchAll);
+  $: if (autocompleteOpen) {
+    taxonomyOpen = false;
+    geographyOpen = false;
+    characteristicsOpen = false;
+  }
+  $: checkedTaxCount =
+    checkboxStates.subfamilies.items.filter((item) => item.checked).length +
+    checkboxStates.supertribes.items.filter((item) => item.checked).length +
+    checkboxStates.tribes.items.filter((item) => item.checked).length +
+    checkboxStates.genuses.items.filter((item) => item.checked).length +
+    checkboxStates.species.items.filter((item) => item.checked).length;
+
+  $: checkedGeoCount =
+    checkboxStates.geographicareas.items.filter((item) => item.checked).length +
+    checkboxStates.continents.items.filter((item) => item.checked).length +
+    checkboxStates.countries.items.filter((item) => item.checked).length;
+
+  $: checkedCharCount =
+    checkboxStates.growthForm.items.filter((item) => item.checked).length +
+    checkboxStates.societaluse.items.filter((item) => item.checked).length +
+    checkboxStates.lifeform.items.filter((item) => item.checked).length +
+    checkboxStates.climates.items.filter((item) => item.checked).length;
+  // SelectAll logic
+  $: if (checkboxStates.continents.items.length > 0) {
+    checkboxStates.continents.allSelected =
+      checkboxStates.continents.items.every((item) => item.checked);
+  }
+  $: if (checkboxStates.geographicareas.items.length > 0) {
+    checkboxStates.geographicareas.allSelected =
+      checkboxStates.geographicareas.items.every((item) => item.checked);
+  }
+  $: if (checkboxStates.countries.items.length > 0) {
+    checkboxStates.countries.allSelected = checkboxStates.countries.items.every(
+      (item) => item.checked,
+    );
+  }
+  $: if (checkboxStates.growthForm.items.length > 0) {
+    checkboxStates.growthForm.allSelected =
+      checkboxStates.growthForm.items.every((item) => item.checked);
+  }
+  $: if (checkboxStates.societaluse.items.length > 0) {
+    checkboxStates.societaluse.allSelected =
+      checkboxStates.societaluse.items.every((item) => item.checked);
+  }
+  $: if (checkboxStates.lifeform.items.length > 0) {
+    checkboxStates.lifeform.allSelected = checkboxStates.lifeform.items.every(
+      (item) => item.checked,
+    );
+  }
+  $: if (checkboxStates.climates.items.length > 0) {
+    checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
+      (item) => item.checked,
+    );
+  }
+
+  /**========================================================================
+   *                         ONMOUNT: ON ITIAL PAGE LOAD
+   *
+   *                    Load in all data before the page loads
+   *            Fetch data and make sure it's available at all times
+   *          Populate variables that are needed for the site to work
+   * 
+   *========================================================================**/
   onMount(async () => {
     const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
@@ -364,27 +423,15 @@
     updateTreeVisualization();
   });
 
-  /**============================================
-   *               FILTER SYSTEM
-   *=============================================**/
+  /**========================================================================
+   *                           SEARCHING FUNCTIONALITIES
+   *========================================================================**/
 
-  //  TAXONOMY
-  let taxonomyOpen = false;
-  let geographyOpen = false;
-  let characteristicsOpen = false;
-
-  let searchSubfamily = "";
-  let searchSupertribe = "";
-  let searchTribe = "";
-  let searchGenus = "";
-  let searchSpecies = "";
-
-  let searchContinent = "";
-  let searchGeographicArea = "";
-  let searchCountries = "";
-
-  let searchAll = "";
-
+   /**
+    * @name globalFilterItems
+    * @role Finding search term results from the global search
+    * @param {*} searchTerm | The term that the user searched
+    */
   function globalFilterItems(searchTerm) {
     searchTerm = searchTerm.trim().toLowerCase();
     let results = {};
@@ -420,6 +467,12 @@
     return results;
   }
 
+  /**
+    * @name filterItems
+    * @role Finding search term results from the individual category searches
+    * @param {*} items | All items in the relevant category
+    * @param {*} searchTerm | The term that the user searched
+    */
   function filterItems(items, searchTerm) {
     searchTerm = searchTerm.trim().toLowerCase();
     if (searchTerm === "") {
@@ -436,6 +489,11 @@
       });
   }
 
+  /**
+   * @name toggleSelectAll
+   * @role Selecting all the items in a category
+   * @param category | The category in which the selectAll should be applied
+   */
   function toggleSelectAll(category) {
     const allSelected = !checkboxStates[category].allSelected;
 
@@ -477,6 +535,50 @@
     updateTreeVisualization();
   }
 
+  /**========================================================================
+   *                           MAIN FILTER HANDLING
+   *========================================================================**/
+
+  /**
+   * @name clearAllFilters
+   * @role Remove all the filters and make sure the necessary changes are applied => clear URL, uncheck checkboxes, reset level, recolor tree
+   */
+  function clearAllFilters() {
+    Object.keys(checkboxStates).forEach((category) => {
+      checkboxStates[category].items.forEach((item) => {
+        item.checked = false;
+      });
+
+      // Clear all levels
+      firstLevelFilters = [];
+      secondLevelFilters = [];
+      thirdLevelFilters = [];
+      fourthLevelFilters = [];
+      fifthLevelFilters = [];
+
+      // If the category has 'allSelected', reset it as well
+      if ("allSelected" in checkboxStates[category]) {
+        checkboxStates[category].allSelected = false;
+      }
+
+      // Reset and/or
+      if (unionizeFilters.checked) {
+        unionizeFilters.click();
+      }
+
+      selectedCategories = {};
+      categoryStore.set(selectedCategories);
+    });
+
+    maxFiltersReached.set(false);
+    filterIndex = 0;
+    updateTreeVisualization(); // Update the tree visualization
+  }
+
+  /**
+   * @name HandleUnionizeFiltersChange
+   * @role Detects when the applied filters need to be intersected
+   */
   function handleUnionizeFiltersChange() {
     let selectedPairing = {
       category: "unionizeFilters",
@@ -524,7 +626,7 @@
 
   /**
    * @name HandleCheckboxChange
-   * @function Detects when a checkbox changes and handles what happens next
+   * @role Detects when a checkbox changes and handles what happens next
    * @param {*} itemLabel is the name of the checkbox - this is unique to its category
    * @param {*} categoryname specifies the name of the category to which this checkbox belongs
    *                          - because some names are seen across many categories
@@ -544,6 +646,105 @@
       value: relevantCheckbox.value,
     };
 
+    pushFiltersToURL(
+      relevantCheckbox,
+      categoryname,
+      filterIndex,
+      selectedPairing,
+    );
+
+    // Update the categoryStore with the new selectedCategories
+    categoryStore.set(selectedCategories);
+    updateTreeVisualization();
+  }
+
+  /**
+   * @name Handle-GLOBAL-CheckboxChange
+   * @role Detects when a checkbox changes from the search results and handles what happens next
+   * @param {*} item is the complete checked checkbox, which involves its value, label and checked status
+   */
+  function handleGlobalSearchCheckboxChange(item) {
+    let categoryName;
+    let checked;
+    filterIndex++;
+
+    // Find the item in its original category and update its checked state
+    const categoryNames = {
+      subfamilies: checkboxStates.subfamilies,
+      supertribes: checkboxStates.supertribes,
+      tribes: checkboxStates.tribes,
+      genuses: checkboxStates.genuses,
+      species: checkboxStates.species,
+      geographicareas: checkboxStates.geographicareas,
+      continents: checkboxStates.continents,
+      countries: checkboxStates.countries,
+      growthForm: checkboxStates.growthForm,
+      societaluse: checkboxStates.societaluse,
+      lifeform: checkboxStates.lifeform,
+      climates: checkboxStates.climates,
+    };
+    const categories = Object.values(categoryNames);
+
+    categories.forEach((category) => {
+      // Create indexes
+      const index = category.items.findIndex(
+        (categoryItem) => categoryItem.label === item.label,
+      );
+      if (index !== -1) {
+        category.items[index] = {
+          ...category.items[index],
+          checked: item.checked,
+        };
+      }
+
+      // Track selected checkboxes and their categories for parameter changes
+      checked = category.items.filter(
+        (checkbox) => checkbox.label === item.label,
+      );
+
+      if (checked.length >= 1) {
+        // Find the name of the current category using the mapping
+        categoryName = Object.keys(categoryNames).find(
+          (key) => categoryNames[key] === category,
+        );
+      }
+    });
+
+    // Only proceed if the checkbox is checked or found in one or more categories
+    if (item.checked || checked.length >= 1) {
+      let selectedPairing = {
+        category: categoryName,
+        value: item.value,
+      };
+
+      pushFiltersToURL(item, categoryName, filterIndex, selectedPairing);
+    }
+
+    // Update the categoryStore with the new selectedCategories
+    categoryStore.set(selectedCategories);
+
+    // Trigger reactivity by assigning a new array
+    categories.forEach((category) => {
+      category.items = [...category.items];
+    });
+
+    updateTreeVisualization();
+  }
+
+  /**
+   * @name pushFiltersToURL
+   * @role Check whether unionizeFilters is applied, then handle checkbox
+   * @param {*} relevantCheckbox | The checkbox we need to send to the URL/save
+   * @param {*} categoryname | The category to which the checkbox belongs
+   * @param {*} filterIndex | What level the filters are on
+   * @param {*} selectedPairing | The pairing of the category with the value of the checkbox
+   */
+  function pushFiltersToURL(
+    relevantCheckbox,
+    categoryname,
+    filterIndex,
+    selectedPairing,
+  ) {
     if (unionizeFilters.checked) {
       if (filterIndex < 5) {
         if (relevantCheckbox.checked) {
@@ -635,18 +836,7 @@
             selectedCategories[category].push(value);
           }
 
-          console.log("fifth level is now full");
-          const allCheckboxes = d3.selectAll(
-            ".dropdown-container input[type=checkbox]",
-          );
-          allCheckboxes.each(function (d, i, nodes) {
-            const checkbox = d3.select(this);
-            if (!checkbox.property("checked")) {
-              checkbox.property("disabled", true);
-            }
-          });
-
-          maxFiltersReached.set(true);
+          disableEnableFiltering(true);
         } else {
           /**
            * THIS ELSE SAYS
@@ -673,34 +863,21 @@
             );
           }
 
-          if (unionizeFilters.checked) {
-            if (firstLevelFilters.length === 0) {
-              return;
-            } else if (secondLevelFilters.length === 0) {
-              firstLevelFilters = [];
-            } else if (thirdLevelFilters.length === 0) {
-              secondLevelFilters = [];
-            } else if (fourthLevelFilters.length === 0) {
-              thirdLevelFilters = [];
-            } else if (fifthLevelFilters.length === 0) {
-              fourthLevelFilters = [];
-            } else {
-              fifthLevelFilters = [];
-            }
+          if (firstLevelFilters.length === 0) {
+            return;
+          } else if (secondLevelFilters.length === 0) {
+            firstLevelFilters = [];
+          } else if (thirdLevelFilters.length === 0) {
+            secondLevelFilters = [];
+          } else if (fourthLevelFilters.length === 0) {
+            thirdLevelFilters = [];
+          } else if (fifthLevelFilters.length === 0) {
+            fourthLevelFilters = [];
+          } else {
+            fifthLevelFilters = [];
           }
 
-          // Remove disabling of filters
-          const allCheckboxes = d3.selectAll(
-            ".dropdown-container input[type=checkbox]",
-          );
-          allCheckboxes.each(function (d, i, nodes) {
-            const checkbox = d3.select(this);
-            if (!checkbox.property("checked")) {
-              checkbox.property("disabled", false);
-            }
-          });
-
-          maxFiltersReached.set(false);
+          disableEnableFiltering(false);
         }
       }
     } else {
@@ -739,309 +916,138 @@
         }
       }
     }
+  }
 
-    // Update the categoryStore with the new selectedCategories
-    categoryStore.set(selectedCategories);
-    updateTreeVisualization();
+  /**========================================================================
+   *
+   *                           HELPER FUNCTIONS
+   *
+   *========================================================================**/
+
+  /**
+   * @name capitilizeFirstLetter
+   * @param {*} string | The string of which the first letter needs to be capitalized
+   */
+  function capitalizeFirstLetter(string) {
+    return string
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
   }
 
   /**
-   * @name Handle-GLOBAL-CheckboxChange
-   * @function Detects when a checkbox changes from the search results and handles what happens next
-   * @param {*} item is the complete checked checkbox, which involves its value, label and checked status
+   * @name getCategoryProperty
+   * @role Retrieving the correct name for a category *as its defined in the metadata*
+   * @param {0} category | Which name we want to find the metadata-name for
    */
-  function handleGlobalSearchCheckboxChange(item) {
-    let categoryName;
-    let checked;
-
-    // Find the item in its original category and update its checked state
-    const categoryNames = {
-      subfamilies: checkboxStates.subfamilies,
-      supertribes: checkboxStates.supertribes,
-      tribes: checkboxStates.tribes,
-      genuses: checkboxStates.genuses,
-      species: checkboxStates.species,
-      geographicareas: checkboxStates.geographicareas,
-      continents: checkboxStates.continents,
-      countries: checkboxStates.countries,
-      growthForm: checkboxStates.growthForm,
-      societaluse: checkboxStates.societaluse,
-      lifeform: checkboxStates.lifeform,
-      climates: checkboxStates.climates,
+  function getCategoryProperty(category) {
+    const categoryPropertyMap = {
+      subfamilies: "SUBFAMILY",
+      supertribes: "SUPERTRIBE",
+      tribes: "TRIBE",
+      genuses: "GENUS",
+      species: "SPECIES",
+      geographicareas: "WCVP_WGSRPD_LEVEL_1_native",
+      continents: "WCVP_continent",
+      countries: "WCVP_WGSRPD_LEVEL_3_native",
+      growthForm: "GROWTH_FORM",
+      societaluse: "SOCIETAL_USE",
+      lifeform: "WCVP_lifeform_description",
+      climates: "WCVP_climate_description",
     };
-    const categories = Object.values(categoryNames);
+    return categoryPropertyMap[category] || null;
+  }
 
-    categories.forEach((category) => {
-      // Create indexes
-      const index = category.items.findIndex(
-        (categoryItem) => categoryItem.label === item.label,
-      );
-      if (index !== -1) {
-        category.items[index] = {
-          ...category.items[index],
-          checked: item.checked,
-        };
-      }
-
-      // Track selected checkboxes and their categories for parameter changes
-      checked = category.items.filter(
-        (checkbox) => checkbox.label === item.label,
-      );
-
-      if (checked.length >= 1) {
-        // Find the name of the current category using the mapping
-        categoryName = Object.keys(categoryNames).find(
-          (key) => categoryNames[key] === category,
-        );
-      }
-    });
-
-    // Only proceed if the checkbox is checked or found in one or more categories
-    if (item.checked || checked.length >= 1) {
-      let selectedPairing = {
-        category: categoryName,
-        value: item.value,
-      };
-
-      if (unionizeFilters.checked) {
-        if (filterIndex < 5) {
-          if (item.checked) {
-            /**
-             * THIS IF SAYS
-             * "You have not reached your maximum yet, so
-             * this checkbox that you're trying to add is
-             * added, no problem!"
-             */
-            // Checkbox is checked, add to selectedItems and update selectedCategories
-            selectedItems.push(selectedPairing);
-
-            checkboxStates[categoryName].items.forEach((checkbox) => {
-              if (checkbox.value === selectedPairing.value) {
-                checkbox.checked = true;
-              }
-            });
-
-            // Update selectedCategories
-            const { category, value } = selectedPairing;
-            if (!selectedCategories[category]) {
-              selectedCategories[category] = [value];
-            } else if (!selectedCategories[category].includes(value)) {
-              selectedCategories[category].push(value);
-            }
-
-            maxFiltersReached.set(false);
-          } else {
-            /**
-             * THIS ELSE SAYS
-             * "You have not yet reached your maximum, so
-             * removing this filter is no problem!"
-             */
-            // Checkbox is unchecked, remove from selectedItems and selectedCategories
-            selectedItems = selectedItems.filter(
-              (item) => item.value !== item.value,
-            );
-
-            checkboxStates[categoryName].items.forEach((checkbox) => {
-              if (checkbox.value === selectedPairing.value) {
-                checkbox.checked = false;
-              }
-            });
-
-            const categoryValues = selectedCategories[categoryName];
-            if (categoryValues) {
-              selectedCategories[categoryName] = categoryValues.filter(
-                (value) => value !== item.value,
-              );
-            }
-
-            if (firstLevelFilters.length === 0) {
-              return;
-            } else if (secondLevelFilters.length === 0) {
-              firstLevelFilters = [];
-            } else if (thirdLevelFilters.length === 0) {
-              secondLevelFilters = [];
-            } else if (fourthLevelFilters.length === 0) {
-              thirdLevelFilters = [];
-            } else if (fifthLevelFilters.length === 0) {
-              fourthLevelFilters = [];
-            } else {
-              fifthLevelFilters = [];
-            }
-          }
-        } else if (filterIndex >= 5) {
-          if (item.checked) {
-            /**
-             * THIS IF SAYS
-             * "You have reached five filters, so we are adding
-             * your fifth filter to the URL and the tree, but then
-             * we're disabling all other filters, because this is
-             * your maximum."
-             */
-            // Checkbox is checked, add to selectedItems and update selectedCategories
-            selectedItems.push(selectedPairing);
-
-            checkboxStates[categoryName].items.forEach((checkbox) => {
-              if (checkbox.value === selectedPairing.value) {
-                checkbox.checked = true;
-              }
-            });
-
-            // Update selectedCategories
-            const { category, value } = selectedPairing;
-            if (!selectedCategories[category]) {
-              selectedCategories[category] = [value];
-            } else if (!selectedCategories[category].includes(value)) {
-              selectedCategories[category].push(value);
-            }
-
-            console.log("fifth level is now full");
-            const allCheckboxes = d3.selectAll(
-              ".dropdown-container input[type=checkbox]",
-            );
-            allCheckboxes.each(function (d, i, nodes) {
-              const checkbox = d3.select(this);
-              if (!checkbox.property("checked")) {
-                checkbox.property("disabled", true);
-              }
-            });
-
-            maxFiltersReached.set(true);
-          } else {
-            /**
-             * THIS ELSE SAYS
-             * "You have reached five filters, which is your max, but
-             * you are unchecking a filter, which brings you down to
-             * four filters, which is not your max."
-             */
-            filterIndex = 4;
-            // Checkbox is unchecked, remove from selectedItems and selectedCategories
-            selectedItems = selectedItems.filter(
-              (item) => item.value !== item.value,
-            );
-
-            checkboxStates[categoryName].items.forEach((checkbox) => {
-              if (checkbox.value === selectedPairing.value) {
-                checkbox.checked = false;
-              }
-            });
-
-            const categoryValues = selectedCategories[categoryName];
-            if (categoryValues) {
-              selectedCategories[categoryName] = categoryValues.filter(
-                (value) => value !== item.value,
-              );
-            }
-
-            if (unionizeFilters.checked) {
-              if (firstLevelFilters.length === 0) {
-                return;
-              } else if (secondLevelFilters.length === 0) {
-                firstLevelFilters = [];
-              } else if (thirdLevelFilters.length === 0) {
-                secondLevelFilters = [];
-              } else if (fourthLevelFilters.length === 0) {
-                thirdLevelFilters = [];
-              } else if (fifthLevelFilters.length === 0) {
-                fourthLevelFilters = [];
-              } else {
-                fifthLevelFilters = [];
-              }
-            }
-
-            // Remove disabling of filters
-            const allCheckboxes = d3.selectAll(
-              ".dropdown-container input[type=checkbox]",
-            );
-            allCheckboxes.each(function (d, i, nodes) {
-              const checkbox = d3.select(this);
-              if (!checkbox.property("checked")) {
-                checkbox.property("disabled", false);
-              }
-            });
-
-            maxFiltersReached.set(false);
-          }
-        }
-      } else {
-        if (item.checked) {
-          selectedItems.push(selectedPairing);
-
-          checkboxStates[categoryName].items.forEach((checkbox) => {
-            if (checkbox.value === selectedPairing.value) {
-              checkbox.checked = true;
-            }
-          });
-
-          // Update selectedCategories
-          const { category, value } = selectedPairing;
-          if (!selectedCategories[category]) {
-            selectedCategories[category] = [value];
-          } else if (!selectedCategories[category].includes(value)) {
-            selectedCategories[category].push(value);
-          }
+  /**
+   * @name disableEnableFiltering
+   * @role Toggle the user's ability to add more filters to their query
+   * @param {*} status | A boolean on whether or not the filters should be disabled or not
+   */
+  function disableEnableFiltering(status) {
+    // Remove disabling of filters
+    const allCheckboxes = d3.selectAll(
+      ".dropdown-container input[type=checkbox]",
+    );
+    allCheckboxes.each(function (d, i, nodes) {
+      const checkbox = d3.select(this);
+      if (!checkbox.property("checked")) {
+        if (status === false) {
+          checkbox.property("disabled", false);
         } else {
-          selectedItems = selectedItems.filter(
-            (item) => item.value !== item.value,
-          );
-
-          checkboxStates[categoryName].items.forEach((checkbox) => {
-            if (checkbox.value === selectedPairing.value) {
-              checkbox.checked = false;
-            }
-          });
-
-          const categoryValues = selectedCategories[categoryName];
-          if (categoryValues) {
-            selectedCategories[categoryName] = categoryValues.filter(
-              (value) => value !== item.value,
-            );
-          }
+          checkbox.property("disabled", true);
         }
       }
-    }
-
-    // Update the categoryStore with the new selectedCategories
-    categoryStore.set(selectedCategories);
-
-    // Trigger reactivity by assigning a new array
-    categories.forEach((category) => {
-      category.items = [...category.items];
     });
 
-    updateTreeVisualization();
+    maxFiltersReached.set(status);
   }
 
-  function clearAllFilters() {
-    Object.keys(checkboxStates).forEach((category) => {
-      checkboxStates[category].items.forEach((item) => {
-        item.checked = false;
+  /**
+   * @name populateSelectedSpecies
+   * @role Populate the selectedSpecies store that is sent to the tree in order to recolor it based on filters
+   * @param {*} selectedSpecies | The empty selectedSpecies set to be sent to the tree
+   * @param data | The data in which filters should be applied 
+   * @param level | The level the current filter is on (if unionizedFilters is true)
+   */
+  function populateSelectedSpecies(selectedSpecies, data, level) {
+    let collectedMatchingItems = data; // Initialize with the input data
+
+    Object.entries(checkboxStates).forEach(([category, state]) => {
+      state.items.forEach((item) => {
+        if (item.checked) {
+          let property = getCategoryProperty(category);
+          let value = item.value || item.label;
+          // Filter collectedMatchingItems progressively
+          collectedMatchingItems = collectedMatchingItems.filter((metaItem) => {
+            let dataValue = metaItem[property];
+            return Array.isArray(dataValue)
+              ? dataValue.includes(value)
+              : dataValue === value;
+          });
+        }
       });
-
-      // Clear all levels
-      firstLevelFilters = [];
-      secondLevelFilters = [];
-      thirdLevelFilters = [];
-      fourthLevelFilters = [];
-      fifthLevelFilters = [];
-
-      // If the category has 'allSelected', reset it as well
-      if ("allSelected" in checkboxStates[category]) {
-        checkboxStates[category].allSelected = false;
-      }
-
-      // Reset and/or
-      if (unionizeFilters.checked) {
-        unionizeFilters.click();
-      }
-
-      selectedCategories = {};
-      categoryStore.set(selectedCategories);
     });
-    
-    maxFiltersReached.set(false);
-    updateTreeVisualization(); // Update the tree visualization
+
+    collectedMatchingItems.forEach((match) => {
+      selectedSpecies.add(match.SPECIES_NAME_PRINT);
+      level.push(match);
+    });
+    selectedSpeciesStore.set(selectedSpecies);
   }
 
+  /**
+   * @name createCheckboxState
+   * @param {*} withAllSelected | Checks whether or not a list of checkboxes should have a selectAll-checkbox
+   */
+  function createCheckboxState(withAllSelected = false) {
+    return withAllSelected ? { allSelected: false, items: [] } : { items: [] };
+  }
+
+  /**
+   * @name toggleState
+   * @role Open and close the [category] dropdown, close all other dropdowns if open
+   * @param {*} state | The relevant dropdown
+   */
+  function toggleState(state) {
+    taxonomyOpen = state === "taxonomyOpen" ? !taxonomyOpen : false;
+    geographyOpen = state === "geographyOpen" ? !geographyOpen : false;
+    characteristicsOpen =
+      state === "characteristicsOpen" ? !characteristicsOpen : false;
+
+    if (taxonomyOpen || geographyOpen || characteristicsOpen) {
+      searchAll = ""; // Close autocomplete dropdown
+    }
+  }
+
+  /**========================================================================
+   *
+   *       MAIN GOAL: DEFINING FILTER RESULTS + COMMUNICATING WITH TREE
+   *
+   *========================================================================**/
+  /**
+   * @name updateTreeVisualization
+   * @role Find the correct species in the metadata based on applied filters
+   */
   function updateTreeVisualization() {
     let selectedSpecies = new Set();
 
@@ -1082,16 +1088,31 @@
       // If we have actually filtered, go through the filtering logic
       if (anyCheckboxChecked === true) {
         if (firstLevelFilters.length === 0) {
-          populateSelectedSpecies(metadata, firstLevelFilters);
+          populateSelectedSpecies(selectedSpecies, metadata, firstLevelFilters);
         } else if (secondLevelFilters.length === 0) {
-          populateSelectedSpecies(firstLevelFilters, secondLevelFilters);
+          populateSelectedSpecies(
+            selectedSpecies,
+            firstLevelFilters,
+            secondLevelFilters,
+          );
         } else if (thirdLevelFilters.length === 0) {
-          populateSelectedSpecies(secondLevelFilters, thirdLevelFilters);
+          populateSelectedSpecies(
+            selectedSpecies,
+            secondLevelFilters,
+            thirdLevelFilters,
+          );
         } else if (fourthLevelFilters.length === 0) {
-          populateSelectedSpecies(thirdLevelFilters, fourthLevelFilters);
-          // maxFiltersReached.set(false);
+          populateSelectedSpecies(
+            selectedSpecies,
+            thirdLevelFilters,
+            fourthLevelFilters,
+          );
         } else if (fifthLevelFilters.length === 0) {
-          populateSelectedSpecies(fourthLevelFilters, fifthLevelFilters);
+          populateSelectedSpecies(
+            selectedSpecies,
+            fourthLevelFilters,
+            fifthLevelFilters,
+          );
           maxFiltersReached.set(false);
         } else {
           maxFiltersReached.set(true);
@@ -1099,34 +1120,6 @@
         }
       } else {
         return;
-      }
-
-      function populateSelectedSpecies(data, level) {
-        let collectedMatchingItems = data; // Initialize with the input data
-
-        Object.entries(checkboxStates).forEach(([category, state]) => {
-          state.items.forEach((item) => {
-            if (item.checked) {
-              let property = getCategoryProperty(category);
-              let value = item.value || item.label;
-              // Filter collectedMatchingItems progressively
-              collectedMatchingItems = collectedMatchingItems.filter(
-                (metaItem) => {
-                  let dataValue = metaItem[property];
-                  return Array.isArray(dataValue)
-                    ? dataValue.includes(value)
-                    : dataValue === value;
-                },
-              );
-            }
-          });
-        });
-
-        collectedMatchingItems.forEach((match) => {
-          selectedSpecies.add(match.SPECIES_NAME_PRINT);
-          level.push(match);
-        });
-        selectedSpeciesStore.set(selectedSpecies);
       }
     }
 
@@ -1137,119 +1130,33 @@
     }
   }
 
-  function getCategoryProperty(category) {
-    const categoryPropertyMap = {
-      subfamilies: "SUBFAMILY",
-      supertribes: "SUPERTRIBE",
-      tribes: "TRIBE",
-      genuses: "GENUS",
-      species: "SPECIES",
-      geographicareas: "WCVP_WGSRPD_LEVEL_1_native",
-      continents: "WCVP_continent",
-      countries: "WCVP_WGSRPD_LEVEL_3_native",
-      growthForm: "GROWTH_FORM",
-      societaluse: "SOCIETAL_USE",
-      lifeform: "WCVP_lifeform_description",
-      climates: "WCVP_climate_description",
-    };
-    return categoryPropertyMap[category] || null;
-  }
+  /**========================================================================
+   *                           TOGGLE DROPDOWNS
+   *========================================================================**/
 
-  // Reactive statements for each category
-  $: if (checkboxStates.continents.items.length > 0) {
-    checkboxStates.continents.allSelected =
-      checkboxStates.continents.items.every((item) => item.checked);
-  }
-
-  $: if (checkboxStates.geographicareas.items.length > 0) {
-    checkboxStates.geographicareas.allSelected =
-      checkboxStates.geographicareas.items.every((item) => item.checked);
-  }
-
-  $: if (checkboxStates.countries.items.length > 0) {
-    checkboxStates.countries.allSelected = checkboxStates.countries.items.every(
-      (item) => item.checked,
-    );
-  }
-
-  $: if (checkboxStates.growthForm.items.length > 0) {
-    checkboxStates.growthForm.allSelected =
-      checkboxStates.growthForm.items.every((item) => item.checked);
-  }
-
-  $: if (checkboxStates.societaluse.items.length > 0) {
-    checkboxStates.societaluse.allSelected =
-      checkboxStates.societaluse.items.every((item) => item.checked);
-  }
-
-  $: if (checkboxStates.lifeform.items.length > 0) {
-    checkboxStates.lifeform.allSelected = checkboxStates.lifeform.items.every(
-      (item) => item.checked,
-    );
-  }
-
-  $: if (checkboxStates.climates.items.length > 0) {
-    checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
-      (item) => item.checked,
-    );
-  }
-
-  // Closing and opening filters logic
-
+   /**
+    * @name toggleTaxonomy
+    * @role Call on the toggleState function with 'Taxonomy' as its parameter
+   */
   function toggleTaxonomy() {
-    taxonomyOpen = !taxonomyOpen;
-    if (taxonomyOpen) {
-      geographyOpen = false;
-      characteristicsOpen = false;
-      searchAll = ""; // Close autocomplete dropdown
-    }
+    toggleState("taxonomyOpen");
   }
 
+  /**
+    * @name toggleGeography
+    * @role Call on the toggleState function with 'Geography' as its parameter
+   */
   function toggleGeography() {
-    geographyOpen = !geographyOpen;
-    if (geographyOpen) {
-      taxonomyOpen = false;
-      characteristicsOpen = false;
-      searchAll = ""; // Close autocomplete dropdown
-    }
+    toggleState("geographyOpen");
   }
 
+  /**
+    * @name toggleCharacteristics
+    * @role Call on the toggleState function with 'Characteristics' as its parameter
+   */
   function toggleCharacteristics() {
-    characteristicsOpen = !characteristicsOpen;
-    if (characteristicsOpen) {
-      taxonomyOpen = false;
-      geographyOpen = false;
-      searchAll = ""; // Close autocomplete dropdown
-    }
+    toggleState("characteristicsOpen");
   }
-
-  $: if (autocompleteOpen) {
-    taxonomyOpen = false;
-    geographyOpen = false;
-    characteristicsOpen = false;
-  }
-
-  /**============================================
-   *               CHECKED COUNTS
-   *=============================================**/
-
-  $: checkedTaxCount =
-    checkboxStates.subfamilies.items.filter((item) => item.checked).length +
-    checkboxStates.supertribes.items.filter((item) => item.checked).length +
-    checkboxStates.tribes.items.filter((item) => item.checked).length +
-    checkboxStates.genuses.items.filter((item) => item.checked).length +
-    checkboxStates.species.items.filter((item) => item.checked).length;
-
-  $: checkedGeoCount =
-    checkboxStates.geographicareas.items.filter((item) => item.checked).length +
-    checkboxStates.continents.items.filter((item) => item.checked).length +
-    checkboxStates.countries.items.filter((item) => item.checked).length;
-
-  $: checkedCharCount =
-    checkboxStates.growthForm.items.filter((item) => item.checked).length +
-    checkboxStates.societaluse.items.filter((item) => item.checked).length +
-    checkboxStates.lifeform.items.filter((item) => item.checked).length +
-    checkboxStates.climates.items.filter((item) => item.checked).length;
 </script>
 
 <svelte:head>
