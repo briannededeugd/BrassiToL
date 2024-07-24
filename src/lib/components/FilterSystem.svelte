@@ -524,11 +524,11 @@
 
   /**
    * @name HandleCheckboxChange
-   * @functio Detects when a checkbox changes and handles what happens next
+   * @function Detects when a checkbox changes and handles what happens next
    * @param {*} itemLabel is the name of the checkbox - this is unique to its category
    * @param {*} categoryname specifies the name of the category to which this checkbox belongs
    *                          - because some names are seen across many categories
-  */
+   */
   function handleCheckboxChange(category, itemLabel, categoryname) {
     filterIndex++;
     let itemsArray = checkboxStates[categoryname].items;
@@ -544,57 +544,57 @@
       value: relevantCheckbox.value,
     };
 
-    if (filterIndex < 5) {
-      if (relevantCheckbox.checked) {
-        /**
-         * THIS IF SAYS
-         * "You have not reached your maximum yet, so
-         * this checkbox that you're trying to add is
-         * added, no problem!"
-        */
-        // Checkbox is checked, add to selectedItems and update selectedCategories
-        selectedItems.push(selectedPairing);
+    if (unionizeFilters.checked) {
+      if (filterIndex < 5) {
+        if (relevantCheckbox.checked) {
+          /**
+           * THIS IF SAYS
+           * "You have not reached your maximum yet, so
+           * this checkbox that you're trying to add is
+           * added, no problem!"
+           */
+          // Checkbox is checked, add to selectedItems and update selectedCategories
+          selectedItems.push(selectedPairing);
 
-        checkboxStates[categoryname].items.forEach((checkbox) => {
-          if (checkbox.value === selectedPairing.value) {
-            checkbox.checked = true;
+          checkboxStates[categoryname].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = true;
+            }
+          });
+
+          // Update selectedCategories
+          const { category, value } = selectedPairing;
+          if (!selectedCategories[category]) {
+            selectedCategories[category] = [value];
+          } else if (!selectedCategories[category].includes(value)) {
+            selectedCategories[category].push(value);
           }
-        });
 
-        // Update selectedCategories
-        const { category, value } = selectedPairing;
-        if (!selectedCategories[category]) {
-          selectedCategories[category] = [value];
-        } else if (!selectedCategories[category].includes(value)) {
-          selectedCategories[category].push(value);
-        }
-
-        maxFiltersReached.set(false);
-      } else {
-        /**
-         * THIS ELSE SAYS
-         * "You have not yet reached your maximum, so
-         * removing this filter is no problem!"
-        */
-        // Checkbox is unchecked, remove from selectedItems and selectedCategories
-        selectedItems = selectedItems.filter(
-          (item) => item.value !== relevantCheckbox.value,
-        );
-
-        checkboxStates[categoryname].items.forEach((checkbox) => {
-          if (checkbox.value === selectedPairing.value) {
-            checkbox.checked = false;
-          }
-        });
-
-        const categoryValues = selectedCategories[categoryname];
-        if (categoryValues) {
-          selectedCategories[categoryname] = categoryValues.filter(
-            (value) => value !== relevantCheckbox.value,
+          maxFiltersReached.set(false);
+        } else {
+          /**
+           * THIS ELSE SAYS
+           * "You have not yet reached your maximum, so
+           * removing this filter is no problem!"
+           */
+          // Checkbox is unchecked, remove from selectedItems and selectedCategories
+          selectedItems = selectedItems.filter(
+            (item) => item.value !== relevantCheckbox.value,
           );
-        }
 
-        if (unionizeFilters.checked) {
+          checkboxStates[categoryname].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = false;
+            }
+          });
+
+          const categoryValues = selectedCategories[categoryname];
+          if (categoryValues) {
+            selectedCategories[categoryname] = categoryValues.filter(
+              (value) => value !== relevantCheckbox.value,
+            );
+          }
+
           if (firstLevelFilters.length === 0) {
             return;
           } else if (secondLevelFilters.length === 0) {
@@ -608,18 +608,103 @@
           } else {
             fifthLevelFilters = [];
           }
+        }
+      } else if (filterIndex >= 5) {
+        if (relevantCheckbox.checked) {
+          /**
+           * THIS IF SAYS
+           * "You have reached five filters, so we are adding
+           * your fifth filter to the URL and the tree, but then
+           * we're disabling all other filters, because this is
+           * your maximum."
+           */
+          // Checkbox is checked, add to selectedItems and update selectedCategories
+          selectedItems.push(selectedPairing);
+
+          checkboxStates[categoryname].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = true;
+            }
+          });
+
+          // Update selectedCategories
+          const { category, value } = selectedPairing;
+          if (!selectedCategories[category]) {
+            selectedCategories[category] = [value];
+          } else if (!selectedCategories[category].includes(value)) {
+            selectedCategories[category].push(value);
+          }
+
+          console.log("fifth level is now full");
+          const allCheckboxes = d3.selectAll(
+            ".dropdown-container input[type=checkbox]",
+          );
+          allCheckboxes.each(function (d, i, nodes) {
+            const checkbox = d3.select(this);
+            if (!checkbox.property("checked")) {
+              checkbox.property("disabled", true);
+            }
+          });
+
+          maxFiltersReached.set(true);
+        } else {
+          /**
+           * THIS ELSE SAYS
+           * "You have reached five filters, which is your max, but
+           * you are unchecking a filter, which brings you down to
+           * four filters, which is not your max."
+           */
+          filterIndex = 4;
+          // Checkbox is unchecked, remove from selectedItems and selectedCategories
+          selectedItems = selectedItems.filter(
+            (item) => item.value !== relevantCheckbox.value,
+          );
+
+          checkboxStates[categoryname].items.forEach((checkbox) => {
+            if (checkbox.value === selectedPairing.value) {
+              checkbox.checked = false;
+            }
+          });
+
+          const categoryValues = selectedCategories[categoryname];
+          if (categoryValues) {
+            selectedCategories[categoryname] = categoryValues.filter(
+              (value) => value !== relevantCheckbox.value,
+            );
+          }
+
+          if (unionizeFilters.checked) {
+            if (firstLevelFilters.length === 0) {
+              return;
+            } else if (secondLevelFilters.length === 0) {
+              firstLevelFilters = [];
+            } else if (thirdLevelFilters.length === 0) {
+              secondLevelFilters = [];
+            } else if (fourthLevelFilters.length === 0) {
+              thirdLevelFilters = [];
+            } else if (fifthLevelFilters.length === 0) {
+              fourthLevelFilters = [];
+            } else {
+              fifthLevelFilters = [];
+            }
+          }
+
+          // Remove disabling of filters
+          const allCheckboxes = d3.selectAll(
+            ".dropdown-container input[type=checkbox]",
+          );
+          allCheckboxes.each(function (d, i, nodes) {
+            const checkbox = d3.select(this);
+            if (!checkbox.property("checked")) {
+              checkbox.property("disabled", false);
+            }
+          });
+
+          maxFiltersReached.set(false);
         }
       }
-    } else if (filterIndex >= 5) {
+    } else {
       if (relevantCheckbox.checked) {
-        /**
-         * THIS IF SAYS
-         * "You have reached five filters, so we are adding
-         * your fifth filter to the URL and the tree, but then
-         * we're disabling all other filters, because this is
-         * your maximum."
-        */
-        // Checkbox is checked, add to selectedItems and update selectedCategories
         selectedItems.push(selectedPairing);
 
         checkboxStates[categoryname].items.forEach((checkbox) => {
@@ -635,28 +720,7 @@
         } else if (!selectedCategories[category].includes(value)) {
           selectedCategories[category].push(value);
         }
-
-        console.log("fifth level is now full");
-        const allCheckboxes = d3.selectAll(
-          ".dropdown-container input[type=checkbox]",
-        );
-        allCheckboxes.each(function (d, i, nodes) {
-          const checkbox = d3.select(this);
-          if (!checkbox.property("checked")) {
-            checkbox.property("disabled", true);
-          }
-        });
-
-        maxFiltersReached.set(true);
       } else {
-        /**
-         * THIS ELSE SAYS
-         * "You have reached five filters, which is your max, but
-         * you are unchecking a filter, which brings you down to
-         * four filters, which is not your max."
-        */
-        filterIndex = 4;
-        // Checkbox is unchecked, remove from selectedItems and selectedCategories
         selectedItems = selectedItems.filter(
           (item) => item.value !== relevantCheckbox.value,
         );
@@ -673,35 +737,6 @@
             (value) => value !== relevantCheckbox.value,
           );
         }
-
-        if (unionizeFilters.checked) {
-          if (firstLevelFilters.length === 0) {
-            return;
-          } else if (secondLevelFilters.length === 0) {
-            firstLevelFilters = [];
-          } else if (thirdLevelFilters.length === 0) {
-            secondLevelFilters = [];
-          } else if (fourthLevelFilters.length === 0) {
-            thirdLevelFilters = [];
-          } else if (fifthLevelFilters.length === 0) {
-            fourthLevelFilters = [];
-          } else {
-            fifthLevelFilters = [];
-          }
-        }
-
-        // Remove disabling of filters
-        const allCheckboxes = d3.selectAll(
-          ".dropdown-container input[type=checkbox]",
-        );
-        allCheckboxes.each(function (d, i, nodes) {
-          const checkbox = d3.select(this);
-          if (!checkbox.property("checked")) {
-            checkbox.property("disabled", false);
-          }
-        });
-
-        maxFiltersReached.set(false);
       }
     }
 
@@ -710,6 +745,11 @@
     updateTreeVisualization();
   }
 
+  /**
+   * @name Handle-GLOBAL-CheckboxChange
+   * @function Detects when a checkbox changes from the search results and handles what happens next
+   * @param {*} item is the complete checked checkbox, which involves its value, label and checked status
+   */
   function handleGlobalSearchCheckboxChange(item) {
     let categoryName;
     let checked;
