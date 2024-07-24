@@ -4,6 +4,7 @@
   import { selectedSpeciesStore } from "./store.js";
   import { createCategoryStore } from "./querystore.js";
   import { maxFiltersReached } from "./maximumstore.js";
+  import { noFilterResults } from "./filterresultstore.js";
 
   /**============================================
    *               Declaring Variables
@@ -131,7 +132,7 @@
    *                    Load in all data before the page loads
    *            Fetch data and make sure it's available at all times
    *          Populate variables that are needed for the site to work
-   * 
+   *
    *========================================================================**/
   onMount(async () => {
     const response = await fetch("/BrassiToL_metadata.json");
@@ -427,11 +428,11 @@
    *                           SEARCHING FUNCTIONALITIES
    *========================================================================**/
 
-   /**
-    * @name globalFilterItems
-    * @role Finding search term results from the global search
-    * @param {*} searchTerm | The term that the user searched
-    */
+  /**
+   * @name globalFilterItems
+   * @role Finding search term results from the global search
+   * @param {*} searchTerm | The term that the user searched
+   */
   function globalFilterItems(searchTerm) {
     searchTerm = searchTerm.trim().toLowerCase();
     let results = {};
@@ -468,11 +469,11 @@
   }
 
   /**
-    * @name filterItems
-    * @role Finding search term results from the individual category searches
-    * @param {*} items | All items in the relevant category
-    * @param {*} searchTerm | The term that the user searched
-    */
+   * @name filterItems
+   * @role Finding search term results from the individual category searches
+   * @param {*} items | All items in the relevant category
+   * @param {*} searchTerm | The term that the user searched
+   */
   function filterItems(items, searchTerm) {
     searchTerm = searchTerm.trim().toLowerCase();
     if (searchTerm === "") {
@@ -986,7 +987,7 @@
    * @name populateSelectedSpecies
    * @role Populate the selectedSpecies store that is sent to the tree in order to recolor it based on filters
    * @param {*} selectedSpecies | The empty selectedSpecies set to be sent to the tree
-   * @param data | The data in which filters should be applied 
+   * @param data | The data in which filters should be applied
    * @param level | The level the current filter is on (if unionizedFilters is true)
    */
   function populateSelectedSpecies(selectedSpecies, data, level) {
@@ -1050,6 +1051,7 @@
    */
   function updateTreeVisualization() {
     let selectedSpecies = new Set();
+    let anyCheckboxChecked = false;
 
     if (!unionizeFilters.checked) {
       Object.entries(checkboxStates).forEach(([category, state]) => {
@@ -1073,9 +1075,6 @@
       selectedSpeciesStore.set(selectedSpecies);
     } else {
       //! To avoid the app counting unionizeFilters as a filter, add a check that only goes through the filters if any checkboxStates have changed
-
-      // Add a boolean
-      let anyCheckboxChecked = false;
       // Check if any checkboxes are checked
       Object.entries(checkboxStates).forEach(([category, state]) => {
         state.items.forEach((item) => {
@@ -1087,6 +1086,8 @@
 
       // If we have actually filtered, go through the filtering logic
       if (anyCheckboxChecked === true) {
+        d3.select("#clearFilters").style("visibility", "visible");
+
         if (firstLevelFilters.length === 0) {
           populateSelectedSpecies(selectedSpecies, metadata, firstLevelFilters);
         } else if (secondLevelFilters.length === 0) {
@@ -1119,14 +1120,15 @@
           return;
         }
       } else {
+        d3.select("#clearFilters").style("visibility", "hidden");
         return;
       }
     }
 
-    if (selectedSpecies.size > 0) {
-      d3.select("#clearFilters").style("visibility", "visible");
-    } else {
-      d3.select("#clearFilters").style("visibility", "hidden");
+    if (anyCheckboxChecked === false) {
+      noFilterResults.set(false);
+    } else if (anyCheckboxChecked === true && selectedSpecies.size > 0) {
+      noFilterResults.set(true);
     }
   }
 
@@ -1134,25 +1136,25 @@
    *                           TOGGLE DROPDOWNS
    *========================================================================**/
 
-   /**
-    * @name toggleTaxonomy
-    * @role Call on the toggleState function with 'Taxonomy' as its parameter
+  /**
+   * @name toggleTaxonomy
+   * @role Call on the toggleState function with 'Taxonomy' as its parameter
    */
   function toggleTaxonomy() {
     toggleState("taxonomyOpen");
   }
 
   /**
-    * @name toggleGeography
-    * @role Call on the toggleState function with 'Geography' as its parameter
+   * @name toggleGeography
+   * @role Call on the toggleState function with 'Geography' as its parameter
    */
   function toggleGeography() {
     toggleState("geographyOpen");
   }
 
   /**
-    * @name toggleCharacteristics
-    * @role Call on the toggleState function with 'Characteristics' as its parameter
+   * @name toggleCharacteristics
+   * @role Call on the toggleState function with 'Characteristics' as its parameter
    */
   function toggleCharacteristics() {
     toggleState("characteristicsOpen");
