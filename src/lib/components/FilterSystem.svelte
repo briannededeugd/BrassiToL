@@ -1053,10 +1053,13 @@
     let selectedSpecies = new Set();
     let anyCheckboxChecked = false;
 
+    // Check if filters are applied and populate selectedSpecies accordingly
     if (!unionizeFilters.checked) {
+      // Iterate through filter checkboxes and populate selectedSpecies
       Object.entries(checkboxStates).forEach(([category, state]) => {
         state.items.forEach((item) => {
           if (item.checked) {
+            anyCheckboxChecked = true; // Set flag if any checkbox is checked
             let property = getCategoryProperty(category);
             let value = item.value || item.label;
             let matchingItems = metadata.filter((metaItem) => {
@@ -1072,9 +1075,9 @@
         });
       });
 
+      // Update the store with the selected species
       selectedSpeciesStore.set(selectedSpecies);
     } else {
-      //! To avoid the app counting unionizeFilters as a filter, add a check that only goes through the filters if any checkboxStates have changed
       // Check if any checkboxes are checked
       Object.entries(checkboxStates).forEach(([category, state]) => {
         state.items.forEach((item) => {
@@ -1084,8 +1087,8 @@
         });
       });
 
-      // If we have actually filtered, go through the filtering logic
-      if (anyCheckboxChecked === true) {
+      // Apply filters if any checkboxes are checked
+      if (anyCheckboxChecked) {
         d3.select("#clearFilters").style("visibility", "visible");
 
         if (firstLevelFilters.length === 0) {
@@ -1117,18 +1120,20 @@
           maxFiltersReached.set(false);
         } else {
           maxFiltersReached.set(true);
-          return;
+          return; // Exit if max filters reached
         }
       } else {
         d3.select("#clearFilters").style("visibility", "hidden");
-        return;
+        return; // Exit if no checkboxes are checked
       }
     }
 
-    if (anyCheckboxChecked === false) {
-      noFilterResults.set(false);
-    } else if (anyCheckboxChecked === true && selectedSpecies.size > 0) {
+    // Set noFilterResults based on the state of selectedSpecies and checkboxes
+    if (anyCheckboxChecked && selectedSpecies.size === 0) {
       noFilterResults.set(true);
+      console.log("sorry babes", noFilterResults);
+    } else {
+      noFilterResults.set(false);
     }
   }
 

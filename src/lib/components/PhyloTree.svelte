@@ -91,6 +91,7 @@
   const width = 900;
   const outerRadius = width / 2;
   const innerRadius = outerRadius - 170;
+  let isNoFilterResults;
 
   /**============================================
    *               ROTATION FUNCTION
@@ -341,6 +342,13 @@
     selectedSpeciesStore.subscribe((value) => {
       selectedSpecies = value;
       updateTreeColors(selectedSpecies);
+    });
+
+    // For no filter results
+    const unsubscribe = noFilterResults.subscribe((value) => {
+      isNoFilterResults = value;
+      console.log("Store value changed:", value); // Log value to check changes
+      updateTreeColors(selectedSpecies); // Update colors based on new store value
     });
   });
 
@@ -1074,8 +1082,6 @@
    *========================================================================**/
 
   function updateTreeColors(speciesSet) {
-    const isNoFilterResults = get(noFilterResults);
-
     sharedRoot.each((node) => {
       // Determine the default color or superTribe color
       let defaultColor = "#e1e1e1";
