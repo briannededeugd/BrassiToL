@@ -965,39 +965,6 @@
   }
 
   /**
-   * @name populateSelectedSpecies
-   * @role Populate the selectedSpecies store that is sent to the tree in order to recolor it based on filters
-   * @param {*} selectedSpecies | The empty selectedSpecies set to be sent to the tree
-   * @param data | The data in which filters should be applied
-   * @param level | The level the current filter is on (if unionizedFilters is true)
-   */
-  function populateSelectedSpecies(selectedSpecies, data, level) {
-    let collectedMatchingItems = data; // Initialize with the input data
-
-    Object.entries(checkboxStates).forEach(([category, state]) => {
-      state.items.forEach((item) => {
-        if (item.checked) {
-          let property = getCategoryProperty(category);
-          let value = item.value || item.label;
-          // Filter collectedMatchingItems progressively
-          collectedMatchingItems = collectedMatchingItems.filter((metaItem) => {
-            let dataValue = metaItem[property];
-            return Array.isArray(dataValue)
-              ? dataValue.includes(value)
-              : dataValue === value;
-          });
-        }
-      });
-    });
-
-    collectedMatchingItems.forEach((match) => {
-      selectedSpecies.add(match.SPECIES_NAME_PRINT);
-      level.push(match);
-    });
-    selectedSpeciesStore.set(selectedSpecies);
-  }
-
-  /**
    * @name createCheckboxState
    * @param {*} withAllSelected | Checks whether or not a list of checkboxes should have a selectAll-checkbox
    */
