@@ -352,7 +352,6 @@
                 value: filter.label,
               };
               activeFilters.push(emptyFilter);
-              console.log("The active filters are:", activeFilters);
             }
           });
         });
@@ -1113,7 +1112,6 @@
         });
 
         selectedSpeciesStore.set(selectedSpecies);
-        console.log("HEY, OVER HERE:", selectedSpecies);
       } else {
         d3.select("#clearFilters").style("visibility", "hidden");
         selectedSpecies = [];
