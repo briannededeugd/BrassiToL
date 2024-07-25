@@ -387,7 +387,7 @@
     max-width: 180px;
     border-radius: 16px;
     background-color: #0d1c1b87;
-    border: .5px solid #729a68;
+    border: 0.5px solid #729a68;
     backdrop-filter: blur(5px);
     padding: 0.5em 1em;
     opacity: 1;
@@ -397,7 +397,7 @@
     bottom: 400px;
     z-index: 10000;
     color: white;
-    transform: scale(.8);
+    transform: scale(0.8);
 
     & h3 {
       font-family: Arial, Helvetica, sans-serif;
@@ -409,7 +409,7 @@
     & p {
       font-family: "Inter", sans-serif;
       font-weight: 100;
-      font-size: .85em;
+      font-size: 0.85em;
     }
   }
 </style>
