@@ -977,81 +977,110 @@
       });
     });
 
-    let currentIndex = activeFilters.length - 1;
-
-    // Handle the case where no filters are applied
-    if (activeFilters.length === 0) {
-      // Set selectedSpecies to all species in metadata
-      metadata.forEach((metaItem) => {
-        selectedSpecies.add(metaItem.SPECIES_NAME_PRINT);
+    if (!unionizeFilters.checked) {
+      console.log("No unionizeFilters");
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            let property = getCategoryProperty(category);
+            let value = item.value || item.label;
+            let matchingItems = metadata.filter((metaItem) => {
+              let dataValue = metaItem[property];
+              return Array.isArray(dataValue)
+                ? dataValue.includes(value)
+                : dataValue === value;
+            });
+            matchingItems.forEach((match) =>
+              selectedSpecies.add(match.SPECIES_NAME_PRINT),
+            );
+          }
+        });
       });
+
       selectedSpeciesStore.set(selectedSpecies);
-
-      // Reset other states
-      disableEnableFiltering(false);
-      maxFiltersReached.set(false);
-      noFilterResults.set(false);
-      return;
-    }
-
-    // Initialize sentMetadata based on the number of active filters
-    let sentMetadata;
-    if (activeFilters.length > 1) {
-      let prevIndex = activeFilters.length - 2; // Get the previous filter index
-      let prevFilter = activeFilters[prevIndex];
-      sentMetadata = metadata.filter((metaItem) => {
-        let dataValue = metaItem[getCategoryProperty(prevFilter.category)];
-        return Array.isArray(dataValue)
-          ? dataValue.includes(prevFilter.value)
-          : dataValue === prevFilter.value;
-      });
     } else {
-      sentMetadata = metadata;
-    }
+      let currentIndex = activeFilters.length - 1;
 
-    // Ensure currentIndex is within bounds
-    if (currentIndex >= 0 && currentIndex < 4) {
-      let currentFilter = activeFilters[currentIndex];
-      let category = currentFilter.category;
+      // Handle the case where no filters are applied
+      if (activeFilters.length === 0) {
+        // Set selectedSpecies to all species in metadata
+        metadata.forEach((metaItem) => {
+          selectedSpecies.add(metaItem.SPECIES_NAME_PRINT);
+        });
+        selectedSpeciesStore.set(selectedSpecies);
 
-      // Filter sentMetadata based on the current filter
-      sentMetadata = sentMetadata.filter((metaItem) => {
-        let dataValue = metaItem[getCategoryProperty(category)];
-        return Array.isArray(dataValue)
-          ? dataValue.includes(currentFilter.value)
-          : dataValue === currentFilter.value;
-      });
+        // Reset other states
+        disableEnableFiltering(false);
+        maxFiltersReached.set(false);
+        noFilterResults.set(false);
+        return;
+      }
 
-      // Update selected species
-      sentMetadata.forEach((match) =>
-        selectedSpecies.add(match.SPECIES_NAME_PRINT),
-      );
-      selectedSpeciesStore.set(selectedSpecies);
+      // Initialize sentMetadata based on the number of active filters
+      let sentMetadata;
+      if (activeFilters.length > 1) {
+        let prevIndex = activeFilters.length - 2; // Get the previous filter index
+        let prevFilter = activeFilters[prevIndex];
+        sentMetadata = metadata.filter((metaItem) => {
+          let dataValue = metaItem[getCategoryProperty(prevFilter.category)];
+          return Array.isArray(dataValue)
+            ? dataValue.includes(prevFilter.value)
+            : dataValue === prevFilter.value;
+        });
+      } else {
+        sentMetadata = metadata;
+      }
 
-      disableEnableFiltering(false);
-      maxFiltersReached.set(false);
-    } else if (currentIndex === 4) {
-      let currentFilter = activeFilters[currentIndex];
-      let category = currentFilter.category;
+      // Ensure currentIndex is within bounds
+      if (currentIndex >= 0 && currentIndex < 4) {
+        let currentFilter = activeFilters[currentIndex];
+        let category = currentFilter.category;
 
-      sentMetadata = sentMetadata.filter((metaItem) => {
-        let dataValue = metaItem[getCategoryProperty(category)];
-        return Array.isArray(dataValue)
-          ? dataValue.includes(currentFilter.value)
-          : dataValue === currentFilter.value;
-      });
+        // Filter sentMetadata based on the current filter
+        sentMetadata = sentMetadata.filter((metaItem) => {
+          let dataValue = metaItem[getCategoryProperty(category)];
+          return Array.isArray(dataValue)
+            ? dataValue.includes(currentFilter.value)
+            : dataValue === currentFilter.value;
+        });
 
-      // Update selected species
-      sentMetadata.forEach((match) =>
-        selectedSpecies.add(match.SPECIES_NAME_PRINT),
-      );
-      selectedSpeciesStore.set(selectedSpecies);
-      console.log(selectedSpecies);
+        // Update selected species
+        sentMetadata.forEach((match) =>
+          selectedSpecies.add(match.SPECIES_NAME_PRINT),
+        );
+        selectedSpeciesStore.set(selectedSpecies);
 
-      disableEnableFiltering(true);
-      maxFiltersReached.set(true);
-    } else {
-      return;
+        disableEnableFiltering(false);
+        maxFiltersReached.set(false);
+      } else if (currentIndex === 4) {
+        let currentFilter = activeFilters[currentIndex];
+        let category = currentFilter.category;
+
+        sentMetadata = sentMetadata.filter((metaItem) => {
+          let dataValue = metaItem[getCategoryProperty(category)];
+          return Array.isArray(dataValue)
+            ? dataValue.includes(currentFilter.value)
+            : dataValue === currentFilter.value;
+        });
+
+        // Update selected species
+        sentMetadata.forEach((match) =>
+          selectedSpecies.add(match.SPECIES_NAME_PRINT),
+        );
+        selectedSpeciesStore.set(selectedSpecies);
+        console.log(selectedSpecies);
+
+        disableEnableFiltering(true);
+        maxFiltersReached.set(true);
+      } else {
+        return;
+      }
+
+      if (selectedSpecies.size > 0) {
+        d3.select("#clearFilters").style("visibility", "visible");
+      } else {
+        d3.select("#clearFilters").style("visibility", "hidden");
+      }
     }
 
     if (selectedSpecies.size > 0) {
