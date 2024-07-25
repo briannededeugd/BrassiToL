@@ -17,12 +17,8 @@
   let unionizeFilters;
   let filterIndex = 0;
 
-  // Levels for unionized filtering
-  let firstLevelFilters = [];
-  let secondLevelFilters = [];
-  let thirdLevelFilters = [];
-  let fourthLevelFilters = [];
-  let fifthLevelFilters = [];
+  // New unionized filtering array
+  let activeFilters = [];
 
   //  Check states of dropdowns
   let taxonomyOpen = false;
@@ -550,13 +546,6 @@
         item.checked = false;
       });
 
-      // Clear all levels
-      firstLevelFilters = [];
-      secondLevelFilters = [];
-      thirdLevelFilters = [];
-      fourthLevelFilters = [];
-      fifthLevelFilters = [];
-
       // If the category has 'allSelected', reset it as well
       if ("allSelected" in checkboxStates[category]) {
         checkboxStates[category].allSelected = false;
@@ -596,12 +585,7 @@
         selectedCategories[category].push(value);
       }
 
-      // Reset levels to avoid duplicates when toggling
-      firstLevelFilters = [];
-      secondLevelFilters = [];
-      thirdLevelFilters = [];
-      fourthLevelFilters = [];
-      fifthLevelFilters = [];
+      activeFilters = [];
 
       // Update the categoryStore with the new selectedCategories
       categoryStore.set(selectedCategories);
@@ -612,12 +596,7 @@
         delete selectedCategories["unionizeFilters"];
       }
 
-      // Clear all levels
-      firstLevelFilters = [];
-      secondLevelFilters = [];
-      thirdLevelFilters = [];
-      fourthLevelFilters = [];
-      fifthLevelFilters = [];
+      activeFilters = [];
 
       categoryStore.set(selectedCategories);
 
@@ -633,7 +612,7 @@
    *                          - because some names are seen across many categories
    */
   function handleCheckboxChange(category, itemLabel, categoryname) {
-    filterIndex++;
+    // filterIndex++;
     let itemsArray = checkboxStates[categoryname].items;
     const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
 
@@ -650,7 +629,7 @@
     pushFiltersToURL(
       relevantCheckbox,
       categoryname,
-      filterIndex,
+      // filterIndex,
       selectedPairing,
     );
 
@@ -743,11 +722,11 @@
   function pushFiltersToURL(
     relevantCheckbox,
     categoryname,
-    filterIndex,
+    // filterIndex,
     selectedPairing,
   ) {
     if (unionizeFilters.checked) {
-      if (filterIndex < 5) {
+      if (activeFilters.length < 5) {
         if (relevantCheckbox.checked) {
           /**
            * THIS IF SAYS
@@ -757,6 +736,7 @@
            */
           // Checkbox is checked, add to selectedItems and update selectedCategories
           selectedItems.push(selectedPairing);
+          activeFilters.push(selectedPairing);
 
           checkboxStates[categoryname].items.forEach((checkbox) => {
             if (checkbox.value === selectedPairing.value) {
@@ -778,6 +758,8 @@
            * removing this filter is no problem!"
            */
           // Checkbox is unchecked, remove from selectedItems and selectedCategories
+          activeFilters.pop(selectedPairing);
+
           selectedItems = selectedItems.filter(
             (item) => item.value !== relevantCheckbox.value,
           );
@@ -794,22 +776,8 @@
               (value) => value !== relevantCheckbox.value,
             );
           }
-
-          if (firstLevelFilters.length === 0) {
-            return;
-          } else if (secondLevelFilters.length === 0) {
-            firstLevelFilters = [];
-          } else if (thirdLevelFilters.length === 0) {
-            secondLevelFilters = [];
-          } else if (fourthLevelFilters.length === 0) {
-            thirdLevelFilters = [];
-          } else if (fifthLevelFilters.length === 0) {
-            fourthLevelFilters = [];
-          } else {
-            fifthLevelFilters = [];
-          }
         }
-      } else if (filterIndex >= 5) {
+      } else if (activeFilters.length >= 5) {
         if (relevantCheckbox.checked) {
           /**
            * THIS IF SAYS
@@ -820,6 +788,7 @@
            */
           // Checkbox is checked, add to selectedItems and update selectedCategories
           selectedItems.push(selectedPairing);
+          activeFilters.push(selectedPairing);
 
           checkboxStates[categoryname].items.forEach((checkbox) => {
             if (checkbox.value === selectedPairing.value) {
@@ -835,7 +804,7 @@
             selectedCategories[category].push(value);
           }
 
-          disableEnableFiltering(true);
+          // disableEnableFiltering(true);
         } else {
           /**
            * THIS ELSE SAYS
@@ -843,7 +812,7 @@
            * you are unchecking a filter, which brings you down to
            * four filters, which is not your max."
            */
-          filterIndex = 4;
+          activeFilters.pop(selectedPairing);
           // Checkbox is unchecked, remove from selectedItems and selectedCategories
           selectedItems = selectedItems.filter(
             (item) => item.value !== relevantCheckbox.value,
@@ -861,22 +830,6 @@
               (value) => value !== relevantCheckbox.value,
             );
           }
-
-          if (firstLevelFilters.length === 0) {
-            return;
-          } else if (secondLevelFilters.length === 0) {
-            firstLevelFilters = [];
-          } else if (thirdLevelFilters.length === 0) {
-            secondLevelFilters = [];
-          } else if (fourthLevelFilters.length === 0) {
-            thirdLevelFilters = [];
-          } else if (fifthLevelFilters.length === 0) {
-            fourthLevelFilters = [];
-          } else {
-            fifthLevelFilters = [];
-          }
-
-          disableEnableFiltering(false);
         }
       }
     } else {
@@ -977,41 +930,6 @@
         }
       }
     });
-
-    maxFiltersReached.set(status);
-  }
-
-  /**
-   * @name populateSelectedSpecies
-   * @role Populate the selectedSpecies store that is sent to the tree in order to recolor it based on filters
-   * @param {*} selectedSpecies | The empty selectedSpecies set to be sent to the tree
-   * @param data | The data in which filters should be applied
-   * @param level | The level the current filter is on (if unionizedFilters is true)
-   */
-  function populateSelectedSpecies(selectedSpecies, data, level) {
-    let collectedMatchingItems = data; // Initialize with the input data
-
-    Object.entries(checkboxStates).forEach(([category, state]) => {
-      state.items.forEach((item) => {
-        if (item.checked) {
-          let property = getCategoryProperty(category);
-          let value = item.value || item.label;
-          // Filter collectedMatchingItems progressively
-          collectedMatchingItems = collectedMatchingItems.filter((metaItem) => {
-            let dataValue = metaItem[property];
-            return Array.isArray(dataValue)
-              ? dataValue.includes(value)
-              : dataValue === value;
-          });
-        }
-      });
-    });
-
-    collectedMatchingItems.forEach((match) => {
-      selectedSpecies.add(match.SPECIES_NAME_PRINT);
-      level.push(match);
-    });
-    selectedSpeciesStore.set(selectedSpecies);
   }
 
   /**
@@ -1051,77 +969,95 @@
     let selectedSpecies = new Set();
     let anyCheckboxChecked = false;
 
-    // Check if filters are applied and populate selectedSpecies accordingly
-    if (!unionizeFilters.checked) {
-      // Iterate through filter checkboxes and populate selectedSpecies
-      Object.entries(checkboxStates).forEach(([category, state]) => {
-        state.items.forEach((item) => {
-          if (item.checked) {
-            anyCheckboxChecked = true; // Set flag if any checkbox is checked
-            let property = getCategoryProperty(category);
-            let value = item.value || item.label;
-            let matchingItems = metadata.filter((metaItem) => {
-              let dataValue = metaItem[property];
-              return Array.isArray(dataValue)
-                ? dataValue.includes(value)
-                : dataValue === value;
-            });
-            matchingItems.forEach((match) =>
-              selectedSpecies.add(match.SPECIES_NAME_PRINT),
-            );
-          }
-        });
-      });
-
-      // Update the store with the selected species
-      selectedSpeciesStore.set(selectedSpecies);
-    } else {
-      // Check if any checkboxes are checked
-      Object.entries(checkboxStates).forEach(([category, state]) => {
-        state.items.forEach((item) => {
-          if (item.checked) {
-            anyCheckboxChecked = true;
-          }
-        });
-      });
-
-      // Apply filters if any checkboxes are checked
-      if (anyCheckboxChecked) {
-        d3.select("#clearFilters").style("visibility", "visible");
-
-        if (firstLevelFilters.length === 0) {
-          populateSelectedSpecies(selectedSpecies, metadata, firstLevelFilters);
-        } else if (secondLevelFilters.length === 0) {
-          populateSelectedSpecies(
-            selectedSpecies,
-            firstLevelFilters,
-            secondLevelFilters,
-          );
-        } else if (thirdLevelFilters.length === 0) {
-          populateSelectedSpecies(
-            selectedSpecies,
-            secondLevelFilters,
-            thirdLevelFilters,
-          );
-        } else if (fourthLevelFilters.length === 0) {
-          populateSelectedSpecies(
-            selectedSpecies,
-            thirdLevelFilters,
-            fourthLevelFilters,
-          );
-        } else if (fifthLevelFilters.length === 0) {
-          populateSelectedSpecies(
-            selectedSpecies,
-            fourthLevelFilters,
-            fifthLevelFilters,
-          );
-        } else {
-          return; // Exit if max filters reached
+    Object.entries(checkboxStates).forEach(([category, state]) => {
+      state.items.forEach((item) => {
+        if (item.checked) {
+          anyCheckboxChecked = true;
         }
-      } else {
-        d3.select("#clearFilters").style("visibility", "hidden");
-        return; // Exit if no checkboxes are checked
-      }
+      });
+    });
+
+    let currentIndex = activeFilters.length - 1;
+
+    // Handle the case where no filters are applied
+    if (activeFilters.length === 0) {
+      // Set selectedSpecies to all species in metadata
+      metadata.forEach((metaItem) => {
+        selectedSpecies.add(metaItem.SPECIES_NAME_PRINT);
+      });
+      selectedSpeciesStore.set(selectedSpecies);
+
+      // Reset other states
+      disableEnableFiltering(false);
+      maxFiltersReached.set(false);
+      noFilterResults.set(false);
+      return;
+    }
+
+    // Initialize sentMetadata based on the number of active filters
+    let sentMetadata;
+    if (activeFilters.length > 1) {
+      let prevIndex = activeFilters.length - 2; // Get the previous filter index
+      let prevFilter = activeFilters[prevIndex];
+      sentMetadata = metadata.filter((metaItem) => {
+        let dataValue = metaItem[getCategoryProperty(prevFilter.category)];
+        return Array.isArray(dataValue)
+          ? dataValue.includes(prevFilter.value)
+          : dataValue === prevFilter.value;
+      });
+    } else {
+      sentMetadata = metadata;
+    }
+
+    // Ensure currentIndex is within bounds
+    if (currentIndex >= 0 && currentIndex < 4) {
+      let currentFilter = activeFilters[currentIndex];
+      let category = currentFilter.category;
+
+      // Filter sentMetadata based on the current filter
+      sentMetadata = sentMetadata.filter((metaItem) => {
+        let dataValue = metaItem[getCategoryProperty(category)];
+        return Array.isArray(dataValue)
+          ? dataValue.includes(currentFilter.value)
+          : dataValue === currentFilter.value;
+      });
+
+      // Update selected species
+      sentMetadata.forEach((match) =>
+        selectedSpecies.add(match.SPECIES_NAME_PRINT),
+      );
+      selectedSpeciesStore.set(selectedSpecies);
+
+      disableEnableFiltering(false);
+      maxFiltersReached.set(false);
+    } else if (currentIndex === 4) {
+      let currentFilter = activeFilters[currentIndex];
+      let category = currentFilter.category;
+
+      sentMetadata = sentMetadata.filter((metaItem) => {
+        let dataValue = metaItem[getCategoryProperty(category)];
+        return Array.isArray(dataValue)
+          ? dataValue.includes(currentFilter.value)
+          : dataValue === currentFilter.value;
+      });
+
+      // Update selected species
+      sentMetadata.forEach((match) =>
+        selectedSpecies.add(match.SPECIES_NAME_PRINT),
+      );
+      selectedSpeciesStore.set(selectedSpecies);
+      console.log(selectedSpecies);
+
+      disableEnableFiltering(true);
+      maxFiltersReached.set(true);
+    } else {
+      return;
+    }
+
+    if (selectedSpecies.size > 0) {
+      d3.select("#clearFilters").style("visibility", "visible");
+    } else {
+      d3.select("#clearFilters").style("visibility", "hidden");
     }
 
     // Set noFilterResults based on the state of selectedSpecies and checkboxes
