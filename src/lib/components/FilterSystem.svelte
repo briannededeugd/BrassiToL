@@ -309,13 +309,24 @@
     // Access URL parameters
     const queryParams = new URLSearchParams(window.location.search);
 
-    // Temporary storage for selected categories
-    let selectedCategories = {};
-
     // Process each parameter
     for (const [param, paramValue] of queryParams.entries()) {
       if (param === "unionizeFilters") {
         unionizeFilters.checked = paramValue === "true";
+
+        let selectedPairing = {
+          category: "unionizeFilters",
+          value: unionizeFilters.checked,
+        };
+
+        const { category, value } = selectedPairing;
+        if (!selectedCategories[category]) {
+          selectedCategories[category] = [value];
+        } else if (!selectedCategories[category].includes(value)) {
+          selectedCategories[category].push(value);
+        }
+
+        categoryStore.set(selectedCategories);
       } else {
         let appliedFilters = paramValue
           .split(",")
@@ -334,6 +345,14 @@
                 (checkbox) => checkbox.value === filter.label,
               );
               checkboxFilter.checked = true;
+
+              // Create emptyFilter object and push it to activeFilter array
+              let emptyFilter = {
+                category: category,
+                value: filter.label,
+              };
+              activeFilters.push(emptyFilter);
+              console.log("The active filters are:", activeFilters);
             }
           });
         });
@@ -622,8 +641,6 @@
 
     pushFiltersToURL(relevantCheckbox, categoryname, selectedPairing);
 
-    // Update the categoryStore with the new selectedCategories
-    categoryStore.set(selectedCategories);
     updateTreeVisualization();
   }
 
@@ -738,6 +755,9 @@
           } else if (!selectedCategories[category].includes(value)) {
             selectedCategories[category].push(value);
           }
+
+          // Update the categoryStore with the new selectedCategories
+          categoryStore.set(selectedCategories);
         } else {
           /**
            * THIS ELSE SAYS
@@ -750,7 +770,10 @@
           );
 
           // Remove filter from activeFilters
-          activeFilters.pop(categoryname);
+          let match = activeFilters.find(
+            (filter) => filter.category === relevantCheckbox.value,
+          );
+          activeFilters.pop(match);
 
           checkboxStates[categoryname].items.forEach((checkbox) => {
             if (checkbox.value === selectedPairing.value) {
@@ -765,7 +788,7 @@
             );
           }
 
-          resetFilters();
+          categoryStore.set(selectedCategories);
         }
       } else if (activeFilters.length >= 4) {
         if (relevantCheckbox.checked) {
@@ -809,7 +832,10 @@
            */
 
           // Remove filter from activeFilters
-          activeFilters.pop(categoryname);
+          let match = activeFilters.find(
+            (filter) => filter.category === relevantCheckbox.value,
+          );
+          activeFilters.pop(match);
 
           // Checkbox is unchecked, remove from selectedItems and selectedCategories
           selectedItems = selectedItems.filter(
@@ -829,7 +855,7 @@
             );
           }
 
-          resetFilters();
+          categoryStore.set(selectedCategories);
           disableEnableFiltering(false);
         }
       }
@@ -850,6 +876,8 @@
         } else if (!selectedCategories[category].includes(value)) {
           selectedCategories[category].push(value);
         }
+
+        categoryStore.set(selectedCategories);
       } else {
         selectedItems = selectedItems.filter(
           (item) => item.value !== relevantCheckbox.value,
@@ -867,6 +895,8 @@
             (value) => value !== relevantCheckbox.value,
           );
         }
+
+        categoryStore.set(selectedCategories);
       }
     }
   }
