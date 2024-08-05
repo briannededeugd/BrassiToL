@@ -8,13 +8,22 @@
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import { maxFiltersReached } from "$stores/maximumstore.js";
+  import { popupStore } from "$stores/popupstore.js";
+
+  let localDontShowAgain = $popupStore.dontShowAgain; // Local variable to hold checkbox state
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");
     const button = d3.select("#confirmationButton");
 
     button.on("click", function () {
-      welcomeMessage.style("visibility", "hidden");
+      // Temporarily hide the popup for the current session
+      $popupStore = { ...$popupStore, showPopup: false };
+
+      // If "Don't Show Again" is checked, permanently hide the popup
+      if (localDontShowAgain) {
+        $popupStore = { ...$popupStore, dontShowAgain: true };
+      }
     });
   });
 
@@ -95,12 +104,18 @@
       </section>
     {/if}
 
-    <div id="welcomeMessage" style="visibility: visible">
-      <div id="dragTutorial">
-        <h3>Drag to the left or right to rotate the Tree of Life.</h3>
-        <button id="confirmationButton"> Got it! </button>
+    {#if $popupStore.showPopup && !$popupStore.dontShowAgain}
+      <div id="welcomeMessage" style="visibility: visible">
+        <div id="dragTutorial">
+          <h3>Drag to the left or right to rotate the Tree of Life.</h3>
+          <label>
+            <input type="checkbox" bind:checked={localDontShowAgain} />
+            Don't show again
+          </label>
+          <button id="confirmationButton">Got it!</button>
+        </div>
       </div>
-    </div>
+    {/if}
   </main>
 
   <footer class="footer">
@@ -132,53 +147,58 @@
     height: 100%;
     z-index: 9999;
     font-family: "Inter", sans-serif;
-  }
 
-  #dragTutorial {
-    background-color: #0d1c1bb6;
-    border: 0.85px solid #e1e1e1;
-    border-radius: 5px;
-    color: #e1e1e1;
-    width: 15vw;
-    height: 15vh;
-    padding: 1em 3em;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    & #dragTutorial {
+      background-color: #0d1c1bb6;
+      border: 0.85px solid #e1e1e1;
+      border-radius: 5px;
+      color: #e1e1e1;
+      width: 200px;
+      height: max-content;
+      padding: 1em 3em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
 
-  #dragTutorial h3 {
-    font-size: 1em;
-    margin-bottom: 1.25em;
-  }
+      & h3 {
+        font-size: 1em;
+        margin-bottom: 1.25em;
+      }
 
-  #dragTutorial button {
-    font-weight: 600;
-    border-radius: 25px;
-    border: none;
-    background-color: #729a68;
-    color: white;
-    padding: 0.5em 3em;
-  }
+      & button {
+        font-weight: 600;
+        border-radius: 25px;
+        border: none;
+        background-color: #729a68;
+        color: white;
+        padding: 0.5em 3em;
+        margin-bottom: 1em;
 
-  #dragTutorial button:hover {
-    background-color: #445c3d;
-    cursor: pointer;
+        &:hover {
+          background-color: #445c3d;
+          cursor: pointer;
+        }
+      }
+
+      & input {
+        margin-bottom: 2em;
+      }
+    }
   }
 
   .filtercontainer {
     position: absolute;
     z-index: 9800;
     width: 95vw;
-  }
 
-  .filtercontainer > p {
-    font-family: "Inter", sans-serif;
-    color: #e1e1e1;
-    margin: 0.75em 0 0.5em 0.25em;
-    padding: 0;
+    & > p {
+      font-family: "Inter", sans-serif;
+      color: #e1e1e1;
+      margin: 0.75em 0 0.5em 0.25em;
+      padding: 0;
+    }
   }
 
   /**********************/
