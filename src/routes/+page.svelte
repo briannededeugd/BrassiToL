@@ -7,6 +7,7 @@
   import Marks from "$lib/components/Marks.svelte";
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import { maxFiltersReached } from "$lib/components/maximumstore.js";
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");
@@ -39,7 +40,7 @@
       <div class="switch-view">
         <h2>Phylogenetic Tree</h2>
         <label class="switch">
-          <input type="checkbox" on:click={toggleView} />
+          <input type="checkbox" name="toggleview" on:click={toggleView} />
           <span class="slider round"></span>
         </label>
         <h2>World Map</h2>
@@ -83,6 +84,16 @@
         </div>
       {/if}
     </section>
+
+    {#if $maxFiltersReached}
+      <section class="maxlevels">
+        <h3>Your maximum level of stacked filters has been reached.</h3>
+        <p>
+          You cannot filter deeper than this. Uncheck one of your checkboxes to
+          continue filtering.
+        </p>
+      </section>
+    {/if}
 
     <div id="welcomeMessage" style="visibility: visible">
       <div id="dragTutorial">
@@ -367,5 +378,38 @@
     position: absolute;
     min-width: 100vw;
     top: 200vh;
+  }
+
+  /* ****************** */
+  /* MAX LEVELS WARNING */
+  /* ****************** */
+  .maxlevels {
+    max-width: 180px;
+    border-radius: 16px;
+    background-color: #0d1c1b87;
+    border: 0.5px solid #729a68;
+    backdrop-filter: blur(5px);
+    padding: 0.5em 1em;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    right: 20px;
+    bottom: 400px;
+    z-index: 10000;
+    color: white;
+    transform: scale(0.8);
+
+    & h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1em;
+      line-height: 1.25;
+      margin-bottom: 1.25em;
+    }
+
+    & p {
+      font-family: "Inter", sans-serif;
+      font-weight: 100;
+      font-size: 0.85em;
+    }
   }
 </style>
