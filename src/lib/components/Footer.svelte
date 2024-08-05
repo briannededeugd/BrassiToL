@@ -49,9 +49,8 @@
   </section>
   <section id="credits">
     <p>
-      <span>This website was created by </span> Brianne de Deugd, Robin Dekker and
-      Roosmarijn Hoekstra of the Amsterdam University of Applied Sciences, January
-      2024, in collaboration with Kasper Hendriks of Naturalis Biodiversity Center.
+      <span>This website was created by </span> <a href="https://www.linkedin.com/in/brianne-de-deugd-060425296/">Brianne de Deugd</a> <span> after the design by </span> Robin Dekker <span>and</span>
+      Roosmarijn Hoekstra<span>, January 2024, in collaboration with </span> Kasper Hendriks of Naturalis Biodiversity Center.
     </p>
   </section>
 </section>
