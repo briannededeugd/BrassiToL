@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import { inject } from '@vercel/analytics'
+  import { inject } from "@vercel/analytics";
+  import { dev } from "$app/environment";
   import * as d3 from "d3";
   import { writable } from "svelte/store";
 
@@ -14,6 +15,7 @@
   import { maxFiltersReached } from "$stores/maximumstore.js";
   import { popupStore } from "$stores/popupstore.js";
 
+  inject({ mode: dev ? "development" : "production" });
   let localDontShowAgain = $popupStore.dontShowAgain; // Local variable to hold checkbox state
 
   onMount(async () => {
@@ -94,9 +96,9 @@
           </ul>
         </article>
       {:else}
-          <div class="phyloTree">
-            <PhyloTree />
-          </div>
+        <div class="phyloTree">
+          <PhyloTree />
+        </div>
       {/if}
     </section>
 
