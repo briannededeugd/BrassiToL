@@ -90,13 +90,25 @@
 		margin-top: 0;
 		text-align: center;
 		align-items: center;
-	}
 
-	#credits p {
-		font-size: 0.75em;
-		padding-top: 0.5em;
-	}
+		& p {
+			font-size: 0.75em;
+			font-weight: 800;
+			padding-top: 0.5em;
+			cursor: default;
 
-	#credits p span {
-		color: #667771;
+			& span {
+				color: #93aca3;
+			}
+
+			& a {
+				color: white;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline !important;
+					cursor: pointer;
+				}
+			}
+		}
 	}
