@@ -4,7 +4,7 @@
   import { selectedSpeciesStore } from "$stores/store.js";
   import { newickString, outgroupString } from "$stores/treefiles.js";
   import { noFilterResults } from "$stores/filterresultstore.js";
-  import { isLoading } from '$lib/stores/loadingStore';
+  import { isLoading } from '$stores/loadingstore.js';
 
   import { get } from "svelte/store";
   import "@fortawesome/fontawesome-free/css/all.css";
