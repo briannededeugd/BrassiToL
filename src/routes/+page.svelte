@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { writable } from "svelte/store";
-  import { fade, slide } from "svelte/transition";
 
   import PhyloTree from "$lib/components/PhyloTree.svelte";
   import FilterSystem from "$lib/components/FilterSystem.svelte";

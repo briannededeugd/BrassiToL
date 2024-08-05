@@ -1,23 +1,23 @@
 <script>
-  import { isLoading } from "$stores/loadingStore";
+  import { isLoading } from "$stores/loadingstore.js";
 </script>
 
 {#if $isLoading}
-<div class="loading-screen">
-  <div class="titlediv">
-    <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-  </div>
+  <div class="loading-screen">
+    <div class="titlediv">
+      <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
+    </div>
 
-  <p>Loading...</p>
-  <div class="cs-loader-inner">
-    <p>●</p>
-    <p>●</p>
-    <p>●</p>
-    <p>●</p>
-    <p>●</p>
-    <p>●</p>
+    <p>Loading...</p>
+    <div class="cs-loader-inner">
+      <p>●</p>
+      <p>●</p>
+      <p>●</p>
+      <p>●</p>
+      <p>●</p>
+      <p>●</p>
+    </div>
   </div>
-</div>
 {/if}
 
 <style>
