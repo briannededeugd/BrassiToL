@@ -104,12 +104,12 @@
       </section>
     {/if}
 
-   {#if $popupStore.showPopup && !$popupStore.dontShowAgain}
+    {#if $popupStore.showPopup && !$popupStore.dontShowAgain}
       <div id="welcomeMessage" style="visibility: visible">
         <div id="dragTutorial">
           <h3>Drag to the left or right to rotate the Tree of Life.</h3>
           <label>
-            <input type="checkbox" bind:checked={localDontShowAgain}>
+            <input type="checkbox" bind:checked={localDontShowAgain} />
             Don't show again
           </label>
           <button id="confirmationButton">Got it!</button>
@@ -178,16 +178,15 @@
 
         &:hover {
           background-color: #445c3d;
-          cursor: pointer; 
+          cursor: pointer;
         }
       }
-      
+
       & input {
         margin-bottom: 2em;
       }
     }
   }
-
 
   .filtercontainer {
     position: absolute;
