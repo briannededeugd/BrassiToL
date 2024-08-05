@@ -7,7 +7,7 @@
   import Marks from "$lib/components/Marks.svelte";
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import { maxFiltersReached } from "$lib/components/maximumstore.js";
+  import { maxFiltersReached } from "$stores/maximumstore.js";
 
   onMount(async () => {
     const welcomeMessage = d3.select("#welcomeMessage");

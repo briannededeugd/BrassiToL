@@ -1,10 +1,10 @@
 <script>
   import { onMount } from "svelte";
   import * as d3 from "d3";
-  import { selectedSpeciesStore } from "./store.js";
-  import { createCategoryStore } from "./querystore.js";
-  import { maxFiltersReached } from "./maximumstore.js";
-  import { noFilterResults } from "./filterresultstore.js";
+  import { selectedSpeciesStore } from "$stores/store.js";
+  import { createCategoryStore } from "$stores/querystore.js";
+  import { maxFiltersReached } from "$stores/maximumstore.js";
+  import { noFilterResults } from "$stores/filterresultstore.js";
 
   /**============================================
    *               Declaring Variables

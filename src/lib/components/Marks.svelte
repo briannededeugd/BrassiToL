@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { geoPath, geoNaturalEarth1 } from "d3";
-  import { selectedSpeciesStore } from "./store.js";
+  import { selectedSpeciesStore } from "$stores/store.js";
 
   // import { match } from "assert";
 
