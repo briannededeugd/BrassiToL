@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { inject } from '@vercel/analytics'
   import * as d3 from "d3";
   import { writable } from "svelte/store";
 
