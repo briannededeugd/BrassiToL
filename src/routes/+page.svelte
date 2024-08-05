@@ -2,18 +2,21 @@
   import { onMount } from "svelte";
   import * as d3 from "d3";
   import { writable } from "svelte/store";
+  import { fade, slide } from "svelte/transition";
+
   import PhyloTree from "$lib/components/PhyloTree.svelte";
   import FilterSystem from "$lib/components/FilterSystem.svelte";
   import Marks from "$lib/components/Marks.svelte";
   import MapLegend from "$lib/components/MapLegend.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import LoadingScreen from "$lib/components/LoadingScreen.svelte";
+
   import { maxFiltersReached } from "$stores/maximumstore.js";
   import { popupStore } from "$stores/popupstore.js";
 
   let localDontShowAgain = $popupStore.dontShowAgain; // Local variable to hold checkbox state
 
   onMount(async () => {
-    const welcomeMessage = d3.select("#welcomeMessage");
     const button = d3.select("#confirmationButton");
 
     button.on("click", function () {
@@ -43,6 +46,7 @@
 </script>
 
 <body>
+  <LoadingScreen />
   <main>
     <section class="title">
       <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
@@ -63,9 +67,11 @@
 
     <section class="content">
       {#if $isFlipped}
-        <svg {width} {height}>
-          <Marks isFlipped={$isFlipped} />
-        </svg>
+        <div class="mapdiv">
+          <svg {width} {height}>
+            <Marks isFlipped={$isFlipped} />
+          </svg>
+        </div>
         <MapLegend isFlipped={$isFlipped} />
 
         <!-- THE HOVER TOOLTIP -->
@@ -88,9 +94,9 @@
           </ul>
         </article>
       {:else}
-        <div class="phyloTree">
-          <PhyloTree />
-        </div>
+          <div class="phyloTree">
+            <PhyloTree />
+          </div>
       {/if}
     </section>
 
@@ -145,7 +151,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 9998;
     font-family: "Inter", sans-serif;
 
     & #dragTutorial {
@@ -317,7 +323,7 @@
     z-index: 9888;
   }
 
-  .content > svg {
+  .content > .mapdiv > svg {
     position: absolute;
     top: 30vh;
     left: 47.5%;
