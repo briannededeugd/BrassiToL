@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import * as d3 from "d3";
-  import { selectedSpeciesStore } from "./store.js";
-  import { newickString, outgroupString } from "./treefiles.js";
-  import { noFilterResults } from "./filterresultstore.js";
+  import { selectedSpeciesStore } from "$stores/store.js";
+  import { newickString, outgroupString } from "$stores/treefiles.js";
+  import { noFilterResults } from "$stores/filterresultstore.js";
   import { get } from "svelte/store";
   import "@fortawesome/fontawesome-free/css/all.css";
 
