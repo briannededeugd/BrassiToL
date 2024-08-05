@@ -4,6 +4,8 @@
   import { selectedSpeciesStore } from "$stores/store.js";
   import { newickString, outgroupString } from "$stores/treefiles.js";
   import { noFilterResults } from "$stores/filterresultstore.js";
+  import { isLoading } from '$stores/loadingstore.js';
+
   import { get } from "svelte/store";
   import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -158,6 +160,8 @@
    *     onMount: What's being built when the page is loaded
    *=========================================================**/
   onMount(async () => {
+    isLoading.set(true);
+
     const response = await fetch("/BrassiToL_metadata.json");
     metadata = await response.json();
 
@@ -350,6 +354,8 @@
       console.log("Store value changed:", value); // Log value to check changes
       updateTreeColors(selectedSpecies); // Update colors based on new store value
     });
+
+    isLoading.set(false);
   });
 
   /**============================================
