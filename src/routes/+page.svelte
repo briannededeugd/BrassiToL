@@ -65,7 +65,7 @@
    * @role Switch between the phylogenetic tree and the world map
    */
   function toggleView() {
-    isFlipped.update((n) => !n);
+    isFlipped.update((status) => !status);
   }
 </script>
 
