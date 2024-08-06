@@ -615,7 +615,7 @@
     }
 
     // Using the custom interpolator with scaleSequential
-    const colorScale = d3
+    const colorScaleRings = d3
       .scaleSequential(myColorInterpolator)
       .domain([0, numberOfRings - 1]);
 
@@ -629,7 +629,7 @@
       .attr("cx", 0)
       .attr("cy", 0)
       .attr("r", (data) => timeScale(data))
-      .attr("fill", (data, index) => colorScale(index))
+      .attr("fill", (data, index) => colorScaleRings(index))
       .attr("stroke", "#667771")
       .attr("stroke-width", ".5px")
       .lower(); // This ensures rings are behind the tree
@@ -1095,6 +1095,8 @@
         return "translate(0," + i * 17.5 + ")";
       });
 
+    console.log("Color Scale Domain:", colorScale.domain());
+
     // Append a colored rectangle to each legend item
     legendItem
       .append("rect")
@@ -1229,11 +1231,15 @@
    */
   let setColor = (fulldata) => {
     let superTribe = findSuperTribe(fulldata.data.name, metadata);
-    fulldata.color = superTribe
-      ? colorScale(superTribe)
-      : fulldata.parent
-        ? fulldata.parent.color
-        : null;
+    if (superTribe === "Aethionema") {
+      fulldata.color = "#E9C46A"; // Explicitly set color for "Aethionema"
+    } else {
+      fulldata.color = superTribe
+        ? colorScale(superTribe)
+        : fulldata.parent
+          ? fulldata.parent.color
+          : null;
+    }
     if (fulldata.children) fulldata.children.forEach(setColor);
   };
 
@@ -1314,7 +1320,7 @@
       if (superTribe !== "Aethionema") {
         return colorScale(superTribe); // Use colorScale if it's defined
       } else if (superTribe === "Aethionema") {
-        return "red";
+        return "#E9C46A";
       } else {
         return "#405f7470";
       }
