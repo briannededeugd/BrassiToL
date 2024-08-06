@@ -13,7 +13,7 @@
   let converter = new Converter({}); // Coverts CSV to JSON
 
   /**========================================================================
-   *                         ONMOUNT: ON ITIAL PAGE LOAD
+   *                         ONMOUNT: ON INITIAL PAGE LOAD
    *
    *                    Load in all data before the page loads
    *            Fetch data and make sure it's available at all times
