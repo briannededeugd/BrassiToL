@@ -76,7 +76,8 @@
   let colorScale;
 
   let sharedRoot; // Variable to append the root of the visualization to
-  const branchLengths = []; // An array to collect the branch length for each node
+  let branchLengths = []; // An array to collect the branch length for each node
+  let totalBranchLengths = []; // Array to collect total branch lengths from root to each leaf
 
   // Booleans for user controls to be available globally
   let supertribesShown = false;
@@ -581,25 +582,25 @@
    * @param root | The very root of the tree so that the branch lengths can be collected
    */
   function createTimeRings(svg, root) {
-    extractBranchLengths(root);
+    extractBranchLengths(root, 0);
 
-    // Find the maximum branch length
-    const maxBranchLength = d3.max(branchLengths);
+    // Calculate the maximum total branch length to determine the crown age
+    const crownAge = d3.max(totalBranchLengths);
 
     // Choose the number of rings and calculate interval
     const numberOfRings = 6;
-    const ringInterval = maxBranchLength / numberOfRings;
+    const ringInterval = crownAge / numberOfRings;
 
     // Create an array for the ring values
     const ringValues = d3
       .range(numberOfRings)
-      .map((index) => maxBranchLength - index * ringInterval);
+      .map((index) => crownAge - index * ringInterval);
 
     // Scales for positioning and coloring the rings
     const timeScale = d3
       .scaleLinear()
-      .domain([0, maxBranchLength])
-      .range([innerRadius, 0]); // Adjust innerRadius as per your tree configuration
+      .domain([0, crownAge])
+      .range([innerRadius, 0]);
 
     // Custom interpolator function
     /**
@@ -651,15 +652,20 @@
   /**
    * @name extractBranchLengths
    * @role Search the tree for the length of each branch and push this to the empty branchLength array, then repeat for the child
-   * @param node
+   * @param node | The node for which the branch length should be calculated
+   * @param accumulatedLength | The total length of all branches, calculated
    */
-  function extractBranchLengths(node) {
+  function extractBranchLengths(node, accumulatedLength) {
     if (node.children) {
       node.children.forEach((child) => {
         const branchLength = child.data.length || 0;
+        const newAccumulatedLength = accumulatedLength + branchLength;
         branchLengths.push(branchLength);
-        extractBranchLengths(child);
+        extractBranchLengths(child, newAccumulatedLength);
       });
+    } else {
+      // If it's a leaf node, push the total branch length from root to this leaf
+      totalBranchLengths.push(accumulatedLength);
     }
   }
 
@@ -785,6 +791,8 @@
       .attr("font-family", "sans-serif")
       .attr("font-size", 10);
 
+    branchLengths = [];
+    totalBranchLengths = [];
     createTimeRings(svg, sharedRoot);
 
     svg.append("style").text(`
