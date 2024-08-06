@@ -911,23 +911,23 @@
            *     TREE EDITS
            *===================**/
 
-          // Change the color of all links and labels to grey
-          svg.selectAll(".link").attr("stroke", "#405f7470");
-          svg.selectAll("text.node").style("fill", "#405f7470");
+          // Make the paths and nodes that aren't being hovered a little less visible
+          svg.selectAll(".link").style("opacity", "0.3");
+          svg.selectAll("text.node").style("opacity", "0.3");
 
           // Now highlight the path and label of the hovered node
           let currentNode = d;
           do {
             d3.select(currentNode.linkNode)
               .attr("stroke", superTribeColor)
+              .style("opacity", "1")
               .raise();
 
             if (!currentNode.children) {
               // If it's a leaf node
-              d3.select(currentNode.data.textNode).style(
-                "fill",
-                superTribeColor,
-              );
+              d3.select(currentNode.data.textNode)
+                .style("fill", superTribeColor)
+                .style("opacity", "1");
             }
 
             currentNode = currentNode.parent;
@@ -939,6 +939,9 @@
           if (!d.children) {
             d3.select(d.data.textNode).style("fill", superTribeColor); // Reset the label color
           }
+
+          svg.selectAll(".link").style("opacity", "1");
+          svg.selectAll("text.node").style("opacity", "1");
 
           // Re-apply the filter settings to the rest of the tree
           updateTreeColors(selectedSpecies);
@@ -1170,7 +1173,7 @@
   /**========================================================================
    *                          COLOR THE NODES AND PATHS
    *                     ACCORDING TO THE RELEVANT SUPERTRIBE
-   * 
+   *
    * Required identifying the relevant supertribe using the sample number and
    * the metadata and then coloring the right nodes and paths based on this.
    *========================================================================**/
@@ -1211,17 +1214,17 @@
 
   /**========================================================================
    *                      UPDATING THE TREE BASED ON FILTERS
-   * 
+   *
    * Using the selected Species (also known as the results of the filtering) to
    * recolor the tree,then finds the right supertribe color if the label is
    * a filter-result or coloring this differently if it isn't.
    *========================================================================**/
 
-   /**
-    * @name updateTreeColors
-    * @role Recolor all paths and nodes in the tree based on filters
-    * @param speciesSet | A set of selected species (species names) to identify the correct paths and nodes
-    */
+  /**
+   * @name updateTreeColors
+   * @role Recolor all paths and nodes in the tree based on filters
+   * @param speciesSet | A set of selected species (species names) to identify the correct paths and nodes
+   */
   function updateTreeColors(speciesSet) {
     sharedRoot.each((node) => {
       // Determine the default color or superTribe color
