@@ -626,7 +626,7 @@
    * @param {*} categoryname specifies the name of the category to which this checkbox belongs
    *                          - because some names are seen across many categories
    */
-  function handleCheckboxChange(category, itemLabel, categoryname) {
+  function handleCheckboxChange(itemLabel, categoryname) {
     let itemsArray = checkboxStates[categoryname].items;
     const relevantCheckbox = itemsArray.find((item) => item.label == itemLabel);
 
@@ -1174,7 +1174,6 @@
                   bind:checked={subfamily.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.subfamilies.items,
                       subfamily.label,
                       "subfamilies",
                     )}
@@ -1204,7 +1203,6 @@
                   bind:checked={supertribe.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.supertribes.items,
                       supertribe.label,
                       "supertribes",
                     )}
@@ -1234,7 +1232,6 @@
                   bind:checked={tribe.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.tribes.items,
                       tribe.label,
                       "tribes",
                     )}
@@ -1264,7 +1261,6 @@
                   bind:checked={genus.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.genuses.items,
                       genus.label,
                       "genuses",
                     )}
@@ -1294,7 +1290,6 @@
                   bind:checked={specie.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.species.items,
                       specie.label,
                       "species",
                     )}
@@ -1342,7 +1337,6 @@
                   bind:checked={continent.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.continents.items,
                       continent.label,
                       "continents",
                     )}
@@ -1371,7 +1365,6 @@
                   bind:checked={geographicarea.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.geographicareas.items,
                       geographicarea.label,
                       "geographicareas",
                     )}
@@ -1401,7 +1394,6 @@
                   bind:checked={country.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.countries.items,
                       country.label,
                       "countries",
                     )}
@@ -1455,7 +1447,6 @@
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.growthForm.items,
                       item.label,
                       "growthForm",
                     )}
@@ -1491,7 +1482,6 @@
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.societaluse.items,
                       item.label,
                       "societaluse",
                     )}
@@ -1527,7 +1517,6 @@
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.lifeform.items,
                       item.label,
                       "lifeform",
                     )}
@@ -1563,7 +1552,6 @@
                   bind:checked={item.checked}
                   on:change={() =>
                     handleCheckboxChange(
-                      checkboxStates.climates.items,
                       item.label,
                       "climates",
                     )}
