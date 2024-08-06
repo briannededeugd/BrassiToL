@@ -141,6 +141,7 @@
     );
     supertribes = [...uniqueItems];
     supertribes = supertribes.sort((a, b) => a.localeCompare(b));
+    console.log("THE SUPERTRIBES", supertribes);
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
@@ -1205,12 +1206,19 @@
     let foundItem = metadata.find(function (item) {
       return item.SAMPLE === nodeLabel;
     });
+
     let superTribe;
+
     if (foundItem !== undefined) {
-      superTribe = foundItem.SUPERTRIBE;
+      if (foundItem.TRIBE !== "Aethionemeae") {
+        superTribe = foundItem.SUPERTRIBE;
+      } else {
+        superTribe = "Aethionema";
+      }
     } else {
       superTribe = "Unplaced";
     }
+
     return superTribe;
   }
 
@@ -1301,8 +1309,15 @@
    */
   function findSuperTribeColor(nodeLabel) {
     let superTribe = findSuperTribe(nodeLabel, metadata);
+
     if (colorScale) {
-      return superTribe ? colorScale(superTribe) : "#405f7470"; // Use colorScale if it's defined
+      if (superTribe !== "Aethionema") {
+        return colorScale(superTribe); // Use colorScale if it's defined
+      } else if (superTribe === "Aethionema") {
+        return "red";
+      } else {
+        return "#405f7470";
+      }
     }
     return "#405f7470"; // Fallback color if colorScale is not defined or no superTribe is found
   }
