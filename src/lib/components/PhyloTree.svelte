@@ -127,21 +127,24 @@
   onMount(async () => {
     isLoading.set(true);
 
-    const response = await fetch("/BrassiToL_metadata.json");
-    metadata = await response.json();
+    const responses = await Promise.all([
+      fetch("/BrassiToL_metadata.json"),
+      fetch("/BrassiToL_landcodes.json"),
+    ]);
 
-    const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
-    landcodes = await landcodeResponse.json();
+    metadata = await responses[0].json();
+    landcodes = await responses[1].json();
 
     const uniqueItems = new Set(
       metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA"),
     );
     supertribes = [...uniqueItems];
+    supertribes = supertribes.sort((a, b) => a.localeCompare(b));
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
-      "#cc79a7", // Camelinodae
       "#169e73", // Brassicodae
+      "#cc79a7", // Camelinodae
       "#d55e00", // Heliophilodae
       "#56b4e9", // Hesperodae
       "#e69f01", // Unplaced
@@ -590,7 +593,7 @@
     // Create an array for the ring values
     const ringValues = d3
       .range(numberOfRings)
-      .map((i) => maxBranchLength - i * ringInterval);
+      .map((index) => maxBranchLength - index * ringInterval);
 
     // Scales for positioning and coloring the rings
     const timeScale = d3
@@ -599,8 +602,14 @@
       .range([innerRadius, 0]); // Adjust innerRadius as per your tree configuration
 
     // Custom interpolator function
-    function myColorInterpolator(t) {
-      return d3.interpolateRgb("#3c4d4b", "#1b342b")(t);
+    /**
+     * @name myColorInterpolator
+     * @role Creates an interpolator that transitions between the two colors #3c4d4b and #1b342b.
+     * @param normalizedvalue | A normalized value ranging from 0 to 1
+     * @returns A color that is a fraction of the way between the start color and the end color (the fraction is the normalizedvalue)
+     */
+    function myColorInterpolator(normalizedvalue) {
+      return d3.interpolateRgb("#3c4d4b", "#1b342b")(normalizedvalue);
     }
 
     // Using the custom interpolator with scaleSequential
@@ -617,8 +626,8 @@
       .attr("class", "time-ring")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", (d) => timeScale(d))
-      .attr("fill", (d, i) => colorScale(i))
+      .attr("r", (data) => timeScale(data))
+      .attr("fill", (data, index) => colorScale(index))
       .attr("stroke", "#667771")
       .attr("stroke-width", ".5px")
       .lower(); // This ensures rings are behind the tree

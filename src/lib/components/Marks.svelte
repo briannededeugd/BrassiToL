@@ -99,8 +99,6 @@
       return false;
     });
 
-    console.debug("MATCHED OBJCTS:", matchedObjects);
-
     const landCodes = matchedObjects.flatMap(
       (item) => item.WCVP_WGSRPD_LEVEL_3_native,
     );
@@ -220,7 +218,6 @@
                 .map((item) => item.LEVEL3_COD),
             ),
           ];
-          console.debug("REL NAMES:", relevantName);
 
           // Find and append species to the list
           const relevantDataItems = metadata.filter((item) => {
@@ -234,15 +231,9 @@
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
           });
 
-          console.debug(
-            "DE OBJECTEN DIE HET GOEDE LAND HEBBEN:",
-            relevantDataItems,
-          );
-
           const relevantSpecies = relevantDataItems.filter((item) => {
             return selectedSpecies.has(item.SPECIES_NAME_PRINT);
           });
-          console.debug("RELEVANT SPECIES", relevantSpecies);
 
           const speciesNames = relevantSpecies.map(
             (item) => item.SPECIES_NAME_PRINT,
@@ -263,7 +254,7 @@
       })
       .attr("fill", function (d) {
         const countryData = matchingCountryNames.find(
-          (cn) => cn.name === d.properties.LEVEL3_NAM,
+          (country) => country.name === d.properties.LEVEL3_NAM,
         );
 
         if (matchingCountryNames.length >= 1) {
