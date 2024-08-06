@@ -422,8 +422,6 @@
         });
       }
 
-      console.log(selectedSpecies);
-
       if (selectedSpecies.size > 0) {
         d3.select("#clearFilters").style("visibility", "visible");
       } else {
@@ -431,7 +429,6 @@
       }
 
       await selectedSpeciesStore.set(selectedSpecies);
-      console.log("selectedSpecies was set");
     }
 
     // Get selected species based on the initial state
