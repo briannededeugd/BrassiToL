@@ -593,7 +593,7 @@
     // Create an array for the ring values
     const ringValues = d3
       .range(numberOfRings)
-      .map((i) => maxBranchLength - i * ringInterval);
+      .map((index) => maxBranchLength - index * ringInterval);
 
     // Scales for positioning and coloring the rings
     const timeScale = d3
@@ -602,8 +602,14 @@
       .range([innerRadius, 0]); // Adjust innerRadius as per your tree configuration
 
     // Custom interpolator function
-    function myColorInterpolator(t) {
-      return d3.interpolateRgb("#3c4d4b", "#1b342b")(t);
+    /**
+     * @name myColorInterpolator
+     * @role Creates an interpolator that transitions between the two colors #3c4d4b and #1b342b.
+     * @param normalizedvalue | A normalized value ranging from 0 to 1
+     * @returns A color that is a fraction of the way between the start color and the end color (the fraction is the normalizedvalue)
+     */
+    function myColorInterpolator(normalizedvalue) {
+      return d3.interpolateRgb("#3c4d4b", "#1b342b")(normalizedvalue);
     }
 
     // Using the custom interpolator with scaleSequential
@@ -620,8 +626,8 @@
       .attr("class", "time-ring")
       .attr("cx", 0)
       .attr("cy", 0)
-      .attr("r", (d) => timeScale(d))
-      .attr("fill", (d, i) => colorScale(i))
+      .attr("r", (data) => timeScale(data))
+      .attr("fill", (data, index) => colorScale(index))
       .attr("stroke", "#667771")
       .attr("stroke-width", ".5px")
       .lower(); // This ensures rings are behind the tree
