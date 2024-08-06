@@ -4,26 +4,31 @@
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "$stores/store.js";
 
-  // import { match } from "assert";
-
+  /**========================================================================
+   *                           DECLARING VARIABLES
+   *========================================================================**/
   export let isFlipped; // Accept isFlipped as a prop
 
+  // All relevant data (metadata, landcodes, full country-names)
   let metadata = [];
   let landcodes = [];
   let countries = [];
-  let matchingCountryNames = [];
-  let countryInformation = { name: "", frequency: 0 };
-  let countryInfo = { name: "", frequency: 0 };
 
-  let dataLoaded = false;
-  let selectedSpecies;
-  let projection, path;
+  let matchingCountryNames = []; // Empty array for the relevant countries based on the filters
+  let countryInformation = { name: "", frequency: 0 }; // Setup for the country- name and frequency pair
+
+  let dataLoaded = false; // Boolean to check whether the data is done loading
+
+  let selectedSpecies; // Variable for the selectedSpecies that we'll populate with the store value later
+
+  let projection, path; // Variables for drawing the world map
   const width = 1200,
-    height = 800;
+    height = 800; // Sizing for the world map
 
-  $: selectedSpecies = $selectedSpeciesStore;
-
+  // Reactive statements so the visualization updates with...
+  $: selectedSpecies = $selectedSpeciesStore; // ... the selected filters
   $: {
+    // The flipped status (also known as whether or not the world map is visible or the tree is)
     if (isFlipped && dataLoaded && selectedSpecies) {
       findLandcodes(selectedSpecies);
       drawMap();
@@ -32,9 +37,13 @@
     }
   }
 
-  /**=========================================================
-   *     onMount: What's being built when the page is loaded
-   *=========================================================**/
+  /**========================================================================
+   *                         ONMOUNT: ON INITIAL PAGE LOAD
+   *
+   *                    Load in all data before the page loads
+   *            Fetch data and make sure it's available at all times
+   *          Populate variables that are needed for the site to work
+   *========================================================================**/
   onMount(async () => {
     try {
       const responses = await Promise.all([
@@ -62,16 +71,18 @@
     }
   });
 
-  function clearMap() {
-    const countriesSvg = d3.select("svg");
-    countriesSvg.selectAll("path").remove(); // Clear paths
-  }
+  /**========================================================================
+   *                           MATCHING THE LANDCODES TO
+   *                          THE FILTERED SPECIES FOR UP-
+   *                             DATING THE WORLD MAP
+   *========================================================================**/
 
-  /**===============================
-   *     Getting the landcodes
-   *    of the selected species
-   *=============================**/
-
+  /**
+   * @name findLandcodes
+   * @role Getting the landcodes of the selected species
+   * @param selectedSpecies | The selected species (filters) as communicated by the FilterSystem-component
+   * @returns {Array} matchingCountryNames, pairs of country names and frequencies
+   */
   function findLandcodes(selectedSpecies) {
     // All matched objects in an array
     const originalMatchedObjects = metadata.filter((item) =>
@@ -116,11 +127,27 @@
     return matchingCountryNames;
   }
 
-  /**===============================
-   *     Coloring in the countries
-   *  found from the selected species
-   *===============================**/
+  /**========================================================================
+   *                     DRAWING AND CLEARING THE MAP
+   *
+   * Using the data to assign the right values to the eventual visualization
+   * of the world map - also simply clearing the map if warranted by removing
+   * all ofd the paths.
+   *========================================================================**/
 
+  /**
+   * @name clearMap
+   * @role Clearing the map visualization entirely
+   */
+  function clearMap() {
+    const countriesSvg = d3.select("svg");
+    countriesSvg.selectAll("path").remove(); // Clear paths
+  }
+
+  /**
+   * @name drawMap
+   * @role Drawing the map visualization with D3 - including mouseovers and mouseout - and coloring in the countries found from the selected species
+   */
   function drawMap() {
     const colorScale = d3
       .scaleLinear()
@@ -162,12 +189,12 @@
         tooltip.style("visibility", "hidden");
       })
       .on("click", function (event, d) {
-        countryInfo = matchingCountryNames.find(
+        countryInformation = matchingCountryNames.find(
           (cn) => cn.name === d.properties.LEVEL3_NAM,
         );
-        console.debug("COUNTRY INFO:", countryInfo);
+        console.debug("COUNTRY INFO:", countryInformation);
 
-        if (countryInfo && countryInfo.frequency > 0) {
+        if (countryInformation && countryInformation.frequency > 0) {
           let countryPopUp = d3.select("#countryPopup");
 
           countryPopUp
@@ -176,20 +203,20 @@
             .style("left", event.clientX + 10 + "px")
             .style("top", event.clientY + 10 + "px");
 
-          d3.select("#nameOfCountry").text(countryInfo.name);
+          d3.select("#nameOfCountry").text(countryInformation.name);
           d3.select("#frequencyOfCountry").text(
-            countryInfo.frequency + " " + "species",
+            countryInformation.frequency + " " + "species",
           );
 
           // Clear existing list items
           let speciesList = d3.select("#speciesList");
           speciesList.selectAll("li").remove();
 
-          // From country name (countryInfo.name) to country code (in landcodes)
+          // From country name (countryInformation.name) to country code (in landcodes)
           const relevantName = [
             ...new Set(
               landcodes
-                .filter((lc) => lc.LEVEL3_NAM === countryInfo.name)
+                .filter((lc) => lc.LEVEL3_NAM === countryInformation.name)
                 .map((item) => item.LEVEL3_COD),
             ),
           ];
@@ -251,10 +278,4 @@
   }
 </script>
 
-<svg> </svg>
-
-<style>
-  svg {
-    z-index: 1;
-  }
-</style>
+<svg style="z-index: 1"></svg>

@@ -15,9 +15,25 @@
   import { maxFiltersReached } from "$stores/maximumstore.js";
   import { popupStore } from "$stores/popupstore.js";
 
+  // Inject is from @vercel/analytics and allows Vercel to track traffic on the live site
   inject({ mode: dev ? "development" : "production" });
-  let localDontShowAgain = $popupStore.dontShowAgain; // Local variable to hold checkbox state
 
+  /**========================================================================
+   *                           DECLARE VARIABLES
+   *========================================================================**/
+  let localDontShowAgain = $popupStore.dontShowAgain; // Local variable to hold checkbox state of 'Don't Show Again' for the welcome message
+  const width = 1200,
+    height = 800; // Width and height of the rendered content
+  const isFlipped = writable(false); // Tracks whether the phylogenetic tree or the world map is visible
+
+  /**========================================================================
+   *                         ONMOUNT: ON INITIAL PAGE LOAD
+   *
+   *                    Load in all data before the page loads
+   *            Fetch data and make sure it's available at all times
+   *          Populate variables that are needed for the site to work
+   *
+   *========================================================================**/
   onMount(async () => {
     const button = d3.select("#confirmationButton");
 
@@ -32,412 +48,110 @@
     });
   });
 
+  /**========================================================================
+   *                       FUNCTIONS FOR THE MAIN PAGE
+   *========================================================================**/
+  /**
+   * @name closeInfo
+   * @role Closes the popup for the world map
+   */
   function closeInfo() {
     const popUp = d3.select("#countryPopup");
     popUp.style("visibility", "hidden");
   }
 
-  const width = 1200,
-    height = 800;
-
-  const isFlipped = writable(false);
-
+  /**
+   * @name toggleView
+   * @role Switch between the phylogenetic tree and the world map
+   */
   function toggleView() {
     isFlipped.update((n) => !n);
   }
 </script>
 
-<body>
-  <LoadingScreen />
-  <main>
-    <section class="title">
-      <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
-      <div class="switch-view">
-        <h2>Phylogenetic Tree</h2>
-        <label class="switch">
-          <input type="checkbox" name="toggleview" on:click={toggleView} />
-          <span class="slider round"></span>
-        </label>
-        <h2>World Map</h2>
+<svelte:head>
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
+</svelte:head>
+
+<LoadingScreen />
+<main>
+  <section class="title">
+    <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
+    <div class="switch-view">
+      <h2>Phylogenetic Tree</h2>
+      <label class="switch">
+        <input type="checkbox" name="toggleview" on:click={toggleView} />
+        <span class="slider round"></span>
+      </label>
+      <h2>World Map</h2>
+    </div>
+  </section>
+
+  <section class="filtercontainer">
+    <p>Explore Tree by</p>
+    <FilterSystem />
+  </section>
+
+  <section class="content">
+    {#if $isFlipped}
+      <div class="mapdiv">
+        <svg {width} {height}>
+          <Marks isFlipped={$isFlipped} />
+        </svg>
       </div>
-    </section>
+      <MapLegend isFlipped={$isFlipped} />
 
-    <section class="filtercontainer">
-      <p>Explore Tree by</p>
-      <FilterSystem />
-    </section>
+      <!-- THE HOVER TOOLTIP -->
+      <article id="mapInfo" style="visibility: hidden">
+        <h3 id="countryname">Test</h3>
+        <p id="countryfrequency">Test matches</p>
+      </article>
 
-    <section class="content">
-      {#if $isFlipped}
-        <div class="mapdiv">
-          <svg {width} {height}>
-            <Marks isFlipped={$isFlipped} />
-          </svg>
-        </div>
-        <MapLegend isFlipped={$isFlipped} />
-
-        <!-- THE HOVER TOOLTIP -->
-        <article id="mapInfo" style="visibility: hidden">
-          <h3 id="countryname">Test</h3>
-          <p id="countryfrequency">Test matches</p>
-        </article>
-
-        <!-- THE CLICK TOOLTIP -->
-        <article id="countryPopup" style="visibility: hidden">
-          <section id="popupMetadata">
-            <section>
-              <h3 id="nameOfCountry">Test</h3>
-              <p id="frequencyOfCountry">Test Frequency</p>
-            </section>
-            <button id="closePopup" on:click={closeInfo}>✕</button>
+      <!-- THE CLICK TOOLTIP -->
+      <article id="countryPopup" style="visibility: hidden">
+        <section id="popupMetadata">
+          <section>
+            <h3 id="nameOfCountry">Test</h3>
+            <p id="frequencyOfCountry">Test Frequency</p>
           </section>
-          <ul id="speciesList">
-            <!-- EMPTY LIST -->
-          </ul>
-        </article>
-      {:else}
-        <div class="phyloTree">
-          <PhyloTree />
-        </div>
-      {/if}
-    </section>
-
-    {#if $maxFiltersReached}
-      <section class="maxlevels">
-        <h3>Your maximum level of stacked filters has been reached.</h3>
-        <p>
-          You cannot filter deeper than this. Uncheck one of your checkboxes to
-          continue filtering.
-        </p>
-      </section>
-    {/if}
-
-    {#if $popupStore.showPopup && !$popupStore.dontShowAgain}
-      <div id="welcomeMessage" style="visibility: visible">
-        <div id="dragTutorial">
-          <h3>Drag to the left or right to rotate the Tree of Life.</h3>
-          <label>
-            <input type="checkbox" bind:checked={localDontShowAgain} />
-            Don't show again
-          </label>
-          <button id="confirmationButton">Got it!</button>
-        </div>
+          <button id="closePopup" on:click={closeInfo}>✕</button>
+        </section>
+        <ul id="speciesList">
+          <!-- EMPTY LIST -->
+        </ul>
+      </article>
+    {:else}
+      <div class="phyloTree">
+        <PhyloTree />
       </div>
     {/if}
-  </main>
+  </section>
 
-  <footer class="footer">
-    <Footer />
-  </footer>
-</body>
+  {#if $maxFiltersReached}
+    <section class="maxlevels">
+      <h3>Your maximum level of stacked filters has been reached.</h3>
+      <p>
+        You cannot filter deeper than this. Uncheck one of your checkboxes to
+        continue filtering.
+      </p>
+    </section>
+  {/if}
 
-<style>
-  body {
-    background: url("/img/sitebackground.jpeg") no-repeat center center fixed;
-    background-size: cover;
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
+  {#if $popupStore.showPopup && !$popupStore.dontShowAgain}
+    <div id="welcomeMessage" style="visibility: visible">
+      <div id="dragTutorial">
+        <h3>Drag to the left or right to rotate the Tree of Life.</h3>
+        <label>
+          <input type="checkbox" bind:checked={localDontShowAgain} />
+          Don't show again
+        </label>
+        <button id="confirmationButton">Got it!</button>
+      </div>
+    </div>
+  {/if}
+</main>
 
-  main {
-    margin: 0.75em 2em;
-  }
-
-  #welcomeMessage {
-    background-color: #0000003e;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9998;
-    font-family: "Inter", sans-serif;
-
-    & #dragTutorial {
-      background-color: #0d1c1bb6;
-      border: 0.85px solid #e1e1e1;
-      border-radius: 5px;
-      color: #e1e1e1;
-      width: 200px;
-      height: max-content;
-      padding: 1em 3em;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%);
-
-      & h3 {
-        font-size: 1em;
-        margin-bottom: 1.25em;
-      }
-
-      & button {
-        font-weight: 600;
-        border-radius: 25px;
-        border: none;
-        background-color: #729a68;
-        color: white;
-        padding: 0.5em 3em;
-        margin-bottom: 1em;
-
-        &:hover {
-          background-color: #445c3d;
-          cursor: pointer;
-        }
-      }
-
-      & input {
-        margin-bottom: 2em;
-      }
-    }
-  }
-
-  .filtercontainer {
-    position: absolute;
-    z-index: 9800;
-    width: 95vw;
-
-    & > p {
-      font-family: "Inter", sans-serif;
-      color: #e1e1e1;
-      margin: 0.75em 0 0.5em 0.25em;
-      padding: 0;
-    }
-  }
-
-  /**********************/
-  /*    TITLE SECTION   */
-  /**********************/
-
-  .title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 2px solid #729a68;
-    margin-bottom: 0.95em;
-    z-index: 9999;
-  }
-
-  .title .switch-view {
-    display: flex;
-    flex-direction: row;
-
-    align-items: center;
-    gap: 10px;
-  }
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: transparent;
-    border: 1px solid #e1e1e1;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #e1e1e1;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-  h1 {
-    font-size: 2em;
-    font-family: "Abel", sans-serif;
-    margin-bottom: 0.5em;
-    color: #e1e1e1;
-  }
-
-  h1::before {
-    content: "";
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: 0.35em;
-    margin-bottom: 0.2em;
-    background-image: url("/img/croplogo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    vertical-align: middle;
-  }
-
-  h1 > span:first-of-type {
-    font-family: "Times New Roman", Times, serif;
-    font-weight: 100;
-  }
-
-  h1 > span:nth-of-type(2) {
-    font-family: "Bayon", sans-serif;
-  }
-
-  h2 {
-    font-family: "Bayon", sans-serif;
-    font-size: 1.5em;
-    color: #e1e1e1;
-  }
-
-  .content {
-    margin-top: 15vh;
-    z-index: 9888;
-  }
-
-  .content > .mapdiv > svg {
-    position: absolute;
-    top: 30vh;
-    left: 47.5%;
-    transform: translateX(-50%);
-  }
-
-  /* *********** */
-  /* TOOLTIP */
-  /* *********** */
-
-  #mapInfo,
-  #countryPopup {
-    background-color: #26322ff3;
-    backdrop-filter: blur(5px);
-    font-family: "Inter", sans-serif;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    border: 1px solid #e1e1e1;
-    min-width: 10vw;
-    min-height: max-content;
-    color: #e1e1e1;
-    padding: 1em;
-    z-index: 9999;
-  }
-
-  #mapInfo h3,
-  #countryPopup h3 {
-    color: #e1e1e1;
-    font-size: 0.85em;
-    margin: 0 auto;
-  }
-
-  #mapInfo p {
-    font-size: 0.65em;
-    margin: 0 auto;
-  }
-
-  #countryPopup p {
-    font-size: 0.65em;
-    padding-top: 0;
-    margin-top: 0 !important;
-  }
-
-  #popupMetadata {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    border-bottom: 1px solid #729a68;
-    padding-bottom: 0.5em;
-  }
-
-  #popupMetadata button {
-    height: 20px;
-    width: 20px;
-    color: #e1e1e1;
-    border: none;
-    background: transparent;
-  }
-
-  #popupMetadata button:hover {
-    cursor: pointer;
-    color: #729a68;
-  }
-
-  #speciesList {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 0;
-    max-height: 82px;
-    overflow-y: auto;
-  }
-
-  /* ****** */
-  /* FOOTER */
-  /* ****** */
-
-  footer {
-    position: absolute;
-    min-width: 100vw;
-    top: 200vh;
-  }
-
-  /* ****************** */
-  /* MAX LEVELS WARNING */
-  /* ****************** */
-  .maxlevels {
-    max-width: 180px;
-    border-radius: 16px;
-    background-color: #0d1c1b87;
-    border: 0.5px solid #729a68;
-    backdrop-filter: blur(5px);
-    padding: 0.5em 1em;
-    opacity: 1;
-    transition: all 0.3s ease-in-out;
-    position: absolute;
-    right: 20px;
-    bottom: 400px;
-    z-index: 10000;
-    color: white;
-    transform: scale(0.8);
-
-    & h3 {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1em;
-      line-height: 1.25;
-      margin-bottom: 1.25em;
-    }
-
-    & p {
-      font-family: "Inter", sans-serif;
-      font-weight: 100;
-      font-size: 0.85em;
-    }
-  }
-</style>
+<footer class="footer">
+  <Footer />
+</footer>
