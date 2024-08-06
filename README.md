@@ -1,6 +1,6 @@
 ## Brassicaceae Tree of Life
 
-<img width="700px" src="/static/img/sitescreenshot.png">
+<img width="850px" src="/static/img/sitescreenshot.png">
 
 Welcome to the Github repository of the Brassicaceae Tree of Life: an interactive and informative website visualizing the Brassicaceae family according to the research of Kasper Hendriks of the Naturalis Biodiversity Center (Leiden, January 2024). This site was built in assignment of the Amsterdam University of Applied Sciences and Kasper Hendriks, for the minor Information Design, by Brianne de Deugd after the design by Robin Dekker and Roosmarijn Hoekstra.
 
