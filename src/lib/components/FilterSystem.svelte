@@ -131,11 +131,13 @@
    *
    *========================================================================**/
   onMount(async () => {
-    const response = await fetch("/BrassiToL_metadata.json");
-    metadata = await response.json();
+    const responses = await Promise.all([
+      fetch("/BrassiToL_metadata.json"),
+      fetch("/BrassiToL_landcodes.json"),
+    ]);
 
-    const landcodeResponse = await fetch("/BrassiToL_landcodes.json");
-    landcodes = await landcodeResponse.json();
+    metadata = await responses[0].json();
+    landcodes = await responses[1].json();
 
     d3.select("#clearFilters").on("click", clearAllFilters);
     unionizeFilters = document.querySelector("#unionizeFiltersInput");
