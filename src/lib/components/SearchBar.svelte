@@ -6,7 +6,7 @@
   /**========================================================================
    *                           DECLARING VARIABLES
    *========================================================================**/
-  
+
   let data = []; // Empty data array so that loaded data is available globally
   let searchQuery = ""; // The user's search term
   const suggestions = writable([]); // Make suggestions based on the search query

@@ -1173,10 +1173,7 @@
                   name={subfamily.label}
                   bind:checked={subfamily.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      subfamily.label,
-                      "subfamilies",
-                    )}
+                    handleCheckboxChange(subfamily.label, "subfamilies")}
                   value={subfamily}
                 />
                 {subfamily.label}
@@ -1202,10 +1199,7 @@
                   name={supertribe.label}
                   bind:checked={supertribe.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      supertribe.label,
-                      "supertribes",
-                    )}
+                    handleCheckboxChange(supertribe.label, "supertribes")}
                   value={supertribe}
                 />
                 {supertribe.label}
@@ -1230,11 +1224,7 @@
                   type="checkbox"
                   name={tribe.label}
                   bind:checked={tribe.checked}
-                  on:change={() =>
-                    handleCheckboxChange(
-                      tribe.label,
-                      "tribes",
-                    )}
+                  on:change={() => handleCheckboxChange(tribe.label, "tribes")}
                   value={tribe}
                 />
                 {tribe.label}
@@ -1259,11 +1249,7 @@
                   type="checkbox"
                   name={genus.label}
                   bind:checked={genus.checked}
-                  on:change={() =>
-                    handleCheckboxChange(
-                      genus.label,
-                      "genuses",
-                    )}
+                  on:change={() => handleCheckboxChange(genus.label, "genuses")}
                   value={genus}
                 />
                 {genus.label}
@@ -1289,10 +1275,7 @@
                   name={specie.label}
                   bind:checked={specie.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      specie.label,
-                      "species",
-                    )}
+                    handleCheckboxChange(specie.label, "species")}
                   value={specie}
                 />
                 {specie.label}
@@ -1336,10 +1319,7 @@
                   name={continent.label}
                   bind:checked={continent.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      continent.label,
-                      "continents",
-                    )}
+                    handleCheckboxChange(continent.label, "continents")}
                 />
                 {continent.label}
               </label>
@@ -1393,10 +1373,7 @@
                   name={country.label}
                   bind:checked={country.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      country.label,
-                      "countries",
-                    )}
+                    handleCheckboxChange(country.label, "countries")}
                 />
                 {country.label}
               </label>
@@ -1446,10 +1423,7 @@
                   name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      item.label,
-                      "growthForm",
-                    )}
+                    handleCheckboxChange(item.label, "growthForm")}
                 />
                 {item.label}
               </label>
@@ -1481,10 +1455,7 @@
                   name={item.label}
                   bind:checked={item.checked}
                   on:change={() =>
-                    handleCheckboxChange(
-                      item.label,
-                      "societaluse",
-                    )}
+                    handleCheckboxChange(item.label, "societaluse")}
                 />
                 {item.label}
               </label>
@@ -1515,11 +1486,7 @@
                   type="checkbox"
                   name={item.label}
                   bind:checked={item.checked}
-                  on:change={() =>
-                    handleCheckboxChange(
-                      item.label,
-                      "lifeform",
-                    )}
+                  on:change={() => handleCheckboxChange(item.label, "lifeform")}
                 />
                 <span>{item.label}</span>
               </label>
@@ -1550,11 +1517,7 @@
                   type="checkbox"
                   name={item.label}
                   bind:checked={item.checked}
-                  on:change={() =>
-                    handleCheckboxChange(
-                      item.label,
-                      "climates",
-                    )}
+                  on:change={() => handleCheckboxChange(item.label, "climates")}
                 />
                 <span>{item.label}</span>
               </label>
