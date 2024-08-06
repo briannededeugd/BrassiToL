@@ -3,12 +3,33 @@
   import { writable } from "svelte/store";
   import { Converter } from "csvtojson/v2/Converter";
 
-  let data = [];
-  let searchQuery = "";
-  const suggestions = writable([]);
-  var converter = new Converter({});
+  /**========================================================================
+   *                           DECLARING VARIABLES
+   *========================================================================**/
+  
+  let data = []; // Empty data array so that loaded data is available globally
+  let searchQuery = ""; // The user's search term
+  const suggestions = writable([]); // Make suggestions based on the search query
+  let converter = new Converter({}); // Coverts CSV to JSON
 
-  // Function to load your CSV data
+  /**========================================================================
+   *                         ONMOUNT: ON ITIAL PAGE LOAD
+   *
+   *                    Load in all data before the page loads
+   *            Fetch data and make sure it's available at all times
+   *          Populate variables that are needed for the site to work
+   *========================================================================**/
+  onMount(() => {
+    loadData();
+  });
+
+  /**========================================================================
+   *                FUNCTIONS TO LOAD DATA + MAKE SUGGESTIONS
+   *========================================================================**/
+  /**
+   * @name loadData
+   * @role Converts CSV-data to JSON
+   */
   async function loadData() {
     try {
       converter.fromFile("BrassiToL_metadata.csv", function (err, result) {
@@ -27,11 +48,12 @@
     }
   }
 
-  onMount(() => {
-    loadData();
-  });
-
   // Function to update suggestions based on search query
+  /**
+   * @name updateSuggestions
+   * @role Load suggestions based on data and the query
+   * @param query | The input of the user
+   */
   function updateSuggestions(query) {
     searchQuery = query;
     if (searchQuery.trim().length > 0) {
