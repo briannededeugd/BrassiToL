@@ -1,5 +1,9 @@
 <script>
   import * as d3 from "d3";
+
+  /**========================================================================
+   *                           DECLARING VARIABLES
+   *========================================================================**/
   export let isFlipped; // Accept isFlipped as a prop
 
   // Reactive statement to react to changes in isFlipped
@@ -7,6 +11,14 @@
     clearLegend(); // You might need to implement this function
   }
 
+  /**========================================================================
+   *                           FUNCTIONS
+   *========================================================================**/
+
+  /**
+   * @name clearLegend
+   * @role Clears the legend of the world map
+   */
   function clearLegend() {
     const SVGlegend = d3.select(".legend-container");
     SVGlegend.remove(); // Clear paths
@@ -19,7 +31,6 @@
 </svelte:head>
 
 {#if isFlipped}
-  <!-- Your HTML file -->
   <div class="legend-container">
     <h3>Number of species</h3>
     <div class="legend-item">
