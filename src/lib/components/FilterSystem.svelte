@@ -422,13 +422,16 @@
         });
       }
 
-      await selectedSpeciesStore.set(selectedSpecies);
+      console.log(selectedSpecies);
 
       if (selectedSpecies.size > 0) {
         d3.select("#clearFilters").style("visibility", "visible");
       } else {
         d3.select("#clearFilters").style("visibility", "hidden");
       }
+
+      await selectedSpeciesStore.set(selectedSpecies);
+      console.log("selectedSpecies was set");
     }
 
     // Get selected species based on the initial state
@@ -1001,7 +1004,17 @@
     let selectedSpecies = new Set();
     let anyCheckboxChecked = false;
 
-    // Check if filters are applied and populate selectedSpecies accordingly
+    // Helper function to check if any checkboxes are checked
+    function checkAnyCheckboxesChecked() {
+      Object.entries(checkboxStates).forEach(([category, state]) => {
+        state.items.forEach((item) => {
+          if (item.checked) {
+            anyCheckboxChecked = true;
+          }
+        });
+      });
+    }
+
     if (!unionizeFilters.checked) {
       // Iterate through filter checkboxes and populate selectedSpecies
       Object.entries(checkboxStates).forEach(([category, state]) => {
@@ -1027,18 +1040,10 @@
       selectedSpeciesStore.set(selectedSpecies);
     } else {
       // Check if any checkboxes are checked
-      Object.entries(checkboxStates).forEach(([category, state]) => {
-        state.items.forEach((item) => {
-          if (item.checked) {
-            anyCheckboxChecked = true;
-          }
-        });
-      });
+      checkAnyCheckboxesChecked();
 
       // Apply filters if any checkboxes are checked
       if (anyCheckboxChecked) {
-        d3.select("#clearFilters").style("visibility", "visible");
-
         // Function to apply filters
         function applyFilters(filters, initialData) {
           return filters.reduce((filteredData, filter) => {
@@ -1080,11 +1085,17 @@
 
         selectedSpeciesStore.set(selectedSpecies);
       } else {
-        d3.select("#clearFilters").style("visibility", "hidden");
         selectedSpecies = [];
         selectedSpeciesStore.set(selectedSpecies);
         return; // Exit if no checkboxes are checked
       }
+    }
+
+    // Set visibility of clearFilters button
+    if (anyCheckboxChecked) {
+      d3.select("#clearFilters").style("visibility", "visible");
+    } else {
+      d3.select("#clearFilters").style("visibility", "hidden");
     }
 
     // Set noFilterResults based on the state of selectedSpecies and checkboxes
