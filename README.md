@@ -32,16 +32,16 @@ All in all, the structure of this Brassicaceae Tree of Life is steadfast and rel
 
 This application is online and accessible [here](https://brassitol.vercel.app/), but you can also run it in your local computer environment:
 
-1. Download all contents of the repository from the [Code page](https://github.com/briannededeugd/BrassiToL);
-2. You should find them in your `Downloads` folder. Create a new folder and name it `my-app`. Drag all of your downloaded content into `my-app`.
-3. Open your Command Line Interface (Terminal);
-4. Navigate to your Downloads folder using `cd Downloads` (meaning Change Directories to Downloads);<br>
+1. Download all contents of the repository from the [Code page](https://github.com/briannededeugd/BrassiToL) by clicking the green `Code`-button at the top right;<br>
+   1a. CHECK: You should find them in your `Downloads` folder.<br>
+2. Open your Command Line Interface (Terminal);
+3. Navigate to your Downloads folder using `cd Downloads` (meaning Change Directories to Downloads);<br>
    3a. OPTIONAL: Type `pwd` to check what folder you're in. This should return Downloads.<br>
-   3b. OPTIONAL: Type `ls` to check the contents of your Downloads folder. This returns a list that should include `my-app`.<br>
-5. Navigate to the `my-app` folder using `cd my-app` (meaning Change Directories to my-app);
-6. Type `npm i` to install all necessary npm dependencies (pieces of other people's code the project depends on);
-7. Type `npm run dev` to initialize the app. This should return `Running on localhost:[XXXX]`, in which `[XXXX]` is a four-digit number.
-8. Open a browser (preferably FireFox, but Chrome works, too) and navigate to the address `localhost:[XXXX]` that was returned.
+   3b. OPTIONAL: Type `ls` to check the contents of your Downloads folder. This returns a list that should include `BrassiToL`.<br>
+4. Navigate to the `BrassiToL` folder using `cd BrassiToL` (meaning Change Directories to BrassiToL);
+5. Type `npm i` to install all necessary npm dependencies (pieces of other people's code the project depends on);
+6. Type `npm run dev` to initialize the app. This should return `Running on localhost:5173`. If your port '5173' is already in use, it will run on another four-digit-number.
+7. Open a browser and navigate to the address `localhost:1573` (or `localhost:[The other number that was returned]`).
 
 Now you should be able to view and use the application!
 
