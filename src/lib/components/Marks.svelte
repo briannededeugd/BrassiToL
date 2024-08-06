@@ -4,16 +4,18 @@
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "$stores/store.js";
 
-  // import { match } from "assert";
-
+  /**========================================================================
+   *                           DECLARING VARIABLES
+   *========================================================================**/
   export let isFlipped; // Accept isFlipped as a prop
 
+  // All relevant data (metadata, landcodes, full country-names)
   let metadata = [];
   let landcodes = [];
   let countries = [];
+
   let matchingCountryNames = [];
   let countryInformation = { name: "", frequency: 0 };
-  let countryInfo = { name: "", frequency: 0 };
 
   let dataLoaded = false;
   let selectedSpecies;
@@ -167,7 +169,7 @@
         );
         console.debug("COUNTRY INFO:", countryInfo);
 
-        if (countryInfo && countryInfo.frequency > 0) {
+        if (countryInfo && countryInformation.frequency > 0) {
           let countryPopUp = d3.select("#countryPopup");
 
           countryPopUp
@@ -176,20 +178,20 @@
             .style("left", event.clientX + 10 + "px")
             .style("top", event.clientY + 10 + "px");
 
-          d3.select("#nameOfCountry").text(countryInfo.name);
+          d3.select("#nameOfCountry").text(countryInformation.name);
           d3.select("#frequencyOfCountry").text(
-            countryInfo.frequency + " " + "species",
+            countryInformation.frequency + " " + "species",
           );
 
           // Clear existing list items
           let speciesList = d3.select("#speciesList");
           speciesList.selectAll("li").remove();
 
-          // From country name (countryInfo.name) to country code (in landcodes)
+          // From country name (countryInformation.name) to country code (in landcodes)
           const relevantName = [
             ...new Set(
               landcodes
-                .filter((lc) => lc.LEVEL3_NAM === countryInfo.name)
+                .filter((lc) => lc.LEVEL3_NAM === countryInformation.name)
                 .map((item) => item.LEVEL3_COD),
             ),
           ];
