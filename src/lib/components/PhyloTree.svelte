@@ -139,11 +139,12 @@
       metadata.map((item) => item.SUPERTRIBE).filter((item) => item !== "NA"),
     );
     supertribes = [...uniqueItems];
+    supertribes = supertribes.sort((a, b) => a.localeCompare(b));
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
-      "#cc79a7", // Camelinodae
       "#169e73", // Brassicodae
+      "#cc79a7", // Camelinodae
       "#d55e00", // Heliophilodae
       "#56b4e9", // Hesperodae
       "#e69f01", // Unplaced
