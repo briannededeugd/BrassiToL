@@ -4,16 +4,26 @@
   import { selectedSpeciesStore } from "$stores/store.js";
   import { newickString, outgroupString } from "$stores/treefiles.js";
   import { noFilterResults } from "$stores/filterresultstore.js";
-  import { isLoading } from '$stores/loadingstore.js';
-
-  import { get } from "svelte/store";
+  import { isLoading } from "$stores/loadingstore.js";
   import "@fortawesome/fontawesome-free/css/all.css";
 
-  const parsedOutgroupData = parseNewick(outgroupString);
+  /**========================================================================
+   *                           SET-UP (DATA)
+   *
+   * Parsing the raw tree files so they can be used to draw the Phylogenetic
+   * Tree. The strings are imported from the treefiles.js-file in the store
+   * folder.
+   *========================================================================**/
 
-  // Parsing the Newick string
+  // The tree strings - data for drawing the tree (includes branch length and sample numbers)
+  const parsedOutgroupData = parseNewick(outgroupString);
   const parsedData = parseNewick(newickString);
 
+  /**
+   * @name parseNewick
+   * @role Parsing the raw tree strings so they can be read
+   * @param a | The Newick string (the tree string) for drawing the tree
+   */
   function parseNewick(a) {
     for (
       var e = [], r = {}, s = a.split(/\s*(;|\(|\)|,|:)\s*/), t = 0;
@@ -48,32 +58,39 @@
     return r;
   }
 
-  // Simple 'capitalize every first letter'-function
-  function capitalizeFirstLetter(string) {
-    return string
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
-  }
+  /**========================================================================
+   *                           DECLARING VARIABLES
+   *
+   * All variables used throughout this component.
+   *========================================================================**/
 
-  /**============================================
-   *               Declaring Variables
-   *=============================================**/
+  // Data arrays for the JSON-data to be appended to
   let metadata = [];
   let landcodes = [];
-  let selectedSpecies;
+
+  let selectedSpecies; // An array for the filtered species from the store to be appended to
+  let isNoFilterResults; // Variable to store the boolean fetched from the filterresultstore that checks if there are or aren't any filter results
+
+  // Variables for the color scale to be available globally
   let supertribes = [];
   let colorScale;
+
+  let sharedRoot; // Variable to append the root of the visualization to
+  const branchLengths = []; // An array to collect the branch length for each node
+
+  // Booleans for user controls to be available globally
   let supertribesShown = false;
   let outgroupsShown = false;
   let isTooltipPinned = false;
-  let lastClickedLabel = null;
-  let svg;
-  let infocontainer;
-  let isTooltipHoverVisible = false;
 
-  let sampleNumber;
+  let lastClickedLabel = null; // Track which label was clicked and therefore active
+  let svg; // Empty SVG to append the visualization to
+  let infocontainer; // Empty container to append information per label to when it's required
+  let isTooltipHoverVisible = false; // Track if the small popup is visible
 
+  let sampleNumber; // Variable to store the sample number of the relevant label in for later use
+
+  // Variables for the fetched data of the relevant plant for the tooltip and infocontainer
   let fullSpeciesName;
   let subfamilyName;
   let supertribeName;
@@ -83,82 +100,30 @@
   let growthformName;
   let societaluseName;
   let geographicareaName;
-
   let imageId;
 
-  let lensRadius = 90; // Radius of the magnifying lens
-  // let magnificationFactor = 3; // How much the lens should magnify
-  let lensPosition = { x: 180, y: 100 }; // Fixed position of the lens
-
-  const width = 900;
-  const outerRadius = width / 2;
-  const innerRadius = outerRadius - 170;
-  let isNoFilterResults;
-
-  /**============================================
-   *               ROTATION FUNCTION
-   *=============================================**/
-
-  function updateTransform() {
-    const svgElement = d3.select("#phyloTree");
-    if (svgElement) {
-      // Combine zoom/pan transformation with rotation
-      svgElement.attr("transform", `rotate(${rotation}deg)`);
-      updateMagnification();
-    }
-  }
-
-  function mouseupAction(node) {
-    const handleMouseUp = (event) => {
-      stopRotate(event);
-    };
-
-    node.addEventListener("mouseup", handleMouseUp);
-
-    return {
-      destroy() {
-        node.removeEventListener("mouseup", handleMouseUp);
-      },
-    };
-  }
-
+  // Variables for allowing and tracking the rotation of the tree
   let rotation = 0; // Initial rotation
   let isDragging = false;
   let startX;
 
-  // Function called when the mouse is pressed over the SVG
-  function startRotate(event) {
-    isDragging = true;
-    startX = event.clientX; // Record the initial x position of the mouse
-    event.preventDefault(); // Prevent default drag behavior
-  }
+  // Variables for the magnification lens function
+  let lensRadius = 90; // Radius of the magnifying lens
+  let magnificationFactor = 3; // How much the lens should magnify
+  let lensPosition = { x: 180, y: 100 }; // Fixed position of the lens
 
-  // Function called when the mouse is moved over the SVG
-  function rotateSVG(event) {
-    if (!isDragging) return;
+  // Variables for the size of the tree
+  const width = 900;
+  const outerRadius = width / 2;
+  const innerRadius = outerRadius - 170;
 
-    const x = event.clientX;
-    const dx = x - startX; // Change in x
-    rotation += dx * 0.25; // Adjust this value to control rotation sensitivity
-
-    // Update the SVG rotation
-    const svgElement = d3.select("#phyloTree svg");
-    if (svgElement) {
-      svgElement.style("transform", `rotate(${rotation}deg)`);
-    }
-
-    startX = x; // Update the last x position
-    updateTransform();
-  }
-
-  // Function called when the mouse is released
-  function stopRotate() {
-    isDragging = false;
-  }
-
-  /**=========================================================
-   *     onMount: What's being built when the page is loaded
-   *=========================================================**/
+  /**========================================================================
+   *                         ONMOUNT: ON ITIAL PAGE LOAD
+   *
+   *                    Load in all data before the page loads
+   *            Fetch data and make sure it's available at all times
+   *          Populate variables that are needed for the site to work
+   *========================================================================**/
   onMount(async () => {
     isLoading.set(true);
 
@@ -358,10 +323,18 @@
     isLoading.set(false);
   });
 
-  /**============================================
-   *            MAGNIFIER (DOESN'T WORK)
-   *=============================================**/
+  /**========================================================================
+   *                           MAGNIFYING FUNCTIONS
+   *
+   * Currently doesn't work.
+   * Appends the magnifier to the visualization and magnifies all labels
+   * underneath.
+   *========================================================================**/
 
+  /**
+   * @name appendMagnifier
+   * @role Append the magnifier to the visualization
+   */
   function appendMagnifier() {
     const magnifier = d3.select("#magnifier");
     // Create the magnifying lens
@@ -379,7 +352,10 @@
       .attr("stroke-width", 2);
   }
 
-  // Update the lens position and magnify on mouse move
+  /**
+   * @name updateMagnification
+   * @role Updates the lens position and magnifies on mouse move
+   */
   function updateMagnification() {
     const theTree = d3.select("#phyloTree svg");
     const nodes = theTree.selectAll(".node");
@@ -394,6 +370,14 @@
     });
   }
 
+  /**
+   * @name isWithinLens
+   * @role Checks which labels are within the lens and should therefore be magnified
+   * @param nodePos | Tracks the position of the node (label)
+   * @param lensX | The X-position of the appended lens
+   * @param lensY | The Y-position of the appended lens
+   * @param lensRadius | The radius of the appended lens
+   */
   function isWithinLens(nodePos, lensX, lensY, lensRadius) {
     // Calculate distance from lens center to node
     const dx = lensX - nodePos.x;
@@ -402,18 +386,121 @@
   }
 
   /**========================================================================
-   *                           BUILDING THE CHART
+   *                           ROTATION FUNCTIONS
+   *
+   * Allows the user to drag the tree in order to rotate it
    *========================================================================**/
 
-  /**============================================
-   *               Functions for labels
-   *=============================================**/
-  // Extract the sample ID from the Newick string
+  /**
+   * @name updateTransform
+   * @role Update the transform values of the tree's rotation with the value of "rotation"
+   */
+  function updateTransform() {
+    const svgElement = d3.select("#phyloTree");
+    if (svgElement) {
+      // Combine zoom/pan transformation with rotation
+      svgElement.attr("transform", `rotate(${rotation}deg)`);
+      updateMagnification();
+    }
+  }
+
+  /**
+   * @name mouseupAction
+   * @role Track when the mouseup event fires and stop the rotation
+   * @param node | The node that was previously being dragged
+   */
+  function mouseupAction(node) {
+    const handleMouseUp = (event) => {
+      stopRotate(event);
+    };
+
+    node.addEventListener("mouseup", handleMouseUp);
+
+    return {
+      destroy() {
+        node.removeEventListener("mouseup", handleMouseUp);
+      },
+    };
+  }
+
+  /**
+   * @name startRotate
+   * @role Track the starting position for the rotation by drag
+   * @param event | Allows for retrieving the clientX-position
+   */
+  // Function called when the mouse is pressed over the SVG
+  function startRotate(event) {
+    isDragging = true;
+    startX = event.clientX; // Record the initial x position of the mouse
+    event.preventDefault(); // Prevent default drag behavior
+  }
+
+  /**
+   * @name rotateSVG
+   * @role Transform the tree when the mouse is pressed over the SVG by checking the cursor-position as long as the user presses their mouse and transforming accordingly
+   * @param event | Allows for retrieving the clientX-position
+   */
+  // Function called when the mouse is moved over the SVG
+  function rotateSVG(event) {
+    if (!isDragging) return;
+
+    const x = event.clientX;
+    const dx = x - startX; // Change in x
+    rotation += dx * 0.25; // Adjust this value to control rotation sensitivity
+
+    // Update the SVG rotation
+    const svgElement = d3.select("#phyloTree svg");
+    if (svgElement) {
+      svgElement.style("transform", `rotate(${rotation}deg)`);
+    }
+
+    startX = x; // Update the last x position
+    updateTransform();
+  }
+
+  /**
+   * @name stopRotate
+   * @role Make sure the isDragging becomes false (this function gets called when the mouse is released)
+   */
+  function stopRotate() {
+    isDragging = false;
+  }
+
+  /**========================================================================
+   *                         PROCESSING LABELS + MATCHING
+   *                             THEM TO THE METADATA
+   *
+   * Extracting sample IDs, finding names of the relevant labels.
+   *========================================================================**/
+
+  /**
+   * @name capitalizeFirstLetter
+   * @role Simple 'capitalize every first letter'-function
+   * @param string | The sentence, phrase or word of which first letters should get capitalized
+   */
+  function capitalizeFirstLetter(string) {
+    return string
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  }
+
+  /**
+   * @name extractSampleId
+   * @role Extract the sample ID from the Newick string
+   * @param label | Read the Newick String and extract the ID's nestled inside of it
+   */
   function extractSampleId(label) {
     const match = label.match(/^([^:]+)/); // This regex captures everything before the first colon
     return match ? match[1] : label; // Return the captured group if it exists, otherwise return the whole label
   }
 
+  /**
+   * @name findFullSpecies
+   * @role Find the full species name including relevant genus
+   * @param label | The relevant label in the tree by their sample ID (gotten from extractSampleId)
+   * @param metadata | The full metadata JSON-file
+   */
   function findFullSpecies(label, metadata) {
     let sampleId = label; // Extract the SAMPLE id from the label
     let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
@@ -441,6 +528,12 @@
     }
   }
 
+  /**
+   * @name findSpeciesName
+   * @role Find just the species name without the relevant genus
+   * @param label | The relevant label in the tree by their sample ID (gotten from extractSampleId)
+   * @param metadata | The full metadata JSON-file
+   */
   function findSpeciesName(label, metadata) {
     let sampleId = extractSampleId(label); // Extract the SAMPLE id from the label
     let matchingEntry = metadata.find((item) => item.SAMPLE === sampleId);
@@ -467,28 +560,24 @@
     }
   }
 
-  /**============================================
-   *               Functions for creating
-   *=============================================**/
+  /**========================================================================
+   *                           DRAWING THE TREE
+   *
+   * Using the D3 library to draw the phylogenetic tree based on the Newick
+   * strings and metadata.
+   *========================================================================**/
 
-  /**======================
-   *    TIME RINGS
-   *========================**/
+  /**========================================================================
+   *                           THE TIME RINGS
+   *========================================================================**/
 
+  /**
+   * @name createTimeRings
+   * @role Define and draw the time rings inside of the tree visualization
+   * @param svg | The SVG to which the drawn tree will be appended
+   * @param root | The very root of the tree so that the branch lengths can be collected
+   */
   function createTimeRings(svg, root) {
-    const branchLengths = [];
-
-    // Recursive function to traverse the tree and collect branch lengths
-    function extractBranchLengths(node) {
-      if (node.children) {
-        node.children.forEach((child) => {
-          const branchLength = child.data.length || 0;
-          branchLengths.push(branchLength);
-          extractBranchLengths(child);
-        });
-      }
-    }
-
     extractBranchLengths(root);
 
     // Find the maximum branch length
@@ -550,7 +639,24 @@
       .text((d) => `${Math.round(d)} MA`);
   }
 
-  let sharedRoot;
+  /**
+   * @name extractBranchLengths
+   * @role Search the tree for the length of each branch and push this to the empty branchLength array, then repeat for the child
+   * @param node
+   */
+  function extractBranchLengths(node) {
+    if (node.children) {
+      node.children.forEach((child) => {
+        const branchLength = child.data.length || 0;
+        branchLengths.push(branchLength);
+        extractBranchLengths(child);
+      });
+    }
+  }
+
+  /**========================================================================
+   *                           CREATING THE TREE
+   *========================================================================**/
   // Draw the phylogenetic tree
   const createPhylogeneticTree = (data) => {
     d3.select("#phyloTree").select("svg").remove();
@@ -991,6 +1097,13 @@
     return Object.assign(svg.node(), { update });
   };
 
+  /**========================================================================
+   *                               BLACK BOX
+   *
+   * This code is vital to the tree - but it's sourced from ObservableHQ. I
+   * do not know exactly how this works, so unless *you* do, it'd be better
+   * to not touch.
+   *========================================================================**/
   // Chart functions
   let cluster = d3
     .cluster()
@@ -1011,35 +1124,6 @@
   // Compute the maximum cumulative length of any node in the tree.
   let maxLength = (d) => {
     return d.data.length + (d.children ? d3.max(d.children, maxLength) : 0);
-  };
-
-  /**======================
-   *    SET COLORS
-   *========================**/
-
-  function findSuperTribe(nodeLabel, metadata) {
-    let foundItem = metadata.find(function (item) {
-      return item.SAMPLE === nodeLabel;
-    });
-    let superTribe;
-    if (foundItem !== undefined) {
-      superTribe = foundItem.SUPERTRIBE;
-    } else {
-      superTribe = "Unplaced";
-    }
-    return superTribe;
-  }
-
-  // dark blue, light blue, green, red, pink, yellow
-
-  let setColor = (d) => {
-    let superTribe = findSuperTribe(d.data.name, metadata);
-    d.color = superTribe
-      ? colorScale(superTribe)
-      : d.parent
-        ? d.parent.color
-        : null;
-    if (d.children) d.children.forEach(setColor);
   };
 
   let linkExtensionConstant = (d) => {
@@ -1084,9 +1168,60 @@
   };
 
   /**========================================================================
-   *                           UPDATING TREE BASED ON FILTERS
+   *                          COLOR THE NODES AND PATHS
+   *                     ACCORDING TO THE RELEVANT SUPERTRIBE
+   * 
+   * Required identifying the relevant supertribe using the sample number and
+   * the metadata and then coloring the right nodes and paths based on this.
    *========================================================================**/
 
+  /**
+   * @name findSuperTribe
+   * @role Find the supertribe associated with a node label
+   * @param nodeLabel | The node's sample number which is used to find the right object in the metadata
+   * @param metadata | The full metadata JSON-file
+   */
+  function findSuperTribe(nodeLabel, metadata) {
+    let foundItem = metadata.find(function (item) {
+      return item.SAMPLE === nodeLabel;
+    });
+    let superTribe;
+    if (foundItem !== undefined) {
+      superTribe = foundItem.SUPERTRIBE;
+    } else {
+      superTribe = "Unplaced";
+    }
+    return superTribe;
+  }
+
+  /**
+   * @name setColor
+   * @role Get the right color from the color scale based on the supertribe and color the node + its children
+   * @param fulldata | The data
+   */
+  let setColor = (fulldata) => {
+    let superTribe = findSuperTribe(fulldata.data.name, metadata);
+    fulldata.color = superTribe
+      ? colorScale(superTribe)
+      : fulldata.parent
+        ? fulldata.parent.color
+        : null;
+    if (fulldata.children) fulldata.children.forEach(setColor);
+  };
+
+  /**========================================================================
+   *                      UPDATING THE TREE BASED ON FILTERS
+   * 
+   * Using the selected Species (also known as the results of the filtering) to
+   * recolor the tree,then finds the right supertribe color if the label is
+   * a filter-result or coloring this differently if it isn't.
+   *========================================================================**/
+
+   /**
+    * @name updateTreeColors
+    * @role Recolor all paths and nodes in the tree based on filters
+    * @param speciesSet | A set of selected species (species names) to identify the correct paths and nodes
+    */
   function updateTreeColors(speciesSet) {
     sharedRoot.each((node) => {
       // Determine the default color or superTribe color
@@ -1139,6 +1274,11 @@
     }
   }
 
+  /**
+   * @name findSuperTribeColor
+   * @role Find the right supertribe-color of the filter-results and offering a fallbackcolor for non-results
+   * @param nodeLabel
+   */
   function findSuperTribeColor(nodeLabel) {
     let superTribe = findSuperTribe(nodeLabel, metadata);
     if (colorScale) {
