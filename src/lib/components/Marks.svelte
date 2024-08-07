@@ -47,9 +47,9 @@
   onMount(async () => {
     try {
       const responses = await Promise.all([
-        fetch("/BrassiToL_metadata.json"),
-        fetch("/wgsrpd_mapping.json"),
-        fetch("/TDWG_level3_map.json"),
+        fetch("/metadata/BrassiToL_metadata.json"),
+        fetch("/metadata/wgsrpd_mapping.json"),
+        fetch("/metadata/TDWG_level3_map.json"),
       ]);
 
       metadata = await responses[0].json();
