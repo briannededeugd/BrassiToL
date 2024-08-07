@@ -132,8 +132,8 @@
    *========================================================================**/
   onMount(async () => {
     const responses = await Promise.all([
-      fetch("/BrassiToL_metadata.json"),
-      fetch("/BrassiToL_landcodes.json"),
+      fetch("/metadata/BrassiToL_metadata.json"),
+      fetch("/metadata/BrassiToL_landcodes.json"),
     ]);
 
     metadata = await responses[0].json();
