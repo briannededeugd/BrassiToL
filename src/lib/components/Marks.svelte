@@ -220,6 +220,11 @@
           ];
 
           // Find and append species to the list
+
+
+          // Huidige situatie: Checkt alleen WCVP_WGSRPD_LEVEL_3_native
+          // Doel situatie: Checkt WCVP_WGSRPD_LEVEL_3_native en voegt if yes toe aan relevantDataItems, checkt anders introduced en voegt die toe aan een andere array, returnt anders
+          // ---
           const relevantDataItems = metadata.filter((item) => {
             // Check if WCVP_WGSRPD_LEVEL_3_native is an array and has any matching code
             if (Array.isArray(item.WCVP_WGSRPD_LEVEL_3_native)) {
@@ -231,15 +236,17 @@
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
           });
 
+          // Check for each plant of this country if the species name is a result of the filters applied
           const relevantSpecies = relevantDataItems.filter((item) => {
             return selectedSpecies.has(item.SPECIES_NAME_PRINT);
           });
 
+          // Turn selectedSpecies into an array
           const speciesNames = relevantSpecies.map(
             (item) => item.SPECIES_NAME_PRINT,
           );
 
-          // Removing the duplicates by spreading the species names in a set
+          // Removing the duplicates by spreading the species names in a set, this set will be used to display
           let uniqueSpecies = [...new Set(speciesNames)];
           let uniqueSpeciesNames = uniqueSpecies.sort();
 
@@ -250,6 +257,17 @@
               .style("font-size", "0.7em")
               .style("margin-top", ".75em");
           });
+
+          const relevantIntroducedDataItems = metadata.filter((item) => {
+            // Check if WCVP_WGSRPD_LEVEL_3_introduced is an array and has any matching code
+            if (Array.isArray(item.WCVP_WGSRPD_LEVEL_3_introduced)) {
+              return item.WCVP_WGSRPD_LEVEL_3_introduced.some((code) =>
+                relevantName.includes(code),
+              );
+            }
+            // If it's not an array, directly check for inclusion
+            return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_introduced);
+          })
         }
       })
       .attr("fill", function (d) {
