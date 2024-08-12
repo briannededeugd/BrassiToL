@@ -14,6 +14,10 @@
   let landcodes = [];
   let countries = [];
 
+  // Getting the right data items
+  let relevantSpecies = [];
+  let relevantIntroducedSpecies = [];
+
   let matchingCountryNames = []; // Empty array for the relevant countries based on the filters
   let countryInformation = { name: "", frequency: 0 }; // Setup for the country- name and frequency pair
 
@@ -219,8 +223,9 @@
             ),
           ];
 
-          // Find and append species to the list
+          console.log("RELEVANT NAME IS:", relevantName);
 
+          // Find and append species to the list
 
           // Huidige situatie: Checkt alleen WCVP_WGSRPD_LEVEL_3_native
           // Doel situatie: Checkt WCVP_WGSRPD_LEVEL_3_native en voegt if yes toe aan relevantDataItems, checkt anders introduced en voegt die toe aan een andere array, returnt anders
@@ -236,30 +241,8 @@
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_native);
           });
 
-          // Check for each plant of this country if the species name is a result of the filters applied
-          const relevantSpecies = relevantDataItems.filter((item) => {
-            return selectedSpecies.has(item.SPECIES_NAME_PRINT);
-          });
-
-          // Turn selectedSpecies into an array
-          const speciesNames = relevantSpecies.map(
-            (item) => item.SPECIES_NAME_PRINT,
-          );
-
-          // Removing the duplicates by spreading the species names in a set, this set will be used to display
-          let uniqueSpecies = [...new Set(speciesNames)];
-          let uniqueSpeciesNames = uniqueSpecies.sort();
-
-          uniqueSpeciesNames.forEach((name) => {
-            speciesList
-              .append("li")
-              .text(name)
-              .style("font-size", "0.7em")
-              .style("margin-top", ".75em");
-          });
-
           const relevantIntroducedDataItems = metadata.filter((item) => {
-            // Check if WCVP_WGSRPD_LEVEL_3_introduced is an array and has any matching code
+            // Check if WCVP_WGSRPD_LEVEL_3_native is an array and has any matching code
             if (Array.isArray(item.WCVP_WGSRPD_LEVEL_3_introduced)) {
               return item.WCVP_WGSRPD_LEVEL_3_introduced.some((code) =>
                 relevantName.includes(code),
@@ -267,7 +250,76 @@
             }
             // If it's not an array, directly check for inclusion
             return relevantName.includes(item.WCVP_WGSRPD_LEVEL_3_introduced);
-          })
+          });
+
+          function appendRelevantSpecies() {
+            // Check for each plant of this country if the species name is a result of the filters applied
+            relevantSpecies = relevantDataItems.filter((item) => {
+              return selectedSpecies.has(item.SPECIES_NAME_PRINT);
+            });
+
+            // For introduced species
+            relevantIntroducedSpecies = relevantIntroducedDataItems.filter(
+              (item) => {
+                return selectedSpecies.has(item.SPECIES_NAME_PRINT);
+              },
+            );
+
+            // Turn selectedSpecies into an array of correct species names
+            const speciesNames = relevantSpecies.map(
+              (item) => item.SPECIES_NAME_PRINT,
+            );
+
+            // For introduced species
+            const introducedSpeciesNames = relevantIntroducedSpecies.map(
+              (item) => item.SPECIES_NAME_PRINT,
+            );
+
+            // Make sure there are no duplicates
+            let uniqueSpecies = [...new Set(speciesNames)];
+            let uniqueSpeciesNames = uniqueSpecies.sort();
+
+            // For introduced species
+            let uniqueIntroducedSpecies = [...new Set(introducedSpeciesNames)];
+            let uniqueIntroducedSpeciesNames = uniqueIntroducedSpecies.sort();
+
+            speciesList
+              .append("li")
+              .attr("aria-hidden", "true")
+              .attr("class", "introduced")
+              .text("Native")
+              .style("font-size", "1em");
+            // .style("margin-top", "1em");
+
+            // Append the unique species to the country when clicked
+            uniqueSpeciesNames.forEach((name) => {
+              speciesList
+                .append("li")
+                .text(name)
+                .style("font-size", "0.7em")
+                .style("margin-top", ".75em");
+            });
+
+            if (uniqueIntroducedSpeciesNames.length > 0) {
+              speciesList
+                .append("li")
+                .attr("aria-hidden", "true")
+                .attr("class", "introduced")
+                .text("Introduced")
+                .style("font-size", "1em")
+                .style("margin-top", "1em");
+
+              uniqueIntroducedSpeciesNames.forEach((name) => {
+                speciesList
+                  .append("li")
+                  .text(name)
+                  .style("font-size", "0.7em")
+                  .style("margin-top", ".75em");
+              });
+            }
+          }
+
+          appendRelevantSpecies();
         }
       })
       .attr("fill", function (d) {

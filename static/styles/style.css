@@ -12,6 +12,13 @@ main {
 margin: 0.75em 2em;
 }
 
+.introduced {
+    color: #729a68;
+    font-weight: 800;
+    font-family: "Bayon";
+    text-transform: uppercase;
+}
+
 #welcomeMessage {
 background-color: #0000003e;
 position: fixed;
