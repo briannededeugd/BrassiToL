@@ -12,11 +12,20 @@ main {
 margin: 0.75em 2em;
 }
 
+.native {
+    color: #729a68;
+    font-weight: 800;
+    font-family: "Bayon";
+    text-transform: uppercase;
+    margin-top: 0 !important;
+}
+
 .introduced {
     color: #729a68;
     font-weight: 800;
     font-family: "Bayon";
     text-transform: uppercase;
+    margin-top: 1em;
 }
 
 #welcomeMessage {
