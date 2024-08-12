@@ -49,7 +49,7 @@
     </div>
     <div class="legend-item">
       <span class="legend-color" style="background-color: #ffffff;"></span>
-      <span class="legend-text">0</span>
+      <span class="legend-text">1</span>
     </div>
   </div>
 {/if}

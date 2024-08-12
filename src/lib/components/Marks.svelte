@@ -17,6 +17,7 @@
   // Getting the right data items
   let relevantSpecies = [];
   let relevantIntroducedSpecies = [];
+  let introducedSpeciesNames = [];
 
   let matchingCountryNames = []; // Empty array for the relevant countries based on the filters
   let countryInformation = { name: "", frequency: 0 }; // Setup for the country- name and frequency pair
@@ -184,7 +185,7 @@
           d3.select("#mapInfo > h3").text(countryInformation.name);
           d3.select("#mapInfo > p").text(
             countryInformation.frequency + " " + "native species",
-          );
+          ).style("margin-top", ".5em");
         }
       })
       .on("mouseout", function () {
@@ -200,19 +201,11 @@
         if (countryInformation && countryInformation.frequency > 0) {
           let countryPopUp = d3.select("#countryPopup");
 
-          countryPopUp
-            .style("visibility", "visible")
-            .style("position", "absolute")
-            .style("left", event.clientX + 10 + "px")
-            .style("top", event.clientY + 10 + "px");
-
-          d3.select("#nameOfCountry").text(countryInformation.name);
-          d3.select("#frequencyOfCountry").text(
-            countryInformation.frequency + " " + "native species",
-          );
-
           // Clear existing list items
           let speciesList = d3.select("#speciesList");
+          let introducedCount = d3.select("#popupMetadata > section > p:nth-of-type(2)");
+
+          introducedCount.remove();
           speciesList.selectAll("li").remove();
 
           // From country name (countryInformation.name) to country code (in landcodes)
@@ -257,20 +250,23 @@
            * @role Append all species to the list with distinction between native and introduced (visually)
            */
           function appendRelevantSpecies() {
-            const relevantSpecies = relevantDataItems.filter((item) =>
+            relevantIntroducedSpecies = [];
+            relevantSpecies = [];
+            introducedSpeciesNames = [];
+
+            relevantSpecies = relevantDataItems.filter((item) =>
               selectedSpecies.has(item.SPECIES_NAME_PRINT),
             );
-            const relevantIntroducedSpecies =
-              relevantIntroducedDataItems.filter((item) =>
-                selectedSpecies.has(item.SPECIES_NAME_PRINT),
-              );
+            relevantIntroducedSpecies = relevantIntroducedDataItems.filter(
+              (item) => selectedSpecies.has(item.SPECIES_NAME_PRINT),
+            );
 
             const nativeSpeciesNames = [
               ...new Set(
                 relevantSpecies.map((item) => item.SPECIES_NAME_PRINT),
               ),
             ].sort();
-            const introducedSpeciesNames = [
+            introducedSpeciesNames = [
               ...new Set(
                 relevantIntroducedSpecies.map(
                   (item) => item.SPECIES_NAME_PRINT,
@@ -312,7 +308,34 @@
             );
           }
 
+          countryPopUp
+            .style("visibility", "visible")
+            .style("position", "absolute")
+            .style("left", event.clientX + 10 + "px")
+            .style("top", event.clientY + 10 + "px");
+
+          d3.select("#nameOfCountry").text(countryInformation.name);
+          d3.select("#frequencyOfCountry").text(
+            countryInformation.frequency + " " + "native species",
+          );
+
+          console.log("Relevant Introduced Species:", introducedSpeciesNames);
+
+          async function introducedSpeciesCount() {
+            await introducedSpeciesNames;
+
+            if (introducedSpeciesNames.length > 0) {
+              d3.select("#popupMetadata > section")
+                .append("p")
+                .attr("id", "introducedSpecies")
+                .text(
+                  introducedSpeciesNames.length + " " + "introduced species",
+                );
+            }
+          }
+
           appendRelevantSpecies();
+          introducedSpeciesCount();
         }
       })
       .attr("fill", function (d) {
