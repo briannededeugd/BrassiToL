@@ -208,7 +208,7 @@
 
           d3.select("#nameOfCountry").text(countryInformation.name);
           d3.select("#frequencyOfCountry").text(
-            countryInformation.frequency + " " + "species",
+            countryInformation.frequency + " " + "native species",
           );
 
           // Clear existing list items
