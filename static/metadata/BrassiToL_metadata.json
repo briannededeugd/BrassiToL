@@ -10446,7 +10446,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "CPP",
     "WCVP_WGSRPD_LEVEL_1_native": "2",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Marais"
   },
   {
     "SAMPLE": "S1214",
