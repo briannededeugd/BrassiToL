@@ -22,7 +22,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": ["FRA", "GRB", "SPA", "SWI"],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(L) Heyhn"
   },
   {
     "SAMPLE": "8008999",
@@ -47,7 +48,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "CAL",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Hook. & Arn."
   },
   {
     "SAMPLE": "8009952",
@@ -72,7 +74,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["AFG", "PAK"],
     "WCVP_WGSRPD_LEVEL_1_native": ["3", "4"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Hook.f. & Thomson) Al-Shehbaz, D.A.German & M.Koch"
   },
   {
     "SAMPLE": "CRNC",
@@ -97,7 +100,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "R.Br."
   },
   {
     "SAMPLE": "ERR2789774",
@@ -122,7 +126,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "VIC",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(R.Br. ex DC.) Mabb."
   },
   {
     "SAMPLE": "ERR4210213",
@@ -157,7 +162,8 @@
       "SIN"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": ["2", "3"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Hochst. & Steud."
   },
   {
     "SAMPLE": "HYZL",
@@ -182,7 +188,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Hend. ex R.Hogg) Mabb"
   },
   {
     "SAMPLE": "MYZV",
@@ -207,7 +214,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "L."
   },
   {
     "SAMPLE": "PAFTOL_005410",
@@ -232,7 +240,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Zucc." 
   },
   {
     "SAMPLE": "PAFTOL_005411",
@@ -257,7 +266,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "L."
   },
   {
     "SAMPLE": "PAFTOL_008053",
@@ -282,7 +292,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Swanepoel, F.Forest & A.E.van Wyk"
   },
   {
     "SAMPLE": "PAFTOL_014331",
@@ -307,7 +318,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Standl. & L.O.Williams) L.O.Williams"
   },
   {
     "SAMPLE": "PAFTOL_019361",
@@ -332,7 +344,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Franch."
   },
   {
     "SAMPLE": "PAFTOL_019459",
@@ -357,7 +370,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "A.St.-Hil."
   },
   {
     "SAMPLE": "PAFTOL_023477",
@@ -382,7 +396,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Lam."
   },
   {
     "SAMPLE": "PAFTOL_023503",
@@ -407,7 +422,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "L."
   },
   {
     "SAMPLE": "PAFTOL_023511",
@@ -432,7 +448,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Brandegee"
   },
   {
     "SAMPLE": "PAFTOL_023513",
@@ -457,7 +474,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Ruiz & Pav."
   },
   {
     "SAMPLE": "PAFTOL_023515",
@@ -482,7 +500,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Liebm."
   },
   {
     "SAMPLE": "PAFTOL_023519",
@@ -507,7 +526,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Fenzl) A.S.George ex J.W.Green"
   },
   {
     "SAMPLE": "S_670",
@@ -532,7 +552,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["BRC", "WAS"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Piper) Greene"
   },
   {
     "SAMPLE": "S0055",
@@ -675,7 +696,8 @@
       "WVA",
       "WYO",
       "YUK"
-    ]
+    ],
+    "AUTHOR": "L."
   },
   {
     "SAMPLE": "S0156",
@@ -708,7 +730,8 @@
       "UZB"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": ["3", "4"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Bunge"
   },
   {
     "SAMPLE": "S0196",
@@ -733,7 +756,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["EHM", "NEP", "PAK", "WHM"],
     "WCVP_WGSRPD_LEVEL_1_native": "4",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Thomson) O.E.Schulz"
   },
   {
     "SAMPLE": "S0268",
@@ -758,7 +782,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CAL", "IDA", "NEV", "ORE", "UTA", "WAS"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Nutt"
   },
   {
     "SAMPLE": "S0275",
@@ -783,7 +808,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["MXE", "TEX"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "A.Gray"
   },
   {
     "SAMPLE": "S0277",
@@ -808,7 +834,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "BOL",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Wedd.) Gilg & Muschl."
   },
   {
     "SAMPLE": "S0278",
@@ -833,7 +860,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "TZK",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Botsch.) Soják"
   },
   {
     "SAMPLE": "S0279",
@@ -868,7 +896,8 @@
       "WAS"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NWY"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NWY",
+    "AUTHOR": "(Hook.) Greene"
   },
   {
     "SAMPLE": "S0280",
@@ -893,7 +922,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["IRQ", "LBS", "PAL", "TUR"],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(DC.) Kuntze"
   },
   {
     "SAMPLE": "S0281",
@@ -927,7 +957,8 @@
       "GRB",
       "SPA",
       "SWI"
-    ]
+    ],
+    "AUTHOR": "(L.) DC."
   },
   {
     "SAMPLE": "S0282",
@@ -952,7 +983,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CAL", "IDA", "MNT", "NEV"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(A.Gray) J.F.Macbr. & Payson"
   },
   {
     "SAMPLE": "S0283",
@@ -977,7 +1009,8 @@
     "GENUS_TYPE": "NA",
     "WCVP_WGSRPD_LEVEL_3_native": ["PAK", "WHM"],
     "WCVP_WGSRPD_LEVEL_1_native": "4",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Dunn) O.E.Schulz"
   },
   {
     "SAMPLE": "S0284",
@@ -1002,7 +1035,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "POR",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
-    "WCVP_WGSRPD_LEVEL_3_introduced": ["FRA", "ITA", "JAP"]
+    "WCVP_WGSRPD_LEVEL_3_introduced": ["FRA", "ITA", "JAP"],
+    "AUTHOR": "(Desf.) DC. ex Rchb."
   },
   {
     "SAMPLE": "S0285",
@@ -1027,7 +1061,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "SOA",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Ising"
   },
   {
     "SAMPLE": "S0286",
@@ -1052,7 +1087,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["IDA", "ORE", "UTA"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(S.Watson) Rydb."
   },
   {
     "SAMPLE": "S0288",
@@ -1077,7 +1113,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Desv.) Boiss."
   },
   {
     "SAMPLE": "S0289",
@@ -1113,7 +1150,8 @@
       "TZK"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Regel & Schmalh.) Al-Shehbaz & D.A.German"
   },
   {
     "SAMPLE": "S0292",
@@ -1138,7 +1176,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["IRN", "IRQ", "LBS", "TUR"],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Boiss."
   },
   {
     "SAMPLE": "S0293",
@@ -1163,7 +1202,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CAL", "IDA", "NEV", "ORE", "UTA", "WAS"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(A.Gray) Rollins"
   },
   {
     "SAMPLE": "S0294",
@@ -1197,7 +1237,8 @@
       "UTA"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Engelm.) Rollins"
   },
   {
     "SAMPLE": "S0297",
@@ -1222,7 +1263,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["IRQ", "KUW", "PAL", "SAU"],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Turrill"
   },
   {
     "SAMPLE": "S0298",
@@ -1265,7 +1307,8 @@
       "WVA"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Michx.) Steud."
   },
   {
     "SAMPLE": "S0299",
@@ -1311,7 +1354,8 @@
       "UZB"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": ["1", "2", "3", "4"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Willd.) DC."
   },
   {
     "SAMPLE": "S0300",
@@ -1336,7 +1380,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["ARI", "CAL", "MXN"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Hook. & Harv."
   },
   {
     "SAMPLE": "S0301",
@@ -1361,7 +1406,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CAL", "IDA", "NEV", "ORE"],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(S.Watson) Greene"
   },
   {
     "SAMPLE": "S0303",
@@ -1398,7 +1444,8 @@
       "YUG"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": ["1", "3"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "GER"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "GER",
+    "AUTHOR": "(L.) Medik."
   },
   {
     "SAMPLE": "S0305",
@@ -1423,7 +1470,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["ALG", "LBY", "MOR", "TUN"],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Desf.) Baill."
   },
   {
     "SAMPLE": "S0306",
@@ -1448,7 +1496,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["NSW", "NTA", "QLD", "SOA"],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "R.Br."
   },
   {
     "SAMPLE": "S0308",
@@ -1473,7 +1522,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "GRC",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Hausskn.) Hausskn."
   },
   {
     "SAMPLE": "S0312",
@@ -1536,7 +1586,8 @@
       "NET",
       "SWI",
       "VRG"
-    ]
+    ],
+    "AUTHOR": "(Asso) Thell."
   },
   {
     "SAMPLE": "S0315",
@@ -1561,7 +1612,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CYP", "EGY", "GRC", "KRI", "LBY"],
     "WCVP_WGSRPD_LEVEL_1_native": ["1", "2", "3"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(L.) Desv."
   },
   {
     "SAMPLE": "S0316",
@@ -1586,7 +1638,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["IRN", "TKM"],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Boiss.) O.E.Schulz"
   },
   {
     "SAMPLE": "S0317",
@@ -1688,7 +1741,8 @@
       "WSB",
       "WVA",
       "WYO"
-    ]
+    ],
+    "AUTHOR": "(Willd.) O.E.Schulz"
   },
   {
     "SAMPLE": "S0320",
@@ -1754,7 +1808,8 @@
       "UTA",
       "WAS",
       "WYO"
-    ]
+    ],
+    "AUTHOR": "(L.) W.T.Aiton"
   },
   {
     "SAMPLE": "S0322",
@@ -1797,7 +1852,8 @@
       "YUG"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": ["1", "2", "3"],
-    "WCVP_WGSRPD_LEVEL_3_introduced": ["BLT", "FRA", "SPA"]
+    "WCVP_WGSRPD_LEVEL_3_introduced": ["BLT", "FRA", "SPA"],
+    "AUTHOR": "(L.) Medik."
   },
   {
     "SAMPLE": "S0323",
@@ -1822,7 +1878,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": "SPA",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Coss."
   },
   {
     "SAMPLE": "S0326",
@@ -1847,7 +1904,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["ALG", "MOR"],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Coss. & Durieu) Maire"
   },
   {
     "SAMPLE": "S0327",
@@ -1880,7 +1938,8 @@
       "UZB"
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Bunge"
   },
   {
     "SAMPLE": "S0329",
@@ -1905,7 +1964,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["CHC", "CHN", "CHQ", "CHT", "PRM"],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "Maxim."
   },
   {
     "SAMPLE": "S0331",
@@ -1930,7 +1990,8 @@
     "GENUS_TYPE": "Y",
     "WCVP_WGSRPD_LEVEL_3_native": ["COR", "SAR"],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
-    "WCVP_WGSRPD_LEVEL_3_introduced": "NA"
+    "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
+    "AUTHOR": "(Viv.) Asch."
   },
   {
     "SAMPLE": "S0335",
@@ -1990,7 +2051,8 @@
       "TEX",
       "VIC",
       "VRG"
-    ]
+    ],
+    "AUTHOR": "L."
   },
   {
     "SAMPLE": "S0345",
@@ -10358,7 +10420,8 @@
       "WDC",
       "WIS",
       "WVA"
-    ]
+    ],
+    "AUTHOR": "(L) Heyhn"
   },
   {
     "SAMPLE": "S1213",
