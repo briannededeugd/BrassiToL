@@ -1422,6 +1422,9 @@
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
   <div class="tooltip-information">
     <h3 class="tooltip-title">{fullSpeciesName}</h3>
+    {#if authorName}
+      <h4 class="tooltip-author">{authorName}</h4>
+    {/if}
     <div class="tooltip-taxonomy">
       <p>
         <span>{subfamilyName}</span>

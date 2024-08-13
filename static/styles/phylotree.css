@@ -67,16 +67,30 @@
     }
   }
 
-  #tooltip-title, #tooltip-author {
+  #tooltip-title, #tooltip-author, .tooltip-author, .tooltip-title {
     display: inline-block;
   }
 
-  #tooltip-title {
+  #tooltip-title, .tooltip-title {
     margin-right: .5em;
     margin-bottom: 0;
   }
 
-  #tooltip-author {
+  #tooltip > .tooltip-information > .tooltip-title {
+    margin-bottom: .5em;
+  }
+
+  #tooltip > .tooltip-information > .tooltip-author {
+    margin: 0;
+    padding: 0;
+    max-height: max-content;
+  }
+
+   #tooltip > .tooltip-information > .tooltip-taxonomy {
+    margin-top: 0;
+   }
+
+  #tooltip-author, .tooltip-author {
     font-size: 1em;
     margin-top: 0.75em;
   }
