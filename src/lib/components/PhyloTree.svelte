@@ -1378,7 +1378,7 @@
       <p id="source">Image Source: iNaturalist, guyincognito</p>
       <h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
       {#if authorName}
-        <h4>{authorName}</h4>
+        <h4 id="tooltip-author" class="tooltip-author">{authorName}</h4>
       {/if}
       <div class="tooltip-taxonomy">
         <p>

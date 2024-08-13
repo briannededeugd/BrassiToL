@@ -67,6 +67,20 @@
     }
   }
 
+  #tooltip-title, #tooltip-author {
+    display: inline-block;
+  }
+
+  #tooltip-title {
+    margin-right: .5em;
+    margin-bottom: 0;
+  }
+
+  #tooltip-author {
+    font-size: 1em;
+    margin-top: 0.75em;
+  }
+
   #tooltip-image {
     display: flex;
     width: 100%;
@@ -144,13 +158,20 @@
   }
 
   #tooltip h3,
-  #largetooltip h3,
   #tooltiphover h3 {
     font-family: "Bayon", sans-serif;
     font-weight: 100;
     font-size: 1.75em;
     margin-top: 0.85em;
     margin-bottom: 0.95em;
+    line-height: 1em;
+  }
+
+   #largetooltip h3 {
+    font-family: "Bayon", sans-serif;
+    font-weight: 100;
+    font-size: 1.75em;
+    margin-top: 0.85em;
     line-height: 1em;
   }
 
@@ -204,6 +225,7 @@
 
   .tooltip-taxonomy {
     max-width: 100%;
+    margin-top: 2em;
   }
   
   .tooltip-taxonomy p {
