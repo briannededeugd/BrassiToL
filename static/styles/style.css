@@ -12,6 +12,11 @@ main {
 margin: 0.75em 2em;
 }
 
+h4 {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
 .native {
     color: #729a68;
     font-weight: 800;
