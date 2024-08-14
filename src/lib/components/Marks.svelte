@@ -184,7 +184,7 @@
 
           d3.select("#mapInfo > h3").text(countryInformation.name);
           d3.select("#mapInfo > p").text(
-            countryInformation.frequency + " " + "native species",
+            `${countryInformation.frequency} native species`,
           ).style("margin-top", ".5em");
         }
       })
@@ -316,7 +316,7 @@
 
           d3.select("#nameOfCountry").text(countryInformation.name);
           d3.select("#frequencyOfCountry").text(
-            countryInformation.frequency + " " + "native species",
+            `${countryInformation.frequency} native species`,
           );
 
           console.log("Relevant Introduced Species:", introducedSpeciesNames);
