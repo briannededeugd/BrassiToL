@@ -148,7 +148,7 @@
 
     function processMetadataCategory(category, key) {
       const uniqueItems = new Set(
-        metadata.map((item) => item[key]).filter((item) => item !== "NA"),
+        metadata.map((item) => item[key]).filter((item) => item !== "Outgroup"),
       );
 
       const checkboxItems = Array.from(uniqueItems)

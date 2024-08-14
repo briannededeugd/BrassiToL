@@ -74,6 +74,8 @@
   // Variables for the color scale to be available globally
   let supertribes = [];
   let colorScale;
+  let supertribespan;
+  let aethionemaspan;
 
   let sharedRoot; // Variable to append the root of the visualization to
   let branchLengths = []; // An array to collect the branch length for each node
@@ -150,8 +152,8 @@
       "#cc79a7", // Camelinodae
       "#d55e00", // Heliophilodae
       "#56b4e9", // Hesperodae
-      "#e69f01", // Unplaced
       "#e1e1e1", // NA
+      "#e69f01", // Unplaced
     ]);
 
     /**============================
@@ -327,6 +329,9 @@
     });
 
     isLoading.set(false);
+
+    supertribespan = d3.selectAll(".supertribespan");
+    aethionemaspan = d3.selectAll(".aethionemaspan");
   });
 
   /**========================================================================
@@ -889,14 +894,19 @@
         sampleNumber = metadataObject.SAMPLE;
         superTribeColor = findSuperTribeColor(sampleNumber);
 
-        // Make the supertribe name the right color (according to the legend and tree)
-        const span = d3.selectAll(".supertribespan");
-        span.style("background-color", superTribeColor);
-
         fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
         subfamilyName = metadataObject.SUBFAMILY;
         supertribeName = metadataObject.SUPERTRIBE;
         tribeName = metadataObject.TRIBE;
+
+        // Make the supertribe name the right color (according to the legend and tree)
+        if (subfamilyName === "Aethionemoideae") {
+          supertribespan.style("background-color", "white");
+          aethionemaspan.style("background-color", "#E9C46A");
+        } else {
+          supertribespan.style("background-color", superTribeColor);
+          aethionemaspan.style("background-color", "white");
+        }
 
         if (metadataObject.AUTHOR) {
           authorName = metadataObject.AUTHOR;
@@ -1015,10 +1025,6 @@
         sampleNumber = metadataObject.SAMPLE;
         superTribeColor = findSuperTribeColor(sampleNumber);
 
-        // Make the supertribe name the right color (according to the legend and tree)
-        const span = d3.selectAll(".supertribespan");
-        span.style("background-color", superTribeColor);
-
         fullSpeciesName = metadataObject.SPECIES_NAME_PRINT;
         subfamilyName = metadataObject.SUBFAMILY;
         supertribeName = metadataObject.SUPERTRIBE;
@@ -1033,6 +1039,14 @@
         societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
         geographicareaName = metadataObject.WCVP_geographic_area;
         imageId = metadataObject.powo_identifier;
+
+        if (subfamilyName === "Aethionemoideae") {
+          supertribespan.style("background-color", "white");
+          aethionemaspan.style("background-color", "#E9C46A");
+        } else {
+          supertribespan.style("background-color", superTribeColor);
+          aethionemaspan.style("background-color", "white");
+        }
 
         // Apply the active class to the hovered label and remove from others
         d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
@@ -1382,7 +1396,7 @@
       {/if}
       <div class="tooltip-taxonomy">
         <p>
-          <span>{subfamilyName}</span>
+          <span class="aethionemaspan">{subfamilyName}</span>
           <i class="fas fa-angle-right"></i>
           <span class="supertribespan">{supertribeName}</span>
           <i class="fas fa-angle-right"></i>
@@ -1427,7 +1441,7 @@
     {/if}
     <div class="tooltip-taxonomy">
       <p>
-        <span>{subfamilyName}</span>
+        <span class="aethionemaspan">{subfamilyName}</span>
         <i class="fas fa-angle-right"></i>
         <span class="supertribespan">{supertribeName}</span>
         <i class="fas fa-angle-right"></i>
