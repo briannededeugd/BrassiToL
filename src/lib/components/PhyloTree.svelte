@@ -93,6 +93,7 @@
 
   // Variables for the fetched data of the relevant plant for the tooltip and infocontainer
   let fullSpeciesName;
+  let authorName;
   let subfamilyName;
   let supertribeName;
   let tribeName;
@@ -897,6 +898,12 @@
         supertribeName = metadataObject.SUPERTRIBE;
         tribeName = metadataObject.TRIBE;
 
+        if (metadataObject.AUTHOR) {
+          authorName = metadataObject.AUTHOR;
+        } else {
+          authorName = "";
+        }
+
         // Apply the active class to the hovered label and remove from others
         d3.selectAll("text.node").classed("label--active", false); // Remove active class from all
         d3.select(this).classed("label--active", active);
@@ -1370,6 +1377,9 @@
     <div class="tooltip-information">
       <p id="source">Image Source: iNaturalist, guyincognito</p>
       <h3 id="tooltip-title" class="tooltip-title">{fullSpeciesName}</h3>
+      {#if authorName}
+        <h4 id="tooltip-author" class="tooltip-author">{authorName}</h4>
+      {/if}
       <div class="tooltip-taxonomy">
         <p>
           <span>{subfamilyName}</span>
@@ -1412,6 +1422,9 @@
 <div id="tooltip" class="tooltip" style="visibility: hidden; position: fixed;">
   <div class="tooltip-information">
     <h3 class="tooltip-title">{fullSpeciesName}</h3>
+    {#if authorName}
+      <h4 class="tooltip-author">{authorName}</h4>
+    {/if}
     <div class="tooltip-taxonomy">
       <p>
         <span>{subfamilyName}</span>
