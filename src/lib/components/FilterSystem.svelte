@@ -1392,7 +1392,7 @@
       on:click={toggleCharacteristics}
       style="color: {characteristicsOpen ? '#729a68' : '#e1e1e1'}"
     >
-      Characteristics
+      Traits
       {#if checkedCharCount > 0}
         <span class="checkbox-count">({checkedCharCount})</span>
       {/if}
