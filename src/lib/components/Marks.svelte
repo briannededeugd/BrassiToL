@@ -183,9 +183,9 @@
             .style("top", event.clientY + 10 + "px");
 
           d3.select("#mapInfo > h3").text(countryInformation.name);
-          d3.select("#mapInfo > p").text(
-            `${countryInformation.frequency} native species`,
-          ).style("margin-top", ".5em");
+          d3.select("#mapInfo > p")
+            .text(`${countryInformation.frequency} native species`)
+            .style("margin-top", ".5em");
         }
       })
       .on("mouseout", function () {
@@ -203,7 +203,9 @@
 
           // Clear existing list items
           let speciesList = d3.select("#speciesList");
-          let introducedCount = d3.select("#popupMetadata > section > p:nth-of-type(2)");
+          let introducedCount = d3.select(
+            "#popupMetadata > section > p:nth-of-type(2)",
+          );
 
           introducedCount.remove();
           speciesList.selectAll("li").remove();
