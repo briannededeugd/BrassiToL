@@ -177,57 +177,7 @@
     /**======================
      *   NEW SETS FOR FILTERING GEOGRAPHY
      *========================**/
-
-    // function processContinentCategory(category, geographyKey) {
-    //   const processedContinents = new Set(
-    //     metadata
-    //       .map((item) => item[geographyKey])
-    //       .filter((item) => item !== "NA"),
-    //   );
-
-    //   const checkboxItems = Array.from(processedContinents)
-    //     .map((continent) => ({
-    //       label: capitalizeFirstLetter(continent),
-    //       value: continent,
-    //       checked: false,
-    //     }))
-    //     .sort((a, b) => a.label.localeCompare(b.label));
-
-    //   checkboxStates[category].items = checkboxItems;
-    // }
-
-    // function processBotanicalRegionCategory(category, metadata, landcodes) {
-    //   let botanicalCodes = [];
-
-    //   metadata
-    //     .filter((item) => item.WCVP_WGSRPD_LEVEL_2_native || [])
-    //     .filter((code) => code !== "#N/A")
-    //     .forEach((code) => {
-    //       landcodes.forEach((landcode) => {
-    //         const exists = botanicalCodes.some(
-    //           (botanicalCode) => botanicalCode.name === landcode.WGSRPD_name,
-    //         );
-
-    //         if (landcode.level === "L2" && !exists) {
-    //           botanicalCodes.push({
-    //             name: landcode.WGSRPD_name,
-    //             code: landcode.code,
-    //           });
-    //         }
-    //       });
-    //     });
-
-    //   const checkboxItems = botanicalCodes
-    //     .map((areaName) => ({
-    //       label: areaName.name,
-    //       value: areaName.code,
-    //       checked: false,
-    //     }))
-    //     .sort((a, b) => a.label.localeCompare(b.label));
-
-    //   checkboxStates[category].items = checkboxItems;
-    // }
-
+   
     function processGeographicCategory(
       category,
       metadataKey,
