@@ -1369,7 +1369,7 @@
           <h3>Botanical Regions</h3>
           <input
             type="text"
-            placeholder="Search Geographic Area"
+            placeholder="Search Botanical Regions"
             name="searchgeographicarea"
             bind:value={searchGeographicArea}
           />
