@@ -13,9 +13,9 @@
         and uncover the intricate connections within this plant family.
       </p>
       <p>
-        This website integrates results from Hendriks et al. (2023) with data
-        retrieved from the World Checklist of Vascular Plants (Govaerts et al.
-        2021).
+        This website combines the nuclear Brassicaceae family phylogeny of
+        Hendriks et al. (2023; Figure 2) with distribution and trait data from
+        the World Checklist of Vascular Plants (Govaerts et al. 2021).
       </p>
       <p>
         Hendriks, K. P., Kiefer, C., Al-Shehbaz, I. A., Bailey, C. D., van
