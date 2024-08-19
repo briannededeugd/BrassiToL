@@ -196,6 +196,10 @@
       checkboxStates[category].items = checkboxItems;
     }
 
+    function processBotanicalRegionCategory(category, metadata, landcodes) {
+      metadata.filter((item) => item.WCVP_WGSRPD_LEVEL_2_native || [])
+    }
+
     function processGeographicAreaCategory(category, metadata, landcodes) {
       const areaNameToCode = new Map();
       metadata
