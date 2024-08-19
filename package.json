@@ -6,7 +6,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "prettier": "npx prettier --write src/"
+    "prettier": "npx prettier --write src/",
+    "eslint": "npx eslint src/"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^2.0.0",
