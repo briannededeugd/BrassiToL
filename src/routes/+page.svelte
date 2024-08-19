@@ -77,7 +77,7 @@
 <LoadingScreen />
 <main>
   <section class="title">
-    <h1>brassicaceae <span>|</span> <span>Tree of Life</span></h1>
+    <h1>Brassicaceae <span aria-hidden="true">|</span> <span>Tree of Life</span></h1>
     <div class="switch-view">
       <h2>Phylogenetic Tree</h2>
       <label class="switch">

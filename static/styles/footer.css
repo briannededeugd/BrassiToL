@@ -41,7 +41,7 @@
 	#quicklinks ul li a {
 		text-decoration: none;
 		color: #e1e1e1;
-		font-size: 0.9em !important;
+		font-size: 1em !important;
 	}
 
 	#quicklinks ul li a:hover {
@@ -78,6 +78,10 @@
 
 	#quicklinks ul li:nth-of-type(5) a::before {
 		background-image: url("/img/osnabruck.jpg");
+	}
+
+	#quicklinks ul li:nth-of-type(6) a::before {
+		background-image: url("/img/nature.jpg");
 	}
 
 	/* CREDITS */

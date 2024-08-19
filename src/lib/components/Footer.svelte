@@ -10,8 +10,12 @@
       <p>
         Explore the Brassicaceae family using this interactive phylogenetic tree
         tool. Dive into the diversity of species, navigate the tree with ease,
-        and uncover the intricate connections within this plant family. This
-        tool is curated by Kasper Hendriks and his botanical research.
+        and uncover the intricate connections within this plant family.
+      </p>
+      <p>
+        This website combines the nuclear Brassicaceae family phylogeny of
+        Hendriks et al. (2023; Figure 2) with distribution and trait data from
+        the World Checklist of Vascular Plants (Govaerts et al. 2021).
       </p>
       <p>
         Hendriks, K. P., Kiefer, C., Al-Shehbaz, I. A., Bailey, C. D., van
@@ -19,6 +23,12 @@
         Brassicaceae phylogeny based on filtering of 1,000-gene dataset. <em
           >Current Biology</em
         >, 33(19), 4052-4068.
+      </p>
+      <p>
+        Govaerts, R., Nic Lughadha, E., Black, N., Turner, R., & Paton, A.
+        (2021). The World Checklist of Vascular Plants, a continuously updated
+        resource for exploring global plant diversity. <em>Scientific Data</em>,
+        8(1), 215.
       </p>
     </div>
     <div id="quicklinks">
@@ -43,6 +53,11 @@
           <a href="https://www.uni-osnabrueck.de/en/home/"
             >Osnabrück University</a
           >
+        </li>
+        <li>
+          <a href="https://www.nature.com/articles/s41597-021-00997-6"
+            >The World Checklist of Vascular Plants
+          </a>
         </li>
       </ul>
     </div>

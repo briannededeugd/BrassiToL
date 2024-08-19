@@ -67,8 +67,12 @@
     }
   }
 
+  #tooltip-title, #tooltip-author {
+    display: inline-block;
+  }
+
   #tooltip-title, .tooltip-title {
-    margin-right: .5em;
+    margin-right: .25em;
     margin-bottom: 0;
   }
 
@@ -89,6 +93,7 @@
   #tooltip-author, .tooltip-author {
     font-size: 1em;
     margin-top: 0.75em;
+    margin-bottom: 0;
   }
 
   #tooltip-image {
@@ -235,7 +240,7 @@
 
   .tooltip-taxonomy {
     max-width: 100%;
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
   
   .tooltip-taxonomy p {
