@@ -178,38 +178,86 @@
      *   NEW SETS FOR FILTERING GEOGRAPHY
      *========================**/
 
-    function processContinentCategory(category, geographyKey) {
-      const processedContinents = new Set(
-        metadata
-          .map((item) => item[geographyKey])
-          .filter((item) => item !== "NA"),
-      );
+    // function processContinentCategory(category, geographyKey) {
+    //   const processedContinents = new Set(
+    //     metadata
+    //       .map((item) => item[geographyKey])
+    //       .filter((item) => item !== "NA"),
+    //   );
 
-      const checkboxItems = Array.from(processedContinents)
-        .map((continent) => ({
-          label: capitalizeFirstLetter(continent),
-          value: continent,
-          checked: false,
-        }))
-        .sort((a, b) => a.label.localeCompare(b.label));
+    //   const checkboxItems = Array.from(processedContinents)
+    //     .map((continent) => ({
+    //       label: capitalizeFirstLetter(continent),
+    //       value: continent,
+    //       checked: false,
+    //     }))
+    //     .sort((a, b) => a.label.localeCompare(b.label));
 
-      checkboxStates[category].items = checkboxItems;
-    }
+    //   checkboxStates[category].items = checkboxItems;
+    // }
 
-    function processGeographicAreaCategory(category, metadata, landcodes) {
-      const areaNameToCode = new Map();
+    // function processBotanicalRegionCategory(category, metadata, landcodes) {
+    //   let botanicalCodes = [];
+
+    //   metadata
+    //     .filter((item) => item.WCVP_WGSRPD_LEVEL_2_native || [])
+    //     .filter((code) => code !== "#N/A")
+    //     .forEach((code) => {
+    //       landcodes.forEach((landcode) => {
+    //         const exists = botanicalCodes.some(
+    //           (botanicalCode) => botanicalCode.name === landcode.WGSRPD_name,
+    //         );
+
+    //         if (landcode.level === "L2" && !exists) {
+    //           botanicalCodes.push({
+    //             name: landcode.WGSRPD_name,
+    //             code: landcode.code,
+    //           });
+    //         }
+    //       });
+    //     });
+
+    //   const checkboxItems = botanicalCodes
+    //     .map((areaName) => ({
+    //       label: areaName.name,
+    //       value: areaName.code,
+    //       checked: false,
+    //     }))
+    //     .sort((a, b) => a.label.localeCompare(b.label));
+
+    //   checkboxStates[category].items = checkboxItems;
+    // }
+
+    function processGeographicCategory(
+      category,
+      metadataKey,
+      landcodeLevel,
+      metadata,
+    ) {
+      let botanicalCodes = [];
+
       metadata
-        .flatMap((item) => item.WCVP_WGSRPD_LEVEL_1_native || [])
-        .filter((code) => code !== "NA")
+        .filter((item) => item[metadataKey] || [])
+        .filter((code) => code !== "#N/A")
         .forEach((code) => {
-          const areaName = landcodes[code] ? landcodes[code].WGSRPD_name : code;
-          areaNameToCode.set(areaName, code);
+          landcodes.forEach((landcode) => {
+            const exists = botanicalCodes.some(
+              (botanicalCode) => botanicalCode.name === landcode.WGSRPD_name,
+            );
+
+            if (landcode.level === landcodeLevel && !exists) {
+              botanicalCodes.push({
+                name: landcode.WGSRPD_name,
+                code: landcode.code,
+              });
+            }
+          });
         });
 
-      const checkboxItems = Array.from(areaNameToCode.keys()) // Use keys() to get area names
+      const checkboxItems = botanicalCodes
         .map((areaName) => ({
-          label: areaName, // No need to convert to string, as areaName is already a string
-          value: areaNameToCode.get(areaName),
+          label: areaName.name,
+          value: areaName.code,
           checked: false,
         }))
         .sort((a, b) => a.label.localeCompare(b.label));
@@ -250,8 +298,18 @@
       checkboxStates[category].items = checkboxItems;
     }
 
-    processContinentCategory("continents", "WCVP_continent");
-    processGeographicAreaCategory("geographicareas", metadata, landcodes);
+    processGeographicCategory(
+      "continents",
+      "WCVP_WGSRPD_LEVEL_1_native",
+      "L1",
+      metadata,
+    );
+    processGeographicCategory(
+      "geographicareas",
+      "WCVP_WGSRPD_LEVEL_2_native",
+      "L2",
+      metadata,
+    );
     processCountryCategory("countries", "WCVP_WGSRPD_LEVEL_3_native", true);
 
     /**======================
@@ -931,8 +989,8 @@
       tribes: "TRIBE",
       genuses: "GENUS",
       species: "SPECIES",
-      geographicareas: "WCVP_WGSRPD_LEVEL_1_native",
-      continents: "WCVP_continent",
+      geographicareas: "WCVP_WGSRPD_LEVEL_2_native",
+      continents: "WCVP_WGSRPD_LEVEL_1_native",
       countries: "WCVP_WGSRPD_LEVEL_3_native",
       growthForm: "GROWTH_FORM",
       societaluse: "SOCIETAL_USE",
@@ -1329,10 +1387,10 @@
 
         <!-- GEOGRAPHIC AREA -->
         <div class="filter">
-          <h3>Regions</h3>
+          <h3>Botanical Regions</h3>
           <input
             type="text"
-            placeholder="Search Geographic Area"
+            placeholder="Search Botanical Regions"
             name="searchgeographicarea"
             bind:value={searchGeographicArea}
           />
