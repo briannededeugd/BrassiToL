@@ -982,10 +982,11 @@
       };
     }
 
-    // FUNCTION
-    // The goal of this function is to collect all the necessary data for a pop-up, dependent on the clicked node (hence why it's called on "click" of each label in the tree)
-    // It uses the "d" (data) to find the correct object in the metadata file, then loads in all necessary properties
-    // Since most of these properties come in as their JSON-selves, we must perform a little surgery on them to format them for the frontend
+    /**
+     * @name pinInfo
+     * @role Open the large informationbox / popup in the center of the screen
+     * @param active | (Boolean) Checks whether or not the information box should be pinned
+     */
     function pinInfo(active) {
       return function (event, d) {
         let superTribeColor = findSuperTribeColor(d.data.name);
