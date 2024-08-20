@@ -105,6 +105,13 @@
   let societaluseName;
   let geographicareaName;
   let imageId;
+  let collectionName;
+  let collectionCode;
+  let collectorName;
+  let collectorCode;
+  let specimenTypeStatus;
+  let identifier;
+  let biomaterialProvider;
 
   // Variables for allowing and tracking the rotation of the tree
   let rotation = 0; // Initial rotation
@@ -1015,6 +1022,14 @@
           return description;
         }
 
+        function findObject(item) {
+          if (item) {
+            return item;
+          } else {
+            return "NA";
+          }
+        }
+
         // Making sure the meaning of each growth type appears instead of its short counterpart
         const growthFormLabelMapping = {
           H: "Herbaceous",
@@ -1038,6 +1053,14 @@
         societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
         geographicareaName = metadataObject.WCVP_geographic_area;
         imageId = metadataObject.powo_identifier;
+
+        collectionName = findObject(metadataObject.COLLECTION);
+        collectionCode = findObject(metadataObject.COLLECTION_CODE);
+        collectorName = findObject(metadataObject.COLLECTOR);
+        collectorCode = findObject(metadataObject.COLLECTOR_CODE);
+        specimenTypeStatus = findObject(metadataObject.SPECIMEN_TYPE_STATUS);
+        identifier = findObject(metadataObject.IDENTIFIER);
+        biomaterialProvider = findObject(metadataObject.BIOMATERIAL_PROVIDER);
 
         if (subfamilyName === "Aethionemoideae") {
           supertribespan.style("background-color", "white");
@@ -1428,6 +1451,48 @@
         </div>
       </div>
       <p id="geographicareaname">{geographicareaName}</p>
+      <details>
+        <summary>
+          <p>Specimen Details</p>
+        </summary>
+        <div id="tooltip-specimen-details">
+          <div>
+            <p>
+              Collection <br />
+              <span>{collectionName}</span>
+            </p>
+
+            <p>
+              Collection code<br />
+              <span>{collectionCode}</span>
+            </p>
+
+            <p>
+              Collector <br />
+              <span>{collectorName}</span>
+            </p>
+            <p>
+              Collector code <br />
+              <span>{collectorCode}</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              Specimen Type Status <br />
+              <span>{specimenTypeStatus}</span>
+            </p>
+            <p>
+              Identifier <br />
+              <span>{identifier}</span>
+            </p>
+
+            <p>
+              Biomaterial provider <br />
+              <span>{biomaterialProvider}</span>
+            </p>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
