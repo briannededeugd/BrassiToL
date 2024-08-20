@@ -1,12 +1,13 @@
 // Import necessary modules
+// import { match } from "assert";
 import fs from "fs";
 import path from "path";
 
 // Define file paths
 const authorMetadataPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_includesauthors.json"; // Example path, adjust as needed
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_authorsspecimen.json";
 const metadataPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json"; // Example path, adjust as needed
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json";
 
 // Read JSON files and parse them into objects
 const readJsonFile = (filePath) => {
@@ -31,6 +32,17 @@ authorMetadata.forEach((authorObj) => {
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
     matchingMetadata.AUTHOR = authorObj.AUTHOR;
+    matchingMetadata.COLLECTION = authorObj.COLLECTION;
+    matchingMetadata.COLLECTION_CODE = authorObj.COLLECTION_CODE;
+    matchingMetadata.COLLECTOR = authorObj.COLLECTOR;
+    matchingMetadata.COLLECTOR_CODE = authorObj.COLLECTOR_CODE;
+    matchingMetadata.YEAR = authorObj.YEAR;
+    matchingMetadata.COUNTRY = authorObj.COUNTRY;
+    matchingMetadata.SPECIMEN_TYPE_STATUS = authorObj.SPECIMEN_TYPE_STATUS;
+    matchingMetadata.IDENTIFIER = authorObj.IDENTIFIER;
+    matchingMetadata.BIOMATERIAL_PROVIDER = authorObj.BIOMATERIAL_PROVIDER;
+    matchingMetadata.VOUCHER_DETAILS_LINK = authorObj.VOUCHER_DETAILS_LINK;
+    matchingMetadata.RAW_DATA_LINK = authorObj.RAW_DATA_LINK;
   }
 });
 

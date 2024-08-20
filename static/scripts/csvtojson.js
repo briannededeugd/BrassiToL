@@ -2,9 +2,9 @@ import csvtojson from "csvtojson";
 import { promises as fs } from "fs";
 
 const csvFilePath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/csv/BrassiToL_authors.csv";
+  "/Users/briannededeugd/Desktop/BrassiToL/static/csv/BrassiToL_authorsspecimen.csv";
 const jsonFilePath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL__authors_metadata.json";
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_authorsspecimen.json";
 
 csvtojson({
   delimiter: ";", // Have to set the delimiter to a semicolon apparently
