@@ -3,6 +3,7 @@
   import * as d3 from "d3";
   import { geoPath, geoNaturalEarth1 } from "d3";
   import { selectedSpeciesStore } from "$stores/store.js";
+  import { isLoading } from "$stores/loadingstore.js";
 
   /**========================================================================
    *                           DECLARING VARIABLES
@@ -51,6 +52,8 @@
    *========================================================================**/
   onMount(async () => {
     try {
+      isLoading.set(true);
+      
       const responses = await Promise.all([
         fetch("/metadata/BrassiToL_metadata.json"),
         fetch("/metadata/wgsrpd_mapping.json"),
@@ -71,6 +74,7 @@
       path = geoPath(projection);
 
       dataLoaded = true; // Set this flag only after all data has been loaded
+      isLoading.set(false);
     } catch (error) {
       console.error("Error loading data:", error);
     }
