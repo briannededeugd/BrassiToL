@@ -1095,6 +1095,8 @@
       };
     }
 
+    console.log("Hello world");
+
     d3.select("#legend-container").select("svg").remove();
 
     var legendSvg = d3.select("#legend-container").append("svg");
