@@ -148,7 +148,10 @@
 
     function processMetadataCategory(category, key) {
       const uniqueItems = new Set(
-        metadata.map((item) => item[key]).filter((item) => item !== "Outgroup"),
+        metadata
+          .map((item) => item[key])
+          .filter((item) => item !== "Outgroup")
+          .filter((item) => item !== "NA"),
       );
 
       const checkboxItems = Array.from(uniqueItems)
@@ -177,7 +180,7 @@
     /**======================
      *   NEW SETS FOR FILTERING GEOGRAPHY
      *========================**/
-   
+
     function processGeographicCategory(
       category,
       metadataKey,
