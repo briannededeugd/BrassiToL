@@ -144,7 +144,6 @@
     );
     supertribes = [...uniqueItems];
     supertribes = supertribes.sort((a, b) => a.localeCompare(b));
-    console.log("THE SUPERTRIBES", supertribes);
 
     colorScale = d3.scaleOrdinal().domain(supertribes).range([
       "#907ad6", // Arabodae
@@ -324,7 +323,6 @@
     // For no filter results
     const unsubscribe = noFilterResults.subscribe((value) => {
       isNoFilterResults = value;
-      console.log("Store value changed:", value); // Log value to check changes
       updateTreeColors(selectedSpecies); // Update colors based on new store value
     });
 
@@ -1115,8 +1113,6 @@
       .attr("transform", function (d, i) {
         return "translate(0," + i * 17.5 + ")";
       });
-
-    console.log("Color Scale Domain:", colorScale.domain());
 
     // Append a colored rectangle to each legend item
     legendItem
