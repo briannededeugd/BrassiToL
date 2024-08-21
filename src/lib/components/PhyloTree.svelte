@@ -300,6 +300,7 @@
      *    CLOSE PINNED TOOLTIP
      *========================**/
 
+    const details = d3.select("#specimen-details");
     d3.select("#shutTooltip").on("click", closePopup);
     d3.select("body").on("keydown", function (event) {
       if (event && event.keyCode === 27) {
@@ -319,6 +320,7 @@
 
       // Re-enable pointer events for labels if you've disabled them
       d3.selectAll("text.node").style("pointer-events", "auto");
+      details.attr("open", null);
     }
 
     // For filtering
@@ -1451,7 +1453,7 @@
         </div>
       </div>
       <p id="geographicareaname">{geographicareaName}</p>
-      <details>
+      <details id="specimen-details">
         <summary>
           <p>Specimen Details</p>
         </summary>
