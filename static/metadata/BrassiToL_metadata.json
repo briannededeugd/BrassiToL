@@ -38,7 +38,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack, Christiane Kiefer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519568",
-    "iNaturalist_id": "371913"
+    "iNaturalist_id": "371913",
+    "COLLECTION_YEAR": "1981"
   },
   {
     "SAMPLE": "8008999",
@@ -74,7 +75,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack, Christiane Kiefer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519567",
-    "iNaturalist_id": "60983"
+    "iNaturalist_id": "60983",
+    "COLLECTION_YEAR": "1942"
   },
   {
     "SAMPLE": "8009952",
@@ -116,7 +118,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack, Christiane Kiefer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519531",
-    "iNaturalist_id": "1451510"
+    "iNaturalist_id": "1451510",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "CRNC",
@@ -152,7 +155,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "ERR2789774",
@@ -188,7 +192,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=NA",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "ERR4210213",
@@ -237,7 +242,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=NA",
-    "iNaturalist_id": "868430"
+    "iNaturalist_id": "868430",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "HYZL",
@@ -273,7 +279,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "MYZV",
@@ -309,7 +316,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_005410",
@@ -346,7 +354,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_005411",
@@ -383,7 +392,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_008053",
@@ -420,7 +430,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_014331",
@@ -457,7 +468,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_019361",
@@ -494,7 +506,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_019459",
@@ -531,7 +544,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_023477",
@@ -568,7 +582,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_023503",
@@ -605,7 +620,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "PAFTOL_023511",
@@ -642,7 +658,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_023513",
@@ -679,7 +696,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_023515",
@@ -716,7 +734,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "PAFTOL_023519",
@@ -753,7 +772,8 @@
     "BIOMATERIAL_PROVIDER": "PAFTOL",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S_670",
@@ -796,7 +816,8 @@
     "BIOMATERIAL_PROVIDER": "Michael Windham, Donovan Bailey, Nik Hai",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519320",
-    "iNaturalist_id": "359548"
+    "iNaturalist_id": "359548",
+    "COLLECTION_YEAR": "2019"
   },
   {
     "SAMPLE": "S0055",
@@ -969,7 +990,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515346319",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519585",
-    "iNaturalist_id": "77068"
+    "iNaturalist_id": "77068",
+    "COLLECTION_YEAR": "2011"
   },
   {
     "SAMPLE": "S0156",
@@ -1021,7 +1043,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519574",
-    "iNaturalist_id": "902483"
+    "iNaturalist_id": "902483",
+    "COLLECTION_YEAR": "1913"
   },
   {
     "SAMPLE": "S0196",
@@ -1063,7 +1086,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519369",
-    "iNaturalist_id": "462176"
+    "iNaturalist_id": "462176",
+    "COLLECTION_YEAR": "1952"
   },
   {
     "SAMPLE": "S0268",
@@ -1110,7 +1134,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519358",
-    "iNaturalist_id": "78553"
+    "iNaturalist_id": "78553",
+    "COLLECTION_YEAR": "1988"
   },
   {
     "SAMPLE": "S0275",
@@ -1157,7 +1182,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519468",
-    "iNaturalist_id": "169503"
+    "iNaturalist_id": "169503",
+    "COLLECTION_YEAR": "1985"
   },
   {
     "SAMPLE": "S0277",
@@ -1197,7 +1223,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519457",
-    "iNaturalist_id": "792442"
+    "iNaturalist_id": "792442",
+    "COLLECTION_YEAR": "1980"
   },
   {
     "SAMPLE": "S0278",
@@ -1234,7 +1261,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519566",
-    "iNaturalist_id": "903317"
+    "iNaturalist_id": "903317",
+    "COLLECTION_YEAR": "1978"
   },
   {
     "SAMPLE": "S0279",
@@ -1286,7 +1314,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519555",
-    "iNaturalist_id": "58069"
+    "iNaturalist_id": "58069",
+    "COLLECTION_YEAR": "1994"
   },
   {
     "SAMPLE": "S0280",
@@ -1328,7 +1357,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519447",
-    "iNaturalist_id": "1091348"
+    "iNaturalist_id": "1091348",
+    "COLLECTION_YEAR": "1976"
   },
   {
     "SAMPLE": "S0281",
@@ -1386,7 +1416,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519437",
-    "iNaturalist_id": "75721"
+    "iNaturalist_id": "75721",
+    "COLLECTION_YEAR": "1905"
   },
   {
     "SAMPLE": "S0282",
@@ -1431,7 +1462,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519425",
-    "iNaturalist_id": "75438"
+    "iNaturalist_id": "75438",
+    "COLLECTION_YEAR": "1983"
   },
   {
     "SAMPLE": "S0283",
@@ -1471,7 +1503,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519340",
-    "iNaturalist_id": "902854"
+    "iNaturalist_id": "902854",
+    "COLLECTION_YEAR": "1954"
   },
   {
     "SAMPLE": "S0284",
@@ -1512,7 +1545,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519329",
-    "iNaturalist_id": "164074"
+    "iNaturalist_id": "164074",
+    "COLLECTION_YEAR": "1999"
   },
   {
     "SAMPLE": "S0285",
@@ -1549,7 +1583,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519664",
-    "iNaturalist_id": "1451220"
+    "iNaturalist_id": "1451220",
+    "COLLECTION_YEAR": "1955"
   },
   {
     "SAMPLE": "S0286",
@@ -1593,7 +1628,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519653",
-    "iNaturalist_id": "160533"
+    "iNaturalist_id": "160533",
+    "COLLECTION_YEAR": "1985"
   },
   {
     "SAMPLE": "S0288",
@@ -1630,7 +1666,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519530",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1941"
   },
   {
     "SAMPLE": "S0289",
@@ -1687,7 +1724,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519420",
-    "iNaturalist_id": "903314"
+    "iNaturalist_id": "903314",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S0292",
@@ -1729,7 +1767,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519409",
-    "iNaturalist_id": "902696"
+    "iNaturalist_id": "902696",
+    "COLLECTION_YEAR": "1976"
   },
   {
     "SAMPLE": "S0293",
@@ -1779,7 +1818,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519522",
-    "iNaturalist_id": "76559"
+    "iNaturalist_id": "76559",
+    "COLLECTION_YEAR": "1979"
   },
   {
     "SAMPLE": "S0294",
@@ -1830,7 +1870,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519511",
-    "iNaturalist_id": "161924"
+    "iNaturalist_id": "161924",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0297",
@@ -1875,7 +1916,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519500",
-    "iNaturalist_id": "951568"
+    "iNaturalist_id": "951568",
+    "COLLECTION_YEAR": "1974"
   },
   {
     "SAMPLE": "S0298",
@@ -1935,7 +1977,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519636",
-    "iNaturalist_id": "164069"
+    "iNaturalist_id": "164069",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0299",
@@ -2007,7 +2050,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519625",
-    "iNaturalist_id": "933495"
+    "iNaturalist_id": "933495",
+    "COLLECTION_YEAR": "1974"
   },
   {
     "SAMPLE": "S0300",
@@ -2051,7 +2095,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519392",
-    "iNaturalist_id": "77916"
+    "iNaturalist_id": "77916",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0301",
@@ -2096,7 +2141,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519381",
-    "iNaturalist_id": "78670"
+    "iNaturalist_id": "78670",
+    "COLLECTION_YEAR": "1998"
   },
   {
     "SAMPLE": "S0303",
@@ -2154,7 +2200,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519319",
-    "iNaturalist_id": "326816"
+    "iNaturalist_id": "326816",
+    "COLLECTION_YEAR": "1978"
   },
   {
     "SAMPLE": "S0305",
@@ -2196,7 +2243,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519678",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1999"
   },
   {
     "SAMPLE": "S0306",
@@ -2238,7 +2286,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519494",
-    "iNaturalist_id": "896192"
+    "iNaturalist_id": "896192",
+    "COLLECTION_YEAR": "1997"
   },
   {
     "SAMPLE": "S0308",
@@ -2275,7 +2324,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519483",
-    "iNaturalist_id": "515651"
+    "iNaturalist_id": "515651",
+    "COLLECTION_YEAR": "1989"
   },
   {
     "SAMPLE": "S0312",
@@ -2366,7 +2416,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519472",
-    "iNaturalist_id": "159649"
+    "iNaturalist_id": "159649",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S0315",
@@ -2417,7 +2468,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519610",
-    "iNaturalist_id": "514216"
+    "iNaturalist_id": "514216",
+    "COLLECTION_YEAR": "1991"
   },
   {
     "SAMPLE": "S0316",
@@ -2460,7 +2512,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519599",
-    "iNaturalist_id": "903156"
+    "iNaturalist_id": "903156",
+    "COLLECTION_YEAR": "1975"
   },
   {
     "SAMPLE": "S0317",
@@ -2581,7 +2634,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519588",
-    "iNaturalist_id": "77059"
+    "iNaturalist_id": "77059",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0320",
@@ -2672,7 +2726,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519587",
-    "iNaturalist_id": "77103"
+    "iNaturalist_id": "77103",
+    "COLLECTION_YEAR": "1988"
   },
   {
     "SAMPLE": "S0322",
@@ -2741,7 +2796,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519586",
-    "iNaturalist_id": "334314"
+    "iNaturalist_id": "334314",
+    "COLLECTION_YEAR": "1972"
   },
   {
     "SAMPLE": "S0323",
@@ -2778,7 +2834,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519584",
-    "iNaturalist_id": "514210"
+    "iNaturalist_id": "514210",
+    "COLLECTION_YEAR": "1986"
   },
   {
     "SAMPLE": "S0326",
@@ -2818,7 +2875,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519583",
-    "iNaturalist_id": "1451474"
+    "iNaturalist_id": "1451474",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0327",
@@ -2867,7 +2925,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519582",
-    "iNaturalist_id": "903291"
+    "iNaturalist_id": "903291",
+    "COLLECTION_YEAR": "1987"
   },
   {
     "SAMPLE": "S0329",
@@ -2913,7 +2972,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519581",
-    "iNaturalist_id": "868711"
+    "iNaturalist_id": "868711",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0331",
@@ -2953,7 +3013,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519580",
-    "iNaturalist_id": "514208"
+    "iNaturalist_id": "514208",
+    "COLLECTION_YEAR": "1985"
   },
   {
     "SAMPLE": "S0335",
@@ -3027,7 +3088,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/144878857",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519579",
-    "iNaturalist_id": "50830"
+    "iNaturalist_id": "50830",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0345",
@@ -3069,7 +3131,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519578",
-    "iNaturalist_id": "594545"
+    "iNaturalist_id": "594545",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0346",
@@ -3114,7 +3177,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519577",
-    "iNaturalist_id": "278869"
+    "iNaturalist_id": "278869",
+    "COLLECTION_YEAR": "1952"
   },
   {
     "SAMPLE": "S0355",
@@ -3161,7 +3225,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519576",
-    "iNaturalist_id": "904053"
+    "iNaturalist_id": "904053",
+    "COLLECTION_YEAR": "1982"
   },
   {
     "SAMPLE": "S0371",
@@ -3211,7 +3276,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519575",
-    "iNaturalist_id": "514249"
+    "iNaturalist_id": "514249",
+    "COLLECTION_YEAR": "1986"
   },
   {
     "SAMPLE": "S0373",
@@ -3267,7 +3333,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519573",
-    "iNaturalist_id": "514247"
+    "iNaturalist_id": "514247",
+    "COLLECTION_YEAR": "1979"
   },
   {
     "SAMPLE": "S0376",
@@ -3316,7 +3383,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519572",
-    "iNaturalist_id": "203019"
+    "iNaturalist_id": "203019",
+    "COLLECTION_YEAR": "1980"
   },
   {
     "SAMPLE": "S0377",
@@ -3353,7 +3421,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519571",
-    "iNaturalist_id": "418748"
+    "iNaturalist_id": "418748",
+    "COLLECTION_YEAR": "1997"
   },
   {
     "SAMPLE": "S0380",
@@ -3394,7 +3463,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519570",
-    "iNaturalist_id": "1235451"
+    "iNaturalist_id": "1235451",
+    "COLLECTION_YEAR": "1990"
   },
   {
     "SAMPLE": "S0381",
@@ -3441,7 +3511,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519569",
-    "iNaturalist_id": "864917"
+    "iNaturalist_id": "864917",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0383",
@@ -3488,7 +3559,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519374",
-    "iNaturalist_id": "166822"
+    "iNaturalist_id": "166822",
+    "COLLECTION_YEAR": "1981"
   },
   {
     "SAMPLE": "S0384",
@@ -3535,7 +3607,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519373",
-    "iNaturalist_id": "902705"
+    "iNaturalist_id": "902705",
+    "COLLECTION_YEAR": "1981"
   },
   {
     "SAMPLE": "S0385",
@@ -3586,7 +3659,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519372",
-    "iNaturalist_id": "910100"
+    "iNaturalist_id": "910100",
+    "COLLECTION_YEAR": "1989"
   },
   {
     "SAMPLE": "S0400",
@@ -3623,7 +3697,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519368",
-    "iNaturalist_id": "359692"
+    "iNaturalist_id": "359692",
+    "COLLECTION_YEAR": "1999"
   },
   {
     "SAMPLE": "S0403",
@@ -3698,7 +3773,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519367",
-    "iNaturalist_id": "492913"
+    "iNaturalist_id": "492913",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0405",
@@ -3743,7 +3819,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519366",
-    "iNaturalist_id": "1075614"
+    "iNaturalist_id": "1075614",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0407",
@@ -3789,7 +3866,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519365",
-    "iNaturalist_id": "903327"
+    "iNaturalist_id": "903327",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0412",
@@ -3843,7 +3921,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519364",
-    "iNaturalist_id": "903166"
+    "iNaturalist_id": "903166",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0416",
@@ -3927,7 +4006,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519363",
-    "iNaturalist_id": "162908"
+    "iNaturalist_id": "162908",
+    "COLLECTION_YEAR": "1998"
   },
   {
     "SAMPLE": "S0417",
@@ -3981,7 +4061,8 @@
     "BIOMATERIAL_PROVIDER": "Michaela Schmull",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519362",
-    "iNaturalist_id": "601840"
+    "iNaturalist_id": "601840",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S0419",
@@ -4023,7 +4104,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519361",
-    "iNaturalist_id": "1451237"
+    "iNaturalist_id": "1451237",
+    "COLLECTION_YEAR": "1996"
   },
   {
     "SAMPLE": "S0420",
@@ -4112,7 +4194,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519360",
-    "iNaturalist_id": "79325"
+    "iNaturalist_id": "79325",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0421",
@@ -4159,7 +4242,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519359",
-    "iNaturalist_id": "933497"
+    "iNaturalist_id": "933497",
+    "COLLECTION_YEAR": "1972"
   },
   {
     "SAMPLE": "S0424",
@@ -4205,7 +4289,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519357",
-    "iNaturalist_id": "1347474"
+    "iNaturalist_id": "1347474",
+    "COLLECTION_YEAR": "2003"
   },
   {
     "SAMPLE": "S0427",
@@ -4273,7 +4358,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519356",
-    "iNaturalist_id": "78614"
+    "iNaturalist_id": "78614",
+    "COLLECTION_YEAR": "1998"
   },
   {
     "SAMPLE": "S0428",
@@ -4310,7 +4396,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519355",
-    "iNaturalist_id": "1196349"
+    "iNaturalist_id": "1196349",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S0430",
@@ -4358,7 +4445,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519354",
-    "iNaturalist_id": "853681"
+    "iNaturalist_id": "853681",
+    "COLLECTION_YEAR": "1977"
   },
   {
     "SAMPLE": "S0435",
@@ -4395,7 +4483,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519353",
-    "iNaturalist_id": "408553"
+    "iNaturalist_id": "408553",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0436",
@@ -4432,7 +4521,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519352",
-    "iNaturalist_id": "902544"
+    "iNaturalist_id": "902544",
+    "COLLECTION_YEAR": "1969"
   },
   {
     "SAMPLE": "S0450",
@@ -4503,7 +4593,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519351",
-    "iNaturalist_id": "490035"
+    "iNaturalist_id": "490035",
+    "COLLECTION_YEAR": "1983"
   },
   {
     "SAMPLE": "S0464",
@@ -4550,7 +4641,8 @@
     "BIOMATERIAL_PROVIDER": "Frederic Lens",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519471",
-    "iNaturalist_id": "898024"
+    "iNaturalist_id": "898024",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0478",
@@ -4604,7 +4696,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519470",
-    "iNaturalist_id": "804391"
+    "iNaturalist_id": "804391",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0509",
@@ -4651,7 +4744,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519469",
-    "iNaturalist_id": "929732"
+    "iNaturalist_id": "929732",
+    "COLLECTION_YEAR": "2009"
   },
   {
     "SAMPLE": "S0512",
@@ -4688,7 +4782,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/1257631450",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519467",
-    "iNaturalist_id": "954408"
+    "iNaturalist_id": "954408",
+    "COLLECTION_YEAR": "1909"
   },
   {
     "SAMPLE": "S0521",
@@ -4752,7 +4847,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519466",
-    "iNaturalist_id": "58087"
+    "iNaturalist_id": "58087",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S0547",
@@ -4967,7 +5063,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519465",
-    "iNaturalist_id": "77676"
+    "iNaturalist_id": "77676",
+    "COLLECTION_YEAR": "2005"
   },
   {
     "SAMPLE": "S0552",
@@ -5015,7 +5112,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519464",
-    "iNaturalist_id": "362346"
+    "iNaturalist_id": "362346",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S0555",
@@ -5186,7 +5284,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519463",
-    "iNaturalist_id": "56992"
+    "iNaturalist_id": "56992",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S0558",
@@ -5268,7 +5367,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519462",
-    "iNaturalist_id": "212118"
+    "iNaturalist_id": "212118",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0560",
@@ -5339,7 +5439,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519461",
-    "iNaturalist_id": "450160"
+    "iNaturalist_id": "450160",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0562",
@@ -5470,7 +5571,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519460",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0564",
@@ -5507,7 +5609,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519459",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2011"
   },
   {
     "SAMPLE": "S0577",
@@ -5547,7 +5650,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519458",
-    "iNaturalist_id": "587096"
+    "iNaturalist_id": "587096",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S0583",
@@ -5767,7 +5871,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519456",
-    "iNaturalist_id": "55410"
+    "iNaturalist_id": "55410",
+    "COLLECTION_YEAR": "1985"
   },
   {
     "SAMPLE": "S0590",
@@ -5897,7 +6002,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519455",
-    "iNaturalist_id": "53097"
+    "iNaturalist_id": "53097",
+    "COLLECTION_YEAR": "1983"
   },
   {
     "SAMPLE": "S0591",
@@ -6058,7 +6164,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519454",
-    "iNaturalist_id": "60153"
+    "iNaturalist_id": "60153",
+    "COLLECTION_YEAR": "2015"
   },
   {
     "SAMPLE": "S0593",
@@ -6328,7 +6435,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519453",
-    "iNaturalist_id": "78174"
+    "iNaturalist_id": "78174",
+    "COLLECTION_YEAR": "1955"
   },
   {
     "SAMPLE": "S0612",
@@ -6376,7 +6484,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519452",
-    "iNaturalist_id": "1193303"
+    "iNaturalist_id": "1193303",
+    "COLLECTION_YEAR": "1966"
   },
   {
     "SAMPLE": "S0613",
@@ -6419,7 +6528,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519451",
-    "iNaturalist_id": "1451478"
+    "iNaturalist_id": "1451478",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0616",
@@ -6506,7 +6616,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519450",
-    "iNaturalist_id": "1293223"
+    "iNaturalist_id": "1293223",
+    "COLLECTION_YEAR": "1976"
   },
   {
     "SAMPLE": "S0617",
@@ -6543,7 +6654,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519449",
-    "iNaturalist_id": "1186687"
+    "iNaturalist_id": "1186687",
+    "COLLECTION_YEAR": "1967"
   },
   {
     "SAMPLE": "S0620",
@@ -6583,7 +6695,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519448",
-    "iNaturalist_id": "1188506"
+    "iNaturalist_id": "1188506",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0624",
@@ -6627,7 +6740,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519350",
-    "iNaturalist_id": "903322"
+    "iNaturalist_id": "903322",
+    "COLLECTION_YEAR": "1976"
   },
   {
     "SAMPLE": "S0629",
@@ -6667,7 +6781,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519565",
-    "iNaturalist_id": "897503"
+    "iNaturalist_id": "897503",
+    "COLLECTION_YEAR": "1957"
   },
   {
     "SAMPLE": "S0641",
@@ -6837,7 +6952,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519564",
-    "iNaturalist_id": "129855"
+    "iNaturalist_id": "129855",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S0642",
@@ -6912,7 +7028,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR13271432",
-    "iNaturalist_id": "496066"
+    "iNaturalist_id": "496066",
+    "COLLECTION_YEAR": "2009"
   },
   {
     "SAMPLE": "S0643",
@@ -6971,7 +7088,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519563",
-    "iNaturalist_id": "166304"
+    "iNaturalist_id": "166304",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0645",
@@ -7023,7 +7141,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519562",
-    "iNaturalist_id": "515383"
+    "iNaturalist_id": "515383",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S0647",
@@ -7078,7 +7197,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519561",
-    "iNaturalist_id": "58088"
+    "iNaturalist_id": "58088",
+    "COLLECTION_YEAR": "2005"
   },
   {
     "SAMPLE": "S0654",
@@ -7149,7 +7269,8 @@
     "BIOMATERIAL_PROVIDER": "Gomez Campo Collection",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519560",
-    "iNaturalist_id": "532593"
+    "iNaturalist_id": "532593",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0655",
@@ -7186,7 +7307,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519559",
-    "iNaturalist_id": "439448"
+    "iNaturalist_id": "439448",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0656",
@@ -7223,7 +7345,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519558",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1995"
   },
   {
     "SAMPLE": "S0657",
@@ -7270,7 +7393,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519557",
-    "iNaturalist_id": "1396507"
+    "iNaturalist_id": "1396507",
+    "COLLECTION_YEAR": "2005"
   },
   {
     "SAMPLE": "S0660",
@@ -7307,7 +7431,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519556",
-    "iNaturalist_id": "1186674"
+    "iNaturalist_id": "1186674",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0662",
@@ -7358,7 +7483,8 @@
     "BIOMATERIAL_PROVIDER": "Gomez Campo Collection",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519554",
-    "iNaturalist_id": "492840"
+    "iNaturalist_id": "492840",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0664",
@@ -7428,7 +7554,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519553",
-    "iNaturalist_id": "346808"
+    "iNaturalist_id": "346808",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0667",
@@ -7468,7 +7595,8 @@
     "BIOMATERIAL_PROVIDER": "Gomez Campo Collection",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519551",
-    "iNaturalist_id": "491176"
+    "iNaturalist_id": "491176",
+    "COLLECTION_YEAR": "2007"
   },
   {
     "SAMPLE": "S0669",
@@ -7533,7 +7661,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/144894629",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519550",
-    "iNaturalist_id": "473786"
+    "iNaturalist_id": "473786",
+    "COLLECTION_YEAR": "1999"
   },
   {
     "SAMPLE": "S0670",
@@ -7834,7 +7963,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519549",
-    "iNaturalist_id": "56121"
+    "iNaturalist_id": "56121",
+    "COLLECTION_YEAR": "2007"
   },
   {
     "SAMPLE": "S0671",
@@ -7970,7 +8100,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519548",
-    "iNaturalist_id": "75566"
+    "iNaturalist_id": "75566",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0672",
@@ -8135,7 +8266,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR13271433",
-    "iNaturalist_id": "167973"
+    "iNaturalist_id": "167973",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0673",
@@ -8197,7 +8329,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR13271434",
-    "iNaturalist_id": "515386"
+    "iNaturalist_id": "515386",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S0677",
@@ -8240,7 +8373,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519547",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2005"
   },
   {
     "SAMPLE": "S0688",
@@ -8292,7 +8426,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519546",
-    "iNaturalist_id": "450161"
+    "iNaturalist_id": "450161",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0689",
@@ -8346,7 +8481,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519545",
-    "iNaturalist_id": "779074"
+    "iNaturalist_id": "779074",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S0690",
@@ -8391,7 +8527,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519446",
-    "iNaturalist_id": "868980"
+    "iNaturalist_id": "868980",
+    "COLLECTION_YEAR": "1978"
   },
   {
     "SAMPLE": "S0691",
@@ -8463,7 +8600,8 @@
     "BIOMATERIAL_PROVIDER": "Steven Janssens",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519445",
-    "iNaturalist_id": "496040"
+    "iNaturalist_id": "496040",
+    "COLLECTION_YEAR": "1982"
   },
   {
     "SAMPLE": "S0717",
@@ -8511,7 +8649,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519444",
-    "iNaturalist_id": "933468"
+    "iNaturalist_id": "933468",
+    "COLLECTION_YEAR": "1974"
   },
   {
     "SAMPLE": "S0718",
@@ -8594,7 +8733,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519443",
-    "iNaturalist_id": "897421"
+    "iNaturalist_id": "897421",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0720",
@@ -8642,7 +8782,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519442",
-    "iNaturalist_id": "1051017"
+    "iNaturalist_id": "1051017",
+    "COLLECTION_YEAR": "2014"
   },
   {
     "SAMPLE": "S0721",
@@ -8697,7 +8838,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519441",
-    "iNaturalist_id": "515260"
+    "iNaturalist_id": "515260",
+    "COLLECTION_YEAR": "2015"
   },
   {
     "SAMPLE": "S0722",
@@ -8749,7 +8891,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519440",
-    "iNaturalist_id": "1046628"
+    "iNaturalist_id": "1046628",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0724",
@@ -8796,7 +8939,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519439",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2018"
   },
   {
     "SAMPLE": "S0726",
@@ -8837,7 +8981,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519438",
-    "iNaturalist_id": "1330479"
+    "iNaturalist_id": "1330479",
+    "COLLECTION_YEAR": "2012"
   },
   {
     "SAMPLE": "S0727",
@@ -8887,7 +9032,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519436",
-    "iNaturalist_id": "162107"
+    "iNaturalist_id": "162107",
+    "COLLECTION_YEAR": "1992"
   },
   {
     "SAMPLE": "S0728",
@@ -8930,7 +9076,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519435",
-    "iNaturalist_id": "1409611"
+    "iNaturalist_id": "1409611",
+    "COLLECTION_YEAR": "1992"
   },
   {
     "SAMPLE": "S0731",
@@ -9001,7 +9148,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519434",
-    "iNaturalist_id": "55399"
+    "iNaturalist_id": "55399",
+    "COLLECTION_YEAR": "2015"
   },
   {
     "SAMPLE": "S0732",
@@ -9095,7 +9243,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519433",
-    "iNaturalist_id": "334309"
+    "iNaturalist_id": "334309",
+    "COLLECTION_YEAR": "2018"
   },
   {
     "SAMPLE": "S0733",
@@ -9237,7 +9386,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519432",
-    "iNaturalist_id": "54531"
+    "iNaturalist_id": "54531",
+    "COLLECTION_YEAR": "1966"
   },
   {
     "SAMPLE": "S0734",
@@ -9407,7 +9557,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519431",
-    "iNaturalist_id": "56126"
+    "iNaturalist_id": "56126",
+    "COLLECTION_YEAR": "2018"
   },
   {
     "SAMPLE": "S0735",
@@ -9478,7 +9629,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519430",
-    "iNaturalist_id": "334601"
+    "iNaturalist_id": "334601",
+    "COLLECTION_YEAR": "1994"
   },
   {
     "SAMPLE": "S0738",
@@ -9515,7 +9667,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519429",
-    "iNaturalist_id": "902668"
+    "iNaturalist_id": "902668",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0739",
@@ -9583,7 +9736,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519428",
-    "iNaturalist_id": "987335"
+    "iNaturalist_id": "987335",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0740",
@@ -9644,7 +9798,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519427",
-    "iNaturalist_id": "334302"
+    "iNaturalist_id": "334302",
+    "COLLECTION_YEAR": "2018"
   },
   {
     "SAMPLE": "S0741",
@@ -9685,7 +9840,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519426",
-    "iNaturalist_id": "1249983"
+    "iNaturalist_id": "1249983",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S0742",
@@ -9735,7 +9891,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519423",
-    "iNaturalist_id": "496350"
+    "iNaturalist_id": "496350",
+    "COLLECTION_YEAR": "1965"
   },
   {
     "SAMPLE": "S0743",
@@ -9849,7 +10006,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519349",
-    "iNaturalist_id": "60982"
+    "iNaturalist_id": "60982",
+    "COLLECTION_YEAR": "2015"
   },
   {
     "SAMPLE": "S0744",
@@ -9896,7 +10054,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519348",
-    "iNaturalist_id": "902682"
+    "iNaturalist_id": "902682",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0745",
@@ -9936,7 +10095,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519347",
-    "iNaturalist_id": "902716"
+    "iNaturalist_id": "902716",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0746",
@@ -9977,7 +10137,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519346",
-    "iNaturalist_id": "492981"
+    "iNaturalist_id": "492981",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0747",
@@ -10014,7 +10175,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519345",
-    "iNaturalist_id": "975036"
+    "iNaturalist_id": "975036",
+    "COLLECTION_YEAR": "2019"
   },
   {
     "SAMPLE": "S0748",
@@ -10051,7 +10213,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519344",
-    "iNaturalist_id": "515540"
+    "iNaturalist_id": "515540",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0751",
@@ -10088,7 +10251,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519343",
-    "iNaturalist_id": "792439"
+    "iNaturalist_id": "792439",
+    "COLLECTION_YEAR": "2013"
   },
   {
     "SAMPLE": "S0752",
@@ -10125,7 +10289,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519342",
-    "iNaturalist_id": "1061869"
+    "iNaturalist_id": "1061869",
+    "COLLECTION_YEAR": "1971"
   },
   {
     "SAMPLE": "S0753",
@@ -10165,7 +10330,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519341",
-    "iNaturalist_id": "792475"
+    "iNaturalist_id": "792475",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0754",
@@ -10205,7 +10371,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519339",
-    "iNaturalist_id": "1407363"
+    "iNaturalist_id": "1407363",
+    "COLLECTION_YEAR": "2011"
   },
   {
     "SAMPLE": "S0756",
@@ -10251,7 +10418,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519338",
-    "iNaturalist_id": "1245417"
+    "iNaturalist_id": "1245417",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0757",
@@ -10322,7 +10490,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519337",
-    "iNaturalist_id": "976723"
+    "iNaturalist_id": "976723",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0758",
@@ -10359,7 +10528,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519336",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0759",
@@ -10396,7 +10566,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519335",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2012"
   },
   {
     "SAMPLE": "S0760",
@@ -10448,7 +10619,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519334",
-    "iNaturalist_id": "1446006"
+    "iNaturalist_id": "1446006",
+    "COLLECTION_YEAR": "2010"
   },
   {
     "SAMPLE": "S0761",
@@ -10489,7 +10661,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519333",
-    "iNaturalist_id": "1446363"
+    "iNaturalist_id": "1446363",
+    "COLLECTION_YEAR": "1995"
   },
   {
     "SAMPLE": "S0762",
@@ -10532,7 +10705,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519332",
-    "iNaturalist_id": "58091"
+    "iNaturalist_id": "58091",
+    "COLLECTION_YEAR": "1977"
   },
   {
     "SAMPLE": "S0763",
@@ -10572,7 +10746,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519331",
-    "iNaturalist_id": "902758"
+    "iNaturalist_id": "902758",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0764",
@@ -10616,7 +10791,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519330",
-    "iNaturalist_id": "165693"
+    "iNaturalist_id": "165693",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0765",
@@ -10653,7 +10829,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519328",
-    "iNaturalist_id": "792386"
+    "iNaturalist_id": "792386",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0766",
@@ -10699,7 +10876,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519327",
-    "iNaturalist_id": "868985"
+    "iNaturalist_id": "868985",
+    "COLLECTION_YEAR": "1957"
   },
   {
     "SAMPLE": "S0768",
@@ -10782,7 +10960,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519326",
-    "iNaturalist_id": "76132"
+    "iNaturalist_id": "76132",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0770",
@@ -10822,7 +11001,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519325",
-    "iNaturalist_id": "897499"
+    "iNaturalist_id": "897499",
+    "COLLECTION_YEAR": "1950"
   },
   {
     "SAMPLE": "S0771",
@@ -10859,7 +11039,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519670",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1967"
   },
   {
     "SAMPLE": "S0772",
@@ -10899,7 +11080,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519669",
-    "iNaturalist_id": "1048789"
+    "iNaturalist_id": "1048789",
+    "COLLECTION_YEAR": "1968"
   },
   {
     "SAMPLE": "S0795",
@@ -10957,7 +11139,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519668",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2003"
   },
   {
     "SAMPLE": "S0809",
@@ -11030,7 +11213,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519667",
-    "iNaturalist_id": "515262"
+    "iNaturalist_id": "515262",
+    "COLLECTION_YEAR": "1990"
   },
   {
     "SAMPLE": "S0827",
@@ -11070,7 +11254,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519666",
-    "iNaturalist_id": "1432007"
+    "iNaturalist_id": "1432007",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S0834",
@@ -11135,7 +11320,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519665",
-    "iNaturalist_id": "858879"
+    "iNaturalist_id": "858879",
+    "COLLECTION_YEAR": "1986"
   },
   {
     "SAMPLE": "S0836",
@@ -11228,7 +11414,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519663",
-    "iNaturalist_id": "1238738"
+    "iNaturalist_id": "1238738",
+    "COLLECTION_YEAR": "1940"
   },
   {
     "SAMPLE": "S0851",
@@ -11300,7 +11487,8 @@
     "BIOMATERIAL_PROVIDER": "Steven Janssens",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519662",
-    "iNaturalist_id": "347751"
+    "iNaturalist_id": "347751",
+    "COLLECTION_YEAR": "1988"
   },
   {
     "SAMPLE": "S0888",
@@ -11347,7 +11535,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519661",
-    "iNaturalist_id": "866856"
+    "iNaturalist_id": "866856",
+    "COLLECTION_YEAR": "1963"
   },
   {
     "SAMPLE": "S0890",
@@ -11384,7 +11573,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519660",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1842"
   },
   {
     "SAMPLE": "S0892",
@@ -11421,7 +11611,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519659",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1959"
   },
   {
     "SAMPLE": "S0893",
@@ -11466,7 +11657,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519658",
-    "iNaturalist_id": "230772"
+    "iNaturalist_id": "230772",
+    "COLLECTION_YEAR": "1969"
   },
   {
     "SAMPLE": "S0894",
@@ -11507,7 +11699,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519657",
-    "iNaturalist_id": "166151"
+    "iNaturalist_id": "166151",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0895",
@@ -11548,7 +11741,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519656",
-    "iNaturalist_id": "1408509"
+    "iNaturalist_id": "1408509",
+    "COLLECTION_YEAR": "1960"
   },
   {
     "SAMPLE": "S0896",
@@ -11594,7 +11788,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519655",
-    "iNaturalist_id": "1077055"
+    "iNaturalist_id": "1077055",
+    "COLLECTION_YEAR": "1971"
   },
   {
     "SAMPLE": "S0897",
@@ -11634,7 +11829,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519654",
-    "iNaturalist_id": "904111"
+    "iNaturalist_id": "904111",
+    "COLLECTION_YEAR": "1912"
   },
   {
     "SAMPLE": "S0899",
@@ -11681,7 +11877,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519652",
-    "iNaturalist_id": "1498275"
+    "iNaturalist_id": "1498275",
+    "COLLECTION_YEAR": "1859"
   },
   {
     "SAMPLE": "S0901",
@@ -11774,7 +11971,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519651",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0902",
@@ -11852,7 +12050,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519650",
-    "iNaturalist_id": "162029"
+    "iNaturalist_id": "162029",
+    "COLLECTION_YEAR": "1970"
   },
   {
     "SAMPLE": "S0903",
@@ -11897,7 +12096,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519649",
-    "iNaturalist_id": "76672"
+    "iNaturalist_id": "76672",
+    "COLLECTION_YEAR": "1952"
   },
   {
     "SAMPLE": "S0906",
@@ -11934,7 +12134,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519647",
-    "iNaturalist_id": "362352"
+    "iNaturalist_id": "362352",
+    "COLLECTION_YEAR": "1889"
   },
   {
     "SAMPLE": "S0941",
@@ -11979,7 +12180,8 @@
     "BIOMATERIAL_PROVIDER": "Alessia Guggisberg",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519646",
-    "iNaturalist_id": "977417"
+    "iNaturalist_id": "977417",
+    "COLLECTION_YEAR": "1978"
   },
   {
     "SAMPLE": "S0946",
@@ -12019,7 +12221,8 @@
     "BIOMATERIAL_PROVIDER": "Pina Milne, Catherine Gallagher, Helen Barnes",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519645",
-    "iNaturalist_id": "1451277"
+    "iNaturalist_id": "1451277",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0947",
@@ -12059,7 +12262,8 @@
     "BIOMATERIAL_PROVIDER": "Pina Milne, Catherine Gallagher, Helen Barnes",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519544",
-    "iNaturalist_id": "1228981"
+    "iNaturalist_id": "1228981",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S0949",
@@ -12100,7 +12304,8 @@
     "BIOMATERIAL_PROVIDER": "Pina Milne, Catherine Gallagher, Helen Barnes",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519543",
-    "iNaturalist_id": "1293070"
+    "iNaturalist_id": "1293070",
+    "COLLECTION_YEAR": "2010"
   },
   {
     "SAMPLE": "S0951",
@@ -12140,7 +12345,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663800",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519541",
-    "iNaturalist_id": "808183"
+    "iNaturalist_id": "808183",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0952",
@@ -12182,7 +12388,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663801",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519540",
-    "iNaturalist_id": "907585"
+    "iNaturalist_id": "907585",
+    "COLLECTION_YEAR": "2002"
   },
   {
     "SAMPLE": "S0954",
@@ -12219,7 +12426,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663805",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519539",
-    "iNaturalist_id": "898018"
+    "iNaturalist_id": "898018",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S0956",
@@ -12256,7 +12464,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663792",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519538",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S0957",
@@ -12296,7 +12505,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663793",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519537",
-    "iNaturalist_id": "903162"
+    "iNaturalist_id": "903162",
+    "COLLECTION_YEAR": "1922"
   },
   {
     "SAMPLE": "S0959",
@@ -12340,7 +12550,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663798",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519536",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S0960",
@@ -12383,7 +12594,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1581651",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519535",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2013"
   },
   {
     "SAMPLE": "S0963",
@@ -12426,7 +12638,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1593947",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519534",
-    "iNaturalist_id": "515265"
+    "iNaturalist_id": "515265",
+    "COLLECTION_YEAR": "1990"
   },
   {
     "SAMPLE": "S0964",
@@ -12463,7 +12676,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663796",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519533",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1906"
   },
   {
     "SAMPLE": "S0989",
@@ -12507,7 +12721,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519532",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S1011",
@@ -12710,7 +12925,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519529",
-    "iNaturalist_id": "79123"
+    "iNaturalist_id": "79123",
+    "COLLECTION_YEAR": "1807"
   },
   {
     "SAMPLE": "S1021",
@@ -12747,7 +12963,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519528",
-    "iNaturalist_id": "1186675"
+    "iNaturalist_id": "1186675",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S1038",
@@ -12787,7 +13004,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519527",
-    "iNaturalist_id": "792404"
+    "iNaturalist_id": "792404",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1039",
@@ -12827,7 +13045,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519526",
-    "iNaturalist_id": "792505"
+    "iNaturalist_id": "792505",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1040",
@@ -12864,7 +13083,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519525",
-    "iNaturalist_id": "522994"
+    "iNaturalist_id": "522994",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1043",
@@ -12901,7 +13121,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519523",
-    "iNaturalist_id": "792397"
+    "iNaturalist_id": "792397",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1044",
@@ -12941,7 +13162,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519424",
-    "iNaturalist_id": "1197673"
+    "iNaturalist_id": "1197673",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1045",
@@ -12986,7 +13208,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519422",
-    "iNaturalist_id": "902651"
+    "iNaturalist_id": "902651",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1050",
@@ -13030,7 +13253,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519419",
-    "iNaturalist_id": "1228363"
+    "iNaturalist_id": "1228363",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1052",
@@ -13071,7 +13295,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519418",
-    "iNaturalist_id": "359680"
+    "iNaturalist_id": "359680",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1053",
@@ -13111,7 +13336,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519417",
-    "iNaturalist_id": "169405"
+    "iNaturalist_id": "169405",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1069",
@@ -13148,7 +13374,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519415",
-    "iNaturalist_id": "587112"
+    "iNaturalist_id": "587112",
+    "COLLECTION_YEAR": "1896"
   },
   {
     "SAMPLE": "S1072",
@@ -13185,7 +13412,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519414",
-    "iNaturalist_id": "359705"
+    "iNaturalist_id": "359705",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1074",
@@ -13225,7 +13453,8 @@
     "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519413",
-    "iNaturalist_id": "904411"
+    "iNaturalist_id": "904411",
+    "COLLECTION_YEAR": "2014"
   },
   {
     "SAMPLE": "S1077",
@@ -13268,7 +13497,8 @@
     "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519412",
-    "iNaturalist_id": "1453401"
+    "iNaturalist_id": "1453401",
+    "COLLECTION_YEAR": "2014"
   },
   {
     "SAMPLE": "S1083",
@@ -13308,7 +13538,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519411",
-    "iNaturalist_id": "189378"
+    "iNaturalist_id": "189378",
+    "COLLECTION_YEAR": "2012"
   },
   {
     "SAMPLE": "S1089",
@@ -13348,7 +13579,8 @@
     "BIOMATERIAL_PROVIDER": "Oscar Toro, Alicia Marticorena",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519410",
-    "iNaturalist_id": "868169"
+    "iNaturalist_id": "868169",
+    "COLLECTION_YEAR": "2014"
   },
   {
     "SAMPLE": "S1093",
@@ -13385,7 +13617,8 @@
     "BIOMATERIAL_PROVIDER": "Oscar Toro, Alicia Marticorena",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519408",
-    "iNaturalist_id": "902778"
+    "iNaturalist_id": "902778",
+    "COLLECTION_YEAR": "1997"
   },
   {
     "SAMPLE": "S1095",
@@ -13422,7 +13655,8 @@
     "BIOMATERIAL_PROVIDER": "Oscar Toro, Alicia Marticorena",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519407",
-    "iNaturalist_id": "903213"
+    "iNaturalist_id": "903213",
+    "COLLECTION_YEAR": "2007"
   },
   {
     "SAMPLE": "S1096",
@@ -13465,7 +13699,8 @@
     "BIOMATERIAL_PROVIDER": "Oscar Toro, Alicia Marticorena",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519406",
-    "iNaturalist_id": "932968"
+    "iNaturalist_id": "932968",
+    "COLLECTION_YEAR": "2011"
   },
   {
     "SAMPLE": "S1097",
@@ -13502,7 +13737,8 @@
     "BIOMATERIAL_PROVIDER": "William Baker, Sue Zmarzty (PAFTOL)",
     "VOUCHER_DETAILS_LINK": "http://apps.kew.org/herbcat/detailsQuery.do?barcode=K000485233",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519405",
-    "iNaturalist_id": "1242347"
+    "iNaturalist_id": "1242347",
+    "COLLECTION_YEAR": "1925"
   },
   {
     "SAMPLE": "S1098",
@@ -13539,7 +13775,8 @@
     "BIOMATERIAL_PROVIDER": "William Baker, Sue Zmarzty (PAFTOL)",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519404",
-    "iNaturalist_id": "1129347"
+    "iNaturalist_id": "1129347",
+    "COLLECTION_YEAR": "1926"
   },
   {
     "SAMPLE": "S1100",
@@ -13576,7 +13813,8 @@
     "BIOMATERIAL_PROVIDER": "William Baker, Sue Zmarzty (PAFTOL)",
     "VOUCHER_DETAILS_LINK": "http://apps.kew.org/herbcat/detailsQuery.do?barcode=K000484211",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519403",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1957"
   },
   {
     "SAMPLE": "S1102",
@@ -13613,7 +13851,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519402",
-    "iNaturalist_id": "902788"
+    "iNaturalist_id": "902788",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1103",
@@ -13650,7 +13889,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "https://science.mnhn.fr/institution/mnhn/collection/p/item/p05415915",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519401",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1943"
   },
   {
     "SAMPLE": "S1106",
@@ -13687,7 +13927,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/667724997",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519400",
-    "iNaturalist_id": "425944"
+    "iNaturalist_id": "425944",
+    "COLLECTION_YEAR": "1842"
   },
   {
     "SAMPLE": "S1107",
@@ -13726,7 +13967,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519399",
-    "iNaturalist_id": "587080"
+    "iNaturalist_id": "587080",
+    "COLLECTION_YEAR": "1847"
   },
   {
     "SAMPLE": "S1110",
@@ -13763,7 +14005,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519520",
-    "iNaturalist_id": "515640"
+    "iNaturalist_id": "515640",
+    "COLLECTION_YEAR": "1896"
   },
   {
     "SAMPLE": "S1111",
@@ -13818,7 +14061,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519519",
-    "iNaturalist_id": "1142023"
+    "iNaturalist_id": "1142023",
+    "COLLECTION_YEAR": "1931"
   },
   {
     "SAMPLE": "S1113",
@@ -13855,7 +14099,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519518",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1847"
   },
   {
     "SAMPLE": "S1114",
@@ -13897,7 +14142,8 @@
     "BIOMATERIAL_PROVIDER": "Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519517",
-    "iNaturalist_id": "902492"
+    "iNaturalist_id": "902492",
+    "COLLECTION_YEAR": "1961"
   },
   {
     "SAMPLE": "S1116",
@@ -13934,7 +14180,8 @@
     "BIOMATERIAL_PROVIDER": "Brendan Lepschi",
     "VOUCHER_DETAILS_LINK": "https://avh.ala.org.au/occurrences/ea277499-bf76-4b8d-a360-f0030d1531a8",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519516",
-    "iNaturalist_id": "1451404"
+    "iNaturalist_id": "1451404",
+    "COLLECTION_YEAR": "2020"
   },
   {
     "SAMPLE": "S1117",
@@ -13977,7 +14224,8 @@
     "BIOMATERIAL_PROVIDER": "Fred Stauffer, Cyrille Chatelain",
     "VOUCHER_DETAILS_LINK": "https://www.ville-ge.ch/musinfo/bd/cjb/chg/adetail.php?id=287373&lang=en",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519515",
-    "iNaturalist_id": "792566"
+    "iNaturalist_id": "792566",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1118",
@@ -14014,7 +14262,8 @@
     "BIOMATERIAL_PROVIDER": "Fred Stauffer, Cyrille Chatelain",
     "VOUCHER_DETAILS_LINK": "https://www.ville-ge.ch/musinfo/bd/cjb/chg/adetail.php?id=28116&lang=en",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519514",
-    "iNaturalist_id": "1242347"
+    "iNaturalist_id": "1242347",
+    "COLLECTION_YEAR": "1925"
   },
   {
     "SAMPLE": "S1119",
@@ -14051,7 +14300,8 @@
     "BIOMATERIAL_PROVIDER": "Fred Stauffer, Cyrille Chatelain",
     "VOUCHER_DETAILS_LINK": "https://www.ville-ge.ch/musinfo/bd/cjb/chg/adetail.php?id=597293&lang=en",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519513",
-    "iNaturalist_id": "902788"
+    "iNaturalist_id": "902788",
+    "COLLECTION_YEAR": "1827"
   },
   {
     "SAMPLE": "S1120",
@@ -14088,7 +14338,8 @@
     "BIOMATERIAL_PROVIDER": "Fred Stauffer, Cyrille Chatelain",
     "VOUCHER_DETAILS_LINK": "https://www.ville-ge.ch/musinfo/bd/cjb/chg/adetail.php?id=283790&lang=en",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519512",
-    "iNaturalist_id": "515604"
+    "iNaturalist_id": "515604",
+    "COLLECTION_YEAR": "1899"
   },
   {
     "SAMPLE": "S1121",
@@ -14125,7 +14376,8 @@
     "BIOMATERIAL_PROVIDER": "Fred Stauffer, Cyrille Chatelain",
     "VOUCHER_DETAILS_LINK": "https://www.ville-ge.ch/musinfo/bd/cjb/chg/adetail.php?id=313495&lang=en",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519510",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1847"
   },
   {
     "SAMPLE": "S1128",
@@ -14162,7 +14414,8 @@
     "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519509",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2016"
   },
   {
     "SAMPLE": "S1129",
@@ -14199,7 +14452,8 @@
     "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519508",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2017"
   },
   {
     "SAMPLE": "S1148",
@@ -14249,7 +14503,8 @@
     "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519507",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1993"
   },
   {
     "SAMPLE": "S1168",
@@ -14299,7 +14554,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/574849207",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519505",
-    "iNaturalist_id": "792589"
+    "iNaturalist_id": "792589",
+    "COLLECTION_YEAR": "1977"
   },
   {
     "SAMPLE": "S1176",
@@ -14336,7 +14592,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/574984485",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519504",
-    "iNaturalist_id": "987365"
+    "iNaturalist_id": "987365",
+    "COLLECTION_YEAR": "1885"
   },
   {
     "SAMPLE": "S1177",
@@ -14382,7 +14639,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/574746780",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519503",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1949"
   },
   {
     "SAMPLE": "S1180",
@@ -14419,7 +14677,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/575359220",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519502",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1957"
   },
   {
     "SAMPLE": "S1181",
@@ -14456,7 +14715,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/575363828",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519501",
-    "iNaturalist_id": "1490242"
+    "iNaturalist_id": "1490242",
+    "COLLECTION_YEAR": "1965"
   },
   {
     "SAMPLE": "S1182",
@@ -14499,7 +14759,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/575107688",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519499",
-    "iNaturalist_id": "902488"
+    "iNaturalist_id": "902488",
+    "COLLECTION_YEAR": "1986"
   },
   {
     "SAMPLE": "S1184",
@@ -14536,7 +14797,8 @@
     "BIOMATERIAL_PROVIDER": "Alan Forrest, Suzanne Cubey",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/575363744",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519498",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1951"
   },
   {
     "SAMPLE": "S1187",
@@ -14573,7 +14835,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "https://www.ncbi.nlm.nih.gov/nuccore/AY546116",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519644",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1968"
   },
   {
     "SAMPLE": "S1188",
@@ -14610,7 +14873,8 @@
     "BIOMATERIAL_PROVIDER": "Barbara Neuffer",
     "VOUCHER_DETAILS_LINK": "https://www.ncbi.nlm.nih.gov/nuccore/AY546123",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519643",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S1189",
@@ -14654,7 +14918,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519642",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1960"
   },
   {
     "SAMPLE": "S1201",
@@ -14708,7 +14973,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514110515",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519641",
-    "iNaturalist_id": "918813"
+    "iNaturalist_id": "918813",
+    "COLLECTION_YEAR": "1954"
   },
   {
     "SAMPLE": "S1204",
@@ -14869,7 +15135,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514578274",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519640",
-    "iNaturalist_id": "159732"
+    "iNaturalist_id": "159732",
+    "COLLECTION_YEAR": "1962"
   },
   {
     "SAMPLE": "S1208",
@@ -15005,7 +15272,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514974977",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519639",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1983"
   },
   {
     "SAMPLE": "S1210",
@@ -15084,7 +15352,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514099412",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519638",
-    "iNaturalist_id": "64616"
+    "iNaturalist_id": "64616",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1211",
@@ -15286,7 +15555,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514972697",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519637",
-    "iNaturalist_id": "55021"
+    "iNaturalist_id": "55021",
+    "COLLECTION_YEAR": "1914"
   },
   {
     "SAMPLE": "S1213",
@@ -15326,7 +15596,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2513099229",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519635",
-    "iNaturalist_id": "587100"
+    "iNaturalist_id": "587100",
+    "COLLECTION_YEAR": "1962"
   },
   {
     "SAMPLE": "S1214",
@@ -15406,7 +15677,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515759184",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519634",
-    "iNaturalist_id": "902691"
+    "iNaturalist_id": "902691",
+    "COLLECTION_YEAR": "2003"
   },
   {
     "SAMPLE": "S1220",
@@ -15443,7 +15715,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517527043",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519633",
-    "iNaturalist_id": "189920"
+    "iNaturalist_id": "189920",
+    "COLLECTION_YEAR": "1855"
   },
   {
     "SAMPLE": "S1221",
@@ -15491,7 +15764,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517839825",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519632",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1852"
   },
   {
     "SAMPLE": "S1223",
@@ -15528,7 +15802,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517571344",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519631",
-    "iNaturalist_id": "1145632"
+    "iNaturalist_id": "1145632",
+    "COLLECTION_YEAR": "1843"
   },
   {
     "SAMPLE": "S1227",
@@ -15568,7 +15843,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514578234",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519630",
-    "iNaturalist_id": "64064"
+    "iNaturalist_id": "64064",
+    "COLLECTION_YEAR": "1966"
   },
   {
     "SAMPLE": "S1229",
@@ -15605,7 +15881,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515748627",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519629",
-    "iNaturalist_id": "987344"
+    "iNaturalist_id": "987344",
+    "COLLECTION_YEAR": "1845"
   },
   {
     "SAMPLE": "S1230",
@@ -15654,7 +15931,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519628",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1956"
   },
   {
     "SAMPLE": "S1232",
@@ -15694,7 +15972,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519627",
-    "iNaturalist_id": "1432100"
+    "iNaturalist_id": "1432100",
+    "COLLECTION_YEAR": "1958"
   },
   {
     "SAMPLE": "S1234",
@@ -15734,7 +16013,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519626",
-    "iNaturalist_id": "1389489"
+    "iNaturalist_id": "1389489",
+    "COLLECTION_YEAR": "1962"
   },
   {
     "SAMPLE": "S1235",
@@ -15771,7 +16051,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519624",
-    "iNaturalist_id": "903147"
+    "iNaturalist_id": "903147",
+    "COLLECTION_YEAR": "1958"
   },
   {
     "SAMPLE": "S1238",
@@ -15829,7 +16110,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519623",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1239",
@@ -15872,7 +16154,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519622",
-    "iNaturalist_id": "1451501"
+    "iNaturalist_id": "1451501",
+    "COLLECTION_YEAR": "1958"
   },
   {
     "SAMPLE": "S1241",
@@ -15925,7 +16208,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519621",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1958"
   },
   {
     "SAMPLE": "S1245",
@@ -15966,7 +16250,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519398",
-    "iNaturalist_id": "902807"
+    "iNaturalist_id": "902807",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S1246",
@@ -16003,7 +16288,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519397",
-    "iNaturalist_id": "902798"
+    "iNaturalist_id": "902798",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S1249",
@@ -16046,7 +16332,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519396",
-    "iNaturalist_id": "1451463"
+    "iNaturalist_id": "1451463",
+    "COLLECTION_YEAR": "2007"
   },
   {
     "SAMPLE": "S1250",
@@ -16090,7 +16377,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519395",
-    "iNaturalist_id": "1015558"
+    "iNaturalist_id": "1015558",
+    "COLLECTION_YEAR": "2003"
   },
   {
     "SAMPLE": "S1251",
@@ -16140,7 +16428,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519394",
-    "iNaturalist_id": "903277"
+    "iNaturalist_id": "903277",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S1258",
@@ -16177,7 +16466,8 @@
     "BIOMATERIAL_PROVIDER": "Alessia Guggisberg",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519393",
-    "iNaturalist_id": "170288"
+    "iNaturalist_id": "170288",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S1260",
@@ -16217,7 +16507,8 @@
     "BIOMATERIAL_PROVIDER": "Alessia Guggisberg",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519391",
-    "iNaturalist_id": "987323"
+    "iNaturalist_id": "987323",
+    "COLLECTION_YEAR": "1889"
   },
   {
     "SAMPLE": "S1261",
@@ -16254,7 +16545,8 @@
     "BIOMATERIAL_PROVIDER": "Alessia Guggisberg",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519390",
-    "iNaturalist_id": "514468"
+    "iNaturalist_id": "514468",
+    "COLLECTION_YEAR": "1891"
   },
   {
     "SAMPLE": "S1262",
@@ -16291,7 +16583,8 @@
     "BIOMATERIAL_PROVIDER": "Alessia Guggisberg",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2575248360",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519389",
-    "iNaturalist_id": "515608"
+    "iNaturalist_id": "515608",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S1266",
@@ -16328,7 +16621,8 @@
     "BIOMATERIAL_PROVIDER": "William Baker, Sue Zmarzty (PAFTOL)",
     "VOUCHER_DETAILS_LINK": "http://apps.kew.org/herbcat/detailsQuery.do?imageId=295317&pageCode=1&presentPage=1&queryId=1&sessionId=1858C2C54199F1AC3D97E7EA3B8D7BAC&barcode=K000484541",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519387",
-    "iNaturalist_id": "1451144"
+    "iNaturalist_id": "1451144",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1269",
@@ -16368,7 +16662,8 @@
     "BIOMATERIAL_PROVIDER": "William Baker, Sue Zmarzty (PAFTOL)",
     "VOUCHER_DETAILS_LINK": "http://apps.kew.org/herbcat/detailsQuery.do?imageId=295310&pageCode=1&presentPage=1&queryId=5&sessionId=1858C2C54199F1AC3D97E7EA3B8D7BAC&barcode=K000484535",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519386",
-    "iNaturalist_id": "1451145"
+    "iNaturalist_id": "1451145",
+    "COLLECTION_YEAR": "1843"
   },
   {
     "SAMPLE": "S1270",
@@ -16405,7 +16700,8 @@
     "BIOMATERIAL_PROVIDER": "Manuel Benito Crespo Villalba, Vanessa Invernon",
     "VOUCHER_DETAILS_LINK": "https://academic.oup.com/botlinnean/article/149/1/121/2420167?login=true",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519385",
-    "iNaturalist_id": "1149969"
+    "iNaturalist_id": "1149969",
+    "COLLECTION_YEAR": "2000"
   },
   {
     "SAMPLE": "S1276",
@@ -16442,7 +16738,8 @@
     "BIOMATERIAL_PROVIDER": "Donovan Bailey",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519384",
-    "iNaturalist_id": "164449"
+    "iNaturalist_id": "164449",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S1278",
@@ -16479,7 +16776,8 @@
     "BIOMATERIAL_PROVIDER": "Donovan Bailey",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519383",
-    "iNaturalist_id": "1439985"
+    "iNaturalist_id": "1439985",
+    "COLLECTION_YEAR": "1998"
   },
   {
     "SAMPLE": "S1279",
@@ -16519,7 +16817,8 @@
     "BIOMATERIAL_PROVIDER": "Donovan Bailey",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519382",
-    "iNaturalist_id": "1200740"
+    "iNaturalist_id": "1200740",
+    "COLLECTION_YEAR": "1998"
   },
   {
     "SAMPLE": "S1314",
@@ -16587,7 +16886,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517556222",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519380",
-    "iNaturalist_id": "165527"
+    "iNaturalist_id": "165527",
+    "COLLECTION_YEAR": "2008"
   },
   {
     "SAMPLE": "S1315",
@@ -16742,7 +17042,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517470672",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519379",
-    "iNaturalist_id": "75762"
+    "iNaturalist_id": "75762",
+    "COLLECTION_YEAR": "1989"
   },
   {
     "SAMPLE": "S1318",
@@ -16782,7 +17083,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514599218",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519378",
-    "iNaturalist_id": "1117558"
+    "iNaturalist_id": "1117558",
+    "COLLECTION_YEAR": "1888"
   },
   {
     "SAMPLE": "S1319",
@@ -16828,7 +17130,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517370977",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519377",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1904"
   },
   {
     "SAMPLE": "S1321",
@@ -16864,7 +17167,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517572508",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519376",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2007"
   },
   {
     "SAMPLE": "S1328",
@@ -17013,7 +17317,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514598965",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519375",
-    "iNaturalist_id": "47697"
+    "iNaturalist_id": "47697",
+    "COLLECTION_YEAR": "1964"
   },
   {
     "SAMPLE": "S1331",
@@ -17063,7 +17368,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514965922",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519324",
-    "iNaturalist_id": "899632"
+    "iNaturalist_id": "899632",
+    "COLLECTION_YEAR": "1938"
   },
   {
     "SAMPLE": "S1332",
@@ -17245,7 +17551,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515004228",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519323",
-    "iNaturalist_id": "56996"
+    "iNaturalist_id": "56996",
+    "COLLECTION_YEAR": "1953"
   },
   {
     "SAMPLE": "S1336",
@@ -17329,7 +17636,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://data.biodiversitydata.nl/naturalis/specimen/L.1827708",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519322",
-    "iNaturalist_id": "162908"
+    "iNaturalist_id": "162908",
+    "COLLECTION_YEAR": "1839"
   },
   {
     "SAMPLE": "S1339",
@@ -17391,7 +17699,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514104666",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519321",
-    "iNaturalist_id": "501508"
+    "iNaturalist_id": "501508",
+    "COLLECTION_YEAR": "1956"
   },
   {
     "SAMPLE": "S1341",
@@ -17461,7 +17770,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514109696",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519318",
-    "iNaturalist_id": "79324"
+    "iNaturalist_id": "79324",
+    "COLLECTION_YEAR": "1971"
   },
   {
     "SAMPLE": "S1342",
@@ -17550,7 +17860,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515010464",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519317",
-    "iNaturalist_id": "79325"
+    "iNaturalist_id": "79325",
+    "COLLECTION_YEAR": "1972"
   },
   {
     "SAMPLE": "S1354",
@@ -17587,7 +17898,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519316",
-    "iNaturalist_id": "514467"
+    "iNaturalist_id": "514467",
+    "COLLECTION_YEAR": "2016"
   },
   {
     "SAMPLE": "S1365",
@@ -17624,7 +17936,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519314",
-    "iNaturalist_id": "903310"
+    "iNaturalist_id": "903310",
+    "COLLECTION_YEAR": "1966"
   },
   {
     "SAMPLE": "S1366",
@@ -17661,7 +17974,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519683",
-    "iNaturalist_id": "515268"
+    "iNaturalist_id": "515268",
+    "COLLECTION_YEAR": "1913"
   },
   {
     "SAMPLE": "S1368",
@@ -17701,7 +18015,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519682",
-    "iNaturalist_id": "902559"
+    "iNaturalist_id": "902559",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S1369",
@@ -17738,7 +18053,8 @@
     "BIOMATERIAL_PROVIDER": "Donovan Bailey",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519681",
-    "iNaturalist_id": "75831"
+    "iNaturalist_id": "75831",
+    "COLLECTION_YEAR": "2001"
   },
   {
     "SAMPLE": "S1370",
@@ -17775,7 +18091,8 @@
     "BIOMATERIAL_PROVIDER": "Donovan Bailey",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519680",
-    "iNaturalist_id": "1228723"
+    "iNaturalist_id": "1228723",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1371",
@@ -17812,7 +18129,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515334178",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519679",
-    "iNaturalist_id": "903280"
+    "iNaturalist_id": "903280",
+    "COLLECTION_YEAR": "1930"
   },
   {
     "SAMPLE": "S1374",
@@ -17868,7 +18186,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514116302",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519677",
-    "iNaturalist_id": "1445165"
+    "iNaturalist_id": "1445165",
+    "COLLECTION_YEAR": "1902"
   },
   {
     "SAMPLE": "S1375",
@@ -17925,7 +18244,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514123452",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519676",
-    "iNaturalist_id": "165098"
+    "iNaturalist_id": "165098",
+    "COLLECTION_YEAR": "1928"
   },
   {
     "SAMPLE": "S1376",
@@ -18142,7 +18462,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515004309",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519675",
-    "iNaturalist_id": "79358"
+    "iNaturalist_id": "79358",
+    "COLLECTION_YEAR": "1973"
   },
   {
     "SAMPLE": "S1378",
@@ -18179,7 +18500,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517865744",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519674",
-    "iNaturalist_id": "582051"
+    "iNaturalist_id": "582051",
+    "COLLECTION_YEAR": "1896"
   },
   {
     "SAMPLE": "S1381",
@@ -18252,7 +18574,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2516145483",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519673",
-    "iNaturalist_id": "490658"
+    "iNaturalist_id": "490658",
+    "COLLECTION_YEAR": "1853"
   },
   {
     "SAMPLE": "S1384",
@@ -18289,7 +18612,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2516144401",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519672",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1989"
   },
   {
     "SAMPLE": "S1386",
@@ -18326,7 +18650,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515036809",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519671",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1960"
   },
   {
     "SAMPLE": "S1387",
@@ -18363,7 +18688,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514103739",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519497",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1980"
   },
   {
     "SAMPLE": "S1388",
@@ -18400,7 +18726,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515041900",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519496",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1973"
   },
   {
     "SAMPLE": "S1389",
@@ -18437,7 +18764,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517166272",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519495",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "2013"
   },
   {
     "SAMPLE": "S1398",
@@ -18474,7 +18802,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514109812",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519491",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1973"
   },
   {
     "SAMPLE": "S1400",
@@ -18511,7 +18840,8 @@
     "BIOMATERIAL_PROVIDER": "Ines Schönberger, Mary Korver",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519490",
-    "iNaturalist_id": "993514"
+    "iNaturalist_id": "993514",
+    "COLLECTION_YEAR": "1999"
   },
   {
     "SAMPLE": "S1401",
@@ -18583,7 +18913,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517882716",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519489",
-    "iNaturalist_id": "76404"
+    "iNaturalist_id": "76404",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S1405",
@@ -18660,7 +18991,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517543222",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519487",
-    "iNaturalist_id": "159600"
+    "iNaturalist_id": "159600",
+    "COLLECTION_YEAR": "1847"
   },
   {
     "SAMPLE": "S1407",
@@ -18874,7 +19206,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517839843",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519486",
-    "iNaturalist_id": "58074"
+    "iNaturalist_id": "58074",
+    "COLLECTION_YEAR": "2006"
   },
   {
     "SAMPLE": "S1408",
@@ -19063,7 +19396,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2516160693",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519485",
-    "iNaturalist_id": "77058"
+    "iNaturalist_id": "77058",
+    "COLLECTION_YEAR": "1970"
   },
   {
     "SAMPLE": "S1409",
@@ -19103,7 +19437,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517653835",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519484",
-    "iNaturalist_id": "1451143"
+    "iNaturalist_id": "1451143",
+    "COLLECTION_YEAR": "1842"
   },
   {
     "SAMPLE": "S1412",
@@ -19155,7 +19490,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517766129",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519482",
-    "iNaturalist_id": "359576"
+    "iNaturalist_id": "359576",
+    "COLLECTION_YEAR": "1986"
   },
   {
     "SAMPLE": "S1417",
@@ -19200,7 +19536,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517082077",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519481",
-    "iNaturalist_id": "705746"
+    "iNaturalist_id": "705746",
+    "COLLECTION_YEAR": "1874"
   },
   {
     "SAMPLE": "S1419",
@@ -19363,7 +19700,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515337897",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519480",
-    "iNaturalist_id": "56061"
+    "iNaturalist_id": "56061",
+    "COLLECTION_YEAR": "1965"
   },
   {
     "SAMPLE": "S1421",
@@ -19519,7 +19857,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514962188",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519479",
-    "iNaturalist_id": "78835"
+    "iNaturalist_id": "78835",
+    "COLLECTION_YEAR": "1962"
   },
   {
     "SAMPLE": "S1422",
@@ -19566,7 +19905,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514118883",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519478",
-    "iNaturalist_id": "371906"
+    "iNaturalist_id": "371906",
+    "COLLECTION_YEAR": "1959"
   },
   {
     "SAMPLE": "S1424",
@@ -19611,7 +19951,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515008079",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519477",
-    "iNaturalist_id": "1129068"
+    "iNaturalist_id": "1129068",
+    "COLLECTION_YEAR": "1964"
   },
   {
     "SAMPLE": "S1428",
@@ -19664,7 +20005,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2514116448",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519476",
-    "iNaturalist_id": "902550"
+    "iNaturalist_id": "902550",
+    "COLLECTION_YEAR": "1957"
   },
   {
     "SAMPLE": "S1442",
@@ -19705,7 +20047,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515041993",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519475",
-    "iNaturalist_id": "1352810"
+    "iNaturalist_id": "1352810",
+    "COLLECTION_YEAR": "1963"
   },
   {
     "SAMPLE": "S1449",
@@ -19742,7 +20085,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519474",
-    "iNaturalist_id": "902689"
+    "iNaturalist_id": "902689",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1451",
@@ -19784,7 +20128,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519473",
-    "iNaturalist_id": "1429507"
+    "iNaturalist_id": "1429507",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1458",
@@ -19821,7 +20166,8 @@
     "BIOMATERIAL_PROVIDER": "Robert Vogt, Gabi Droege",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1725846",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519620",
-    "iNaturalist_id": "904109"
+    "iNaturalist_id": "904109",
+    "COLLECTION_YEAR": "1965"
   },
   {
     "SAMPLE": "S1459",
@@ -19858,7 +20204,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519619",
-    "iNaturalist_id": "904113"
+    "iNaturalist_id": "904113",
+    "COLLECTION_YEAR": "2012"
   },
   {
     "SAMPLE": "S1460",
@@ -19901,7 +20248,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=528448",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519618",
-    "iNaturalist_id": "897533"
+    "iNaturalist_id": "897533",
+    "COLLECTION_YEAR": "1974"
   },
   {
     "SAMPLE": "S1462",
@@ -19938,7 +20286,8 @@
     "BIOMATERIAL_PROVIDER": "Marcus Koch, Peter Sack",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519617",
-    "iNaturalist_id": "1498273"
+    "iNaturalist_id": "1498273",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1464",
@@ -19978,7 +20327,8 @@
     "BIOMATERIAL_PROVIDER": "Oscar Toro, Alicia Marticorena, Ivalu Cacho",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519616",
-    "iNaturalist_id": "1410882"
+    "iNaturalist_id": "1410882",
+    "COLLECTION_YEAR": "2004"
   },
   {
     "SAMPLE": "S1474",
@@ -20035,7 +20385,8 @@
     "BIOMATERIAL_PROVIDER": "Dmitry A. German",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519611",
-    "iNaturalist_id": "802652"
+    "iNaturalist_id": "802652",
+    "COLLECTION_YEAR": "1964"
   },
   {
     "SAMPLE": "S1475",
@@ -20085,7 +20436,8 @@
     "BIOMATERIAL_PROVIDER": "Christian Bräuchler, Heimo Rainer",
     "VOUCHER_DETAILS_LINK": "https://www.jacq.org/detail.php?ID=1663797",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519609",
-    "iNaturalist_id": "902562"
+    "iNaturalist_id": "902562",
+    "COLLECTION_YEAR": "1914"
   },
   {
     "SAMPLE": "S1481",
@@ -20121,7 +20473,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519606",
-    "iNaturalist_id": "1451448"
+    "iNaturalist_id": "1451448",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "S1488",
@@ -20161,7 +20514,8 @@
     "BIOMATERIAL_PROVIDER": "Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/1258103026",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519601",
-    "iNaturalist_id": "792433"
+    "iNaturalist_id": "792433",
+    "COLLECTION_YEAR": "2012"
   },
   {
     "SAMPLE": "S1498",
@@ -20207,7 +20561,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515877235",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519600",
-    "iNaturalist_id": "1459205"
+    "iNaturalist_id": "1459205",
+    "COLLECTION_YEAR": "1842"
   },
   {
     "SAMPLE": "S1506",
@@ -20273,7 +20628,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2517570268",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519598",
-    "iNaturalist_id": "202552"
+    "iNaturalist_id": "202552",
+    "COLLECTION_YEAR": "1897"
   },
   {
     "SAMPLE": "S1509",
@@ -20509,7 +20865,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2513019760",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519597",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": "1886"
   },
   {
     "SAMPLE": "S1519",
@@ -20546,7 +20903,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2513029402",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519596",
-    "iNaturalist_id": "515548"
+    "iNaturalist_id": "515548",
+    "COLLECTION_YEAR": "1907"
   },
   {
     "SAMPLE": "S1539",
@@ -20611,7 +20969,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff, Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519594",
-    "iNaturalist_id": "902769"
+    "iNaturalist_id": "902769",
+    "COLLECTION_YEAR": "1994"
   },
   {
     "SAMPLE": "S1541",
@@ -20647,7 +21006,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff, Ihsan Al-Shehbaz",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/1259295193",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519592",
-    "iNaturalist_id": "1228545"
+    "iNaturalist_id": "1228545",
+    "COLLECTION_YEAR": "1990"
   },
   {
     "SAMPLE": "S1561",
@@ -20687,7 +21047,8 @@
     "BIOMATERIAL_PROVIDER": "Klaus Mummenhoff",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/1322373913",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519591",
-    "iNaturalist_id": "164509"
+    "iNaturalist_id": "164509",
+    "COLLECTION_YEAR": "1994"
   },
   {
     "SAMPLE": "S1579",
@@ -20724,7 +21085,8 @@
     "BIOMATERIAL_PROVIDER": "Kasper P. Hendriks, Roxali Bijmoer, Marnel Scherrenberg, Jan J. Wieringa",
     "VOUCHER_DETAILS_LINK": "https://www.gbif.org/occurrence/2515042091",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519589",
-    "iNaturalist_id": "366605"
+    "iNaturalist_id": "366605",
+    "COLLECTION_YEAR": "1909"
   },
   {
     "SAMPLE": "SRR11470309",
@@ -20881,7 +21243,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR11470309",
-    "iNaturalist_id": "58085"
+    "iNaturalist_id": "58085",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR11470320",
@@ -20987,7 +21350,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR11470320",
-    "iNaturalist_id": "158472"
+    "iNaturalist_id": "158472",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR6441723",
@@ -21027,7 +21391,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR6441723",
-    "iNaturalist_id": "1451506"
+    "iNaturalist_id": "1451506",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528336",
@@ -21073,7 +21438,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528336",
-    "iNaturalist_id": "371903"
+    "iNaturalist_id": "371903",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528338",
@@ -21117,7 +21483,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528338",
-    "iNaturalist_id": "1249167"
+    "iNaturalist_id": "1249167",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528339",
@@ -21175,7 +21542,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528339",
-    "iNaturalist_id": "1024925"
+    "iNaturalist_id": "1024925",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528341",
@@ -21227,7 +21595,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528341",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528342",
@@ -21270,7 +21639,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528342",
-    "iNaturalist_id": "1048858"
+    "iNaturalist_id": "1048858",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528343",
@@ -21326,7 +21696,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528343",
-    "iNaturalist_id": "904072"
+    "iNaturalist_id": "904072",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528347",
@@ -21405,7 +21776,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528347",
-    "iNaturalist_id": "496037"
+    "iNaturalist_id": "496037",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528350",
@@ -21451,7 +21823,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528350",
-    "iNaturalist_id": "515257"
+    "iNaturalist_id": "515257",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528354",
@@ -21543,7 +21916,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528354",
-    "iNaturalist_id": "77966"
+    "iNaturalist_id": "77966",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528356",
@@ -21650,7 +22024,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528356",
-    "iNaturalist_id": "79289"
+    "iNaturalist_id": "79289",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528357",
@@ -21846,7 +22221,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528357",
-    "iNaturalist_id": "79460"
+    "iNaturalist_id": "79460",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528358",
@@ -21883,7 +22259,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528358",
-    "iNaturalist_id": "1196765"
+    "iNaturalist_id": "1196765",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528359",
@@ -21925,7 +22302,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528359",
-    "iNaturalist_id": "904138"
+    "iNaturalist_id": "904138",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528361",
@@ -21992,7 +22370,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528361",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528364",
@@ -22033,7 +22412,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528364",
-    "iNaturalist_id": "902783"
+    "iNaturalist_id": "902783",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528365",
@@ -22099,7 +22479,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528365",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528370",
@@ -22225,7 +22606,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528370",
-    "iNaturalist_id": "76301"
+    "iNaturalist_id": "76301",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528372",
@@ -22395,7 +22777,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528372",
-    "iNaturalist_id": "76429"
+    "iNaturalist_id": "76429",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528373",
@@ -22462,7 +22845,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528373",
-    "iNaturalist_id": "55838"
+    "iNaturalist_id": "55838",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528376",
@@ -22502,7 +22886,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528376",
-    "iNaturalist_id": "933492"
+    "iNaturalist_id": "933492",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528379",
@@ -22558,7 +22943,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528379",
-    "iNaturalist_id": "133490"
+    "iNaturalist_id": "133490",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528380",
@@ -22686,7 +23072,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528380",
-    "iNaturalist_id": "77509"
+    "iNaturalist_id": "77509",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528381",
@@ -22735,7 +23122,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528381",
-    "iNaturalist_id": "77486"
+    "iNaturalist_id": "77486",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528382",
@@ -22805,7 +23193,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528382",
-    "iNaturalist_id": "120549"
+    "iNaturalist_id": "120549",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528384",
@@ -22883,7 +23272,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528384",
-    "iNaturalist_id": "334304"
+    "iNaturalist_id": "334304",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528385",
@@ -22920,7 +23310,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528385",
-    "iNaturalist_id": "284718"
+    "iNaturalist_id": "284718",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528386",
@@ -22969,7 +23360,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528386",
-    "iNaturalist_id": "514614"
+    "iNaturalist_id": "514614",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528388",
@@ -23006,7 +23398,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528388",
-    "iNaturalist_id": "1228650"
+    "iNaturalist_id": "1228650",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528389",
@@ -23043,7 +23436,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528389",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528391",
@@ -23094,7 +23488,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528391",
-    "iNaturalist_id": "492738"
+    "iNaturalist_id": "492738",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528394",
@@ -23131,7 +23526,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528394",
-    "iNaturalist_id": "316743"
+    "iNaturalist_id": "316743",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528397",
@@ -23168,7 +23564,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528397",
-    "iNaturalist_id": "974820"
+    "iNaturalist_id": "974820",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528398",
@@ -23205,7 +23602,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528398",
-    "iNaturalist_id": "NA"
+    "iNaturalist_id": "NA",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528399",
@@ -23242,7 +23640,8 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528399",
-    "iNaturalist_id": "515534"
+    "iNaturalist_id": "515534",
+    "COLLECTION_YEAR": ""
   },
   {
     "SAMPLE": "SRR8528400",
@@ -23292,6 +23691,7 @@
     "BIOMATERIAL_PROVIDER": "",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR8528400",
-    "iNaturalist_id": "501527"
+    "iNaturalist_id": "501527",
+    "COLLECTION_YEAR": ""
   }
 ]

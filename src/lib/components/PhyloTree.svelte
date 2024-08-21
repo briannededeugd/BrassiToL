@@ -109,6 +109,7 @@
   let collectionCode;
   let collectorName;
   let collectorCode;
+  let collectionYear;
   let specimenTypeStatus;
   let identifier;
   let biomaterialProvider;
@@ -1072,6 +1073,7 @@
         collectionCode = findObject(metadataObject.COLLECTION_CODE);
         collectorName = findObject(metadataObject.COLLECTOR);
         collectorCode = findObject(metadataObject.COLLECTOR_CODE);
+        collectionYear = findObject(metadataObject.COLLECTION_YEAR);
         specimenTypeStatus = findObject(
           metadataObject.SPECIMEN_TYPE_STATUS,
           true,
@@ -1494,10 +1496,17 @@
             <a
               href="https://www.gbif.org/species/{gfibUsageKey}"
               aria-label="Link to GFIB"
-              target="_blank">GFIB</a
+              target="_blank">GBIF</a
             >
           </li>
         {/if}
+        <li>
+          <a
+            href="https://brassibase.cos.uni-heidelberg.de/?action=search&subaction=tax&param1={fullSpeciesName}"
+            aria-label="Link to BrassiBase"
+            target="_blank">BrassiBase</a
+          >
+        </li>
       </ul>
 
       <details id="specimen-details">
@@ -1527,7 +1536,11 @@
           </div>
           <div>
             <p>
-              Specimen Type Status <br />
+              Collection year <br />
+              <span>{collectionYear}</span>
+            </p>
+            <p>
+              Specimen type status <br />
               <span>{specimenTypeStatus}</span>
             </p>
             <p>

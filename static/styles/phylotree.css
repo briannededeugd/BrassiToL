@@ -123,7 +123,7 @@
 
   #largetooltip {
     font-size: .9em;
-    min-width: 500px;
+    min-width: 600px;
     
     & .tooltip-information {
       padding: .5em 2.5em 1em;
@@ -318,7 +318,7 @@
     word-wrap: break-word;
   }
 
-  .tooltip-taxonomy p::before {
+  /* .tooltip-taxonomy p::before {
     content: "";
     display: inline-block;
     width: 1.5em;
@@ -329,7 +329,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
-  }
+  } */
 
   .tooltip-taxonomy p > span {
     background-color: #e1e1e1;
@@ -353,7 +353,7 @@
       border: .5px solid white;
       border-radius: 8px;
       max-width: max-content;
-      transition: all .3s ease-in-out;
+      transition: all .1s ease-in-out;
       display: inline;
 
       &:not(:last-of-type) {
@@ -365,7 +365,7 @@
         color: white;
         font-family: "Bayon", sans-serif;
         font-size: 1.1em;
-        transition: all .3s ease-in-out;
+        transition: all .1s ease-in-out;
       }
 
       &:hover {

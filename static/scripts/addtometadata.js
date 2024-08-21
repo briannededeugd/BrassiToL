@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 // Define file paths
-const authorMetadataPath =
+const metadataToAddPath =
   "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_authorsspecimen.json";
 const metadataPath =
   "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json";
@@ -20,19 +20,18 @@ const readJsonFile = (filePath) => {
   }
 };
 
-const authorMetadata = readJsonFile(authorMetadataPath);
+const metadataToAdd = readJsonFile(metadataToAddPath);
 const metadata = readJsonFile(metadataPath);
 
-// Loop over authorMetadata and update metadata accordingly
-authorMetadata.forEach((authorObj) => {
+// Loop over metadataToAdd and update metadata accordingly
+metadataToAdd.forEach((authorObj) => {
   const matchingMetadata = metadata.find(
     (metaObj) => metaObj.SAMPLE === authorObj.SAMPLE,
   );
 
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
-    matchingMetadata.gfib_usageKey = authorObj.gfib_usageKey;
-    matchingMetadata.iNaturalist_id = authorObj.iNaturalist_id;
+    matchingMetadata.COLLECTION_YEAR = authorObj.COLLECTION_YEAR;
   }
 });
 
