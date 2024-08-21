@@ -77,7 +77,13 @@
         rel="cc:attributionURL dct:creator"
         property="cc:attributionName"
         href="https://www.naturalis.nl/wetenschap/onderzoekers/kasper-hendriks"
-        >Kasper Hendriks & Brianne de Deugd</a
+        >Kasper Hendriks</a
+      > & 
+      <a
+        rel="cc:attributionURL dct:creator"
+        property="cc:attributionName"
+        href="https://www.linkedin.com/in/brianne-de-deugd-060425296/"
+        >Brianne de Deugd</a
       >
       is licensed under
       <a
@@ -86,19 +92,19 @@
         rel="license noopener noreferrer"
         style="display:inline-block;"
         >CC BY-NC-SA 4.0<img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          style="height:18px!important;margin-left:3px;vertical-align:center;"
           src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
           alt=""
         /><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          style="height:18px!important;margin-left:3px;vertical-align:center;"
           src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
           alt=""
         /><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          style="height:18px!important;margin-left:3px;vertical-align:center;"
           src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"
           alt=""
         /><img
-          style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+          style="height:18px!important;margin-left:3px;vertical-align:center;"
           src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"
           alt=""
         /></a

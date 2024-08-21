@@ -105,6 +105,20 @@
   let societaluseName;
   let geographicareaName;
   let imageId;
+  let collectionName;
+  let collectionCode;
+  let collectorName;
+  let collectorCode;
+  let collectionYear;
+  let specimenTypeStatus;
+  let identifier;
+  let biomaterialProvider;
+
+  // Links
+  let voucherDetails;
+  let rawDataLink;
+  let iNaturalistID;
+  let gfibUsageKey;
 
   // Variables for allowing and tracking the rotation of the tree
   let rotation = 0; // Initial rotation
@@ -293,6 +307,7 @@
      *    CLOSE PINNED TOOLTIP
      *========================**/
 
+    const details = d3.select("#specimen-details");
     d3.select("#shutTooltip").on("click", closePopup);
     d3.select("body").on("keydown", function (event) {
       if (event && event.keyCode === 27) {
@@ -312,6 +327,7 @@
 
       // Re-enable pointer events for labels if you've disabled them
       d3.selectAll("text.node").style("pointer-events", "auto");
+      details.attr("open", null);
     }
 
     // For filtering
@@ -982,10 +998,11 @@
       };
     }
 
-    // FUNCTION
-    // The goal of this function is to collect all the necessary data for a pop-up, dependent on the clicked node (hence why it's called on "click" of each label in the tree)
-    // It uses the "d" (data) to find the correct object in the metadata file, then loads in all necessary properties
-    // Since most of these properties come in as their JSON-selves, we must perform a little surgery on them to format them for the frontend
+    /**
+     * @name pinInfo
+     * @role Open the large informationbox / popup in the center of the screen
+     * @param active | (Boolean) Checks whether or not the information box should be pinned
+     */
     function pinInfo(active) {
       return function (event, d) {
         let superTribeColor = findSuperTribeColor(d.data.name);
@@ -1014,6 +1031,20 @@
           return description;
         }
 
+        /**
+         * @name findObject
+         * @role Find a specific string from the metadata and return NA if it's empty
+         * @param item | The value of the property in question
+         * @param notApplicable | Decides whether NA should get returned or "#" if it's a link
+         */
+        function findObject(item) {
+          if (item) {
+            return item;
+          } else {
+            return "NA";
+          }
+        }
+
         // Making sure the meaning of each growth type appears instead of its short counterpart
         const growthFormLabelMapping = {
           H: "Herbaceous",
@@ -1037,6 +1068,25 @@
         societaluseName = formatDescription(metadataObject.SOCIETAL_USE);
         geographicareaName = metadataObject.WCVP_geographic_area;
         imageId = metadataObject.powo_identifier;
+
+        collectionName = findObject(metadataObject.COLLECTION);
+        collectionCode = findObject(metadataObject.COLLECTION_CODE);
+        collectorName = findObject(metadataObject.COLLECTOR);
+        collectorCode = findObject(metadataObject.COLLECTOR_CODE);
+        collectionYear = findObject(metadataObject.COLLECTION_YEAR);
+        specimenTypeStatus = findObject(
+          metadataObject.SPECIMEN_TYPE_STATUS,
+          true,
+        );
+        identifier = findObject(metadataObject.IDENTIFIER);
+        biomaterialProvider = findObject(
+          metadataObject.BIOMATERIAL_PROVIDER,
+          true,
+        );
+        voucherDetails = findObject(metadataObject.VOUCHER_DETAILS_LINK);
+        rawDataLink = findObject(metadataObject.RAW_DATA_LINK);
+        iNaturalistID = findObject(metadataObject.iNaturalist_id);
+        gfibUsageKey = findObject(metadataObject.gfib_usageKey);
 
         if (subfamilyName === "Aethionemoideae") {
           supertribespan.style("background-color", "white");
@@ -1379,11 +1429,6 @@
       <button id="shutTooltip">
         <img src="/img/close.png" alt="Close tooltip" />
       </button>
-      <a
-        href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
-      >
-        <i class="fa-solid fa-link"></i>
-      </a>
     </div>
 
     <div class="tooltip-information">
@@ -1427,6 +1472,113 @@
         </div>
       </div>
       <p id="geographicareaname">{geographicareaName}</p>
+      <ul class="species-links">
+        {#if imageId}
+          <li>
+            <a
+              href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+              aria-label="Link to POWO"
+              target="_blank">POWO</a
+            >
+          </li>
+        {/if}
+        {#if iNaturalistID !== "NA"}
+          <li>
+            <a
+              href="https://www.inaturalist.org/taxa/{iNaturalistID}"
+              aria-label="Link to iNaturalist"
+              target="_blank">iNaturalist</a
+            >
+          </li>
+        {/if}
+        {#if gfibUsageKey !== "NA"}
+          <li>
+            <a
+              href="https://www.gbif.org/species/{gfibUsageKey}"
+              aria-label="Link to GFIB"
+              target="_blank">GBIF</a
+            >
+          </li>
+        {/if}
+        <li>
+          <a
+            href="https://brassibase.cos.uni-heidelberg.de/?action=search&subaction=tax&param1={fullSpeciesName}"
+            aria-label="Link to BrassiBase"
+            target="_blank">BrassiBase</a
+          >
+        </li>
+      </ul>
+
+      <details id="specimen-details">
+        <summary>
+          <p>Specimen Details</p>
+        </summary>
+        <div id="tooltip-specimen-details">
+          <div>
+            <p>
+              Collection <br />
+              <span>{collectionName}</span>
+            </p>
+
+            <p>
+              Collection code<br />
+              <span>{collectionCode}</span>
+            </p>
+
+            <p>
+              Collector <br />
+              <span>{collectorName}</span>
+            </p>
+            <p>
+              Collector code <br />
+              <span>{collectorCode}</span>
+            </p>
+          </div>
+          <div>
+            <p>
+              Collection year <br />
+              <span>{collectionYear}</span>
+            </p>
+            <p>
+              Specimen type status <br />
+              <span>{specimenTypeStatus}</span>
+            </p>
+            <p>
+              Identifier <br />
+              <span>{identifier}</span>
+            </p>
+
+            <p>
+              Biomaterial provider <br />
+              <span>{biomaterialProvider}</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Only show the links that are available -->
+        {#if voucherDetails || rawDataLink}
+          <ul class="species-links">
+            {#if voucherDetails !== "NA"}
+              <li id="voucher-details">
+                <a
+                  href={voucherDetails}
+                  aria-label="Link to the voucher details"
+                  target="_blank">Voucher Details</a
+                >
+              </li>
+            {/if}
+            {#if rawDataLink !== "NA"}
+              <li id="raw-data">
+                <a
+                  href={rawDataLink}
+                  aria-label="Link to the raw data"
+                  target="_blank">Sequencing Data</a
+                >
+              </li>
+            {/if}
+          </ul>
+        {/if}
+      </details>
     </div>
   </div>
 </section>

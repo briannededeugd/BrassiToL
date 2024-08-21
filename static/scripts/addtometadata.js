@@ -1,12 +1,13 @@
 // Import necessary modules
+// import { match } from "assert";
 import fs from "fs";
 import path from "path";
 
 // Define file paths
-const authorMetadataPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_includesauthors.json"; // Example path, adjust as needed
+const metadataToAddPath =
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_authorsspecimen.json";
 const metadataPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json"; // Example path, adjust as needed
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json";
 
 // Read JSON files and parse them into objects
 const readJsonFile = (filePath) => {
@@ -19,18 +20,18 @@ const readJsonFile = (filePath) => {
   }
 };
 
-const authorMetadata = readJsonFile(authorMetadataPath);
+const metadataToAdd = readJsonFile(metadataToAddPath);
 const metadata = readJsonFile(metadataPath);
 
-// Loop over authorMetadata and update metadata accordingly
-authorMetadata.forEach((authorObj) => {
+// Loop over metadataToAdd and update metadata accordingly
+metadataToAdd.forEach((authorObj) => {
   const matchingMetadata = metadata.find(
     (metaObj) => metaObj.SAMPLE === authorObj.SAMPLE,
   );
 
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
-    matchingMetadata.AUTHOR = authorObj.AUTHOR;
+    matchingMetadata.COLLECTION_YEAR = authorObj.COLLECTION_YEAR;
   }
 });
 

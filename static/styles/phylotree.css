@@ -1,4 +1,11 @@
-
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+  
   #magnifier {
     width: 350px;
     height: 350px;
@@ -25,6 +32,62 @@
     height: 200vh;
     width: 100vw;
     overflow: hidden;
+  }
+
+  summary {
+    font-family: "Bayon", sans-serif;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+    padding-top: 1em;
+    margin-top: 1em;
+    min-width: 100%;
+    border-top: .5px solid white;
+    cursor: pointer;
+
+    & > p {
+      margin: 0;
+      padding: .25em .5em;
+      border-radius: 8px;
+      max-width: max-content;
+      border: .5px solid #729a68;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &::after {
+        content: "arrow_drop_down";
+        height: 1em;
+        width: 1em;
+        font-size: 1.25em;
+        font-family: "Material Symbols Outlined";
+        margin-left: .25em;
+        margin-bottom: .25em;
+        display: inline-block;
+        transition: all .5s ease-in-out;
+      }
+    }
+  }
+
+  details summary::-webkit-details-marker,
+  details summary::marker {
+    display: none; 
+    content: "";
+  }
+
+  details #tooltip-specimen-details {
+    max-height: 0;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+  }
+
+  details[open] #tooltip-specimen-details {
+    opacity: 1;
+    max-height: max-content;
+  }
+
+  details[open] summary > p::after {
+    margin-bottom: -.1em;
+    transform: rotate(-180deg);
   }
 
   /* *************** */
@@ -60,14 +123,14 @@
 
   #largetooltip {
     font-size: .9em;
-    width: 450px;
+    min-width: 600px;
     
     & .tooltip-information {
       padding: .5em 2.5em 1em;
     }
   }
 
-  #tooltip-title, #tooltip-author {
+  #tooltip-title, #tooltip-author, .tooltip-author, .tooltip-title {
     display: inline-block;
   }
 
@@ -219,20 +282,26 @@
     vertical-align: middle;
   }
 
-  #tooltip-metadata {
+  #tooltip-metadata, #tooltip-specimen-details {
     display: flex;
     justify-content: space-between;
     font-family: "Inter", sans-serif;
     width: 100%;
   }
 
-  #tooltip-metadata p {
+  #tooltip-metadata p,
+  #tooltip-specimen-details p {
     color: #cdcccc;
     font-size: 0.9em;
     font-weight: 400;
   }
 
-  #tooltip-metadata p > span {
+  #tooltip-specimen-details > div {
+    width: 50%;;
+  }
+
+  #tooltip-metadata p > span,
+  #tooltip-specimen-details p > span {
     color: #e1e1e1;
     font-size: 1.1em;
     font-weight: 600;
@@ -249,7 +318,7 @@
     word-wrap: break-word;
   }
 
-  .tooltip-taxonomy p::before {
+  /* .tooltip-taxonomy p::before {
     content: "";
     display: inline-block;
     width: 1.5em;
@@ -260,7 +329,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
-  }
+  } */
 
   .tooltip-taxonomy p > span {
     background-color: #e1e1e1;
@@ -272,6 +341,41 @@
     border-radius: 20px;
     font-weight: 900;
     white-space: nowrap;
+  }
+
+  .species-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      padding: .25em .5em;
+      border: .5px solid white;
+      border-radius: 8px;
+      max-width: max-content;
+      transition: all .1s ease-in-out;
+      display: inline;
+
+      &:not(:last-of-type) {
+        margin-right: .5em;
+      }
+
+      & a {
+        text-decoration: none;
+        color: white;
+        font-family: "Bayon", sans-serif;
+        font-size: 1.1em;
+        transition: all .1s ease-in-out;
+      }
+
+      &:hover {
+        border: .5px solid #729a68;
+        
+        & a {
+          color: #729a68;
+        }
+      }
+    }
   }
 
   /* ************* */
