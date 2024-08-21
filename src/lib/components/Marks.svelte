@@ -325,8 +325,6 @@
             `${countryInformation.frequency} native species`,
           );
 
-          console.log("Relevant Introduced Species:", introducedSpeciesNames);
-
           async function introducedSpeciesCount() {
             await introducedSpeciesNames;
 
