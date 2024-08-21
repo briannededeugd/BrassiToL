@@ -126,7 +126,6 @@
     taxonomyOpen = false;
     geographyOpen = false;
     characteristicsOpen = false;
-    searchAll = "";
   }
 
   /**========================================================================
@@ -458,22 +457,35 @@
     updateTreeVisualization();
 
     const handleKeyDown = (event, keydown) => {
-      const taxonomyDropdown = d3.select(".taxonomyDropdown");
-      const geographyDropdown = d3.select(".geographyDropdown");
-      const characteristicsDropdown = d3.select(".characteristicsDropdown");
-      const searchDropdown = d3.select(".autocomplete-dropdown");
+      const taxonomyDropdown = d3.select(".taxonomyDropdown").node();
+      const geographyDropdown = d3.select(".geographyDropdown").node();
+      const characteristicsDropdown = d3
+        .select(".characteristicsDropdown")
+        .node();
+      const searchDropdown = d3.select(".searchDropdown").node();
+
+      // Convert NodeList to Array for easier handling
+      const dropdownNodes = [
+        taxonomyDropdown,
+        geographyDropdown,
+        characteristicsDropdown,
+        searchDropdown,
+      ].filter((node) => node !== null); // Ensure nodes exist
+
+      const isClickInsideDropdown = dropdownNodes.some((node) =>
+        node.contains(event.target),
+      );
 
       if (keydown === true) {
         if (event.keyCode === 27 && keydown === true) {
+          // Esc key pressed
           closeAllPopups();
+          console.log(event.target);
         }
-      } else if (
-        event.target !== taxonomyDropdown &&
-        event.target !== geographyDropdown &&
-        event.target !== characteristicsDropdown &&
-        event.target !== searchDropdown
-      ) {
+      } else if (!isClickInsideDropdown) {
+        // Click occurred outside all dropdowns
         closeAllPopups();
+        console.log(event.target);
       }
     };
 
@@ -519,7 +531,7 @@
 
     Object.entries(categories).forEach(([categoryName, categoryItems]) => {
       const filteredItems = categoryItems.filter((item) =>
-        item.label.toLowerCase().startsWith(searchTerm),
+        item.label.toLowerCase().includes(searchTerm),
       );
       if (filteredItems.length > 0) {
         results[categoryName] = filteredItems;
