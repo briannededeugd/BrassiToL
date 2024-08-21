@@ -130,7 +130,7 @@
     }
   }
 
-  #tooltip-title, #tooltip-author {
+  #tooltip-title, #tooltip-author, .tooltip-author, .tooltip-title {
     display: inline-block;
   }
 
