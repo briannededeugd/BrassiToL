@@ -31,18 +31,8 @@ authorMetadata.forEach((authorObj) => {
 
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
-    matchingMetadata.AUTHOR = authorObj.AUTHOR;
-    matchingMetadata.COLLECTION = authorObj.COLLECTION;
-    matchingMetadata.COLLECTION_CODE = authorObj.COLLECTION_CODE;
-    matchingMetadata.COLLECTOR = authorObj.COLLECTOR;
-    matchingMetadata.COLLECTOR_CODE = authorObj.COLLECTOR_CODE;
-    matchingMetadata.YEAR = authorObj.YEAR;
-    matchingMetadata.COUNTRY = authorObj.COUNTRY;
-    matchingMetadata.SPECIMEN_TYPE_STATUS = authorObj.SPECIMEN_TYPE_STATUS;
-    matchingMetadata.IDENTIFIER = authorObj.IDENTIFIER;
-    matchingMetadata.BIOMATERIAL_PROVIDER = authorObj.BIOMATERIAL_PROVIDER;
-    matchingMetadata.VOUCHER_DETAILS_LINK = authorObj.VOUCHER_DETAILS_LINK;
-    matchingMetadata.RAW_DATA_LINK = authorObj.RAW_DATA_LINK;
+    matchingMetadata.gfib_usageKey = authorObj.gfib_usageKey;
+    matchingMetadata.iNaturalist_id = authorObj.iNaturalist_id;
   }
 });
 

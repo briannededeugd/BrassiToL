@@ -112,8 +112,12 @@
   let specimenTypeStatus;
   let identifier;
   let biomaterialProvider;
+
+  // Links
   let voucherDetails;
   let rawDataLink;
+  let iNaturalistID;
+  let gfibUsageKey;
 
   // Variables for allowing and tracking the rotation of the tree
   let rotation = 0; // Initial rotation
@@ -1032,13 +1036,11 @@
          * @param item | The value of the property in question
          * @param notApplicable | Decides whether NA should get returned or "#" if it's a link
          */
-        function findObject(item, notApplicable) {
+        function findObject(item) {
           if (item) {
             return item;
-          } else if (notApplicable === true) {
+          } else {
             return "NA";
-          } else if (notApplicable === false) {
-            return "#";
           }
         }
 
@@ -1066,21 +1068,23 @@
         geographicareaName = metadataObject.WCVP_geographic_area;
         imageId = metadataObject.powo_identifier;
 
-        collectionName = findObject(metadataObject.COLLECTION, true);
-        collectionCode = findObject(metadataObject.COLLECTION_CODE, true);
-        collectorName = findObject(metadataObject.COLLECTOR, true);
-        collectorCode = findObject(metadataObject.COLLECTOR_CODE, true);
+        collectionName = findObject(metadataObject.COLLECTION);
+        collectionCode = findObject(metadataObject.COLLECTION_CODE);
+        collectorName = findObject(metadataObject.COLLECTOR);
+        collectorCode = findObject(metadataObject.COLLECTOR_CODE);
         specimenTypeStatus = findObject(
           metadataObject.SPECIMEN_TYPE_STATUS,
           true,
         );
-        identifier = findObject(metadataObject.IDENTIFIER, true);
+        identifier = findObject(metadataObject.IDENTIFIER);
         biomaterialProvider = findObject(
           metadataObject.BIOMATERIAL_PROVIDER,
           true,
         );
-        voucherDetails = findObject(metadataObject.VOUCHER_DETAILS_LINK, false);
-        rawDataLink = findObject(metadataObject.RAW_DATA_LINK, false);
+        voucherDetails = findObject(metadataObject.VOUCHER_DETAILS_LINK);
+        rawDataLink = findObject(metadataObject.RAW_DATA_LINK);
+        iNaturalistID = findObject(metadataObject.iNaturalist_id);
+        gfibUsageKey = findObject(metadataObject.gfib_usageKey);
 
         if (subfamilyName === "Aethionemoideae") {
           supertribespan.style("background-color", "white");
@@ -1423,12 +1427,6 @@
       <button id="shutTooltip">
         <img src="/img/close.png" alt="Close tooltip" />
       </button>
-      <a
-        href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
-        target="_blank"
-      >
-        <i class="fa-solid fa-link"></i>
-      </a>
     </div>
 
     <div class="tooltip-information">
@@ -1472,6 +1470,36 @@
         </div>
       </div>
       <p id="geographicareaname">{geographicareaName}</p>
+      <ul class="species-links">
+        {#if imageId}
+          <li>
+            <a
+              href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+              aria-label="Link to POWO"
+              target="_blank">POWO</a
+            >
+          </li>
+        {/if}
+        {#if iNaturalistID !== "NA"}
+          <li>
+            <a
+              href="https://www.inaturalist.org/taxa/{iNaturalistID}"
+              aria-label="Link to iNaturalist"
+              target="_blank">iNaturalist</a
+            >
+          </li>
+        {/if}
+        {#if gfibUsageKey !== "NA"}
+          <li>
+            <a
+              href="https://www.gbif.org/species/{gfibUsageKey}"
+              aria-label="Link to GFIB"
+              target="_blank">GFIB</a
+            >
+          </li>
+        {/if}
+      </ul>
+
       <details id="specimen-details">
         <summary>
           <p>Specimen Details</p>
@@ -1511,32 +1539,32 @@
               Biomaterial provider <br />
               <span>{biomaterialProvider}</span>
             </p>
-
-            <!-- Only show the links that are available -->
-            {#if voucherDetails !== "#" || rawDataLink !== "#"}
-              <ul id="specimen-links">
-                {#if voucherDetails !== "#"}
-                  <li id="voucher-details">
-                    <a
-                      href={voucherDetails}
-                      aria-label="Link to the voucher details"
-                      target="_blank">Voucher Details</a
-                    >
-                  </li>
-                {/if}
-                {#if rawDataLink !== "#"}
-                  <li id="raw-data">
-                    <a
-                      href={rawDataLink}
-                      aria-label="Link to the raw data"
-                      target="_blank">Raw Data</a
-                    >
-                  </li>
-                {/if}
-              </ul>
-            {/if}
           </div>
         </div>
+
+        <!-- Only show the links that are available -->
+        {#if voucherDetails || rawDataLink}
+          <ul class="species-links">
+            {#if voucherDetails !== "NA"}
+              <li id="voucher-details">
+                <a
+                  href={voucherDetails}
+                  aria-label="Link to the voucher details"
+                  target="_blank">Voucher Details</a
+                >
+              </li>
+            {/if}
+            {#if rawDataLink !== "NA"}
+              <li id="raw-data">
+                <a
+                  href={rawDataLink}
+                  aria-label="Link to the raw data"
+                  target="_blank">Sequencing Data</a
+                >
+              </li>
+            {/if}
+          </ul>
+        {/if}
       </details>
     </div>
   </div>
