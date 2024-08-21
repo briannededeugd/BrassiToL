@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import * as d3 from "d3";
   import { selectedSpeciesStore } from "$stores/store.js";
   import { createCategoryStore } from "$stores/querystore.js";
@@ -120,6 +120,13 @@
     checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
       (item) => item.checked,
     );
+  }
+
+  function closeAllPopups() {
+    taxonomyOpen = false;
+    geographyOpen = false;
+    characteristicsOpen = false;
+    searchAll = "";
   }
 
   /**========================================================================
@@ -449,6 +456,33 @@
 
     // Call updateTreeVisualization after processing all params
     updateTreeVisualization();
+
+    const handleKeyDown = (event, keydown) => {
+      const taxonomyDropdown = d3.select(".taxonomyDropdown");
+      const geographyDropdown = d3.select(".geographyDropdown");
+      const characteristicsDropdown = d3.select(".characteristicsDropdown");
+      const searchDropdown = d3.select(".autocomplete-dropdown");
+
+      if (keydown === true) {
+        if (event.keyCode === 27 && keydown === true) {
+          closeAllPopups();
+        }
+      } else if (
+        event.target !== taxonomyDropdown &&
+        event.target !== geographyDropdown &&
+        event.target !== characteristicsDropdown &&
+        event.target !== searchDropdown
+      ) {
+        closeAllPopups();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown, false);
+    document.addEventListener("click", handleKeyDown, true);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown, false);
+    };
   });
 
   /**========================================================================
