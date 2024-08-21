@@ -1425,6 +1425,7 @@
       </button>
       <a
         href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:{imageId}/images"
+        target="_blank"
       >
         <i class="fa-solid fa-link"></i>
       </a>
@@ -1519,14 +1520,16 @@
                     <a
                       href={voucherDetails}
                       aria-label="Link to the voucher details"
-                      >Voucher Details</a
+                      target="_blank">Voucher Details</a
                     >
                   </li>
                 {/if}
                 {#if rawDataLink !== "#"}
                   <li id="raw-data">
-                    <a href={rawDataLink} aria-label="Link to the raw data"
-                      >Raw Data</a
+                    <a
+                      href={rawDataLink}
+                      aria-label="Link to the raw data"
+                      target="_blank">Raw Data</a
                     >
                   </li>
                 {/if}
