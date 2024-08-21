@@ -23,8 +23,8 @@ async function processnativeGeoArea(jsonData) {
 
 async function modifyJsonFile() {
 	try {
-		const jsonFilePath = "$metadata/BrassiToL_geoareatosamplesize.json";
-		const modifiedJsonFilePath = "$metadata/BrassiToL_metadata_modified.json";
+		const jsonFilePath = "static/metadata/BrassiToL_geoareatosamplesize.json";
+		const modifiedJsonFilePath = "static/metadata/BrassiToL_metadata_modified.json";
 
 		// Read the JSON file
 		const data = await fs.readFile(jsonFilePath, "utf8");

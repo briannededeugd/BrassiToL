@@ -5,9 +5,9 @@ import path from "path";
 
 // Define file paths
 const metadataToAddPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_fixedauthors.json";
+  "static/metadata/BrassiToL_CompleteMetadata.json";
 const metadataPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json";
+  "static/metadata/BrassiToL_metadata.json";
 
 // Read JSON files and parse them into objects
 const readJsonFile = (filePath) => {
@@ -34,7 +34,8 @@ metadataToAdd.forEach((targetObj) => {
     matchingMetadata.COLLECTOR = targetObj.COLLECTOR;
     matchingMetadata.COLLECTOR_CODE = targetObj.COLLECTOR_CODE;
     matchingMetadata.IDENTIFIER = targetObj.IDENTIFIER;
-     matchingMetadata.BIOMATERIAL_PROVIDER = targetObj.BIOMATERIAL_PROVIDER;
+    matchingMetadata.BIOMATERIAL_PROVIDER = targetObj.BIOMATERIAL_PROVIDER;
+    matchingMetadata.AUTHOR = targetObj.AUTHOR;
   }
 });
 

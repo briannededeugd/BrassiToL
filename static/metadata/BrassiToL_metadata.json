@@ -108,7 +108,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz, D.A. German & M.A. Koch",
+    "AUTHOR": "(Hook.f. & Thomson) Al-Shehbaz, D.A. German & M.A. Koch",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8009952",
     "COLLECTOR": "K.H. Rechinger",
@@ -182,7 +182,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "VIC",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Mabb.",
+    "AUTHOR": "(R. Br. ex DC.) Mabb.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -765,7 +765,7 @@
     "WCVP_WGSRPD_LEVEL_2_native": "#N/A",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "M.W. Chase",
+    "COLLECTOR": "Chase, M.W.",
     "COLLECTOR_CODE": "",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
@@ -802,7 +802,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(Piper) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "71",
       "73"
@@ -1036,7 +1036,7 @@
     ],
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "B. Shishkin, V. Gonin",
+    "COLLECTOR": "B. Shishkin, V. Gonin no number",
     "COLLECTOR_CODE": "B. Shishkin & V. Gonin, s.n.",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "I. Al-Shehbaz",
@@ -1075,7 +1075,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "4",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Thomson) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "40",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1127,7 +1127,7 @@
     ],
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "B. Bartholomew",
+    "COLLECTOR": "0",
     "COLLECTOR_CODE": "Bartholomew 4159",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
@@ -1212,7 +1212,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "BOL",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Gilg & Muschl.",
+    "AUTHOR": "(Wedd.) Gilg & Muschl.",
     "WCVP_WGSRPD_LEVEL_2_native": "83",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1250,7 +1250,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "TZK",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Soják",
+    "AUTHOR": "(Botsch.) Soják",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1298,7 +1298,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NWY",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(Hook.) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "71",
       "73",
@@ -1346,7 +1346,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Kuntze",
+    "AUTHOR": "(DC.) Kuntze",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1402,7 +1402,7 @@
       "SPA",
       "SWI"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(L.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "34"
@@ -1448,7 +1448,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "J.F. Macbr. & Payson",
+    "AUTHOR": "(A. Gray) J.F. Macbr. & Payson",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76"
@@ -1492,7 +1492,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "4",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Dunn) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "40",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1534,7 +1534,7 @@
       "ITA",
       "JAP"
     ],
-    "AUTHOR": "DC. ex Rchb.",
+    "AUTHOR": "(Desf.) DC. ex Rchb.",
     "WCVP_WGSRPD_LEVEL_2_native": "12",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1614,7 +1614,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rydb.",
+    "AUTHOR": "(S. Watson) Rydb.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76"
@@ -1655,7 +1655,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(Desv.) Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "A",
     "COLLECTION_CODE": "",
@@ -1708,7 +1708,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz & D.A. German",
+    "AUTHOR": "(Regel & Schmalh.) Al-Shehbaz & D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34",
@@ -1804,7 +1804,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rollins",
+    "AUTHOR": "(A. Gray) Rollins",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76"
@@ -1854,7 +1854,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rollins",
+    "AUTHOR": "(Engelm.) Rollins",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76",
@@ -1961,7 +1961,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Steud.",
+    "AUTHOR": "(Michx.) Steud.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "74",
       "75",
@@ -2030,7 +2030,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Willd.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "20",
@@ -2127,7 +2127,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(S. Watson) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76"
@@ -2183,7 +2183,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "GER",
-    "AUTHOR": "Medik.",
+    "AUTHOR": "(L.) Medik.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -2232,7 +2232,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hook.f.",
+    "AUTHOR": "(Desf.) Hook.f.",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 0024139",
@@ -2313,7 +2313,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "GRC",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hausskn.",
+    "AUTHOR": "(Hausskn.) Hausskn.",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 0184642",
@@ -2396,7 +2396,7 @@
       "SWI",
       "VRG"
     ],
-    "AUTHOR": "Thell.",
+    "AUTHOR": "(Asso) Thell.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -2453,7 +2453,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Desv.",
+    "AUTHOR": "(L.) Desv.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "20",
@@ -2498,7 +2498,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Boiss.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34"
@@ -2619,7 +2619,7 @@
       "WVA",
       "WYO"
     ],
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Willd.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -2706,7 +2706,7 @@
       "WAS",
       "WYO"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "14",
@@ -2779,7 +2779,7 @@
       "FRA",
       "SPA"
     ],
-    "AUTHOR": "Medik.",
+    "AUTHOR": "(L.) Medik.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "14",
@@ -2864,7 +2864,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Maire",
+    "AUTHOR": "(Coss. & Durieu) Maire",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 0184646",
@@ -3002,7 +3002,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Asch.",
+    "AUTHOR": "(Viv.) Asch.",
     "WCVP_WGSRPD_LEVEL_2_native": "12",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 0184701",
@@ -3166,7 +3166,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rollins",
+    "AUTHOR": "(DC.) Rollins",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -3211,7 +3211,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greuter & Burdet",
+    "AUTHOR": "(L.) Greuter & Burdet",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "34"
@@ -3317,7 +3317,7 @@
       "2"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Medik.",
+    "AUTHOR": "(L.) Medik.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -3369,7 +3369,7 @@
       "2"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Spach",
+    "AUTHOR": "(L.) Spach",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "20"
@@ -3410,7 +3410,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "MDR",
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Lowe",
+    "AUTHOR": "(Sol.) Lowe",
     "WCVP_WGSRPD_LEVEL_2_native": "21",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 0184697",
@@ -3497,7 +3497,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rupr.",
+    "AUTHOR": "(C.A. Mey.) Rupr.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "33"
@@ -3545,7 +3545,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "A. Gray",
+    "AUTHOR": "(Hook.) A. Gray",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "71",
       "73"
@@ -3593,7 +3593,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "N. Busch",
+    "AUTHOR": "(Boiss.) N. Busch",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "33",
       "34"
@@ -3645,7 +3645,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(Desf.) Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "34"
@@ -3686,7 +3686,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "NEV",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "N.H. Holmgren",
+    "AUTHOR": "(Rollins) N.H. Holmgren",
     "WCVP_WGSRPD_LEVEL_2_native": "76",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "5188435",
@@ -3756,7 +3756,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Batt.",
+    "AUTHOR": "(DC.) Batt.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -3905,7 +3905,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz & O'Kane",
+    "AUTHOR": "(Hook.f. & Thomson) Al-Shehbaz & O'Kane",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34",
@@ -4093,7 +4093,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Y.Z. Zhao",
+    "AUTHOR": "(Maxim.) Y.Z. Zhao",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "4505376",
@@ -4175,7 +4175,7 @@
       "VRG",
       "WAS"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -4275,7 +4275,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Popov",
+    "AUTHOR": "(Regel) Popov",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34"
@@ -4340,7 +4340,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(L.) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "74",
       "75",
@@ -4385,7 +4385,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "WHM",
     "WCVP_WGSRPD_LEVEL_1_native": "4",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Hook.f. & Thomson) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "40",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "4890785",
@@ -4431,7 +4431,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "V.V. Botschantz.",
+    "AUTHOR": "(Hablitz) V.V. Botschantz.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "33",
       "34"
@@ -4472,7 +4472,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "NZS",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hook.f.",
+    "AUTHOR": "(Hook.f.) Hook.f.",
     "WCVP_WGSRPD_LEVEL_2_native": "51",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "5324756",
@@ -4627,7 +4627,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Shuttlew. ex Boiss.",
+    "AUTHOR": "(Burm.f.) Shuttlew. ex Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "34",
       "40"
@@ -4679,7 +4679,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "F. Dvo_ák",
+    "AUTHOR": "(Ledeb.) F. Dvořák",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "32",
@@ -4733,7 +4733,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -4771,7 +4771,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "MXC",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "R.A. Price & Al-Shehbaz",
+    "AUTHOR": "(Rollins) R.A. Price & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "100281147",
@@ -4830,7 +4830,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Britton",
+    "AUTHOR": "(Pursh) Britton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "74",
@@ -5097,7 +5097,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Moench",
+    "AUTHOR": "(L.) Moench",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -5268,7 +5268,7 @@
       "WAS",
       "WAU"
     ],
-    "AUTHOR": "Desv.",
+    "AUTHOR": "(L.) Desv.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -5348,7 +5348,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rchb.",
+    "AUTHOR": "(L.) Rchb.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -5546,7 +5546,7 @@
       "WAS",
       "WVA"
     ],
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(L.) F.K. Mey.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -5639,7 +5639,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Thunb.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": "27",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.3774413",
@@ -5982,7 +5982,7 @@
       "WAS",
       "YEM"
     ],
-    "AUTHOR": "Lagr.-Foss.",
+    "AUTHOR": "(L.) Lagr.-Foss.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -6469,7 +6469,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(E. Fourn.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "23",
       "24",
@@ -6514,7 +6514,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(DC.) F.K. Mey.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "33",
       "34"
@@ -6592,7 +6592,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Stephan ex Willd.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -6684,7 +6684,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "YUG",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Španiel & al.",
+    "AUTHOR": "(DC.) Španiel & al.",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.0143243",
@@ -6726,7 +6726,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Trautv.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34"
@@ -6770,7 +6770,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Bunge",
+    "AUTHOR": "(Bunge) Bunge",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.0143229",
@@ -6925,7 +6925,7 @@
       "WIS",
       "YUK"
     ],
-    "AUTHOR": "Desv.",
+    "AUTHOR": "(L.) Desv.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -7008,7 +7008,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Amo",
+    "AUTHOR": "(Aiton) Amo",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "20",
@@ -7071,7 +7071,7 @@
       "8"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rollins",
+    "AUTHOR": "(Benth.) Rollins",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "76",
@@ -7125,7 +7125,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Bunge",
+    "AUTHOR": "(Stephan ex Willd.) Bunge",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34",
@@ -7251,7 +7251,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Asch.",
+    "AUTHOR": "(Spreng.) Asch.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "22",
@@ -7334,7 +7334,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "F. Dvo_ák",
+    "AUTHOR": "(Boiss.) F. Dvořák",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "Klaus Mummenhoff, private collection",
     "COLLECTION_CODE": "",
@@ -7538,7 +7538,7 @@
       "PAK",
       "SPA"
     ],
-    "AUTHOR": "Druce",
+    "AUTHOR": "(L.) Druce",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "20",
@@ -7588,7 +7588,7 @@
     "WCVP_WGSRPD_LEVEL_2_native": "20",
     "COLLECTION": "Gomez Campo, private collection",
     "COLLECTION_CODE": "GCC 4386-76",
-    "COLLECTOR": "C. Gómez Campo",
+    "COLLECTOR": "0",
     "COLLECTOR_CODE": "",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
@@ -7644,7 +7644,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Schweinf.",
+    "AUTHOR": "(Forssk.) Schweinf.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "22",
@@ -7935,7 +7935,7 @@
       "ZAI",
       "ZIM"
     ],
-    "AUTHOR": "Medik.",
+    "AUTHOR": "(L.) Medik.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -8243,7 +8243,7 @@
       "WIS",
       "WVA"
     ],
-    "AUTHOR": "Besser",
+    "AUTHOR": "(L.) Besser",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -8311,7 +8311,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Trautv.",
+    "AUTHOR": "(Fisch. ex M. Bieb.) Trautv.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "32",
@@ -8359,7 +8359,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(Boiss.) F.K. Mey.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34"
@@ -8411,7 +8411,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Schischk. ex B. Fedtsch.",
+    "AUTHOR": "(Fisch. ex DC.) Schischk. ex B. Fedtsch.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "32",
@@ -8465,7 +8465,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Regel",
+    "AUTHOR": "(Pall.) Regel",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "31",
@@ -8513,7 +8513,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Turcz.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "31"
@@ -8714,7 +8714,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(L.) Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "30",
@@ -8767,7 +8767,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Bunge",
+    "AUTHOR": "(C.A. Mey.) Bunge",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "36",
@@ -8823,7 +8823,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz, O'Kane & R.A. Price",
+    "AUTHOR": "(M. Bieb.) Al-Shehbaz, O'Kane & R.A. Price",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "30",
@@ -8875,7 +8875,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(Pall.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "32",
@@ -8925,7 +8925,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Raf.",
+    "AUTHOR": "(Willd.) Raf.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "34"
@@ -8970,7 +8970,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Bég.",
+    "AUTHOR": "(Barratte ex L. Chevall.) Bég.",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
     "COLLECTION": "OSBU",
     "COLLECTION_CODE": "13643",
@@ -9065,7 +9065,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "OSBU",
     "COLLECTION_CODE": "6124",
@@ -9612,7 +9612,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "AGS",
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -9656,7 +9656,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Esmailbegi, D.A. German & Al-Shehbaz",
+    "AUTHOR": "(Boiss. & Hohen.) Esmailbegi, D.A. German & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "TUH",
     "COLLECTION_CODE": "12238",
@@ -9877,7 +9877,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Boiss.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "34",
       "40"
@@ -10040,7 +10040,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(DC.) Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "34"
@@ -10084,7 +10084,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "N. Busch",
+    "AUTHOR": "(DC.) N. Busch",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8002362",
@@ -10126,7 +10126,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(L.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8002379",
@@ -10202,7 +10202,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "YUG",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hayek",
+    "AUTHOR": "(Degen) Hayek",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8009797",
@@ -10240,7 +10240,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "AGS",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Speg.",
+    "AUTHOR": "(Speg.) Speg.",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000248",
@@ -10360,7 +10360,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "AGW",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Speg.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000369",
@@ -10404,7 +10404,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "D.A. German & Al-Shehbaz",
+    "AUTHOR": "(Al-Shehbaz) D.A. German & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "36",
       "40"
@@ -10469,7 +10469,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "PRM",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(M. Bieb.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "30",
@@ -10517,7 +10517,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "TUR",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(Boiss. & A. Huet) F.K. Mey.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8003525",
@@ -10555,7 +10555,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "AGS",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Gilg & Muschl.",
+    "AUTHOR": "(Speg.) Gilg & Muschl.",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000397",
@@ -10604,7 +10604,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "M.A. Koch & al.",
+    "AUTHOR": "(Edgew.) M.A. Koch & al.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "36",
@@ -10650,7 +10650,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "D.A. German",
+    "AUTHOR": "(Maxim.) D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000404",
@@ -10735,7 +10735,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "P.J. Alexander & Windham",
+    "AUTHOR": "(S. Watson) P.J. Alexander & Windham",
     "WCVP_WGSRPD_LEVEL_2_native": "76",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000447",
@@ -10777,7 +10777,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(S. Watson) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "77",
       "79"
@@ -10942,7 +10942,7 @@
       "VIC",
       "WAU"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(L.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -10990,7 +10990,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Nabiev",
+    "AUTHOR": "(Lipsch. & Pavlov) Nabiev",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8003497",
@@ -11028,7 +11028,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "NA",
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Tahir Ali & Thines",
+    "AUTHOR": "(Boiss. & Reut.) Tahir Ali & Thines",
     "WCVP_WGSRPD_LEVEL_2_native": "0",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8002312",
@@ -11121,7 +11121,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "D.A. German & Al-Shehbaz",
+    "AUTHOR": "(C.A. Mey.) D.A. German & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "32",
@@ -11193,7 +11193,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz, O'Kane & R.A. Price",
+    "AUTHOR": "(Stephan) Al-Shehbaz, O'Kane & R.A. Price",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "32",
@@ -11243,7 +11243,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "D.A. German",
+    "AUTHOR": "(Korsh.) D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "OSBU",
     "COLLECTION_CODE": "15699",
@@ -11302,7 +11302,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(Nutt.) Greene",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "73",
       "74",
@@ -11394,7 +11394,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz, M.A. Koch & Jordon-Thaden",
+    "AUTHOR": "(Lam.) Al-Shehbaz, M.A. Koch & Jordon-Thaden",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "71",
       "72",
@@ -11468,7 +11468,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(Forssk.) Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -11521,7 +11521,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Velen. & Bornm.",
+    "AUTHOR": "(Bornm.) Velen. & Bornm.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "13",
       "34"
@@ -11562,7 +11562,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Khosravi & Mumm.",
+    "AUTHOR": "(Boiss.) Khosravi & Mumm.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.0004278",
@@ -11730,7 +11730,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1855167",
@@ -11777,7 +11777,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1827529",
@@ -11863,7 +11863,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "J. Léonard",
+    "AUTHOR": "(Boiss.) J. Léonard",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "34",
       "40"
@@ -11950,7 +11950,7 @@
       "POL",
       "RUC"
     ],
-    "AUTHOR": "Fourr.",
+    "AUTHOR": "(L.) Fourr.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -12210,7 +12210,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "SOA",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "MEL",
     "COLLECTION_CODE": "MEL 2375340",
@@ -12293,7 +12293,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(F. Muell.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
     "COLLECTION": "MEL",
     "COLLECTION_CODE": "MEL 2346248",
@@ -12377,7 +12377,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Trinajstić",
+    "AUTHOR": "(Sweet) Trinajstić",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "W",
     "COLLECTION_CODE": "W0112415",
@@ -12495,7 +12495,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
-    "AUTHOR": "Gaertn.",
+    "AUTHOR": "(L.) Gaertn.",
     "COLLECTION": "W",
     "COLLECTION_CODE": "W0112413",
     "COLLECTOR": "E. Licent",
@@ -12540,7 +12540,7 @@
       "33",
       "34"
     ],
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(Steven ex DC.) F.K. Mey.",
     "COLLECTION": "W",
     "COLLECTION_CODE": "W0112468",
     "COLLECTOR": "R. Gagnidze, T. Zangurashvili",
@@ -12584,7 +12584,7 @@
       "33",
       "34"
     ],
-    "AUTHOR": "Pobed.",
+    "AUTHOR": "(Boiss.) Pobed.",
     "COLLECTION": "W",
     "COLLECTION_CODE": "W0112496",
     "COLLECTOR": "E. Vitek",
@@ -12666,7 +12666,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
-    "AUTHOR": "F.K. Mey.",
+    "AUTHOR": "(Boiss. & Balansa) F.K. Mey.",
     "COLLECTION": "W",
     "COLLECTION_CODE": "W0112466",
     "COLLECTOR": "",
@@ -12711,7 +12711,7 @@
       "83",
       "85"
     ],
-    "AUTHOR": "Al-Shehbaz, Salariato, A. Cano & Zuloaga",
+    "AUTHOR": "(Desv.) Al-Shehbaz, Salariato, A. Cano & Zuloaga",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.3768319",
     "COLLECTOR": "",
@@ -12953,7 +12953,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
-    "AUTHOR": "Maire",
+    "AUTHOR": "(Batt. & Trab.) Maire",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.1897861",
     "COLLECTOR": "D. Podlech",
@@ -13073,7 +13073,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
-    "AUTHOR": "Greene",
+    "AUTHOR": "(S. Watson) Greene",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "P. Tenorio, C. Romero",
@@ -13152,7 +13152,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Speg.) O.E. Schulz",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "A. Danot",
@@ -13198,7 +13198,7 @@
       "83",
       "85"
     ],
-    "AUTHOR": "Salariato, Zuolaga & Al-Shehbaz",
+    "AUTHOR": "(O.E. Schulz) Salariato, Zuolaga & Al-Shehbaz",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "H. Trinidad",
@@ -13243,7 +13243,7 @@
       "77",
       "79"
     ],
-    "AUTHOR": "Al-Shehbaz & S.I. Warwick",
+    "AUTHOR": "(O.E. Schulz) Al-Shehbaz & S.I. Warwick",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "J.C. Solomon",
@@ -13285,7 +13285,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "78",
-    "AUTHOR": "O'Kane & Al-Shehbaz",
+    "AUTHOR": "(A. Gray) O'Kane & Al-Shehbaz",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "R. Kral",
@@ -13402,7 +13402,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "76",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(S.L. Welsh & N.D. Atwood) Al-Shehbaz",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "M.B. Franklin",
@@ -13446,11 +13446,11 @@
     "AUTHOR": "Boiss. & Heldr.",
     "COLLECTION": "HUB",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "B. Özüdo_ru, E. Çilden",
-    "COLLECTOR_CODE": "Özüdo_ru 3501",
+    "COLLECTOR": "B. Özüdoğru, E. Çilden",
+    "COLLECTOR_CODE": "Özüdoğru 3501",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
-    "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
+    "BIOMATERIAL_PROVIDER": "Barış Özüdoğru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519413",
     "iNaturalist_id": "904411",
@@ -13487,14 +13487,14 @@
       "33",
       "34"
     ],
-    "AUTHOR": "B.L. Burtt",
+    "AUTHOR": "(Boiss.) B.L. Burtt",
     "COLLECTION": "HUB",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "B. Özüdo_ru, E. Çilden",
-    "COLLECTOR_CODE": "Özüdo_ru 3559",
+    "COLLECTOR": "B. Özüdoğru, E. Çilden",
+    "COLLECTOR_CODE": "Özüdoğru 3559",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
-    "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
+    "BIOMATERIAL_PROVIDER": "Barış Özüdoğru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519412",
     "iNaturalist_id": "1453401",
@@ -13607,7 +13607,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "Salariato & Al-Shehbaz",
+    "AUTHOR": "(Al-Shehbaz & Martic.) Salariato & Al-Shehbaz",
     "COLLECTION": "CONC",
     "COLLECTION_CODE": "138611",
     "COLLECTOR": "Arroyo, Cavieres & Humaña",
@@ -13645,7 +13645,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "Toro, Mort & Al-Shehbaz",
+    "AUTHOR": "(Phil.) Toro, Mort & Al-Shehbaz",
     "COLLECTION": "CONC",
     "COLLECTION_CODE": "172935",
     "COLLECTOR": "Rosas",
@@ -13689,7 +13689,7 @@
       "83",
       "85"
     ],
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(Al-Shehbaz) Al-Shehbaz",
     "COLLECTION": "CONC",
     "COLLECTION_CODE": "183635",
     "COLLECTOR": "Teillier, Walkowiak",
@@ -13727,7 +13727,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(I.M. Johnst.) O.E. Schulz",
     "COLLECTION": "K",
     "COLLECTION_CODE": "K000485233",
     "COLLECTOR": "I.M. Johnston",
@@ -13765,7 +13765,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(Kuntze) Al-Shehbaz",
     "COLLECTION": "K",
     "COLLECTION_CODE": "",
     "COLLECTOR": "E. Wedermann",
@@ -13841,7 +13841,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "83",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(DC.) DC.",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P00730023",
     "COLLECTOR": "Dombey",
@@ -13879,7 +13879,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "0",
-    "AUTHOR": "D.A. German",
+    "AUTHOR": "(DC.) D.A. German",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P05415915",
     "COLLECTOR": "Louis",
@@ -13917,7 +13917,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "9",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "90",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(d'Urv.) O.E. Schulz",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P05035742",
     "COLLECTOR": "J.D. Hooker",
@@ -13995,7 +13995,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
-    "AUTHOR": "Greuter & Burdet",
+    "AUTHOR": "(Quézel & Contandr.) Greuter & Burdet",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P05426427",
     "COLLECTOR": "M. Gamila , et al.",
@@ -14051,7 +14051,7 @@
       "35",
       "40"
     ],
-    "AUTHOR": "Salmerón-Sánchez, Mota & Fuertes",
+    "AUTHOR": "(Fisch. & C.A. Mey.) Salmerón-Sánchez, Mota & Fuertes",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P05330155",
     "COLLECTOR": "R. Gombault",
@@ -14089,7 +14089,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "82",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(Turcz.) Al-Shehbaz",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P02272466",
     "COLLECTOR": "Funck, Schlim",
@@ -14132,7 +14132,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(Boiss.) Boiss.",
     "COLLECTION": "P",
     "COLLECTION_CODE": "P04626322",
     "COLLECTOR": "G. Remaudiere",
@@ -14170,7 +14170,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "50",
-    "AUTHOR": "Al-Shehbaz & Lysak",
+    "AUTHOR": "(F. Muell.) Al-Shehbaz & Lysak",
     "COLLECTION": "CANB",
     "COLLECTION_CODE": "CANB919176",
     "COLLECTOR": "D.E. Albrecht",
@@ -14252,7 +14252,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(I.M. Johnst.) O.E. Schulz",
     "COLLECTION": "G",
     "COLLECTION_CODE": "G00002279",
     "COLLECTOR": "I.M. Johnston",
@@ -14290,7 +14290,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "83",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(DC.) DC.",
     "COLLECTION": "G",
     "COLLECTION_CODE": "G00399238",
     "COLLECTOR": "J.A. Pavón y Jiménez",
@@ -14366,7 +14366,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "82",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(Turcz.) Al-Shehbaz",
     "COLLECTION": "G",
     "COLLECTION_CODE": "G00441353",
     "COLLECTOR": "N. Funck, L.J. Schlim",
@@ -14404,14 +14404,14 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Pers.) DC.",
     "COLLECTION": "HUB",
     "COLLECTION_CODE": "",
-    "COLLECTOR": "B. Özüdo_ru",
-    "COLLECTOR_CODE": "Özüdo_ru 4482",
+    "COLLECTOR": "B. Özüdoğru",
+    "COLLECTOR_CODE": "Özüdoğru 4482",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
-    "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
+    "BIOMATERIAL_PROVIDER": "Barış Özüdoğru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519509",
     "iNaturalist_id": "NA",
@@ -14449,7 +14449,7 @@
     "COLLECTOR_CODE": "Altınözlü s.n.",
     "SPECIMEN_TYPE_STATUS": "",
     "IDENTIFIER": "",
-    "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
+    "BIOMATERIAL_PROVIDER": "Barış Özüdoğru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519508",
     "iNaturalist_id": "NA",
@@ -14500,7 +14500,7 @@
     "COLLECTOR_CODE": "",
     "SPECIMEN_TYPE_STATUS": "Holotype",
     "IDENTIFIER": "",
-    "BIOMATERIAL_PROVIDER": "Barı_ Özüdo_ru",
+    "BIOMATERIAL_PROVIDER": "Barış Özüdoğru",
     "VOUCHER_DETAILS_LINK": "",
     "RAW_DATA_LINK": "https://www.ncbi.nlm.nih.gov/sra/?term=SRR22519507",
     "iNaturalist_id": "NA",
@@ -14582,7 +14582,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "12",
-    "AUTHOR": "L. Cecchi & Selvi",
+    "AUTHOR": "(Briq.) L. Cecchi & Selvi",
     "COLLECTION": "E",
     "COLLECTION_CODE": "E00016572",
     "COLLECTOR": "C. Forsyth Major",
@@ -14705,7 +14705,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(Hedge) Al-Shehbaz",
     "COLLECTION": "E",
     "COLLECTION_CODE": "E00039815",
     "COLLECTOR": "F. Kasy",
@@ -14749,7 +14749,7 @@
       "34",
       "35"
     ],
-    "AUTHOR": "Soják",
+    "AUTHOR": "(Eig) Soják",
     "COLLECTION": "E",
     "COLLECTION_CODE": "E00083373",
     "COLLECTOR": "I.S. Collenette",
@@ -14825,7 +14825,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "0",
-    "AUTHOR": "Korn.-Trotzky",
+    "AUTHOR": "(Stephan ex Willd.) Korn.-Trotzky",
     "COLLECTION": "OSBU",
     "COLLECTION_CODE": "01-0076-50-00",
     "COLLECTOR": "",
@@ -14863,7 +14863,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "NA",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "0",
-    "AUTHOR": "Korn.-Trotzky",
+    "AUTHOR": "(Stephan ex Willd.) Korn.-Trotzky",
     "COLLECTION": "OSBU",
     "COLLECTION_CODE": "12362",
     "COLLECTOR": "",
@@ -14908,7 +14908,7 @@
       "33",
       "34"
     ],
-    "AUTHOR": "Tahir Ali & Thines",
+    "AUTHOR": "(F.K. Mey.) Tahir Ali & Thines",
     "COLLECTION": "LE",
     "COLLECTION_CODE": "",
     "COLLECTOR": "Grigorian",
@@ -14963,7 +14963,7 @@
       "34",
       "36"
     ],
-    "AUTHOR": "D.A. German & Al-Shehbaz",
+    "AUTHOR": "(Schrenk) D.A. German & Al-Shehbaz",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1832130",
     "COLLECTOR": "Royal Botanic Garden Edinburgh",
@@ -15125,7 +15125,7 @@
       "37",
       "40"
     ],
-    "AUTHOR": "Crantz",
+    "AUTHOR": "(L.) Crantz",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1819735",
     "COLLECTOR": "M. Jacobs",
@@ -15342,7 +15342,7 @@
       "14",
       "34"
     ],
-    "AUTHOR": "Desv.",
+    "AUTHOR": "(L.) Desv.",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1826985",
     "COLLECTOR": "",
@@ -15524,7 +15524,7 @@
       "WIS",
       "WVA"
     ],
-    "AUTHOR": "Heynh.",
+    "AUTHOR": "(L.) Heynh.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -15660,7 +15660,7 @@
       "VRG",
       "WVA"
     ],
-    "AUTHOR": "Esmailbegi & Al-Shehbaz",
+    "AUTHOR": "(L.) Esmailbegi & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -15832,7 +15832,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "GNL",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "A. Löve & D. Löve",
+    "AUTHOR": "(Hornem.) A. Löve & D. Löve",
     "WCVP_WGSRPD_LEVEL_2_native": "70",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1817752",
@@ -15870,7 +15870,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "TUR",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Španiel & al.",
+    "AUTHOR": "(T.R. Dudley) Španiel & al.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.0004235",
@@ -16040,7 +16040,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "TZK",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Korsh.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "LE",
     "COLLECTION_CODE": "",
@@ -16093,7 +16093,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "D.A. German & Al-Shehbaz",
+    "AUTHOR": "(Murray) D.A. German & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "30",
@@ -16318,7 +16318,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "V.V. Botschantz.",
+    "AUTHOR": "(Kar. & Kir.) V.V. Botschantz.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "36"
@@ -16363,7 +16363,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Juz. ex Czerniak.",
+    "AUTHOR": "(Bunge) Juz. ex Czerniak.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "37"
@@ -16455,7 +16455,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "FLA",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Nutt.",
+    "AUTHOR": "(Nutt.) Nutt.",
     "WCVP_WGSRPD_LEVEL_2_native": "78",
     "COLLECTION": "Z",
     "COLLECTION_CODE": "Z-000170252",
@@ -16496,7 +16496,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "L. Cecchi & Selvi",
+    "AUTHOR": "(Tineo) L. Cecchi & Selvi",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "Z",
     "COLLECTION_CODE": "Z-000107630",
@@ -16534,7 +16534,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "GRC",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hayek",
+    "AUTHOR": "(Boiss.) Hayek",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "Z",
     "COLLECTION_CODE": "Z-000034855",
@@ -16610,7 +16610,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hada_ & Chrtek",
+    "AUTHOR": "(Boiss.) Hadač & Chrtek",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "K",
     "COLLECTION_CODE": "K000484541",
@@ -16651,7 +16651,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hada_ & Chrtek",
+    "AUTHOR": "(Boiss. & Hohen.) Hadač & Chrtek",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "K",
     "COLLECTION_CODE": "K000484535",
@@ -16806,7 +16806,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz & C.D. Bailey",
+    "AUTHOR": "(Hemsl.) Al-Shehbaz & C.D. Bailey",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
     "COLLECTION": "BH",
     "COLLECTION_CODE": "",
@@ -16868,7 +16868,7 @@
       "FRA",
       "SAR"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(L.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -17020,7 +17020,7 @@
       "WVA",
       "WYO"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(L.) DC.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -17072,7 +17072,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Boiss.",
+    "AUTHOR": "(DC.) Boiss.",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1826190",
@@ -17116,7 +17116,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Muschl.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "83",
       "85"
@@ -17354,7 +17354,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Boiss. & Reut.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "34"
@@ -17683,7 +17683,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Webb",
+    "AUTHOR": "(Delile) Webb",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "34",
@@ -17752,7 +17752,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "CAL",
-    "AUTHOR": "Thell.",
+    "AUTHOR": "(Bergeret) Thell.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -17841,7 +17841,7 @@
       "VRG",
       "WAS"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -17925,7 +17925,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "KAZ",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Kar. & Kir.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "LE",
     "COLLECTION_CODE": "",
@@ -17963,7 +17963,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "KRY",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "P.W. Ball",
+    "AUTHOR": "(Willd.) P.W. Ball",
     "WCVP_WGSRPD_LEVEL_2_native": "14",
     "COLLECTION": "LE",
     "COLLECTION_CODE": "",
@@ -18004,7 +18004,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "CHX",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz & D.A. German",
+    "AUTHOR": "(Z.X. An) Al-Shehbaz & D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -18080,7 +18080,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "MXE",
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Link) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
     "COLLECTION": "GH",
     "COLLECTION_CODE": "",
@@ -18170,7 +18170,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Rauschert",
+    "AUTHOR": "(Boiss. & Hohen.) Rauschert",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "32",
       "33",
@@ -18233,7 +18233,7 @@
       "TUN",
       "YUG"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "WCVP_WGSRPD_LEVEL_2_native": "13",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1828371",
@@ -18489,7 +18489,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "CPP",
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Zahlbr.",
+    "AUTHOR": "(L.f.) Zahlbr.",
     "WCVP_WGSRPD_LEVEL_2_native": "27",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.1739894",
@@ -18555,7 +18555,7 @@
       "BGM",
       "FRA"
     ],
-    "AUTHOR": "O'Kane & Al-Shehbaz",
+    "AUTHOR": "(L.) O'Kane & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "13",
@@ -18829,7 +18829,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "NZS",
     "WCVP_WGSRPD_LEVEL_1_native": "5",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Heenan & A.D. Mitch.",
+    "AUTHOR": "(Hook.f.) Heenan & A.D. Mitch.",
     "WCVP_WGSRPD_LEVEL_2_native": "51",
     "COLLECTION": "CHR",
     "COLLECTION_CODE": "CHR 518460",
@@ -18896,7 +18896,7 @@
       "VRG",
       "WVA"
     ],
-    "AUTHOR": "Greuter & Burdet",
+    "AUTHOR": "(L.) Greuter & Burdet",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -19179,7 +19179,7 @@
       "WYO",
       "YUK"
     ],
-    "AUTHOR": "Webb ex Prantl",
+    "AUTHOR": "(L.) Webb ex Prantl",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -19374,7 +19374,7 @@
       "YUG",
       "ZIM"
     ],
-    "AUTHOR": "Cav.",
+    "AUTHOR": "(L.) Cav.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -19426,7 +19426,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hada_ & Chrtek",
+    "AUTHOR": "(Boiss.) Hadač & Chrtek",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "WAG",
     "COLLECTION_CODE": "WAG.1751666",
@@ -19476,7 +19476,7 @@
       "JAP",
       "VRG"
     ],
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(L.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "36",
       "38"
@@ -19676,7 +19676,7 @@
       "WVA",
       "WYO"
     ],
-    "AUTHOR": "Cavara & Grande",
+    "AUTHOR": "(M. Bieb.) Cavara & Grande",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -19835,7 +19835,7 @@
       "WHM",
       "WIS"
     ],
-    "AUTHOR": "All.",
+    "AUTHOR": "(L.) All.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -19891,7 +19891,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "GRB",
-    "AUTHOR": "N. Busch",
+    "AUTHOR": "(Hoffm.) N. Busch",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "33",
       "34"
@@ -19989,7 +19989,7 @@
       "2"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(L.) Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "13",
@@ -20036,7 +20036,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Coss. & Durieu",
+    "AUTHOR": "(Coss. & Durieu) Coss. & Durieu",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
     "COLLECTION": "L",
     "COLLECTION_CODE": "L.1855276",
@@ -20074,7 +20074,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "IRN",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Esmailbegi & Al-Shehbaz",
+    "AUTHOR": "(Boiss. & Hohen.) Esmailbegi & Al-Shehbaz",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -20117,7 +20117,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Ovcz. & Junussov",
+    "AUTHOR": "(Popov) Ovcz. & Junussov",
     "WCVP_WGSRPD_LEVEL_2_native": "32",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -20155,7 +20155,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "CHA",
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "H. Scholz",
+    "AUTHOR": "(H. Scholz) H. Scholz",
     "WCVP_WGSRPD_LEVEL_2_native": "24",
     "COLLECTION": "B",
     "COLLECTION_CODE": "B 10 1154379",
@@ -20234,7 +20234,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Jacq.) O.E. Schulz",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "33",
       "34"
@@ -20275,7 +20275,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "CHT",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "R. Karl & al.",
+    "AUTHOR": "(Al-Shehbaz) R. Karl & al.",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
     "COLLECTION": "HEID",
     "COLLECTION_CODE": "8000565",
@@ -20316,7 +20316,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Ravenna",
+    "AUTHOR": "(Phil.) Ravenna",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
     "COLLECTION": "CONC",
     "COLLECTION_CODE": "166901",
@@ -20422,7 +20422,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz & D.A. German",
+    "AUTHOR": "(W.W. Sm.) Al-Shehbaz & D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "36",
       "40"
@@ -20463,7 +20463,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "PER",
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(Muschl.) O.E. Schulz",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
     "COLLECTOR": "C.R. Worth, J.L. Morrison",
@@ -20503,7 +20503,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Skottsb.",
+    "AUTHOR": "(Speg.) Skottsb.",
     "WCVP_WGSRPD_LEVEL_2_native": "85",
     "COLLECTION": "MO",
     "COLLECTION_CODE": "",
@@ -20611,7 +20611,7 @@
       "3"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Prantl",
+    "AUTHOR": "(L.) Prantl",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "20",
       "22",
@@ -20837,7 +20837,7 @@
       "YUK",
       "ZIM"
     ],
-    "AUTHOR": "D.A. German",
+    "AUTHOR": "(L.) D.A. German",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "10",
       "11",
@@ -20892,7 +20892,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "SPA",
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Cullen & T.R. Dudley",
+    "AUTHOR": "(Degen & Hervier) Cullen & T.R. Dudley",
     "WCVP_WGSRPD_LEVEL_2_native": "12",
     "COLLECTION": "AMD",
     "COLLECTION_CODE": "AMD.49780",
@@ -20949,7 +20949,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "RUE",
-    "AUTHOR": "Woronow ex Pavlov",
+    "AUTHOR": "(Pall.) Woronow ex Pavlov",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "14",
       "30",
@@ -21380,7 +21380,7 @@
     "WCVP_WGSRPD_LEVEL_3_native": "CHS",
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "X.F. Jin, Y.Y. Zhou & H.W. Zhang",
+    "AUTHOR": "(Pax) X.F. Jin, Y.Y. Zhou & H.W. Zhang",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
@@ -21526,7 +21526,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Ledeb.",
+    "AUTHOR": "(L.) Ledeb.",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "30",
       "31",
@@ -21580,7 +21580,7 @@
     ],
     "WCVP_WGSRPD_LEVEL_1_native": "1",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Greuter & Burdet",
+    "AUTHOR": "(L.) Greuter & Burdet",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "11",
       "12",
@@ -21681,7 +21681,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Al-Shehbaz, O'Kane & R.A. Price",
+    "AUTHOR": "(Edgew.) Al-Shehbaz, O'Kane & R.A. Price",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "34",
       "36",
@@ -21755,7 +21755,7 @@
       "4"
     ],
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
-    "AUTHOR": "Hedge & J. Léonard",
+    "AUTHOR": "(Desf.) Hedge & J. Léonard",
     "WCVP_WGSRPD_LEVEL_2_native": [
       "12",
       "14",
@@ -21813,7 +21813,7 @@
       "12",
       "13"
     ],
-    "AUTHOR": "Rothm.",
+    "AUTHOR": "(Lam.) Rothm.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -21906,7 +21906,7 @@
       "12",
       "13"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22249,7 +22249,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
-    "AUTHOR": "Opiz",
+    "AUTHOR": "(Boiss.) Opiz",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22292,7 +22292,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "36",
-    "AUTHOR": "Y.H. Zhang",
+    "AUTHOR": "(O.E. Schulz) Y.H. Zhang",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22360,7 +22360,7 @@
       "35",
       "40"
     ],
-    "AUTHOR": "D.A. German, _erdoner _alasan & Al-Shehbaz",
+    "AUTHOR": "(L.) D.A. German, Žerdoner Čalasan & Al-Shehbaz",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22402,7 +22402,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "8",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "83",
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Lam.) DC.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22469,7 +22469,7 @@
       "37",
       "40"
     ],
-    "AUTHOR": "Al-Shehbaz, Özüdo_ru & D.A. German",
+    "AUTHOR": "(Fisch. & C.A. Mey.) Al-Shehbaz, Özüdoğru & D.A. German",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22596,7 +22596,7 @@
       "37",
       "40"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Pall.) DC.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22767,7 +22767,7 @@
       "34",
       "40"
     ],
-    "AUTHOR": "C. Presl",
+    "AUTHOR": "(L.) C. Presl",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -22933,7 +22933,7 @@
       "12",
       "13"
     ],
-    "AUTHOR": "Sweet",
+    "AUTHOR": "(L.) Sweet",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23112,7 +23112,7 @@
       "73",
       "76"
     ],
-    "AUTHOR": "A. Nelson & J.F. Macbr.",
+    "AUTHOR": "(Hook.) A. Nelson & J.F. Macbr.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23262,7 +23262,7 @@
       "33",
       "34"
     ],
-    "AUTHOR": "Al-Shehbaz",
+    "AUTHOR": "(L.) Al-Shehbaz",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23300,7 +23300,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
-    "AUTHOR": "Payson",
+    "AUTHOR": "(S. Watson) Payson",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23350,7 +23350,7 @@
       "13",
       "20"
     ],
-    "AUTHOR": "DC.",
+    "AUTHOR": "(Biv.) DC.",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23426,7 +23426,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "2",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "20",
-    "AUTHOR": "Al-Shehbaz, M.A. Koch, R. Karl & D.A. German",
+    "AUTHOR": "(Jahand. & Maire) Al-Shehbaz, M.A. Koch, R. Karl & D.A. German",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23516,7 +23516,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "7",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "79",
-    "AUTHOR": "O.E. Schulz",
+    "AUTHOR": "(S. Watson) O.E. Schulz",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23592,7 +23592,7 @@
     "WCVP_WGSRPD_LEVEL_1_native": "3",
     "WCVP_WGSRPD_LEVEL_3_introduced": "NA",
     "WCVP_WGSRPD_LEVEL_2_native": "34",
-    "AUTHOR": "D.A. German & Al-Shehbaz",
+    "AUTHOR": "(Boiss.) D.A. German & Al-Shehbaz",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",
@@ -23681,7 +23681,7 @@
       "12",
       "13"
     ],
-    "AUTHOR": "W.T. Aiton",
+    "AUTHOR": "(L.) W.T. Aiton",
     "COLLECTION": "",
     "COLLECTION_CODE": "",
     "COLLECTOR": "",

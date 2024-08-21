@@ -35,8 +35,8 @@ async function processLifeformDescriptions(jsonData) {
 
 async function modifyJsonFile() {
   try {
-    const jsonFilePath = "BrassiToL_metadata.json";
-    const modifiedJsonFilePath = "BrassiToL_metadata_modified.json";
+    const jsonFilePath = "static/metadata/BrassiToL_metadata.json";
+    const modifiedJsonFilePath = "static/metadata/BrassiToL_metadata_modified.json";
 
     // Read the JSON file
     const data = await fs.readFile(jsonFilePath, "utf8");

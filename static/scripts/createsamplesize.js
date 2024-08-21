@@ -2,8 +2,8 @@
 
 import { promises as fs } from "fs";
 
-const oldFile = "$metadata/BrassiToL_metadata_native.json";
-const newFile = "$metadata/BrassiToL_natives.json";
+const oldFile = "static/metadata/BrassiToL_metadata_native.json";
+const newFile = "static/metadata/BrassiToL_natives.json";
 
 fs.readFile(oldFile, "utf8")
   .then((data) => {
