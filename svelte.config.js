@@ -5,7 +5,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$stores: 'src/lib/stores'
+			$stores: 'src/lib/stores',
+			$metadata: 'static/metadata',
+			$csv: 'static/csv'
 		}
 	},
 };

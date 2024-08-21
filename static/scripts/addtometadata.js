@@ -24,17 +24,17 @@ const metadataToAdd = readJsonFile(metadataToAddPath);
 const metadata = readJsonFile(metadataPath);
 
 // Loop over metadataToAdd and update metadata accordingly
-metadataToAdd.forEach((authorObj) => {
+metadataToAdd.forEach((targetObj) => {
   const matchingMetadata = metadata.find(
-    (metaObj) => metaObj.SAMPLE === authorObj.SAMPLE,
+    (metaObj) => metaObj.SAMPLE === targetObj.SAMPLE,
   );
 
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
-    matchingMetadata.COLLECTOR = authorObj.COLLECTOR;
-    matchingMetadata.COLLECTOR_CODE = authorObj.COLLECTOR_CODE;
-    matchingMetadata.IDENTIFIER = authorObj.IDENTIFIER;
-     matchingMetadata.BIOMATERIAL_PROVIDER = authorObj.BIOMATERIAL_PROVIDER;
+    matchingMetadata.COLLECTOR = targetObj.COLLECTOR;
+    matchingMetadata.COLLECTOR_CODE = targetObj.COLLECTOR_CODE;
+    matchingMetadata.IDENTIFIER = targetObj.IDENTIFIER;
+     matchingMetadata.BIOMATERIAL_PROVIDER = targetObj.BIOMATERIAL_PROVIDER;
   }
 });
 

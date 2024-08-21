@@ -1,3 +1,6 @@
+// THIS FILE: TRANSFORMS STRINGS IN WHICH THE VALUES ARE SEPERATED BY COMMAS TO AN ARRAY
+// E.G. "yes, no, maybe" BECOMES ["yes", "no", "maybe"]
+
 import { promises as fs } from "fs";
 
 function splitAndTrim(str, delimiter) {
@@ -20,8 +23,8 @@ async function processnativeGeoArea(jsonData) {
 
 async function modifyJsonFile() {
 	try {
-		const jsonFilePath = "BrassiToL_geoareatosamplesize.json";
-		const modifiedJsonFilePath = "BrassiToL_metadata_modified.json";
+		const jsonFilePath = "$metadata/BrassiToL_geoareatosamplesize.json";
+		const modifiedJsonFilePath = "$metadata/BrassiToL_metadata_modified.json";
 
 		// Read the JSON file
 		const data = await fs.readFile(jsonFilePath, "utf8");
