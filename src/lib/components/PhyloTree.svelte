@@ -112,6 +112,8 @@
   let specimenTypeStatus;
   let identifier;
   let biomaterialProvider;
+  let voucherDetails;
+  let rawDataLink;
 
   // Variables for allowing and tracking the rotation of the tree
   let rotation = 0; // Initial rotation
@@ -1024,11 +1026,19 @@
           return description;
         }
 
-        function findObject(item) {
+        /**
+         * @name findObject
+         * @role Find a specific string from the metadata and return NA if it's empty
+         * @param item | The value of the property in question
+         * @param notApplicable | Decides whether NA should get returned or "#" if it's a link
+         */
+        function findObject(item, notApplicable) {
           if (item) {
             return item;
-          } else {
+          } else if (notApplicable === true) {
             return "NA";
+          } else if (notApplicable === false) {
+            return "#";
           }
         }
 
@@ -1056,13 +1066,21 @@
         geographicareaName = metadataObject.WCVP_geographic_area;
         imageId = metadataObject.powo_identifier;
 
-        collectionName = findObject(metadataObject.COLLECTION);
-        collectionCode = findObject(metadataObject.COLLECTION_CODE);
-        collectorName = findObject(metadataObject.COLLECTOR);
-        collectorCode = findObject(metadataObject.COLLECTOR_CODE);
-        specimenTypeStatus = findObject(metadataObject.SPECIMEN_TYPE_STATUS);
-        identifier = findObject(metadataObject.IDENTIFIER);
-        biomaterialProvider = findObject(metadataObject.BIOMATERIAL_PROVIDER);
+        collectionName = findObject(metadataObject.COLLECTION, true);
+        collectionCode = findObject(metadataObject.COLLECTION_CODE, true);
+        collectorName = findObject(metadataObject.COLLECTOR, true);
+        collectorCode = findObject(metadataObject.COLLECTOR_CODE, true);
+        specimenTypeStatus = findObject(
+          metadataObject.SPECIMEN_TYPE_STATUS,
+          true,
+        );
+        identifier = findObject(metadataObject.IDENTIFIER, true);
+        biomaterialProvider = findObject(
+          metadataObject.BIOMATERIAL_PROVIDER,
+          true,
+        );
+        voucherDetails = findObject(metadataObject.VOUCHER_DETAILS_LINK, false);
+        rawDataLink = findObject(metadataObject.RAW_DATA_LINK, false);
 
         if (subfamilyName === "Aethionemoideae") {
           supertribespan.style("background-color", "white");
@@ -1492,6 +1510,28 @@
               Biomaterial provider <br />
               <span>{biomaterialProvider}</span>
             </p>
+
+            <!-- Only show the links that are available -->
+            {#if voucherDetails !== "#" || rawDataLink !== "#"}
+              <ul id="specimen-links">
+                {#if voucherDetails !== "#"}
+                  <li id="voucher-details">
+                    <a
+                      href={voucherDetails}
+                      aria-label="Link to the voucher details"
+                      >Voucher Details</a
+                    >
+                  </li>
+                {/if}
+                {#if rawDataLink !== "#"}
+                  <li id="raw-data">
+                    <a href={rawDataLink} aria-label="Link to the raw data"
+                      >Raw Data</a
+                    >
+                  </li>
+                {/if}
+              </ul>
+            {/if}
           </div>
         </div>
       </details>

@@ -343,6 +343,41 @@
     white-space: nowrap;
   }
 
+  #specimen-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      padding: .25em .5em;
+      border: .5px solid white;
+      border-radius: 8px;
+      max-width: max-content;
+      transition: all .3s ease-in-out;
+      display: inline;
+
+      &:not(:last-of-type) {
+        margin-right: .5em;
+      }
+
+      & a {
+        text-decoration: none;
+        color: white;
+        font-family: "Bayon", sans-serif;
+        font-size: 1.1em;
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        border: .5px solid #729a68;
+        
+        & a {
+          color: #729a68;
+        }
+      }
+    }
+  }
+
   /* ************* */
   /* LEGEND STYLES */
   /* ************* */
