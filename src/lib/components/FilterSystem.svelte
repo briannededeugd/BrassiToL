@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import * as d3 from "d3";
   import { selectedSpeciesStore } from "$stores/store.js";
   import { createCategoryStore } from "$stores/querystore.js";
@@ -120,6 +120,12 @@
     checkboxStates.climates.allSelected = checkboxStates.climates.items.every(
       (item) => item.checked,
     );
+  }
+
+  function closeAllPopups() {
+    taxonomyOpen = false;
+    geographyOpen = false;
+    characteristicsOpen = false;
   }
 
   /**========================================================================
@@ -449,6 +455,46 @@
 
     // Call updateTreeVisualization after processing all params
     updateTreeVisualization();
+
+    const handleKeyDown = (event, keydown) => {
+      const taxonomyDropdown = d3.select(".taxonomyDropdown").node();
+      const geographyDropdown = d3.select(".geographyDropdown").node();
+      const characteristicsDropdown = d3
+        .select(".characteristicsDropdown")
+        .node();
+      const searchDropdown = d3.select(".searchDropdown").node();
+
+      // Convert NodeList to Array for easier handling
+      const dropdownNodes = [
+        taxonomyDropdown,
+        geographyDropdown,
+        characteristicsDropdown,
+        searchDropdown,
+      ].filter((node) => node !== null); // Ensure nodes exist
+
+      const isClickInsideDropdown = dropdownNodes.some((node) =>
+        node.contains(event.target),
+      );
+
+      if (keydown === true) {
+        if (event.keyCode === 27 && keydown === true) {
+          // Esc key pressed
+          closeAllPopups();
+          console.log(event.target);
+        }
+      } else if (!isClickInsideDropdown) {
+        // Click occurred outside all dropdowns
+        closeAllPopups();
+        console.log(event.target);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown, false);
+    document.addEventListener("click", handleKeyDown, true);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown, false);
+    };
   });
 
   /**========================================================================
@@ -485,7 +531,7 @@
 
     Object.entries(categories).forEach(([categoryName, categoryItems]) => {
       const filteredItems = categoryItems.filter((item) =>
-        item.label.toLowerCase().startsWith(searchTerm),
+        item.label.toLowerCase().includes(searchTerm),
       );
       if (filteredItems.length > 0) {
         results[categoryName] = filteredItems;

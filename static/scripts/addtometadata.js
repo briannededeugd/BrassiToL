@@ -5,7 +5,7 @@ import path from "path";
 
 // Define file paths
 const metadataToAddPath =
-  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_authorsspecimen.json";
+  "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_fixedauthors.json";
 const metadataPath =
   "/Users/briannededeugd/Desktop/BrassiToL/static/metadata/BrassiToL_metadata.json";
 
@@ -31,7 +31,10 @@ metadataToAdd.forEach((authorObj) => {
 
   if (matchingMetadata) {
     // Override AUTHOR property in metadata object
-    matchingMetadata.COLLECTION_YEAR = authorObj.COLLECTION_YEAR;
+    matchingMetadata.COLLECTOR = authorObj.COLLECTOR;
+    matchingMetadata.COLLECTOR_CODE = authorObj.COLLECTOR_CODE;
+    matchingMetadata.IDENTIFIER = authorObj.IDENTIFIER;
+     matchingMetadata.BIOMATERIAL_PROVIDER = authorObj.BIOMATERIAL_PROVIDER;
   }
 });
 
