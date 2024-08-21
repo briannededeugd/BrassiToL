@@ -480,12 +480,10 @@
         if (event.keyCode === 27 && keydown === true) {
           // Esc key pressed
           closeAllPopups();
-          console.log(event.target);
         }
       } else if (!isClickInsideDropdown) {
         // Click occurred outside all dropdowns
         closeAllPopups();
-        console.log(event.target);
       }
     };
 
